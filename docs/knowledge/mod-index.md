@@ -10,9 +10,9 @@
 
 ## 统计
 
-- Mod 总数：**79**（编号 01–78，55 重复出现）
-- 类型分布：`empty` × 1、`lib` × 1、`patch` × 22、`standalone` × 46、`translation` × 4、`xml` × 5
-- README 状态：`missing` × 1、`ok` × 78
+- Mod 总数：**80**（编号 01–78，55 重复出现）
+- 类型分布：`empty` × 1、`lib` × 1、`patch` × 23、`standalone` × 46、`translation` × 4、`xml` × 5
+- README 状态：`missing` × 1、`ok` × 79
 
 ## 索引表
 
@@ -97,6 +97,7 @@
 | 76 | ColonyGroupsTargetablePortraits | patch | 1.6 | ✓ | – | ✓ | – | – | ok |
 | 77 | KillingReward | standalone? | 1.6 | ✓ | ✓ | ✓ | ✓ | ✓ | ok |
 | 78 | RimFlixAnimeShows | xml | - | – | – | ✓ | – | – | ok |
+| 79 | RimTalk | patch | - | ✓ | ✓ | – | – | – | ok |
 
 > 图例：C#=有 C# 源码；翻=Languages/ 翻译；Doc=docs/；Tst=Tests/；
 > Pub=`_PublisherPlus.xml`；README=ok/模板占位(template)/空壳(stub)/缺失(missing)。
@@ -167,4 +168,11 @@
 - 占位 README 逐批重写**已完成**：78 个可写 mod 全部 `ok`；仅 `06-ColonyManager_zh`（空目录）缺 README，待其有内容后再补。
 - 工具链验证：`scan_mods.py` / `check_links.py` / `validate_readme.py` 均工作正常（55 重复编号为预期警告）。
 - 后续新增/修改 mod 时按 `docs/knowledge/CONTRIBUTING.md` 的更新流程维护。
+
+### 7. 第三方收录（克隆收藏，非 RunningBugs 原创）
+
+- **79-RimTalk** — 独立功能 mod（AI 对话；启发式因依赖 `Jaxe.Bubbles` 误判为 `patch`，实际非 patch）。原作者 juicy（jlibrary），<https://github.com/jlibrary/RimTalk>，commit `df80ade`，许可 **CC BY-NC-SA 4.0**（非商用）。详情见 `79-RimTalk/README.md`。
+- **53-AllowTunnelersToDrillFork** — fork 第三方（author Porio），临时 1.6 版。
+- 注：32 / 43 为**合作作者**（author 含 RunningBugs），非纯第三方。
+- 添加第三方 mod 流程：克隆到 `NN-` 目录 → 保留 `LICENSE` 与 `<author>`（原作者）→ 写收藏版 README（来源+许可+学习点）→ `scan_mods.py` 刷新（检测到 `third-party author` 警告属预期）→ `check_links.py` 验收。
 <!-- MANUAL-END -->

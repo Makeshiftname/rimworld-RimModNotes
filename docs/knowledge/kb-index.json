@@ -2924,5 +2924,46 @@
     ],
     "type": "xml",
     "type_conf": "medium"
+  },
+  {
+    "dir": "79-RimTalk",
+    "number": "79",
+    "title": "RimTalk",
+    "has_about": true,
+    "in_backup": false,
+    "package_id": "cj.rimtalk",
+    "name": "RimTalk",
+    "author": "juicy",
+    "supported_versions": [
+      "1.5",
+      "1.6"
+    ],
+    "deps": [
+      "brrainz.harmony",
+      "Jaxe.Bubbles"
+    ],
+    "load_after": [
+      "brrainz.harmony",
+      "Jaxe.Bubbles"
+    ],
+    "description": "Bring your colonists to life with RimTalk! This revolutionary mod uses Google's AI to generate dynamic, context-aware dialogue for your pawns in real-time. Key Features: • AI-powered conversations that reflect each pawn's current mood, thoughts, and situation • Context-aware dialogue based on what colonists are doing and thinking • Multi-language support for diverse colony experiences • Configurable conversation frequency and message suppression options • Easy setup - just get a free API key from Google AI Studio Every conversation is unique and emergent, creating immersive storytelling experiences that evolve with your colony. Gone are the days of repetitive interactions - your pawns will now speak with personality and purpose! Setup: Get your free API key at aistudio.google.com, enable the mod, and paste your key in mod settings. Compatible with most other mods and respects API rate limits automatically.",
+    "versions": [],
+    "has_common": false,
+    "has_csharp": true,
+    "cs_count": 103,
+    "has_languages": true,
+    "has_docs": false,
+    "has_tests": false,
+    "has_publisher_plus": false,
+    "has_loadfolders": false,
+    "has_loadfolders_bak": false,
+    "has_agents": false,
+    "readme_status": "ok",
+    "notes_files": [
+      "79-RimTalk/README_UPSTREAM.md",
+      "79-RimTalk/preset.md"
+    ],
+    "type": "patch",
+    "type_conf": "medium"
   }
 ]

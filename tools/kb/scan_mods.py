@@ -160,6 +160,9 @@ def main() -> int:
         seen.setdefault(m["number"], []).append(m["dir"])
         if m["readme_status"] == "missing" and not m["in_backup"]:
             warn.append(f"  no README: {m['dir']}")
+        author = (m.get("author") or "").strip()
+        if author and "runningbugs" not in author.lower():
+            warn.append(f"  third-party author: {m['dir']} ({author})")
     for num, dirs in seen.items():
         if len(dirs) > 1:
             warn.append(f"  duplicate number {num}: {dirs}")
