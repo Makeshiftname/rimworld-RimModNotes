@@ -1,0 +1,17 @@
+/.config
+/*.sln 
+/obj
+/*/Assemblies
+.idea
+.vscode
+.DS_Store
+bin
+PublishedFileId.txt
+Folder.DotSettings.user
+Directory.Build.props
+*.sh
+.vs
+
+## Interaction bubble library
+Libs/Bubbles.dll
+!Libs/Bubbles.sh
