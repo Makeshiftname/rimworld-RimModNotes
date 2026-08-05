@@ -2965,5 +2965,82 @@
     ],
     "type": "patch",
     "type_conf": "medium"
+  },
+  {
+    "dir": "80-RimTalkExpandMemory",
+    "number": "80",
+    "title": "RimTalkExpandMemory",
+    "has_about": true,
+    "in_backup": false,
+    "package_id": "cj.rimtalk.expandmemory",
+    "name": "RimTalk - Expand Memory",
+    "author": "SANGUO",
+    "supported_versions": [
+      "1.5",
+      "1.6"
+    ],
+    "deps": [
+      "brrainz.harmony",
+      "cj.rimtalk"
+    ],
+    "load_after": [
+      "brrainz.harmony",
+      "cj.rimtalk"
+    ],
+    "description": "[h1]RimTalk - Expand Memory v3.4.0[/h1] RimTalk 的记忆扩展模组。给殖民者加了一套分层记忆系统，让 AI 对话时能记住更多、说得更像真人。 [hr][/hr] [h1]记忆系统[/h1] 分四层存储：超短期(ABM)、短期(SCM)、中期(ELS)、长期(CLPA)。越老的记忆权重越低，重要的内容会留得更久。对话时自动挑选最相关的记忆注入，不会把所有东西一股脑塞进去。 [h1]常识库[/h1] 可以手动写入背景知识，格式是 [标签|重要性]内容。角色对话涉及相关话题时会自动带入。支持分类管理、批量操作、导入导出。 有个标签测试工具，输入标签和对话内容，能直接看到会不会匹配、匹配到什么，方便排查误触。 [h1]记忆时间线 UI[/h1] 卡片式布局，按时间排列，不同层级用颜色区分。支持 Ctrl/Shift 多选和框选，可以批量总结、归档或删除。 [h1]其他[/h1] 支持 OpenAI、DeepSeek、Gemini 等多个平台，可以独立配置，不依赖 RimTalk 本体的设置。 提示词有规范化处理，可以自定义文本替换规则，支持正则，实时生效。 旧存档直接兼容，不需要重新开档。 [hr][/hr] [h1]安装[/h1] 需要 Harmony 和 RimTalk。加载顺序：Core → Harmony → RimTalk → 本 Mod。 [hr][/hr] [h1]鸣谢[/h1] Juicy - RimTalk 原作者 GitHub: https://github.com/sanguodxj-byte/RimTalk-ExpandMemory",
+    "versions": [
+      "1.5",
+      "1.6"
+    ],
+    "has_common": false,
+    "has_csharp": true,
+    "cs_count": 86,
+    "has_languages": true,
+    "has_docs": true,
+    "has_tests": false,
+    "has_publisher_plus": false,
+    "has_loadfolders": false,
+    "has_loadfolders_bak": false,
+    "has_agents": false,
+    "readme_status": "ok",
+    "notes_files": [
+      "80-RimTalkExpandMemory/CHANGELOG.md",
+      "80-RimTalkExpandMemory/Changelog Guidelines.md",
+      "80-RimTalkExpandMemory/Docs/AI_PROVIDERS_GUIDE.md",
+      "80-RimTalkExpandMemory/Docs/CommonKnowledgeAPI.md",
+      "80-RimTalkExpandMemory/Docs/ContentSniffingPlan.md",
+      "80-RimTalkExpandMemory/Docs/ELS_TIMESTAMP_BUG_FIX.md",
+      "80-RimTalkExpandMemory/Docs/Git_提交命令清单.md",
+      "80-RimTalkExpandMemory/Docs/JobMemoryCapturer.md",
+      "80-RimTalkExpandMemory/Docs/MEMORY_WINDOW_PERFORMANCE_OPTIMIZATION.md",
+      "80-RimTalkExpandMemory/Docs/PROMPT_CACHING_GUIDE.md",
+      "80-RimTalkExpandMemory/Docs/PROMPT_CACHING_PATCH.md",
+      "80-RimTalkExpandMemory/Docs/StreamingRoundMemory-Pipeline.md",
+      "80-RimTalkExpandMemory/Docs/TTS_REMOVAL_GUIDE.md",
+      "80-RimTalkExpandMemory/Docs/v3.3.2.37_旧存档保护机制修复.md",
+      "80-RimTalkExpandMemory/Docs/v3.3.21发布总结.md",
+      "80-RimTalkExpandMemory/Docs/v3.3.21更新说明-简洁版.md",
+      "80-RimTalkExpandMemory/Docs/v3.3.4_EVENT_COMPRESSION.md",
+      "80-RimTalkExpandMemory/Docs/v3.3.4_SUMMARY.md",
+      "80-RimTalkExpandMemory/Docs/世界书第一阶段-字符串全匹配标签实现.md",
+      "80-RimTalkExpandMemory/Docs/世界书第三阶段-扩展属性与UI优化.md",
+      "80-RimTalkExpandMemory/Docs/世界书第二阶段-向量增强检索.md",
+      "80-RimTalkExpandMemory/Docs/修复_提示词花括号错误.md",
+      "80-RimTalkExpandMemory/Docs/修复总结_时间戳和固定记忆.md",
+      "80-RimTalkExpandMemory/Docs/修改_注入位置从prompts改为context.md",
+      "80-RimTalkExpandMemory/Docs/常识库使用说明按钮.md",
+      "80-RimTalkExpandMemory/Docs/常识库匹配引擎评估报告.md",
+      "80-RimTalkExpandMemory/Docs/常识库标签最佳实践-技能名陷阱.md",
+      "80-RimTalkExpandMemory/Docs/拆分_MainTabWindow_Memory.md",
+      "80-RimTalkExpandMemory/Docs/拆分_MainTabWindow_Memory_最终报告.md",
+      "80-RimTalkExpandMemory/Docs/拆分_验证清单.md",
+      "80-RimTalkExpandMemory/Docs/标签测试工具使用说明.md",
+      "80-RimTalkExpandMemory/Docs/标签测试工具实现总结.md",
+      "80-RimTalkExpandMemory/Docs/标签测试工具快速参考.md",
+      "80-RimTalkExpandMemory/Docs/记忆系统重构设计_最终版.md",
+      "80-RimTalkExpandMemory/项目管线.md"
+    ],
+    "type": "patch",
+    "type_conf": "medium"
   }
 ]
