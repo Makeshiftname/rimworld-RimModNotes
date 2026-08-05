@@ -1,41 +1,34 @@
-# Rimworld Mod Template Monodevelop and Linux
+# Another Allow Tool (1.6) Notes
 
-This repository is generated from github template [https://github.com/Rimworld-Mods/Template](https://github.com/Rimworld-Mods/Template)
+## 一句话定位
+老版 Allow Tool 的精选功能子集重实现，目标之一是去掉 HugsLib 依赖（1.6 专用）。
 
-The original template is targeting Windows and not straightforward for a Linux environment. I have made some changes to make it more friendly to Linux users.
+## 关键要点（5 大功能）
+- **Haul Urgently**：`Designator_HaulUrgent` + `WorkGiver_HaulUrgently` + `HaulUrgentlyCache : MapComponent`（60 tick 缓存 + dirty 标记 + 与 `listerHaulables` 求交集）；patch 搬运完成自动清标记；运行时可选兼容 Pick Up And Haul。
+- **Allow / Forbid / AllowAll**：`Designator_ForbidStateBase` + `AATThingFilters`（`IsForbiddable` 判 `CompForbiddable`）。
+- **Select Similar**：patch `Thing.GetGizmos` 按 `def + Stuff` 判断同质，`Designator_SelectSimilar` 框选加入选择器。
+- **Harvest Fully Grown**：只标 `HarvestableNow && LifeStage==Mature` 的植物。
+- **性能架构**（`docs/architecture.md`）：RimWorld/Unity 对象视为主线程对象；后台只做主线程快照纯计算，storage/path/reservation 留主线程；当前实现主线程缓存 + 60tick 分片（预算 250 Thing / 1–2ms）。
+- 设计器经 `ReverseDesignatorDatabase.InitDesignators` 反射注入。
 
-## Pre-requisite
-- .NET Framework 4.7.2 SDK installed (recommend using the dotnet-install script from [https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script))
-- Install monodevelop (or other tools that support NuGet, I think vscode supports that using the C# Dev Kit plugin)
-  - In monodevelop, Go to Tools > Extensions > IDE extensions and install NuGet Package Management Extensions
-- Fill mod.csproj with RootNamespace, AssemblyName, and other necessary settings.
-- Open mod.csproj using your IDE supporting NuGet, and you should be good to go
+## 目录结构
+```
+54-AnotherAllowTool/
+├── About/About.xml
+├── Common/Defs/AllowFunctionDefs/   # 4 个 XML
+├── Common/Patches/                  # 给 Mech_Lifter 加 HaulingUrgent
+├── docs/architecture.md             # 架构笔记
+├── Tests/whitebox/                  # test_aat_static.py + run_whitebox.sh
+└── 1.6/Source/                      # 6 个 cs
+```
 
+## 构建
+```
+cd 1.6/Source && dotnet build -c Release
+```
 
-
-__Below is the README from original template, which is no longer valid in this repo. And will be removed in next big release of this repo.__
-
--------
-# ~~Rimworld Mod Template~~
-
-This template is created for Rimworld modders who use [Visual Studio Code](https://code.visualstudio.com/) instead of Visual Studio IDE.
-
-* __No virtual folders__. Easy to manage and edit both `xml` and `cs` files.
-
-* __Lightweight__. Visual Studio Code only takes up to 200 MB of storage space and is lighting fast.
-
-* __Automated__. Integrated build, scripting and management tools to perform common tasks making everyday workflows faster.
-
-* __Customizable__. Almost every feature can be changed, whenever it is editor UI, keybinds or folder structure.
-
-## Setup
-1. Download and install [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) and [.Net Framework 4.8 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net48). This step can be skipped if you already have required C# packages from Visual Studio IDE.
-2. Install [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-3. Clone, pull or download this template into your Rimworld `Mods` folder.
-
-## Additional notes
-* By pressing `F5` key VS Code will perform 2 operations: build assembly file and launch Rimworld executable. 
-* All intermediate files are kept inside `.vscode` folder.
-* For XML only modders remove preLaunchTask line from `.vscode/launch.json` file.
-* Modify `.vscode/mod.csproj` and `About/About.xml` according to your needs.
+## 相关文件
+- `docs/architecture.md` — 高质量架构笔记（线程边界/缓存/分片）
+- `Tests/whitebox/test_aat_static.py` — 白盒测试
+- 测试知识：`../../docs/knowledge/testing-and-validation.md`
 

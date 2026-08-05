@@ -1,41 +1,33 @@
-# Rimworld Mod Template Monodevelop and Linux
+# Don't Meditate Yet 先别冥想 Notes
 
-This repository is generated from github template [https://github.com/Rimworld-Mods/Template](https://github.com/Rimworld-Mods/Template)
+## 一句话定位
+给有 psylink 的小人加「别冥想」开关 gizmo，开关状态按地图记忆，避免战斗后小人停下冥想。
 
-The original template is targeting Windows and not straightforward for a Linux environment. I have made some changes to make it more friendly to Linux users.
+## 关键要点
+- `DontMeditateYetMapComponent : MapComponent`：`Dictionary<int,bool>`（thingIDNumber→state）随存档，默认值读设置。
+- `MeditationToggleComp : ThingComp`：`CompGetGizmosExtra` 仅对 psylink+玩家+单选+`NeedToShowGizmo()` 时 yield `Command_ToggleMeditation`（图标 `MeditationAllowed/Blocked`，Order=-99 贴近 psyfocus gizmo）。
+- `JobGiver_MeditateConditional : ThinkNode_JobGiver`：状态关闭时返回 0/null（复刻原版优先级 9 / 7.1 / 6）。
+- `DontMeditateYetSettings.defaultToggleState`（默认 false=允许冥想）。
+- 依赖 Royalty DLC（psylink/psyfocus）。
 
-## Pre-requisite
-- .NET Framework 4.7.2 SDK installed (recommend using the dotnet-install script from [https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script))
-- Install monodevelop (or other tools that support NuGet, I think vscode supports that using the C# Dev Kit plugin)
-  - In monodevelop, Go to Tools > Extensions > IDE extensions and install NuGet Package Management Extensions
-- Fill mod.csproj with RootNamespace, AssemblyName, and other necessary settings.
-- Open mod.csproj using your IDE supporting NuGet, and you should be good to go
+## ⚠️ 当前状态（如实标注）
+**功能未接线 / 仅实现组件未生效**：`IMPLEMENTATION_NOTES.md` 声称会 patch `Pawn.GetGizmos`，但实际**没有 HarmonyPatches.cs**，`MeditationToggleComp` 也未挂到任何 pawn def；纹理是 `.txt` 占位（图标会是 BadTex）；`Main.cs` 只打日志不 PatchAll。
 
+## 目录结构
+```
+67-DontMeditateYet/
+├── About/About.xml
+├── README_MOD.md            # mod 说明
+├── IMPLEMENTATION_NOTES.md  # 实现笔记（含未完成标注）
+├── 1.6/Source/              # 9 个 cs
+└── 1.6/Textures/UI/Commands/  # .txt 占位
+```
 
+## 构建
+```
+cd 1.6/Source && dotnet build -c Release
+```
 
-__Below is the README from original template, which is no longer valid in this repo. And will be removed in next big release of this repo.__
-
--------
-# ~~Rimworld Mod Template~~
-
-This template is created for Rimworld modders who use [Visual Studio Code](https://code.visualstudio.com/) instead of Visual Studio IDE.
-
-* __No virtual folders__. Easy to manage and edit both `xml` and `cs` files.
-
-* __Lightweight__. Visual Studio Code only takes up to 200 MB of storage space and is lighting fast.
-
-* __Automated__. Integrated build, scripting and management tools to perform common tasks making everyday workflows faster.
-
-* __Customizable__. Almost every feature can be changed, whenever it is editor UI, keybinds or folder structure.
-
-## Setup
-1. Download and install [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) and [.Net Framework 4.8 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net48). This step can be skipped if you already have required C# packages from Visual Studio IDE.
-2. Install [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-3. Clone, pull or download this template into your Rimworld `Mods` folder.
-
-## Additional notes
-* By pressing `F5` key VS Code will perform 2 operations: build assembly file and launch Rimworld executable. 
-* All intermediate files are kept inside `.vscode` folder.
-* For XML only modders remove preLaunchTask line from `.vscode/launch.json` file.
-* Modify `.vscode/mod.csproj` and `About/About.xml` according to your needs.
+## 相关文件
+- `IMPLEMENTATION_NOTES.md` — 实现与未接线说明
 

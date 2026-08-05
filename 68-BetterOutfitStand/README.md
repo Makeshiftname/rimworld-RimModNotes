@@ -1,41 +1,31 @@
-# Rimworld Mod Template Monodevelop and Linux
+# Better Outfit Stand (Vanilla Improvement) 更好用的服装架 (原版改进) Notes
 
-This repository is generated from github template [https://github.com/Rimworld-Mods/Template](https://github.com/Rimworld-Mods/Template)
+## 一句话定位
+改进原版服装架：右键弹双栏窗口一键换装 + 服装/武器「放到目标服装架」命令。
 
-The original template is targeting Windows and not straightforward for a Linux environment. I have made some changes to make it more friendly to Linux users.
+## 关键要点
+- `Building_BetterOutfitStand : Building_OutfitStand`（+ `Building_BetterKidOutfitStand` 子类）：覆写 `GetFloatMenuOptions` 打开 `Dialog_ChooseApparel`；`EnsureHeldItemsAllowed`（PostLoadInit 允许架上物品）。
+- `Dialog_ChooseApparel : Window`：左右双栏「放到衣架上/从衣架上穿」复选框；确认后置转移列表 + `SetAllowHauling(false)` + 下单 `UseOutfitStand_Better` Job。
+- `JobDriver_UseOutfitStand_Extension`：分两条分支处理双向转移。
+- `OutfitStandHaulGizmoUtility`：`ThingWithComps.GetGizmos` Postfix 给已生成服装/武器追加「放到目标服装架」命令（validator 限玩家服装架，自动 `AllowDefOnStand`）。
+- 需 XML 把原版服装架替换为 `Building_BetterOutfitStand`（Common/Patches）。
+- 过滤自动禁用功能已暂停（`EnableAutomaticFilterDisable=false`）；有静态白盒测试。
+- 依赖 Harmony。
 
-## Pre-requisite
-- .NET Framework 4.7.2 SDK installed (recommend using the dotnet-install script from [https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script))
-- Install monodevelop (or other tools that support NuGet, I think vscode supports that using the C# Dev Kit plugin)
-  - In monodevelop, Go to Tools > Extensions > IDE extensions and install NuGet Package Management Extensions
-- Fill mod.csproj with RootNamespace, AssemblyName, and other necessary settings.
-- Open mod.csproj using your IDE supporting NuGet, and you should be good to go
+## 目录结构
+```
+68-BetterOutfitStand/
+├── About/About.xml
+├── Common/
+├── Tests/whitebox/test_better_outfit_stand_static.py
+└── 1.6/Source/              # BetterOutfitStands.cs、Dialog_ChooseOutfit.cs、HarmonyPatches.cs、OutfitStandHaulGizmoUtility.cs 等
+```
 
+## 构建
+```
+cd 1.6/Source && dotnet build -c Release
+```
 
-
-__Below is the README from original template, which is no longer valid in this repo. And will be removed in next big release of this repo.__
-
--------
-# ~~Rimworld Mod Template~~
-
-This template is created for Rimworld modders who use [Visual Studio Code](https://code.visualstudio.com/) instead of Visual Studio IDE.
-
-* __No virtual folders__. Easy to manage and edit both `xml` and `cs` files.
-
-* __Lightweight__. Visual Studio Code only takes up to 200 MB of storage space and is lighting fast.
-
-* __Automated__. Integrated build, scripting and management tools to perform common tasks making everyday workflows faster.
-
-* __Customizable__. Almost every feature can be changed, whenever it is editor UI, keybinds or folder structure.
-
-## Setup
-1. Download and install [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) and [.Net Framework 4.8 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net48). This step can be skipped if you already have required C# packages from Visual Studio IDE.
-2. Install [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-3. Clone, pull or download this template into your Rimworld `Mods` folder.
-
-## Additional notes
-* By pressing `F5` key VS Code will perform 2 operations: build assembly file and launch Rimworld executable. 
-* All intermediate files are kept inside `.vscode` folder.
-* For XML only modders remove preLaunchTask line from `.vscode/launch.json` file.
-* Modify `.vscode/mod.csproj` and `About/About.xml` according to your needs.
+## 相关文件
+- `Tests/whitebox/` — 白盒测试
 

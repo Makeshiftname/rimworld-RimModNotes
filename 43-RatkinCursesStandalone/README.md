@@ -1,41 +1,26 @@
-# Rimworld Mod Template Monodevelop and Linux
+# 鼠鼠异常诅咒特辑 Ratkin Curses Standalone Notes
 
-This repository is generated from github template [https://github.com/Rimworld-Mods/Template](https://github.com/Rimworld-Mods/Template)
+## 一句话定位
+把「鼠鼠异常+」的诅咒做成可独立设置的永久游戏状态（不再随机）。
 
-The original template is targeting Windows and not straightforward for a Linux environment. I have made some changes to make it more friendly to Linux users.
+## 关键要点
+- **持久化诅咒**：`RAComponent : WorldComponent` 用 `string curse`（存档 key "curse"，默认 "Null"）记录当前诅咒。
+- **条件驱动**：`GameCondition_Curse : GameCondition_ForceWeather`，`Init` 里设置诅咒 + 用 `DefModExtension`（`GameConditionModExtension`）/`LetterMaker` 发诅咒信；`End` 时置回 "Null" + 发结束信。
+- **受伤诅咒**：`Wounded_Patch` Prefix 拦截 `Pawn.PostApplyDamage`，当 `RAUtility.IfCurseActive("Wounded")` 且殖民者/奴隶受伤时：播音效 + 撒 16 格血渍 + `HealthUtility.DamageUntilDowned`。
+- `Common/Defs/GameConditionDefs/GameConditions.xml`：抽象 `RA_CurseCondition` + 具体 `RA_CurseCondition_Wounded`（`canBePermanent=true`）。
+- 目前只有 "Wounded" 一种，架构上可扩展；与 50/51（RACurse 系列）同体系。
 
-## Pre-requisite
-- .NET Framework 4.7.2 SDK installed (recommend using the dotnet-install script from [https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script))
-- Install monodevelop (or other tools that support NuGet, I think vscode supports that using the C# Dev Kit plugin)
-  - In monodevelop, Go to Tools > Extensions > IDE extensions and install NuGet Package Management Extensions
-- Fill mod.csproj with RootNamespace, AssemblyName, and other necessary settings.
-- Open mod.csproj using your IDE supporting NuGet, and you should be good to go
+## 目录结构
+```
+43-RatkinCursesStandalone/
+├── About/About.xml
+├── Common/Defs/GameConditionDefs/
+├── Common/Languages/
+└── 1.5|1.6/Source/         # Main.cs + RASL/GameCondition_Curse.cs
+```
 
-
-
-__Below is the README from original template, which is no longer valid in this repo. And will be removed in next big release of this repo.__
-
--------
-# ~~Rimworld Mod Template~~
-
-This template is created for Rimworld modders who use [Visual Studio Code](https://code.visualstudio.com/) instead of Visual Studio IDE.
-
-* __No virtual folders__. Easy to manage and edit both `xml` and `cs` files.
-
-* __Lightweight__. Visual Studio Code only takes up to 200 MB of storage space and is lighting fast.
-
-* __Automated__. Integrated build, scripting and management tools to perform common tasks making everyday workflows faster.
-
-* __Customizable__. Almost every feature can be changed, whenever it is editor UI, keybinds or folder structure.
-
-## Setup
-1. Download and install [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) and [.Net Framework 4.8 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net48). This step can be skipped if you already have required C# packages from Visual Studio IDE.
-2. Install [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-3. Clone, pull or download this template into your Rimworld `Mods` folder.
-
-## Additional notes
-* By pressing `F5` key VS Code will perform 2 operations: build assembly file and launch Rimworld executable. 
-* All intermediate files are kept inside `.vscode` folder.
-* For XML only modders remove preLaunchTask line from `.vscode/launch.json` file.
-* Modify `.vscode/mod.csproj` and `About/About.xml` according to your needs.
+## 构建
+```
+cd 1.6/Source && dotnet build -c Release
+```
 

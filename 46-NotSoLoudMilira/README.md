@@ -1,41 +1,22 @@
-# Rimworld Mod Template Monodevelop and Linux
+# 别太吵的米莉拉 Not So Loud Milira Notes
 
-This repository is generated from github template [https://github.com/Rimworld-Mods/Template](https://github.com/Rimworld-Mods/Template)
+## 一句话定位
+把 Milira 种族模组的所有武器/音效音量减半（纯 XML 音量替换，无 C#）。
 
-The original template is targeting Windows and not straightforward for a Linux environment. I have made some changes to make it more friendly to Linux users.
+## 关键要点
+- **纯 XML**：`Common/Patches/Patches.xml` 含 13 个 `PatchOperationReplace`，全部改 `Defs/SoundDef[defName=...]/subSounds/li/volumeRange`，基本对半削（如 `Milira_Shot_PlasmaRifle` 55~75→28~38、`Milira_ExcaliburWarmup` 700→350）。
+- 覆盖武器射击/爆炸/建筑/技能/信标等声音。
+- 依赖 `ancot.milirarace`（Milira Race）。
+- 注意：packageId 拼写 `NoSoLoud`（应为 NotSoLoud）。
 
-## Pre-requisite
-- .NET Framework 4.7.2 SDK installed (recommend using the dotnet-install script from [https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script))
-- Install monodevelop (or other tools that support NuGet, I think vscode supports that using the C# Dev Kit plugin)
-  - In monodevelop, Go to Tools > Extensions > IDE extensions and install NuGet Package Management Extensions
-- Fill mod.csproj with RootNamespace, AssemblyName, and other necessary settings.
-- Open mod.csproj using your IDE supporting NuGet, and you should be good to go
+## 目录结构
+```
+46-NotSoLoudMilira/
+├── About/About.xml
+└── Common/Patches/         # Patches.xml（13 个音量替换）
+```
 
-
-
-__Below is the README from original template, which is no longer valid in this repo. And will be removed in next big release of this repo.__
-
--------
-# ~~Rimworld Mod Template~~
-
-This template is created for Rimworld modders who use [Visual Studio Code](https://code.visualstudio.com/) instead of Visual Studio IDE.
-
-* __No virtual folders__. Easy to manage and edit both `xml` and `cs` files.
-
-* __Lightweight__. Visual Studio Code only takes up to 200 MB of storage space and is lighting fast.
-
-* __Automated__. Integrated build, scripting and management tools to perform common tasks making everyday workflows faster.
-
-* __Customizable__. Almost every feature can be changed, whenever it is editor UI, keybinds or folder structure.
-
-## Setup
-1. Download and install [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) and [.Net Framework 4.8 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net48). This step can be skipped if you already have required C# packages from Visual Studio IDE.
-2. Install [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-3. Clone, pull or download this template into your Rimworld `Mods` folder.
-
-## Additional notes
-* By pressing `F5` key VS Code will perform 2 operations: build assembly file and launch Rimworld executable. 
-* All intermediate files are kept inside `.vscode` folder.
-* For XML only modders remove preLaunchTask line from `.vscode/launch.json` file.
-* Modify `.vscode/mod.csproj` and `About/About.xml` according to your needs.
+## 相关文件
+- `Common/Patches/Patches.xml` — 音量静音补丁
+- XML patch 知识：`../../docs/knowledge/xml-defs-and-patches.md`
 

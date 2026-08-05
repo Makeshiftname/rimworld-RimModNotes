@@ -1,41 +1,33 @@
-# Rimworld Mod Template Monodevelop and Linux
+# 无尽黑暗 Permanent Darkness Notes
 
-This repository is generated from github template [https://github.com/Rimworld-Mods/Template](https://github.com/Rimworld-Mods/Template)
+## 一句话定位
+把 Anomaly 的异常黑暗变成永久世界状态——没有夜石可打、没有异常生物袭击、无法重见光明。
 
-The original template is targeting Windows and not straightforward for a Linux environment. I have made some changes to make it more friendly to Linux users.
+## 关键要点
+- **世界控制器**：`PermanentDarknessController : GameComponent` 管理两阶段（initial 0.5–0.75 天 + main），`ForceWeatherOnAllMaps` 给每张图 `RegisterCondition` 永久 `GameCondition_PermanentDarkness`，`HandleLetters` 按 tick 发三封信（初始/警告/main）。
+- **自定义天气条件**：`GameCondition_PermanentDarkness : GameCondition_ForceWeather`，用 `GameCondition_NoSunlight.EclipseSkyColors` 天空、`WeatherOverlay_UnnaturalDarkness` 覆盖层、暗度可调（`GameConditionDraw` 改 `MatBases.Darkness.color`）。
+- **黑暗暴露伤害**：`PDHediff_DarknessExposure : Hediff` 周期性掉血（忽略护甲），写 BattleLog，`TryMergeWith` 返回 false。
+- **降雨监控**：`RainMonitorMapComponent` 每 300 tick 检查火灾/温度越界则转雨。
+- **ModSettings**：`darknessLevel` 滑条（0–2）+ `shadowControl`（调试阴影）。
+- 依赖 Anomaly；与 32（饥荒扩展）是系列；`PLAN.md` 为设计文档。
 
-## Pre-requisite
-- .NET Framework 4.7.2 SDK installed (recommend using the dotnet-install script from [https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script))
-- Install monodevelop (or other tools that support NuGet, I think vscode supports that using the C# Dev Kit plugin)
-  - In monodevelop, Go to Tools > Extensions > IDE extensions and install NuGet Package Management Extensions
-- Fill mod.csproj with RootNamespace, AssemblyName, and other necessary settings.
-- Open mod.csproj using your IDE supporting NuGet, and you should be good to go
+## 目录结构
+```
+29-PermanentUnnaturalDarkness/
+├── About/About.xml
+├── PLAN.md                 # 设计文档
+├── 1.5|1.6/Source/         # 7 个 cs
+├── 1.5|1.6/Defs/           # GameConditionDefs/HediffDefs/IncidentDefs/WeatherDefs
+├── Languages/
+└── Patches/
+```
 
+## 构建
+```
+cd 1.6/Source && dotnet build -c Release
+```
 
-
-__Below is the README from original template, which is no longer valid in this repo. And will be removed in next big release of this repo.__
-
--------
-# ~~Rimworld Mod Template~~
-
-This template is created for Rimworld modders who use [Visual Studio Code](https://code.visualstudio.com/) instead of Visual Studio IDE.
-
-* __No virtual folders__. Easy to manage and edit both `xml` and `cs` files.
-
-* __Lightweight__. Visual Studio Code only takes up to 200 MB of storage space and is lighting fast.
-
-* __Automated__. Integrated build, scripting and management tools to perform common tasks making everyday workflows faster.
-
-* __Customizable__. Almost every feature can be changed, whenever it is editor UI, keybinds or folder structure.
-
-## Setup
-1. Download and install [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) and [.Net Framework 4.8 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net48). This step can be skipped if you already have required C# packages from Visual Studio IDE.
-2. Install [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-3. Clone, pull or download this template into your Rimworld `Mods` folder.
-
-## Additional notes
-* By pressing `F5` key VS Code will perform 2 operations: build assembly file and launch Rimworld executable. 
-* All intermediate files are kept inside `.vscode` folder.
-* For XML only modders remove preLaunchTask line from `.vscode/launch.json` file.
-* Modify `.vscode/mod.csproj` and `About/About.xml` according to your needs.
+## 相关文件
+- `PLAN.md` — 设计文档
+- 组件/条件知识：`../../docs/knowledge/game-and-world-components.md`
 

@@ -1,41 +1,29 @@
-# Rimworld Mod Template Monodevelop and Linux
+# QuestItemWatch Notes
 
-This repository is generated from github template [https://github.com/Rimworld-Mods/Template](https://github.com/Rimworld-Mods/Template)
+## 一句话定位
+监控任务物品：通过 GameComponent 每 tick 检查任务系统，对关键任务物品做提醒（字母类型 LetterDef）。
 
-The original template is targeting Windows and not straightforward for a Linux environment. I have made some changes to make it more friendly to Linux users.
+## 关键要点
+- **GameComponent**：`QuestItemWatcher : GameComponent`，构造 `(Game game)` 由游戏自动创建。
+- **每 tick 回调**：覆写 `GameComponentTick()`，访问 `Find.QuestManager` 检查任务状态。
+- **DefOf 静态引用**：`[DefOf]` + `public static LetterDef success_letter;` 在启动时绑定 Def。
+- **日志封装**：`Logger.cs` 提供 `Log.Message/Warning/Error`（自动带调用位置）。
+- 此 mod 不依赖 Harmony（源码中 Harmony 引用已注释掉）。
 
-## Pre-requisite
-- .NET Framework 4.7.2 SDK installed (recommend using the dotnet-install script from [https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script))
-- Install monodevelop (or other tools that support NuGet, I think vscode supports that using the C# Dev Kit plugin)
-  - In monodevelop, Go to Tools > Extensions > IDE extensions and install NuGet Package Management Extensions
-- Fill mod.csproj with RootNamespace, AssemblyName, and other necessary settings.
-- Open mod.csproj using your IDE supporting NuGet, and you should be good to go
+## 目录结构
+```
+10-QuestItemWatch/
+├── About/About.xml
+└── Source/                # Main.cs（QuestItemWatcher）、Logger.cs
+```
 
+## 构建
+```
+cd Source && dotnet build -c Release
+```
 
-
-__Below is the README from original template, which is no longer valid in this repo. And will be removed in next big release of this repo.__
-
--------
-# ~~Rimworld Mod Template~~
-
-This template is created for Rimworld modders who use [Visual Studio Code](https://code.visualstudio.com/) instead of Visual Studio IDE.
-
-* __No virtual folders__. Easy to manage and edit both `xml` and `cs` files.
-
-* __Lightweight__. Visual Studio Code only takes up to 200 MB of storage space and is lighting fast.
-
-* __Automated__. Integrated build, scripting and management tools to perform common tasks making everyday workflows faster.
-
-* __Customizable__. Almost every feature can be changed, whenever it is editor UI, keybinds or folder structure.
-
-## Setup
-1. Download and install [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) and [.Net Framework 4.8 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net48). This step can be skipped if you already have required C# packages from Visual Studio IDE.
-2. Install [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-3. Clone, pull or download this template into your Rimworld `Mods` folder.
-
-## Additional notes
-* By pressing `F5` key VS Code will perform 2 operations: build assembly file and launch Rimworld executable. 
-* All intermediate files are kept inside `.vscode` folder.
-* For XML only modders remove preLaunchTask line from `.vscode/launch.json` file.
-* Modify `.vscode/mod.csproj` and `About/About.xml` according to your needs.
+## 相关文件
+- `Source/Main.cs` — GameComponent 实现 + DefOf
+- `Source/Logger.cs` — 日志模板
+- 组件知识：`../../docs/knowledge/game-and-world-components.md`、`../../docs/knowledge/project-templates.md`
 
