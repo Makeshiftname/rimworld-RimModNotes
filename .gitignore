@@ -2,6 +2,10 @@ obj/
 .vs/
 bin/
 
+# Python
+__pycache__/
+*.pyc
+
 mono_crash.*
 
 # 78-RimFlixAnimeShows 生成的节目资产:体积大且可再生,只保留本地文件,不入库
