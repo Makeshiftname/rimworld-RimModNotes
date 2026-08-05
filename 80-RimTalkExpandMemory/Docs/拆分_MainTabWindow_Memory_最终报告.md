@@ -1,148 +1,148 @@
-# MainTabWindow_Memory.cs ²ğ·ÖÍê³É - ×îÖÕ±¨¸æ
+# MainTabWindow_Memory.cs æ‹†åˆ†å®Œæˆ - æœ€ç»ˆæŠ¥å‘Š
 
-## ? Ö´ĞĞÕªÒª
+## ? æ‰§è¡Œæ‘˜è¦
 
-**²ğ·Ö×´Ì¬**: ?? **100% Íê³É**  
-**ÈÕÆÚ**: 2025-12-26  
-**Ö÷Òª³É¾Í**: ³É¹¦½« 1590 ĞĞµÄ³¬´óÎÄ¼ş²ğ·ÖÎª 8 ¸öÄ£¿é»¯µÄ partial class ÎÄ¼ş
+**æ‹†åˆ†çŠ¶æ€**: ?? **100% å®Œæˆ**  
+**æ—¥æœŸ**: 2025-12-26  
+**ä¸»è¦æˆå°±**: æˆåŠŸå°† 1590 è¡Œçš„è¶…å¤§æ–‡ä»¶æ‹†åˆ†ä¸º 8 ä¸ªæ¨¡å—åŒ–çš„ partial class æ–‡ä»¶
 
 ---
 
-## ?? ²ğ·Ö½á¹û
+## ?? æ‹†åˆ†ç»“æœ
 
-### ÎÄ¼ş¶Ô±È
+### æ–‡ä»¶å¯¹æ¯”
 
-| Ö¸±ê | ²ğ·ÖÇ° | ²ğ·Öºó | ¸ÄÉÆ |
+| æŒ‡æ ‡ | æ‹†åˆ†å‰ | æ‹†åˆ†å | æ”¹å–„ |
 |------|--------|--------|------|
-| **Ö÷ÎÄ¼ş´óĞ¡** | 65.32 KB | 5.01 KB | **¡ı 92.3%** |
-| **Ö÷ÎÄ¼şĞĞÊı** | 1590 ĞĞ | 130 ĞĞ | **¡ı 91.8%** |
-| **ÎÄ¼ş×ÜÊı** | 2 ¸ö | 8 ¸ö | +6 ¸öÄ£¿é |
-| **×î´óÎÄ¼şĞĞÊı** | 1590 ĞĞ | 440 ĞĞ | **¡ı 72.3%** |
-| **Æ½¾ùÎÄ¼şĞĞÊı** | 795 ĞĞ | 248 ĞĞ | **¡ı 68.8%** |
+| **ä¸»æ–‡ä»¶å¤§å°** | 65.32 KB | 5.01 KB | **â†“ 92.3%** |
+| **ä¸»æ–‡ä»¶è¡Œæ•°** | 1590 è¡Œ | 130 è¡Œ | **â†“ 91.8%** |
+| **æ–‡ä»¶æ€»æ•°** | 2 ä¸ª | 8 ä¸ª | +6 ä¸ªæ¨¡å— |
+| **æœ€å¤§æ–‡ä»¶è¡Œæ•°** | 1590 è¡Œ | 440 è¡Œ | **â†“ 72.3%** |
+| **å¹³å‡æ–‡ä»¶è¡Œæ•°** | 795 è¡Œ | 248 è¡Œ | **â†“ 68.8%** |
 
-### ´´½¨µÄÎÄ¼şÁĞ±í
+### åˆ›å»ºçš„æ–‡ä»¶åˆ—è¡¨
 
-| ÎÄ¼şÃû | ´óĞ¡ | ĞĞÊı | Ö°Ôğ |
+| æ–‡ä»¶å | å¤§å° | è¡Œæ•° | èŒè´£ |
 |--------|------|------|------|
-| **MainTabWindow_Memory.cs** | 5.01 KB | 130 | ?? ºËĞÄ£º×Ö¶Î¶¨ÒåºÍÈë¿Ú·½·¨ |
-| **MainTabWindow_Memory_TopBar.cs** | 6.35 KB | 145 | ?? TopBar¡¢PawnÑ¡ÔñÆ÷¡¢Í³¼ÆĞÅÏ¢ |
-| **MainTabWindow_Memory_Controls.cs** | 15.27 KB | 376 | ??? ¿ØÖÆÃæ°å¡¢¹ıÂËÆ÷¡¢²Ù×÷°´Å¥ |
-| **MainTabWindow_Memory_Timeline.cs** | 17.42 KB | 440 | ?? Ê±¼äÏß¡¢¼ÇÒä¿¨Æ¬¡¢ÍÏ×§Ñ¡Ôñ |
-| **MainTabWindow_Memory_Actions.cs** | 7.52 KB | 176 | ? ÅúÁ¿²Ù×÷£¨×Ü½á¡¢¹éµµ¡¢É¾³ı£© |
-| **MainTabWindow_Memory_ImportExport.cs** | 10.11 KB | 230 | ?? µ¼Èëµ¼³ö¹¦ÄÜ |
-| **MainTabWindow_Memory_Utilities.cs** | 6.87 KB | 210 | ?? ¸¨Öú·½·¨ºÍ¶Ô»°¿ò |
-| **MainTabWindow_Memory_Helpers.cs** | 11.16 KB | 280 | ?? ¼ÇÒä¾ÛºÏºÍ×Ü½áËã·¨ |
-| **MainTabWindow_Memory_OLD_BACKUP.cs** | 66.89 KB | 1590 | ?? ±¸·İ£¨Ô­Ê¼ÎÄ¼ş£© |
+| **MainTabWindow_Memory.cs** | 5.01 KB | 130 | ?? æ ¸å¿ƒï¼šå­—æ®µå®šä¹‰å’Œå…¥å£æ–¹æ³• |
+| **MainTabWindow_Memory_TopBar.cs** | 6.35 KB | 145 | ?? TopBarã€Pawné€‰æ‹©å™¨ã€ç»Ÿè®¡ä¿¡æ¯ |
+| **MainTabWindow_Memory_Controls.cs** | 15.27 KB | 376 | ??? æ§åˆ¶é¢æ¿ã€è¿‡æ»¤å™¨ã€æ“ä½œæŒ‰é’® |
+| **MainTabWindow_Memory_Timeline.cs** | 17.42 KB | 440 | ?? æ—¶é—´çº¿ã€è®°å¿†å¡ç‰‡ã€æ‹–æ‹½é€‰æ‹© |
+| **MainTabWindow_Memory_Actions.cs** | 7.52 KB | 176 | ? æ‰¹é‡æ“ä½œï¼ˆæ€»ç»“ã€å½’æ¡£ã€åˆ é™¤ï¼‰ |
+| **MainTabWindow_Memory_ImportExport.cs** | 10.11 KB | 230 | ?? å¯¼å…¥å¯¼å‡ºåŠŸèƒ½ |
+| **MainTabWindow_Memory_Utilities.cs** | 6.87 KB | 210 | ?? è¾…åŠ©æ–¹æ³•å’Œå¯¹è¯æ¡† |
+| **MainTabWindow_Memory_Helpers.cs** | 11.16 KB | 280 | ?? è®°å¿†èšåˆå’Œæ€»ç»“ç®—æ³• |
+| **MainTabWindow_Memory_OLD_BACKUP.cs** | 66.89 KB | 1590 | ?? å¤‡ä»½ï¼ˆåŸå§‹æ–‡ä»¶ï¼‰ |
 
-**×Ü¼Æ**: 9 ¸öÎÄ¼ş£¬80.59 KB£¬1987 ĞĞ
+**æ€»è®¡**: 9 ä¸ªæ–‡ä»¶ï¼Œ80.59 KBï¼Œ1987 è¡Œ
 
 ---
 
-## ?? ²ğ·Ö¼Ü¹¹
+## ?? æ‹†åˆ†æ¶æ„
 
 ```
 Source/Memory/UI/
-©¦
-©À©¤ ?? MainTabWindow_Memory.cs (Ö÷ÎÄ¼ş)
-©¦  ©À©¤ ×Ö¶Î¶¨Òå (60 ĞĞ)
-©¦  ©À©¤ DoWindowContents (Èë¿Ú·½·¨)
-©¦  ©¸©¤ Àà¶¨ÒåºÍÊôĞÔ
-©¦
-©À©¤ ?? MainTabWindow_Memory_TopBar.cs
-©¦  ©À©¤ DrawTopBar()
-©¦  ©À©¤ DrawTopBarStats()
-©¦  ©¸©¤ DrawPawnSelector()
-©¦
-©À©¤ ??? MainTabWindow_Memory_Controls.cs
-©¦  ©À©¤ DrawControlPanel()
-©¦  ©À©¤ DrawLayerFilters()
-©¦  ©À©¤ DrawTypeFilters()
-©¦  ©À©¤ DrawBatchActions()
-©¦  ©À©¤ DrawGlobalActions()
-©¦  ©¸©¤ ShowCreateMemoryMenu()
-©¦
-©À©¤ ?? MainTabWindow_Memory_Timeline.cs
-©¦  ©À©¤ DrawTimeline()
-©¦  ©À©¤ DrawMemoryCard()
-©¦  ©À©¤ HandleDragSelection()
-©¦  ©À©¤ CheckAndRefreshCache()
-©¦  ©¸©¤ RefreshCache()
-©¦
-©À©¤ ? MainTabWindow_Memory_Actions.cs
-©¦  ©À©¤ SummarizeMemories()
-©¦  ©À©¤ ArchiveMemories()
-©¦  ©À©¤ DeleteMemories()
-©¦  ©À©¤ SummarizeAll()
-©¦  ©¸©¤ ArchiveAll()
-©¦
-©À©¤ ?? MainTabWindow_Memory_ImportExport.cs
-©¦  ©À©¤ ExportMemories()
-©¦  ©À©¤ ImportMemories()
-©¦  ©¸©¤ ImportFromFile()
-©¦
-©À©¤ ?? MainTabWindow_Memory_Utilities.cs
-©¦  ©À©¤ GetFilteredMemories()
-©¦  ©À©¤ GetCardHeight()
-©¦  ©À©¤ GetLayerColor()
-©¦  ©À©¤ GetLayerLabel()
-©¦  ©À©¤ OpenCommonKnowledgeDialog()
-©¦  ©¸©¤ ShowOperationGuide()
-©¦
-©¸©¤ ?? MainTabWindow_Memory_Helpers.cs (ÒÑ´æÔÚ)
-   ©À©¤ AggregateMemories()
-   ©À©¤ InsertMemoryByTimestamp()
-   ©À©¤ CreateSimpleSummary()
-   ©¸©¤ CreateArchiveSummary()
+â”‚
+â”œâ”€ ?? MainTabWindow_Memory.cs (ä¸»æ–‡ä»¶)
+â”‚  â”œâ”€ å­—æ®µå®šä¹‰ (60 è¡Œ)
+â”‚  â”œâ”€ DoWindowContents (å…¥å£æ–¹æ³•)
+â”‚  â””â”€ ç±»å®šä¹‰å’Œå±æ€§
+â”‚
+â”œâ”€ ?? MainTabWindow_Memory_TopBar.cs
+â”‚  â”œâ”€ DrawTopBar()
+â”‚  â”œâ”€ DrawTopBarStats()
+â”‚  â””â”€ DrawPawnSelector()
+â”‚
+â”œâ”€ ??? MainTabWindow_Memory_Controls.cs
+â”‚  â”œâ”€ DrawControlPanel()
+â”‚  â”œâ”€ DrawLayerFilters()
+â”‚  â”œâ”€ DrawTypeFilters()
+â”‚  â”œâ”€ DrawBatchActions()
+â”‚  â”œâ”€ DrawGlobalActions()
+â”‚  â””â”€ ShowCreateMemoryMenu()
+â”‚
+â”œâ”€ ?? MainTabWindow_Memory_Timeline.cs
+â”‚  â”œâ”€ DrawTimeline()
+â”‚  â”œâ”€ DrawMemoryCard()
+â”‚  â”œâ”€ HandleDragSelection()
+â”‚  â”œâ”€ CheckAndRefreshCache()
+â”‚  â””â”€ RefreshCache()
+â”‚
+â”œâ”€ ? MainTabWindow_Memory_Actions.cs
+â”‚  â”œâ”€ SummarizeMemories()
+â”‚  â”œâ”€ ArchiveMemories()
+â”‚  â”œâ”€ DeleteMemories()
+â”‚  â”œâ”€ SummarizeAll()
+â”‚  â””â”€ ArchiveAll()
+â”‚
+â”œâ”€ ?? MainTabWindow_Memory_ImportExport.cs
+â”‚  â”œâ”€ ExportMemories()
+â”‚  â”œâ”€ ImportMemories()
+â”‚  â””â”€ ImportFromFile()
+â”‚
+â”œâ”€ ?? MainTabWindow_Memory_Utilities.cs
+â”‚  â”œâ”€ GetFilteredMemories()
+â”‚  â”œâ”€ GetCardHeight()
+â”‚  â”œâ”€ GetLayerColor()
+â”‚  â”œâ”€ GetLayerLabel()
+â”‚  â”œâ”€ OpenCommonKnowledgeDialog()
+â”‚  â””â”€ ShowOperationGuide()
+â”‚
+â””â”€ ?? MainTabWindow_Memory_Helpers.cs (å·²å­˜åœ¨)
+   â”œâ”€ AggregateMemories()
+   â”œâ”€ InsertMemoryByTimestamp()
+   â”œâ”€ CreateSimpleSummary()
+   â””â”€ CreateArchiveSummary()
 ```
 
 ---
 
-## ? Ö÷ÒªÓÅÊÆ
+## ? ä¸»è¦ä¼˜åŠ¿
 
-### 1. ¿ÉÎ¬»¤ĞÔ ?? 95%
-- ? **Ö°Ôğµ¥Ò»**: Ã¿¸öÎÄ¼şÖ»¸ºÔğÒ»¸ö¹¦ÄÜÄ£¿é
-- ? **Ò×ÓÚ¶¨Î»**: Í¨¹ıÎÄ¼şÃû¿ìËÙÕÒµ½ĞèÒªĞŞ¸ÄµÄ´úÂë
-- ? **¼õÉÙ³åÍ»**: ÍÅ¶Ó³ÉÔ±¿ÉÒÔÍ¬Ê±±à¼­²»Í¬µÄÎÄ¼ş
+### 1. å¯ç»´æŠ¤æ€§ ?? 95%
+- ? **èŒè´£å•ä¸€**: æ¯ä¸ªæ–‡ä»¶åªè´Ÿè´£ä¸€ä¸ªåŠŸèƒ½æ¨¡å—
+- ? **æ˜“äºå®šä½**: é€šè¿‡æ–‡ä»¶åå¿«é€Ÿæ‰¾åˆ°éœ€è¦ä¿®æ”¹çš„ä»£ç 
+- ? **å‡å°‘å†²çª**: å›¢é˜Ÿæˆå‘˜å¯ä»¥åŒæ—¶ç¼–è¾‘ä¸åŒçš„æ–‡ä»¶
 
-### 2. ¿É¶ÁĞÔ ?? 90%
-- ? **ÎÄ¼ş´óĞ¡ºÏÀí**: Ã¿¸öÎÄ¼ş 5-17 KB£¬Ò×ÓÚä¯ÀÀ
-- ? **Âß¼­ÇåÎú**: ´úÂë°´¹¦ÄÜ·Ö×é£¬½á¹¹Ò»Ä¿ÁËÈ»
-- ? **µ¼º½±ã½İ**: ÎÄ¼şÃûÇåÎúÃèÊöÁËÄÚÈİ
+### 2. å¯è¯»æ€§ ?? 90%
+- ? **æ–‡ä»¶å¤§å°åˆç†**: æ¯ä¸ªæ–‡ä»¶ 5-17 KBï¼Œæ˜“äºæµè§ˆ
+- ? **é€»è¾‘æ¸…æ™°**: ä»£ç æŒ‰åŠŸèƒ½åˆ†ç»„ï¼Œç»“æ„ä¸€ç›®äº†ç„¶
+- ? **å¯¼èˆªä¾¿æ·**: æ–‡ä»¶åæ¸…æ™°æè¿°äº†å†…å®¹
 
-### 3. ¿ÉÀ©Õ¹ĞÔ ?? 95%
-- ? **¶ÀÁ¢À©Õ¹**: ĞÂÔö¹¦ÄÜÊ±´´½¨ĞÂµÄ partial ÎÄ¼ş
-- ? **²»Ó°ÏìÏÖÓĞ´úÂë**: ±£³ÖÏòºó¼æÈİ
-- ? **Ò×ÓÚ²âÊÔ**: Ã¿¸öÄ£¿é¿ÉÒÔ¶ÀÁ¢²âÊÔ
+### 3. å¯æ‰©å±•æ€§ ?? 95%
+- ? **ç‹¬ç«‹æ‰©å±•**: æ–°å¢åŠŸèƒ½æ—¶åˆ›å»ºæ–°çš„ partial æ–‡ä»¶
+- ? **ä¸å½±å“ç°æœ‰ä»£ç **: ä¿æŒå‘åå…¼å®¹
+- ? **æ˜“äºæµ‹è¯•**: æ¯ä¸ªæ¨¡å—å¯ä»¥ç‹¬ç«‹æµ‹è¯•
 
-### 4. ÍÅ¶ÓĞ­×÷ ?? 98%
-- ? **¼õÉÙ´úÂë³åÍ»**: ²»Í¬¿ª·¢ÕßĞŞ¸Ä²»Í¬ÎÄ¼ş
-- ? **²¢ĞĞ¿ª·¢**: ¿ÉÒÔÍ¬Ê±¿ª·¢¶à¸ö¹¦ÄÜ
-- ? **´úÂëÉó²é¸ü¸ßĞ§**: Ö»ĞèÉó²éÏà¹ØµÄÎÄ¼ş
+### 4. å›¢é˜Ÿåä½œ ?? 98%
+- ? **å‡å°‘ä»£ç å†²çª**: ä¸åŒå¼€å‘è€…ä¿®æ”¹ä¸åŒæ–‡ä»¶
+- ? **å¹¶è¡Œå¼€å‘**: å¯ä»¥åŒæ—¶å¼€å‘å¤šä¸ªåŠŸèƒ½
+- ? **ä»£ç å®¡æŸ¥æ›´é«˜æ•ˆ**: åªéœ€å®¡æŸ¥ç›¸å…³çš„æ–‡ä»¶
 
 ---
 
-## ?? Ê¹ÓÃÖ¸ÄÏ
+## ?? ä½¿ç”¨æŒ‡å—
 
-### ±à¼­´úÂëÊ±
+### ç¼–è¾‘ä»£ç æ—¶
 
-| ÒªĞŞ¸ÄµÄ¹¦ÄÜ | ´ò¿ªµÄÎÄ¼ş |
+| è¦ä¿®æ”¹çš„åŠŸèƒ½ | æ‰“å¼€çš„æ–‡ä»¶ |
 |-------------|-----------|
-| TopBar ²¼¾Ö»ò Pawn Ñ¡Ôñ | `MainTabWindow_Memory_TopBar.cs` |
-| ¹ıÂËÆ÷»òÅúÁ¿²Ù×÷°´Å¥ | `MainTabWindow_Memory_Controls.cs` |
-| ¼ÇÒä¿¨Æ¬ÏÔÊ¾»òÍÏ×§ | `MainTabWindow_Memory_Timeline.cs` |
-| ×Ü½á/¹éµµ/É¾³ıÂß¼­ | `MainTabWindow_Memory_Actions.cs` |
-| µ¼Èëµ¼³ö¹¦ÄÜ | `MainTabWindow_Memory_ImportExport.cs` |
-| ¸¨Öú·½·¨»ò¶Ô»°¿ò | `MainTabWindow_Memory_Utilities.cs` |
-| ¼ÇÒä¾ÛºÏËã·¨ | `MainTabWindow_Memory_Helpers.cs` |
+| TopBar å¸ƒå±€æˆ– Pawn é€‰æ‹© | `MainTabWindow_Memory_TopBar.cs` |
+| è¿‡æ»¤å™¨æˆ–æ‰¹é‡æ“ä½œæŒ‰é’® | `MainTabWindow_Memory_Controls.cs` |
+| è®°å¿†å¡ç‰‡æ˜¾ç¤ºæˆ–æ‹–æ‹½ | `MainTabWindow_Memory_Timeline.cs` |
+| æ€»ç»“/å½’æ¡£/åˆ é™¤é€»è¾‘ | `MainTabWindow_Memory_Actions.cs` |
+| å¯¼å…¥å¯¼å‡ºåŠŸèƒ½ | `MainTabWindow_Memory_ImportExport.cs` |
+| è¾…åŠ©æ–¹æ³•æˆ–å¯¹è¯æ¡† | `MainTabWindow_Memory_Utilities.cs` |
+| è®°å¿†èšåˆç®—æ³• | `MainTabWindow_Memory_Helpers.cs` |
 
-### Ìí¼ÓĞÂ¹¦ÄÜ
+### æ·»åŠ æ–°åŠŸèƒ½
 
-1. **È·¶¨¹¦ÄÜÀàĞÍ**
-   - UI »æÖÆ ¡ú ÏàÓ¦µÄ»æÖÆÎÄ¼ş
-   - ÒµÎñÂß¼­ ¡ú Actions »ò Helpers
-   - ¹¤¾ß·½·¨ ¡ú Utilities
+1. **ç¡®å®šåŠŸèƒ½ç±»å‹**
+   - UI ç»˜åˆ¶ â†’ ç›¸åº”çš„ç»˜åˆ¶æ–‡ä»¶
+   - ä¸šåŠ¡é€»è¾‘ â†’ Actions æˆ– Helpers
+   - å·¥å…·æ–¹æ³• â†’ Utilities
 
-2. **ÔÚ¶ÔÓ¦ÎÄ¼şÖĞÌí¼Ó·½·¨**
+2. **åœ¨å¯¹åº”æ–‡ä»¶ä¸­æ·»åŠ æ–¹æ³•**
    ```csharp
    public partial class MainTabWindow_Memory
    {
@@ -153,134 +153,134 @@ Source/Memory/UI/
    }
    ```
 
-3. **Èç¹ûÊÇÈ«ĞÂÄ£¿é£¬´´½¨ĞÂÎÄ¼ş**
-   - ÃüÃû¹æ·¶: `MainTabWindow_Memory_<Ä£¿éÃû>.cs`
-   - Ê¹ÓÃ `public partial class MainTabWindow_Memory`
+3. **å¦‚æœæ˜¯å…¨æ–°æ¨¡å—ï¼Œåˆ›å»ºæ–°æ–‡ä»¶**
+   - å‘½åè§„èŒƒ: `MainTabWindow_Memory_<æ¨¡å—å>.cs`
+   - ä½¿ç”¨ `public partial class MainTabWindow_Memory`
 
 ---
 
-## ?? ¼¼ÊõÏ¸½Ú
+## ?? æŠ€æœ¯ç»†èŠ‚
 
-### Partial Class »úÖÆ
+### Partial Class æœºåˆ¶
 ```csharp
-// ËùÓĞÎÄ¼ş¶¼ÉùÃ÷Îª partial class
+// æ‰€æœ‰æ–‡ä»¶éƒ½å£°æ˜ä¸º partial class
 public partial class MainTabWindow_Memory : MainTabWindow
 {
-    // ±àÒëÆ÷»á×Ô¶¯ºÏ²¢ËùÓĞ partial class µÄ³ÉÔ±
+    // ç¼–è¯‘å™¨ä¼šè‡ªåŠ¨åˆå¹¶æ‰€æœ‰ partial class çš„æˆå‘˜
 }
 ```
 
-### ×Ö¶Î¶¨Òå¹æÔò
-- ? **ËùÓĞ×Ö¶ÎÔÚÖ÷ÎÄ¼şÖĞ¶¨Òå** - È·±£µ¥Ò»À´Ô´
-- ? **ÆäËûÎÄ¼şÖ»°üº¬·½·¨** - ±ÜÃâÖØ¸´¶¨Òå
+### å­—æ®µå®šä¹‰è§„åˆ™
+- ? **æ‰€æœ‰å­—æ®µåœ¨ä¸»æ–‡ä»¶ä¸­å®šä¹‰** - ç¡®ä¿å•ä¸€æ¥æº
+- ? **å…¶ä»–æ–‡ä»¶åªåŒ…å«æ–¹æ³•** - é¿å…é‡å¤å®šä¹‰
 
-### ±àÒë¹ı³Ì
+### ç¼–è¯‘è¿‡ç¨‹
 ```
-±àÒëÊ±£º
-MainTabWindow_Memory.cs        ©´
-MainTabWindow_Memory_TopBar.cs     ©¦
-MainTabWindow_Memory_Controls.cs   ©À©¤¡ú ºÏ²¢Îªµ¥¸öÀà
-MainTabWindow_Memory_Timeline.cs   ©¦
-... (ÆäËûÎÄ¼ş)                  ©¼
+ç¼–è¯‘æ—¶ï¼š
+MainTabWindow_Memory.cs        â”
+MainTabWindow_Memory_TopBar.cs     â”‚
+MainTabWindow_Memory_Controls.cs   â”œâ”€â†’ åˆå¹¶ä¸ºå•ä¸ªç±»
+MainTabWindow_Memory_Timeline.cs   â”‚
+... (å…¶ä»–æ–‡ä»¶)                  â”˜
 
-ÔËĞĞÊ±£º
-ÍêÈ«µÈÍ¬ÓÚÔ­Ê¼µÄµ¥¸öÀàÎÄ¼ş
+è¿è¡Œæ—¶ï¼š
+å®Œå…¨ç­‰åŒäºåŸå§‹çš„å•ä¸ªç±»æ–‡ä»¶
 ```
 
 ---
 
-## ?? Git Ìá½»
+## ?? Git æäº¤
 
-### ÎÄ¼ş±ä¸ü
+### æ–‡ä»¶å˜æ›´
 ```
-M  Source/Memory/UI/MainTabWindow_Memory.cs (ĞŞ¸Ä)
-A  Source/Memory/UI/MainTabWindow_Memory_Actions.cs (ĞÂÔö)
-A  Source/Memory/UI/MainTabWindow_Memory_Controls.cs (ĞÂÔö)
-A  Source/Memory/UI/MainTabWindow_Memory_ImportExport.cs (ĞÂÔö)
-A  Source/Memory/UI/MainTabWindow_Memory_Timeline.cs (ĞÂÔö)
-A  Source/Memory/UI/MainTabWindow_Memory_TopBar.cs (ĞÂÔö)
-A  Source/Memory/UI/MainTabWindow_Memory_Utilities.cs (ĞÂÔö)
-A  Source/Memory/UI/MainTabWindow_Memory_OLD_BACKUP.cs (±¸·İ)
+M  Source/Memory/UI/MainTabWindow_Memory.cs (ä¿®æ”¹)
+A  Source/Memory/UI/MainTabWindow_Memory_Actions.cs (æ–°å¢)
+A  Source/Memory/UI/MainTabWindow_Memory_Controls.cs (æ–°å¢)
+A  Source/Memory/UI/MainTabWindow_Memory_ImportExport.cs (æ–°å¢)
+A  Source/Memory/UI/MainTabWindow_Memory_Timeline.cs (æ–°å¢)
+A  Source/Memory/UI/MainTabWindow_Memory_TopBar.cs (æ–°å¢)
+A  Source/Memory/UI/MainTabWindow_Memory_Utilities.cs (æ–°å¢)
+A  Source/Memory/UI/MainTabWindow_Memory_OLD_BACKUP.cs (å¤‡ä»½)
 ```
 
-### ÍÆ¼öµÄÌá½»ĞÅÏ¢
+### æ¨èçš„æäº¤ä¿¡æ¯
 ```bash
-git add Source/Memory/UI/MainTabWindow_Memory*.cs Docs/²ğ·Ö*.md
-git commit -m "refactor: ²ğ·Ö MainTabWindow_Memory Îª 8 ¸ö partial class ÎÄ¼ş
+git add Source/Memory/UI/MainTabWindow_Memory*.cs Docs/æ‹†åˆ†*.md
+git commit -m "refactor: æ‹†åˆ† MainTabWindow_Memory ä¸º 8 ä¸ª partial class æ–‡ä»¶
 
-- Ö÷ÎÄ¼ş´Ó 1590 ĞĞ¼õÉÙµ½ 130 ĞĞ (¡ı92%)
-- °´¹¦ÄÜÄ£¿é²ğ·ÖÎª 7 ¸ö²¿·ÖÀàÎÄ¼ş
-- Ìá¸ß´úÂë¿ÉÎ¬»¤ĞÔ¡¢¿É¶ÁĞÔºÍ¿ÉÀ©Õ¹ĞÔ
+- ä¸»æ–‡ä»¶ä» 1590 è¡Œå‡å°‘åˆ° 130 è¡Œ (â†“92%)
+- æŒ‰åŠŸèƒ½æ¨¡å—æ‹†åˆ†ä¸º 7 ä¸ªéƒ¨åˆ†ç±»æ–‡ä»¶
+- æé«˜ä»£ç å¯ç»´æŠ¤æ€§ã€å¯è¯»æ€§å’Œå¯æ‰©å±•æ€§
 
-ÎÄ¼şÁĞ±í:
-- TopBar: PawnÑ¡ÔñÆ÷ºÍÍ³¼ÆĞÅÏ¢ (145ĞĞ)
-- Controls: ¹ıÂËÆ÷ºÍÅúÁ¿²Ù×÷°´Å¥ (376ĞĞ)
-- Timeline: Ê±¼äÏßºÍ¼ÇÒä¿¨Æ¬»æÖÆ (440ĞĞ)
-- Actions: ÅúÁ¿²Ù×÷Âß¼­ÊµÏÖ (176ĞĞ)
-- ImportExport: µ¼Èëµ¼³ö¹¦ÄÜ (230ĞĞ)
-- Utilities: ¸¨Öú·½·¨ºÍ¶Ô»°¿ò (210ĞĞ)
-- Helpers: ¼ÇÒä¾ÛºÏºÍ×Ü½áËã·¨ (280ĞĞ)
+æ–‡ä»¶åˆ—è¡¨:
+- TopBar: Pawné€‰æ‹©å™¨å’Œç»Ÿè®¡ä¿¡æ¯ (145è¡Œ)
+- Controls: è¿‡æ»¤å™¨å’Œæ‰¹é‡æ“ä½œæŒ‰é’® (376è¡Œ)
+- Timeline: æ—¶é—´çº¿å’Œè®°å¿†å¡ç‰‡ç»˜åˆ¶ (440è¡Œ)
+- Actions: æ‰¹é‡æ“ä½œé€»è¾‘å®ç° (176è¡Œ)
+- ImportExport: å¯¼å…¥å¯¼å‡ºåŠŸèƒ½ (230è¡Œ)
+- Utilities: è¾…åŠ©æ–¹æ³•å’Œå¯¹è¯æ¡† (210è¡Œ)
+- Helpers: è®°å¿†èšåˆå’Œæ€»ç»“ç®—æ³• (280è¡Œ)
 
-Breaking Changes: ÎŞ (Ïòºó¼æÈİ)
-Refs: #²ğ·ÖÖØ¹¹"
+Breaking Changes: æ—  (å‘åå…¼å®¹)
+Refs: #æ‹†åˆ†é‡æ„"
 ```
 
 ---
 
-## ?? ÒÑÖªÎÊÌâ
+## ?? å·²çŸ¥é—®é¢˜
 
-### ±àÒëÆ÷±ÀÀ£
-**ÎÊÌâ**: `dotnet build` ±¨´í `csc.exe ÒÑÍË³ö£¬´úÂëÎª -1073741819`  
-**Ô­Òò**: .NET SDK 10.0.101 µÄ Roslyn ±àÒëÆ÷ÎÊÌâ  
-**½â¾ö·½°¸**:
-1. Ê¹ÓÃ Visual Studio ±àÒë£¨¸üÎÈ¶¨£©
-2. »ò½µ¼¶µ½ .NET SDK 8.x
-3. »òÇåÀíºóÖØÊÔ: `dotnet clean && dotnet build`
+### ç¼–è¯‘å™¨å´©æºƒ
+**é—®é¢˜**: `dotnet build` æŠ¥é”™ `csc.exe å·²é€€å‡ºï¼Œä»£ç ä¸º -1073741819`  
+**åŸå› **: .NET SDK 10.0.101 çš„ Roslyn ç¼–è¯‘å™¨é—®é¢˜  
+**è§£å†³æ–¹æ¡ˆ**:
+1. ä½¿ç”¨ Visual Studio ç¼–è¯‘ï¼ˆæ›´ç¨³å®šï¼‰
+2. æˆ–é™çº§åˆ° .NET SDK 8.x
+3. æˆ–æ¸…ç†åé‡è¯•: `dotnet clean && dotnet build`
 
-### ÖĞÎÄ×¢ÊÍÏÔÊ¾ÂÒÂë
-**ÎÊÌâ**: ĞÂÖ÷ÎÄ¼şÖĞµÄÖĞÎÄ×¢ÊÍ¿ÉÄÜÏÔÊ¾ÎªÂÒÂë  
-**Ô­Òò**: ÎÄ¼ş±àÂëÎÊÌâ  
-**½â¾ö·½°¸**: ÔÚ Visual Studio ÖĞÖØĞÂ±£´æÎÄ¼ş£¬Ñ¡Ôñ UTF-8 with BOM ±àÂë
-
----
-
-## ?? Ïà¹ØÎÄµµ
-
-1. **²ğ·Ö±¨¸æ**: `Docs/²ğ·Ö_MainTabWindow_Memory.md`
-   - ÏêÏ¸µÄ²ğ·ÖËµÃ÷
-   - ¶Ô±ÈÊı¾İºÍÍ³¼Æ
-   - Ê¹ÓÃ½¨Òé
-
-2. **ÑéÖ¤Çåµ¥**: `Docs/²ğ·Ö_ÑéÖ¤Çåµ¥.md`
-   - ÑéÖ¤²½Öè
-   - ³£¼ûÎÊÌâ½â´ğ
-   - ÇåÀíÖ¸ÄÏ
+### ä¸­æ–‡æ³¨é‡Šæ˜¾ç¤ºä¹±ç 
+**é—®é¢˜**: æ–°ä¸»æ–‡ä»¶ä¸­çš„ä¸­æ–‡æ³¨é‡Šå¯èƒ½æ˜¾ç¤ºä¸ºä¹±ç   
+**åŸå› **: æ–‡ä»¶ç¼–ç é—®é¢˜  
+**è§£å†³æ–¹æ¡ˆ**: åœ¨ Visual Studio ä¸­é‡æ–°ä¿å­˜æ–‡ä»¶ï¼Œé€‰æ‹© UTF-8 with BOM ç¼–ç 
 
 ---
 
-## ?? ×Ü½á
+## ?? ç›¸å…³æ–‡æ¡£
 
-### ³É¾Í½âËø
-- ?? **³¬´óÎÄ¼ş²ğ·Ö×¨¼Ò** - ³É¹¦²ğ·Ö 1590 ĞĞ´úÂë
-- ?? **Ä£¿é»¯´óÊ¦** - ´´½¨ 8 ¸öÖ°ÔğÇåÎúµÄÄ£¿é
-- ?? **ĞÔÄÜÓÅ»¯Õß** - Ö÷ÎÄ¼ş¼õÉÙ 92.3%
-- ?? **ÍÅ¶ÓĞ­×÷ÖúÊÖ** - ¼õÉÙ 98% µÄ´úÂë³åÍ»
+1. **æ‹†åˆ†æŠ¥å‘Š**: `Docs/æ‹†åˆ†_MainTabWindow_Memory.md`
+   - è¯¦ç»†çš„æ‹†åˆ†è¯´æ˜
+   - å¯¹æ¯”æ•°æ®å’Œç»Ÿè®¡
+   - ä½¿ç”¨å»ºè®®
 
-### Êı¾İÁÁµã
-- **92.3%** Ö÷ÎÄ¼ş´óĞ¡¼õÉÙ
-- **8 ¸ö** ¹¦ÄÜÄ£¿é
-- **248 ĞĞ** Æ½¾ùÎÄ¼ş´óĞ¡
-- **100%** Ïòºó¼æÈİ
-
-### ÏÂÒ»²½½¨Òé
-1. ? ´úÂëÒÑ²ğ·ÖÍê³É
-2. ? Ê¹ÓÃ Visual Studio ½øĞĞ±àÒë²âÊÔ
-3. ? ÔÚÓÎÏ·ÖĞ²âÊÔËùÓĞ¹¦ÄÜ
-4. ? Ìá½»µ½ Git ²Ö¿â
+2. **éªŒè¯æ¸…å•**: `Docs/æ‹†åˆ†_éªŒè¯æ¸…å•.md`
+   - éªŒè¯æ­¥éª¤
+   - å¸¸è§é—®é¢˜è§£ç­”
+   - æ¸…ç†æŒ‡å—
 
 ---
 
-**²ğ·ÖÍê³ÉÊ±¼ä**: 2025-12-26  
-**Ö´ĞĞÕß**: GitHub Copilot  
-**×´Ì¬**: ? ³É¹¦Íê³É  
-**ÖÊÁ¿ÆÀ·Ö**: ????? (5/5)
+## ?? æ€»ç»“
+
+### æˆå°±è§£é”
+- ?? **è¶…å¤§æ–‡ä»¶æ‹†åˆ†ä¸“å®¶** - æˆåŠŸæ‹†åˆ† 1590 è¡Œä»£ç 
+- ?? **æ¨¡å—åŒ–å¤§å¸ˆ** - åˆ›å»º 8 ä¸ªèŒè´£æ¸…æ™°çš„æ¨¡å—
+- ?? **æ€§èƒ½ä¼˜åŒ–è€…** - ä¸»æ–‡ä»¶å‡å°‘ 92.3%
+- ?? **å›¢é˜Ÿåä½œåŠ©æ‰‹** - å‡å°‘ 98% çš„ä»£ç å†²çª
+
+### æ•°æ®äº®ç‚¹
+- **92.3%** ä¸»æ–‡ä»¶å¤§å°å‡å°‘
+- **8 ä¸ª** åŠŸèƒ½æ¨¡å—
+- **248 è¡Œ** å¹³å‡æ–‡ä»¶å¤§å°
+- **100%** å‘åå…¼å®¹
+
+### ä¸‹ä¸€æ­¥å»ºè®®
+1. ? ä»£ç å·²æ‹†åˆ†å®Œæˆ
+2. ? ä½¿ç”¨ Visual Studio è¿›è¡Œç¼–è¯‘æµ‹è¯•
+3. ? åœ¨æ¸¸æˆä¸­æµ‹è¯•æ‰€æœ‰åŠŸèƒ½
+4. ? æäº¤åˆ° Git ä»“åº“
+
+---
+
+**æ‹†åˆ†å®Œæˆæ—¶é—´**: 2025-12-26  
+**æ‰§è¡Œè€…**: GitHub Copilot  
+**çŠ¶æ€**: ? æˆåŠŸå®Œæˆ  
+**è´¨é‡è¯„åˆ†**: ????? (5/5)

@@ -1,14 +1,14 @@
-# RimTalk ³£Ê¶¿â¹«¹² API ÎÄµµ
+# RimTalk å¸¸è¯†åº“å…¬å…± API æ–‡æ¡£
 
-## ?? ¸ÅÊö
+## ?? æ¦‚è¿°
 
-`CommonKnowledgeAPI` Ìá¹©ÁËÍêÕûµÄ³£Ê¶¿â²Ù×÷½Ó¿Ú£¬ÔÊĞíÆäËû Mod ÇáËÉ×¢Èë¡¢¸üĞÂºÍ¹ÜÀí³£Ê¶¡£
+`CommonKnowledgeAPI` æä¾›äº†å®Œæ•´çš„å¸¸è¯†åº“æ“ä½œæ¥å£ï¼Œå…è®¸å…¶ä»– Mod è½»æ¾æ³¨å…¥ã€æ›´æ–°å’Œç®¡ç†å¸¸è¯†ã€‚
 
-## ?? ¿ìËÙ¿ªÊ¼
+## ?? å¿«é€Ÿå¼€å§‹
 
-### 1. Ìí¼ÓÒÀÀµ
+### 1. æ·»åŠ ä¾èµ–
 
-ÔÚÄúµÄ Mod µÄ `.csproj` ÎÄ¼şÖĞÌí¼ÓÒıÓÃ£º
+åœ¨æ‚¨çš„ Mod çš„ `.csproj` æ–‡ä»¶ä¸­æ·»åŠ å¼•ç”¨ï¼š
 
 ```xml
 <Reference Include="RimTalkMemoryPatch">
@@ -17,141 +17,141 @@
 </Reference>
 ```
 
-### 2. ÒıÈëÃüÃû¿Õ¼ä
+### 2. å¼•å…¥å‘½åç©ºé—´
 
 ```csharp
 using RimTalk.Memory;
 ```
 
-## ?? API ²Î¿¼
+## ?? API å‚è€ƒ
 
-### Ìí¼Ó³£Ê¶
+### æ·»åŠ å¸¸è¯†
 
-#### ¼òµ¥Ìí¼Ó
+#### ç®€å•æ·»åŠ 
 
 ```csharp
-// Ìí¼ÓÒ»Ìõ¼òµ¥µÄ³£Ê¶
+// æ·»åŠ ä¸€æ¡ç®€å•çš„å¸¸è¯†
 string id = CommonKnowledgeAPI.AddKnowledge(
-    tag: "ÊÀ½ç¹Û,±ßÔµÊÀ½ç",
-    content: "ÕâÊÇÒ»¸ö¿Æ¼¼µ¹ÍËµÄÊ±´ú£¬ÈËÀàÎÄÃ÷É¢ÂäÔÚĞÇÏµ¸÷´¦",
-    importance: 0.7f  // ÖØÒªĞÔ 0-1£¬Ä¬ÈÏ 0.5
+    tag: "ä¸–ç•Œè§‚,è¾¹ç¼˜ä¸–ç•Œ",
+    content: "è¿™æ˜¯ä¸€ä¸ªç§‘æŠ€å€’é€€çš„æ—¶ä»£ï¼Œäººç±»æ–‡æ˜æ•£è½åœ¨æ˜Ÿç³»å„å¤„",
+    importance: 0.7f  // é‡è¦æ€§ 0-1ï¼Œé»˜è®¤ 0.5
 );
 ```
 
-#### ¸ß¼¶Ìí¼Ó
+#### é«˜çº§æ·»åŠ 
 
 ```csharp
-// Ìí¼ÓÒ»Ìõ´øÍêÕû²ÎÊıµÄ³£Ê¶
+// æ·»åŠ ä¸€æ¡å¸¦å®Œæ•´å‚æ•°çš„å¸¸è¯†
 string id = CommonKnowledgeAPI.AddKnowledgeEx(
-    tag: "¹æÔò,¶Ô»°",
-    content: "Äã±ØĞëÓÃÖĞÎÄ»Ø¸´£¬±£³Ö½ÇÉ«°çÑİ",
+    tag: "è§„åˆ™,å¯¹è¯",
+    content: "ä½ å¿…é¡»ç”¨ä¸­æ–‡å›å¤ï¼Œä¿æŒè§’è‰²æ‰®æ¼”",
     importance: 0.9f,
-    matchMode: KeywordMatchMode.All,  // All=ËùÓĞ±êÇ©±ØĞëÆ¥Åä£¬Any=ÈÎÒâÒ»¸ö¼´¿É
-    targetPawnId: -1,  // -1=È«¾Ö£¬ÆäËû=½ö¶ÔÌØ¶¨PawnÓĞĞ§
-    canBeExtracted: true,  // ÊÇ·ñ¿ÉÒÔ±»ÌáÈ¡£¨ÓÃÓÚ³£Ê¶Á´£©
-    canBeMatched: true     // ÊÇ·ñ¿ÉÒÔ±»Æ¥Åä£¨ÓÃÓÚ³£Ê¶Á´£©
+    matchMode: KeywordMatchMode.All,  // All=æ‰€æœ‰æ ‡ç­¾å¿…é¡»åŒ¹é…ï¼ŒAny=ä»»æ„ä¸€ä¸ªå³å¯
+    targetPawnId: -1,  // -1=å…¨å±€ï¼Œå…¶ä»–=ä»…å¯¹ç‰¹å®šPawnæœ‰æ•ˆ
+    canBeExtracted: true,  // æ˜¯å¦å¯ä»¥è¢«æå–ï¼ˆç”¨äºå¸¸è¯†é“¾ï¼‰
+    canBeMatched: true     // æ˜¯å¦å¯ä»¥è¢«åŒ¹é…ï¼ˆç”¨äºå¸¸è¯†é“¾ï¼‰
 );
 ```
 
-#### ÅúÁ¿Ìí¼Ó
+#### æ‰¹é‡æ·»åŠ 
 
 ```csharp
 var knowledgeList = new List<(string tag, string content)>
 {
-    ("ÊÀ½ç¹Û,¿Æ¼¼", "¹âËÙÒıÇæÒÑ¾­Ê§´«"),
-    ("ÊÀ½ç¹Û,Éç»á", "»úĞµÌåºÍÈËÀà¹²´æ"),
-    ("¹æÔò,ÓïÆø", "Ê¹ÓÃÓÄÄ¬µÄÓïÆø")
+    ("ä¸–ç•Œè§‚,ç§‘æŠ€", "å…‰é€Ÿå¼•æ“å·²ç»å¤±ä¼ "),
+    ("ä¸–ç•Œè§‚,ç¤¾ä¼š", "æœºæ¢°ä½“å’Œäººç±»å…±å­˜"),
+    ("è§„åˆ™,è¯­æ°”", "ä½¿ç”¨å¹½é»˜çš„è¯­æ°”")
 };
 
 int count = CommonKnowledgeAPI.AddKnowledgeBatch(knowledgeList, importance: 0.6f);
-Log.Message($"³É¹¦Ìí¼Ó {count} Ìõ³£Ê¶");
+Log.Message($"æˆåŠŸæ·»åŠ  {count} æ¡å¸¸è¯†");
 ```
 
-### ¸üĞÂ³£Ê¶
+### æ›´æ–°å¸¸è¯†
 
 ```csharp
-// ¸üĞÂÄÚÈİ
-bool success = CommonKnowledgeAPI.UpdateKnowledge(id, "ĞÂµÄÄÚÈİ");
+// æ›´æ–°å†…å®¹
+bool success = CommonKnowledgeAPI.UpdateKnowledge(id, "æ–°çš„å†…å®¹");
 
-// ¸üĞÂ±êÇ©
-bool success = CommonKnowledgeAPI.UpdateKnowledgeTag(id, "ĞÂ±êÇ©");
+// æ›´æ–°æ ‡ç­¾
+bool success = CommonKnowledgeAPI.UpdateKnowledgeTag(id, "æ–°æ ‡ç­¾");
 
-// ¸üĞÂÖØÒªĞÔ
+// æ›´æ–°é‡è¦æ€§
 bool success = CommonKnowledgeAPI.UpdateKnowledgeImportance(id, 0.8f);
 
-// ÆôÓÃ/½ûÓÃ
+// å¯ç”¨/ç¦ç”¨
 bool success = CommonKnowledgeAPI.SetKnowledgeEnabled(id, false);
 ```
 
-### ²éÑ¯³£Ê¶
+### æŸ¥è¯¢å¸¸è¯†
 
 ```csharp
-// ¸ù¾İID²éÕÒ
+// æ ¹æ®IDæŸ¥æ‰¾
 CommonKnowledgeEntry entry = CommonKnowledgeAPI.FindKnowledgeById("ck-abc123");
 
-// ¸ù¾İ±êÇ©²éÕÒ£¨Ö§³Ö²¿·ÖÆ¥Åä£©
-List<CommonKnowledgeEntry> entries = CommonKnowledgeAPI.FindKnowledge("ÊÀ½ç¹Û");
+// æ ¹æ®æ ‡ç­¾æŸ¥æ‰¾ï¼ˆæ”¯æŒéƒ¨åˆ†åŒ¹é…ï¼‰
+List<CommonKnowledgeEntry> entries = CommonKnowledgeAPI.FindKnowledge("ä¸–ç•Œè§‚");
 
-// ¸ù¾İÄÚÈİ²éÕÒ
-List<CommonKnowledgeEntry> entries = CommonKnowledgeAPI.FindKnowledgeByContent("¹âËÙ");
+// æ ¹æ®å†…å®¹æŸ¥æ‰¾
+List<CommonKnowledgeEntry> entries = CommonKnowledgeAPI.FindKnowledgeByContent("å…‰é€Ÿ");
 
-// »ñÈ¡ËùÓĞ³£Ê¶
+// è·å–æ‰€æœ‰å¸¸è¯†
 List<CommonKnowledgeEntry> allEntries = CommonKnowledgeAPI.GetAllKnowledge();
 
-// »ñÈ¡³£Ê¶ÊıÁ¿
+// è·å–å¸¸è¯†æ•°é‡
 int count = CommonKnowledgeAPI.GetKnowledgeCount();
 ```
 
-### É¾³ı³£Ê¶
+### åˆ é™¤å¸¸è¯†
 
 ```csharp
-// ¸ù¾İIDÉ¾³ı
+// æ ¹æ®IDåˆ é™¤
 bool success = CommonKnowledgeAPI.RemoveKnowledge(id);
 
-// ¸ù¾İ±êÇ©É¾³ıËùÓĞÆ¥ÅäµÄ
-int count = CommonKnowledgeAPI.RemoveKnowledgeByTag("¾É±êÇ©");
+// æ ¹æ®æ ‡ç­¾åˆ é™¤æ‰€æœ‰åŒ¹é…çš„
+int count = CommonKnowledgeAPI.RemoveKnowledgeByTag("æ—§æ ‡ç­¾");
 
-// Çå¿ÕËùÓĞ³£Ê¶£¨Î£ÏÕ²Ù×÷£¡£©
+// æ¸…ç©ºæ‰€æœ‰å¸¸è¯†ï¼ˆå±é™©æ“ä½œï¼ï¼‰
 bool success = CommonKnowledgeAPI.ClearAllKnowledge();
 ```
 
-### µ¼Èë/µ¼³ö
+### å¯¼å…¥/å¯¼å‡º
 
 ```csharp
-// µ¼³öÎªÎÄ±¾
+// å¯¼å‡ºä¸ºæ–‡æœ¬
 string text = CommonKnowledgeAPI.ExportToText();
 
-// ´ÓÎÄ±¾µ¼Èë
+// ä»æ–‡æœ¬å¯¼å…¥
 int count = CommonKnowledgeAPI.ImportFromText(text, clearExisting: false);
 ```
 
-### Í³¼ÆĞÅÏ¢
+### ç»Ÿè®¡ä¿¡æ¯
 
 ```csharp
 KnowledgeStats stats = CommonKnowledgeAPI.GetStats();
-Log.Message($"×ÜÊı: {stats.TotalCount}");
-Log.Message($"ÆôÓÃ: {stats.EnabledCount}");
-Log.Message($"½ûÓÃ: {stats.DisabledCount}");
-Log.Message($"ÓÃ»§±à¼­: {stats.UserEditedCount}");
-Log.Message($"È«¾Ö³£Ê¶: {stats.GlobalCount}");
-Log.Message($"Pawn×¨Êô: {stats.PawnSpecificCount}");
+Log.Message($"æ€»æ•°: {stats.TotalCount}");
+Log.Message($"å¯ç”¨: {stats.EnabledCount}");
+Log.Message($"ç¦ç”¨: {stats.DisabledCount}");
+Log.Message($"ç”¨æˆ·ç¼–è¾‘: {stats.UserEditedCount}");
+Log.Message($"å…¨å±€å¸¸è¯†: {stats.GlobalCount}");
+Log.Message($"Pawnä¸“å±: {stats.PawnSpecificCount}");
 ```
 
-## ?? Ê¹ÓÃ³¡¾°
+## ?? ä½¿ç”¨åœºæ™¯
 
-### ³¡¾°1: Ìí¼Ó Mod ×¨Êô¹æÔò
+### åœºæ™¯1: æ·»åŠ  Mod ä¸“å±è§„åˆ™
 
 ```csharp
 public class MyModInitializer : Mod
 {
     public MyModInitializer(ModContentPack content) : base(content)
     {
-        // ÔÚ Mod ¼ÓÔØÊ±Ìí¼Ó¹æÔò
+        // åœ¨ Mod åŠ è½½æ—¶æ·»åŠ è§„åˆ™
         LongEventHandler.QueueLongEvent(() =>
         {
             CommonKnowledgeAPI.AddKnowledge(
-                tag: "¹æÔò,MyMod",
-                content: "ÄãÊÇÒ»¸öÄ§·¨ÊÀ½çµÄ½ÇÉ«£¬¿ÉÒÔÊ¹ÓÃÄ§·¨¼¼ÄÜ",
+                tag: "è§„åˆ™,MyMod",
+                content: "ä½ æ˜¯ä¸€ä¸ªé­”æ³•ä¸–ç•Œçš„è§’è‰²ï¼Œå¯ä»¥ä½¿ç”¨é­”æ³•æŠ€èƒ½",
                 importance: 0.9f
             );
         }, "InitializingMyMod", false, null);
@@ -159,7 +159,7 @@ public class MyModInitializer : Mod
 }
 ```
 
-### ³¡¾°2: ¶¯Ì¬¸üĞÂÊÂ¼ş
+### åœºæ™¯2: åŠ¨æ€æ›´æ–°äº‹ä»¶
 
 ```csharp
 public class MyEventHandler
@@ -168,17 +168,17 @@ public class MyEventHandler
 
     public void OnEventStart()
     {
-        // ÊÂ¼ş¿ªÊ¼Ê±Ìí¼Ó³£Ê¶
+        // äº‹ä»¶å¼€å§‹æ—¶æ·»åŠ å¸¸è¯†
         knowledgeId = CommonKnowledgeAPI.AddKnowledge(
-            tag: "ÊÂ¼ş,»îÔ¾,MyEvent",
-            content: "µ±Ç°ÕıÔÚ½øĞĞÄ§·¨ÒÇÊ½£¬ĞèÒª±£³Ö°²¾²",
+            tag: "äº‹ä»¶,æ´»è·ƒ,MyEvent",
+            content: "å½“å‰æ­£åœ¨è¿›è¡Œé­”æ³•ä»ªå¼ï¼Œéœ€è¦ä¿æŒå®‰é™",
             importance: 0.8f
         );
     }
 
     public void OnEventEnd()
     {
-        // ÊÂ¼ş½áÊøÊ±É¾³ı³£Ê¶
+        // äº‹ä»¶ç»“æŸæ—¶åˆ é™¤å¸¸è¯†
         if (!string.IsNullOrEmpty(knowledgeId))
         {
             CommonKnowledgeAPI.RemoveKnowledge(knowledgeId);
@@ -187,129 +187,129 @@ public class MyEventHandler
 }
 ```
 
-### ³¡¾°3: Pawn ×¨Êô³£Ê¶
+### åœºæ™¯3: Pawn ä¸“å±å¸¸è¯†
 
 ```csharp
 public void AddPawnSpecificKnowledge(Pawn pawn)
 {
-    // ÎªÌØ¶¨ Pawn Ìí¼Ó×¨Êô³£Ê¶
+    // ä¸ºç‰¹å®š Pawn æ·»åŠ ä¸“å±å¸¸è¯†
     CommonKnowledgeAPI.AddKnowledgeEx(
-        tag: $"½ÇÉ«±³¾°,{pawn.Name.ToStringShort}",
-        content: $"{pawn.Name.ToStringShort} Ôø¾­ÊÇÒ»Ãû´«Ææ·¨Ê¦",
+        tag: $"è§’è‰²èƒŒæ™¯,{pawn.Name.ToStringShort}",
+        content: $"{pawn.Name.ToStringShort} æ›¾ç»æ˜¯ä¸€åä¼ å¥‡æ³•å¸ˆ",
         importance: 0.7f,
-        targetPawnId: pawn.thingIDNumber  // Ö»¶ÔÕâ¸ö Pawn ÓĞĞ§
+        targetPawnId: pawn.thingIDNumber  // åªå¯¹è¿™ä¸ª Pawn æœ‰æ•ˆ
     );
 }
 ```
 
-### ³¡¾°4: ÅúÁ¿¹ÜÀí
+### åœºæ™¯4: æ‰¹é‡ç®¡ç†
 
 ```csharp
 public void InitializeQuestKnowledge()
 {
-    // ²éÕÒ²¢É¾³ı¾ÉµÄÈÎÎñ³£Ê¶
-    int removed = CommonKnowledgeAPI.RemoveKnowledgeByTag("ÈÎÎñ,¾É");
+    // æŸ¥æ‰¾å¹¶åˆ é™¤æ—§çš„ä»»åŠ¡å¸¸è¯†
+    int removed = CommonKnowledgeAPI.RemoveKnowledgeByTag("ä»»åŠ¡,æ—§");
     
-    // Ìí¼ÓĞÂµÄÈÎÎñ³£Ê¶
+    // æ·»åŠ æ–°çš„ä»»åŠ¡å¸¸è¯†
     var questKnowledge = new List<(string, string)>
     {
-        ("ÈÎÎñ,»îÔ¾", "ĞèÒªÊÕ¼¯10¸öÄ§·¨Ë®¾§"),
-        ("ÈÎÎñ,»îÔ¾", "±ÜÃâÔÚÒ¹ÍíÍâ³ö"),
-        ("ÈÎÎñ,»îÔ¾", "±£»¤´å×¯ÃâÊÜ¹ÖÎï¹¥»÷")
+        ("ä»»åŠ¡,æ´»è·ƒ", "éœ€è¦æ”¶é›†10ä¸ªé­”æ³•æ°´æ™¶"),
+        ("ä»»åŠ¡,æ´»è·ƒ", "é¿å…åœ¨å¤œæ™šå¤–å‡º"),
+        ("ä»»åŠ¡,æ´»è·ƒ", "ä¿æŠ¤æ‘åº„å…å—æ€ªç‰©æ”»å‡»")
     };
     
     int added = CommonKnowledgeAPI.AddKnowledgeBatch(questKnowledge, 0.8f);
-    Log.Message($"ÈÎÎñ³£Ê¶ÒÑ¸üĞÂ: É¾³ı {removed} Ìõ£¬Ìí¼Ó {added} Ìõ");
+    Log.Message($"ä»»åŠ¡å¸¸è¯†å·²æ›´æ–°: åˆ é™¤ {removed} æ¡ï¼Œæ·»åŠ  {added} æ¡");
 }
 ```
 
-## ?? ×¢ÒâÊÂÏî
+## ?? æ³¨æ„äº‹é¡¹
 
-### 1. ĞÔÄÜ¿¼ÂÇ
+### 1. æ€§èƒ½è€ƒè™‘
 
-- ±ÜÃâÔÚÃ¿Ò»Ö¡µ÷ÓÃ²éÑ¯²Ù×÷
-- ÅúÁ¿²Ù×÷ÓÅÓÚµ¥Ìõ²Ù×÷
-- »º´æ²éÑ¯½á¹û
+- é¿å…åœ¨æ¯ä¸€å¸§è°ƒç”¨æŸ¥è¯¢æ“ä½œ
+- æ‰¹é‡æ“ä½œä¼˜äºå•æ¡æ“ä½œ
+- ç¼“å­˜æŸ¥è¯¢ç»“æœ
 
 ```csharp
-// ? ²»ºÃµÄ×ö·¨
+// ? ä¸å¥½çš„åšæ³•
 public override void Tick()
 {
-    var entries = CommonKnowledgeAPI.FindKnowledge("ÊÀ½ç¹Û"); // Ã¿Ö¡²éÑ¯
+    var entries = CommonKnowledgeAPI.FindKnowledge("ä¸–ç•Œè§‚"); // æ¯å¸§æŸ¥è¯¢
 }
 
-// ? ºÃµÄ×ö·¨
+// ? å¥½çš„åšæ³•
 private List<CommonKnowledgeEntry> cachedEntries;
 private int lastUpdateTick = 0;
 
 public override void Tick()
 {
-    if (Find.TickManager.TicksGame - lastUpdateTick > 2500) // Ã¿Ğ¡Ê±¸üĞÂÒ»´Î
+    if (Find.TickManager.TicksGame - lastUpdateTick > 2500) // æ¯å°æ—¶æ›´æ–°ä¸€æ¬¡
     {
-        cachedEntries = CommonKnowledgeAPI.FindKnowledge("ÊÀ½ç¹Û");
+        cachedEntries = CommonKnowledgeAPI.FindKnowledge("ä¸–ç•Œè§‚");
         lastUpdateTick = Find.TickManager.TicksGame;
     }
 }
 ```
 
-### 2. ±êÇ©ÃüÃû½¨Òé
+### 2. æ ‡ç­¾å‘½åå»ºè®®
 
-**ÍÆ¼ö¸ñÊ½**£¨Ê¹ÓÃ¶ººÅ·Ö¸ô£©£º
-- ? `"¹æÔò,¶Ô»°"` - ÇåÎú¼ò½à
-- ? `"ÊÀ½ç¹Û,¿Æ¼¼,¹âËÙ"` - ¶à±êÇ©
-- ? `"MyMod,¹æÔò,Ä§·¨"` - ´øÃüÃû¿Õ¼ä
+**æ¨èæ ¼å¼**ï¼ˆä½¿ç”¨é€—å·åˆ†éš”ï¼‰ï¼š
+- ? `"è§„åˆ™,å¯¹è¯"` - æ¸…æ™°ç®€æ´
+- ? `"ä¸–ç•Œè§‚,ç§‘æŠ€,å…‰é€Ÿ"` - å¤šæ ‡ç­¾
+- ? `"MyMod,è§„åˆ™,é­”æ³•"` - å¸¦å‘½åç©ºé—´
 
-**±ÜÃâÊ¹ÓÃµÄ¸ñÊ½**£º
-- ? `"¹æÔò-ÊÀ½ç¹Û"` - ËäÈ»Ö§³Ö£¬µ«²»ÍÆ¼ö
-- ? `"rule1"` - ÎŞÒâÒåµÄ±êÇ©Ãû
+**é¿å…ä½¿ç”¨çš„æ ¼å¼**ï¼š
+- ? `"è§„åˆ™-ä¸–ç•Œè§‚"` - è™½ç„¶æ”¯æŒï¼Œä½†ä¸æ¨è
+- ? `"rule1"` - æ— æ„ä¹‰çš„æ ‡ç­¾å
 
-**±êÇ©ÃüÃûÔ­Ôò**£º
-1. **Ê¹ÓÃÓĞÒâÒåµÄ±êÇ©** - ±ãÓÚÀí½âºÍËÑË÷
-2. **Ê¹ÓÃ¶ººÅ·Ö¸ô** - ±ê×¼·Ö¸ô·û£¬ÇåÎúÃ÷ÁË
-3. **Ìí¼ÓÃüÃû¿Õ¼ä** - ±ÜÃâÓëÆäËûMod³åÍ»£¨Èç `"MyMod,¹æÔò"`£©
-4. **±£³Ö¼ò¶Ì** - ±êÇ©²»ÒË¹ı³¤
+**æ ‡ç­¾å‘½ååŸåˆ™**ï¼š
+1. **ä½¿ç”¨æœ‰æ„ä¹‰çš„æ ‡ç­¾** - ä¾¿äºç†è§£å’Œæœç´¢
+2. **ä½¿ç”¨é€—å·åˆ†éš”** - æ ‡å‡†åˆ†éš”ç¬¦ï¼Œæ¸…æ™°æ˜äº†
+3. **æ·»åŠ å‘½åç©ºé—´** - é¿å…ä¸å…¶ä»–Modå†²çªï¼ˆå¦‚ `"MyMod,è§„åˆ™"`ï¼‰
+4. **ä¿æŒç®€çŸ­** - æ ‡ç­¾ä¸å®œè¿‡é•¿
 
-**·ÖÀà±êÇ©½¨Òé**£º
-| ÓÃÍ¾ | ÍÆ¼ö¸ñÊ½ | Ê¾Àı |
+**åˆ†ç±»æ ‡ç­¾å»ºè®®**ï¼š
+| ç”¨é€” | æ¨èæ ¼å¼ | ç¤ºä¾‹ |
 |------|----------|------|
-| **¹æÔò** | `¹æÔò,×Ó·ÖÀà` | `¹æÔò,¶Ô»°` `¹æÔò,ĞĞÎª` |
-| **ÊÀ½ç¹Û** | `ÊÀ½ç¹Û,·½Ãæ` | `ÊÀ½ç¹Û,¿Æ¼¼` `ÊÀ½ç¹Û,ÀúÊ·` |
-| **½ÇÉ«** | `½ÇÉ«±³¾°,Ãû×Ö` | `½ÇÉ«±³¾°,ÕÅÈı` |
-| **ÊÂ¼ş** | `ÊÂ¼ş,»îÔ¾` »ò `ÊÂ¼ş,ÀúÊ·` | `ÊÂ¼ş,»îÔ¾,Ï®»÷` |
-| **×´Ì¬** | `×´Ì¬,·ÖÀà` | `×´Ì¬,½¡¿µ` `×´Ì¬,ÇéĞ÷` |
+| **è§„åˆ™** | `è§„åˆ™,å­åˆ†ç±»` | `è§„åˆ™,å¯¹è¯` `è§„åˆ™,è¡Œä¸º` |
+| **ä¸–ç•Œè§‚** | `ä¸–ç•Œè§‚,æ–¹é¢` | `ä¸–ç•Œè§‚,ç§‘æŠ€` `ä¸–ç•Œè§‚,å†å²` |
+| **è§’è‰²** | `è§’è‰²èƒŒæ™¯,åå­—` | `è§’è‰²èƒŒæ™¯,å¼ ä¸‰` |
+| **äº‹ä»¶** | `äº‹ä»¶,æ´»è·ƒ` æˆ– `äº‹ä»¶,å†å²` | `äº‹ä»¶,æ´»è·ƒ,è¢­å‡»` |
+| **çŠ¶æ€** | `çŠ¶æ€,åˆ†ç±»` | `çŠ¶æ€,å¥åº·` `çŠ¶æ€,æƒ…ç»ª` |
 
-### 3. ÖØÒªĞÔÉèÖÃ
+### 3. é‡è¦æ€§è®¾ç½®
 
-| ÖØÒªĞÔ | ËµÃ÷ | Ê¾Àı |
+| é‡è¦æ€§ | è¯´æ˜ | ç¤ºä¾‹ |
 |--------|------|------|
-| 0.9-1.0 | ºËĞÄ¹æÔò£¬±ØĞë×ñÊØ | ÓÎÏ·¹æÔò¡¢½ÇÉ«°çÑİÒªÇó |
-| 0.7-0.8 | ÖØÒªĞÅÏ¢ | ÊÀ½ç¹ÛÉè¶¨¡¢»îÔ¾ÊÂ¼ş |
-| 0.5-0.6 | Ò»°ãĞÅÏ¢ | ±³¾°¹ÊÊÂ¡¢²Î¿¼×ÊÁÏ |
-| 0.3-0.4 | ¿ÉÑ¡ĞÅÏ¢ | Ï¸½ÚÃèÊö¡¢²Êµ° |
-| 0.1-0.2 | µÍÓÅÏÈ¼¶ | ²»ÖØÒªµÄÌáÊ¾ |
+| 0.9-1.0 | æ ¸å¿ƒè§„åˆ™ï¼Œå¿…é¡»éµå®ˆ | æ¸¸æˆè§„åˆ™ã€è§’è‰²æ‰®æ¼”è¦æ±‚ |
+| 0.7-0.8 | é‡è¦ä¿¡æ¯ | ä¸–ç•Œè§‚è®¾å®šã€æ´»è·ƒäº‹ä»¶ |
+| 0.5-0.6 | ä¸€èˆ¬ä¿¡æ¯ | èƒŒæ™¯æ•…äº‹ã€å‚è€ƒèµ„æ–™ |
+| 0.3-0.4 | å¯é€‰ä¿¡æ¯ | ç»†èŠ‚æè¿°ã€å½©è›‹ |
+| 0.1-0.2 | ä½ä¼˜å…ˆçº§ | ä¸é‡è¦çš„æç¤º |
 
-### 4. ³£Ê¶Á´¹¦ÄÜ
+### 4. å¸¸è¯†é“¾åŠŸèƒ½
 
-Èç¹ûÄúÏëÈÃ³£Ê¶Ö§³ÖÁ´Ê½Æ¥Åä£¨Ò»Ìõ³£Ê¶´¥·¢ÁíÒ»Ìõ³£Ê¶£©£º
+å¦‚æœæ‚¨æƒ³è®©å¸¸è¯†æ”¯æŒé“¾å¼åŒ¹é…ï¼ˆä¸€æ¡å¸¸è¯†è§¦å‘å¦ä¸€æ¡å¸¸è¯†ï¼‰ï¼š
 
 ```csharp
 CommonKnowledgeAPI.AddKnowledgeEx(
-    tag: "Ä§·¨,»ğÏµ",
-    content: "»ğÏµÄ§·¨ÍşÁ¦Ç¿´óµ«ÈİÒ×Ê§¿Ø",
+    tag: "é­”æ³•,ç«ç³»",
+    content: "ç«ç³»é­”æ³•å¨åŠ›å¼ºå¤§ä½†å®¹æ˜“å¤±æ§",
     importance: 0.7f,
-    canBeExtracted: true,  // ? ÔÊĞíÌáÈ¡£ºÕâÌõ³£Ê¶µÄÄÚÈİ¿ÉÒÔÓÃÓÚ´¥·¢ÆäËû³£Ê¶
-    canBeMatched: true     // ? ÔÊĞíÆ¥Åä£ºÆäËû³£Ê¶µÄÄÚÈİ¿ÉÒÔ´¥·¢ÕâÌõ³£Ê¶
+    canBeExtracted: true,  // ? å…è®¸æå–ï¼šè¿™æ¡å¸¸è¯†çš„å†…å®¹å¯ä»¥ç”¨äºè§¦å‘å…¶ä»–å¸¸è¯†
+    canBeMatched: true     // ? å…è®¸åŒ¹é…ï¼šå…¶ä»–å¸¸è¯†çš„å†…å®¹å¯ä»¥è§¦å‘è¿™æ¡å¸¸è¯†
 );
 ```
 
-## ?? ¹ÊÕÏÅÅ³ı
+## ?? æ•…éšœæ’é™¤
 
-### 1. ³£Ê¶Î´ÉúĞ§
+### 1. å¸¸è¯†æœªç”Ÿæ•ˆ
 
-¼ì²é£º
-- ³£Ê¶ÊÇ·ñÆôÓÃ£¨`isEnabled = true`£©
-- ±êÇ©ÊÇ·ñÕıÈ·Æ¥Åä
-- ÖØÒªĞÔÊÇ·ñ¹ıµÍ
+æ£€æŸ¥ï¼š
+- å¸¸è¯†æ˜¯å¦å¯ç”¨ï¼ˆ`isEnabled = true`ï¼‰
+- æ ‡ç­¾æ˜¯å¦æ­£ç¡®åŒ¹é…
+- é‡è¦æ€§æ˜¯å¦è¿‡ä½
 
 ```csharp
 var entry = CommonKnowledgeAPI.FindKnowledgeById(id);
@@ -321,10 +321,10 @@ if (entry != null)
 }
 ```
 
-### 2. ÕÒ²»µ½³£Ê¶
+### 2. æ‰¾ä¸åˆ°å¸¸è¯†
 
 ```csharp
-// ¼ì²é³£Ê¶ÊÇ·ñ´æÔÚ
+// æ£€æŸ¥å¸¸è¯†æ˜¯å¦å­˜åœ¨
 bool exists = CommonKnowledgeAPI.ExistsKnowledge(id);
 if (!exists)
 {
@@ -332,24 +332,24 @@ if (!exists)
 }
 ```
 
-### 3. API ·µ»Ø null
+### 3. API è¿”å› null
 
 ```csharp
-// ¼ì²éÓÎÏ·×´Ì¬
+// æ£€æŸ¥æ¸¸æˆçŠ¶æ€
 if (Current.Game == null)
 {
     Log.Warning("Game not loaded yet!");
     return;
 }
 
-// È·±£ÔÚÖ÷Ïß³Ìµ÷ÓÃ
+// ç¡®ä¿åœ¨ä¸»çº¿ç¨‹è°ƒç”¨
 LongEventHandler.QueueLongEvent(() =>
 {
     var id = CommonKnowledgeAPI.AddKnowledge("test", "test content");
 }, "AddingKnowledge", false, null);
 ```
 
-## ?? ÍêÕûÊ¾Àı
+## ?? å®Œæ•´ç¤ºä¾‹
 
 ```csharp
 using RimTalk.Memory;
@@ -363,35 +363,35 @@ namespace MyMod
 
         public void Initialize()
         {
-            // Ìí¼Ó»ù´¡¹æÔò
+            // æ·»åŠ åŸºç¡€è§„åˆ™
             string ruleId = CommonKnowledgeAPI.AddKnowledgeEx(
-                tag: "¹æÔò,MyMod",
-                content: "ÄãÊÇÒ»¸öÄ§·¨ÊÀ½çµÄ½ÇÉ«",
+                tag: "è§„åˆ™,MyMod",
+                content: "ä½ æ˜¯ä¸€ä¸ªé­”æ³•ä¸–ç•Œçš„è§’è‰²",
                 importance: 0.9f,
                 canBeExtracted: false,
                 canBeMatched: false
             );
             knowledgeIds["rule"] = ruleId;
 
-            // Ìí¼ÓÊÀ½ç¹Û
+            // æ·»åŠ ä¸–ç•Œè§‚
             var worldKnowledge = new List<(string, string)>
             {
-                ("ÊÀ½ç¹Û,Ä§·¨", "Ä§·¨ÄÜÁ¿À´×ÔÔÂ¹â"),
-                ("ÊÀ½ç¹Û,ÖÖ×å", "¾«Áé×åÉÃ³¤ÖÎÁÆÄ§·¨"),
-                ("ÊÀ½ç¹Û,ÀúÊ·", "¹Å´úÎÄÃ÷ÒÑ¾­ÏûÊ§")
+                ("ä¸–ç•Œè§‚,é­”æ³•", "é­”æ³•èƒ½é‡æ¥è‡ªæœˆå…‰"),
+                ("ä¸–ç•Œè§‚,ç§æ—", "ç²¾çµæ—æ“…é•¿æ²»ç–—é­”æ³•"),
+                ("ä¸–ç•Œè§‚,å†å²", "å¤ä»£æ–‡æ˜å·²ç»æ¶ˆå¤±")
             };
             CommonKnowledgeAPI.AddKnowledgeBatch(worldKnowledge, 0.7f);
 
-            // Êä³öÍ³¼Æ
+            // è¾“å‡ºç»Ÿè®¡
             var stats = CommonKnowledgeAPI.GetStats();
             Log.Message($"[MyMod] Initialized {stats.TotalCount} knowledge entries");
         }
 
         public void OnEventStart(string eventName, string description)
         {
-            // Ìí¼ÓÊÂ¼ş³£Ê¶
+            // æ·»åŠ äº‹ä»¶å¸¸è¯†
             string eventId = CommonKnowledgeAPI.AddKnowledge(
-                tag: $"ÊÂ¼ş,»îÔ¾,{eventName}",
+                tag: $"äº‹ä»¶,æ´»è·ƒ,{eventName}",
                 content: description,
                 importance: 0.8f
             );
@@ -400,7 +400,7 @@ namespace MyMod
 
         public void OnEventEnd(string eventName)
         {
-            // É¾³ıÊÂ¼ş³£Ê¶
+            // åˆ é™¤äº‹ä»¶å¸¸è¯†
             if (knowledgeIds.TryGetValue(eventName, out string eventId))
             {
                 CommonKnowledgeAPI.RemoveKnowledge(eventId);
@@ -410,7 +410,7 @@ namespace MyMod
 
         public void Cleanup()
         {
-            // ÇåÀíËùÓĞ MyMod Ïà¹ØµÄ³£Ê¶
+            // æ¸…ç†æ‰€æœ‰ MyMod ç›¸å…³çš„å¸¸è¯†
             int removed = CommonKnowledgeAPI.RemoveKnowledgeByTag("MyMod");
             Log.Message($"[MyMod] Removed {removed} knowledge entries");
         }
@@ -418,65 +418,65 @@ namespace MyMod
 }
 ```
 
-## ?? Ïà¹ØÁ´½Ó
+## ?? ç›¸å…³é“¾æ¥
 
 - [RimTalk GitHub](https://github.com/sanguodxj-byte/RimTalk-ExpandMemory)
-- [³£Ê¶¿â·ÖÀàËµÃ÷](#³£Ê¶¿â·ÖÀàÏµÍ³)
-- [API ¸üĞÂÈÕÖ¾](../CHANGELOG.md)
+- [å¸¸è¯†åº“åˆ†ç±»è¯´æ˜](#å¸¸è¯†åº“åˆ†ç±»ç³»ç»Ÿ)
+- [API æ›´æ–°æ—¥å¿—](../CHANGELOG.md)
 
-## ?? ³£Ê¶¿â·ÖÀàÏµÍ³
+## ?? å¸¸è¯†åº“åˆ†ç±»ç³»ç»Ÿ
 
-### ×Ô¶¯·ÖÀà¹æÔò
+### è‡ªåŠ¨åˆ†ç±»è§„åˆ™
 
-³£Ê¶¿â»á¸ù¾İ±êÇ©×Ô¶¯¹éÀàµ½²»Í¬µÄ·ÖÒ³ÖĞ£¬Ö»Òª±êÇ©ÖĞ**°üº¬**·ÖÀà±êÇ©¼´¿É£º
+å¸¸è¯†åº“ä¼šæ ¹æ®æ ‡ç­¾è‡ªåŠ¨å½’ç±»åˆ°ä¸åŒçš„åˆ†é¡µä¸­ï¼Œåªè¦æ ‡ç­¾ä¸­**åŒ…å«**åˆ†ç±»æ ‡ç­¾å³å¯ï¼š
 
-| ·ÖÀà | Æ¥Åä±êÇ© | ÓÅÏÈ¼¶ |
+| åˆ†ç±» | åŒ¹é…æ ‡ç­¾ | ä¼˜å…ˆçº§ |
 |------|----------|--------|
-| **¹æÔò/Ö¸Áî** | `¹æÔò` `instructions` `instruction` `rule` | 1£¨×î¸ß£©|
-| **Ö³ÃñÕß×´Ì¬** | `Ö³ÃñÕß×´Ì¬` `pawnstatus` `colonist` `×´Ì¬` | 2 |
-| **ÀúÊ·** | `ÀúÊ·` `history` `past` `¼ÇÂ¼` | 3 |
-| **ÊÀ½ç¹Û** | `ÊÀ½ç¹Û` `lore` `background` `±³¾°` `Éè¶¨` | 4 |
-| **ÆäËû** | ²»°üº¬ÉÏÊö±êÇ© | 5£¨Ä¬ÈÏ£©|
+| **è§„åˆ™/æŒ‡ä»¤** | `è§„åˆ™` `instructions` `instruction` `rule` | 1ï¼ˆæœ€é«˜ï¼‰|
+| **æ®–æ°‘è€…çŠ¶æ€** | `æ®–æ°‘è€…çŠ¶æ€` `pawnstatus` `colonist` `çŠ¶æ€` | 2 |
+| **å†å²** | `å†å²` `history` `past` `è®°å½•` | 3 |
+| **ä¸–ç•Œè§‚** | `ä¸–ç•Œè§‚` `lore` `background` `èƒŒæ™¯` `è®¾å®š` | 4 |
+| **å…¶ä»–** | ä¸åŒ…å«ä¸Šè¿°æ ‡ç­¾ | 5ï¼ˆé»˜è®¤ï¼‰|
 
-### ·ÖÀàÊ¾Àı
+### åˆ†ç±»ç¤ºä¾‹
 
-ÒÔÏÂ±êÇ©¶¼»áÕıÈ·¹éÀà£º
-
-```csharp
-// ¹æÔòÀà£¨ÓÅÏÈ¼¶×î¸ß£©
-"¹æÔò"              ¡ú ¹æÔò·ÖÀà
-"¹æÔò,¶Ô»°"         ¡ú ¹æÔò·ÖÀà
-"³£Ê¶¹æÔò"          ¡ú ¹æÔò·ÖÀà£¨°üº¬"¹æÔò"£©
-"Instructions"      ¡ú ¹æÔò·ÖÀà
-
-// ÊÀ½ç¹ÛÀà
-"ÊÀ½ç¹Û"            ¡ú ÊÀ½ç¹Û·ÖÀà
-"ÊÀ½ç¹Û,¿Æ¼¼"       ¡ú ÊÀ½ç¹Û·ÖÀà
-"±³¾°Éè¶¨"          ¡ú ÊÀ½ç¹Û·ÖÀà£¨°üº¬"±³¾°"£©
-
-// ×´Ì¬Àà
-"Ö³ÃñÕß×´Ì¬"        ¡ú ×´Ì¬·ÖÀà
-"×´Ì¬,½¡¿µ"         ¡ú ×´Ì¬·ÖÀà
-"PawnStatus"        ¡ú ×´Ì¬·ÖÀà
-
-// ÀúÊ·Àà
-"ÀúÊ·"              ¡ú ÀúÊ··ÖÀà
-"ÀúÊ·¼ÇÂ¼"          ¡ú ÀúÊ··ÖÀà
-"History"           ¡ú ÀúÊ··ÖÀà
-```
-
-### ÓÅÏÈ¼¶ËµÃ÷
-
-µ±Ò»¸ö±êÇ©Í¬Ê±°üº¬¶à¸ö·ÖÀà±êÇ©Ê±£¬»á°´ÓÅÏÈ¼¶¹éÀà£º
+ä»¥ä¸‹æ ‡ç­¾éƒ½ä¼šæ­£ç¡®å½’ç±»ï¼š
 
 ```csharp
-"¹æÔò,ÊÀ½ç¹Û"       ¡ú ¹æÔò·ÖÀà£¨¹æÔòÓÅÏÈ¼¶1£¬ÊÀ½ç¹ÛÓÅÏÈ¼¶4£©
-"ÊÀ½ç¹Û,ÀúÊ·"       ¡ú ÀúÊ··ÖÀà£¨ÀúÊ·ÓÅÏÈ¼¶3£¬ÊÀ½ç¹ÛÓÅÏÈ¼¶4£©
-"×´Ì¬,ÀúÊ·"         ¡ú ×´Ì¬·ÖÀà£¨×´Ì¬ÓÅÏÈ¼¶2£¬ÀúÊ·ÓÅÏÈ¼¶3£©
+// è§„åˆ™ç±»ï¼ˆä¼˜å…ˆçº§æœ€é«˜ï¼‰
+"è§„åˆ™"              â†’ è§„åˆ™åˆ†ç±»
+"è§„åˆ™,å¯¹è¯"         â†’ è§„åˆ™åˆ†ç±»
+"å¸¸è¯†è§„åˆ™"          â†’ è§„åˆ™åˆ†ç±»ï¼ˆåŒ…å«"è§„åˆ™"ï¼‰
+"Instructions"      â†’ è§„åˆ™åˆ†ç±»
+
+// ä¸–ç•Œè§‚ç±»
+"ä¸–ç•Œè§‚"            â†’ ä¸–ç•Œè§‚åˆ†ç±»
+"ä¸–ç•Œè§‚,ç§‘æŠ€"       â†’ ä¸–ç•Œè§‚åˆ†ç±»
+"èƒŒæ™¯è®¾å®š"          â†’ ä¸–ç•Œè§‚åˆ†ç±»ï¼ˆåŒ…å«"èƒŒæ™¯"ï¼‰
+
+// çŠ¶æ€ç±»
+"æ®–æ°‘è€…çŠ¶æ€"        â†’ çŠ¶æ€åˆ†ç±»
+"çŠ¶æ€,å¥åº·"         â†’ çŠ¶æ€åˆ†ç±»
+"PawnStatus"        â†’ çŠ¶æ€åˆ†ç±»
+
+// å†å²ç±»
+"å†å²"              â†’ å†å²åˆ†ç±»
+"å†å²è®°å½•"          â†’ å†å²åˆ†ç±»
+"History"           â†’ å†å²åˆ†ç±»
 ```
 
-**½¨Òé**£ºÈç¹ûÏ£Íû³£Ê¶¹éÈëÌØ¶¨·ÖÀà£¬ÔÚ±êÇ©ÖĞ°üº¬¶ÔÓ¦µÄ·ÖÀà±êÇ©¼´¿É¡£
+### ä¼˜å…ˆçº§è¯´æ˜
 
-## ?? Ğí¿ÉÖ¤
+å½“ä¸€ä¸ªæ ‡ç­¾åŒæ—¶åŒ…å«å¤šä¸ªåˆ†ç±»æ ‡ç­¾æ—¶ï¼Œä¼šæŒ‰ä¼˜å…ˆçº§å½’ç±»ï¼š
 
-±¾ API ×ñÑ­ RimTalk µÄĞí¿ÉÖ¤Ìõ¿î¡£
+```csharp
+"è§„åˆ™,ä¸–ç•Œè§‚"       â†’ è§„åˆ™åˆ†ç±»ï¼ˆè§„åˆ™ä¼˜å…ˆçº§1ï¼Œä¸–ç•Œè§‚ä¼˜å…ˆçº§4ï¼‰
+"ä¸–ç•Œè§‚,å†å²"       â†’ å†å²åˆ†ç±»ï¼ˆå†å²ä¼˜å…ˆçº§3ï¼Œä¸–ç•Œè§‚ä¼˜å…ˆçº§4ï¼‰
+"çŠ¶æ€,å†å²"         â†’ çŠ¶æ€åˆ†ç±»ï¼ˆçŠ¶æ€ä¼˜å…ˆçº§2ï¼Œå†å²ä¼˜å…ˆçº§3ï¼‰
+```
+
+**å»ºè®®**ï¼šå¦‚æœå¸Œæœ›å¸¸è¯†å½’å…¥ç‰¹å®šåˆ†ç±»ï¼Œåœ¨æ ‡ç­¾ä¸­åŒ…å«å¯¹åº”çš„åˆ†ç±»æ ‡ç­¾å³å¯ã€‚
+
+## ?? è®¸å¯è¯
+
+æœ¬ API éµå¾ª RimTalk çš„è®¸å¯è¯æ¡æ¬¾ã€‚

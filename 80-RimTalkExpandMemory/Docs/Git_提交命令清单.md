@@ -1,13 +1,13 @@
-# Git Ìá½»ÃüÁîÇåµ¥
+# Git æäº¤å‘½ä»¤æ¸…å•
 
-## ¿ìËÙÌá½»²½Öè
+## å¿«é€Ÿæäº¤æ­¥éª¤
 
-### 1. ²é¿´±ä¸ü
+### 1. æŸ¥çœ‹å˜æ›´
 ```bash
 git status
 ```
 
-### 2. Ìí¼ÓËùÓĞ²ğ·ÖÎÄ¼ş
+### 2. æ·»åŠ æ‰€æœ‰æ‹†åˆ†æ–‡ä»¶
 ```bash
 git add Source/Memory/UI/MainTabWindow_Memory.cs
 git add Source/Memory/UI/MainTabWindow_Memory_Actions.cs
@@ -16,107 +16,107 @@ git add Source/Memory/UI/MainTabWindow_Memory_ImportExport.cs
 git add Source/Memory/UI/MainTabWindow_Memory_Timeline.cs
 git add Source/Memory/UI/MainTabWindow_Memory_TopBar.cs
 git add Source/Memory/UI/MainTabWindow_Memory_Utilities.cs
-git add Docs/²ğ·Ö*.md
+git add Docs/æ‹†åˆ†*.md
 ```
 
-### 3. Ìá½»£¨ÍÆ¼ö£©
+### 3. æäº¤ï¼ˆæ¨èï¼‰
 ```bash
-git commit -m "refactor: ²ğ·Ö MainTabWindow_Memory Îª 8 ¸ö partial class ÎÄ¼ş
+git commit -m "refactor: æ‹†åˆ† MainTabWindow_Memory ä¸º 8 ä¸ª partial class æ–‡ä»¶
 
-Ö÷Òª¸Ä½ø:
-- Ö÷ÎÄ¼ş´Ó 1590 ĞĞ¼õÉÙµ½ 130 ĞĞ (¼õÉÙ 92%)
-- °´¹¦ÄÜÄ£¿é²ğ·ÖÎª 7 ¸ö²¿·ÖÀàÎÄ¼ş
-- Ìá¸ß´úÂë¿ÉÎ¬»¤ĞÔºÍ¿É¶ÁĞÔ
+ä¸»è¦æ”¹è¿›:
+- ä¸»æ–‡ä»¶ä» 1590 è¡Œå‡å°‘åˆ° 130 è¡Œ (å‡å°‘ 92%)
+- æŒ‰åŠŸèƒ½æ¨¡å—æ‹†åˆ†ä¸º 7 ä¸ªéƒ¨åˆ†ç±»æ–‡ä»¶
+- æé«˜ä»£ç å¯ç»´æŠ¤æ€§å’Œå¯è¯»æ€§
 
-ÎÄ¼şÁĞ±í:
-- TopBar (145ĞĞ): PawnÑ¡ÔñÆ÷ºÍÍ³¼ÆĞÅÏ¢
-- Controls (376ĞĞ): ¹ıÂËÆ÷ºÍÅúÁ¿²Ù×÷°´Å¥  
-- Timeline (440ĞĞ): Ê±¼äÏßºÍ¼ÇÒä¿¨Æ¬»æÖÆ
-- Actions (176ĞĞ): ÅúÁ¿²Ù×÷Âß¼­
-- ImportExport (230ĞĞ): µ¼Èëµ¼³ö¹¦ÄÜ
-- Utilities (210ĞĞ): ¸¨Öú·½·¨ºÍ¶Ô»°¿ò
-- Helpers (280ĞĞ): ¼ÇÒä¾ÛºÏËã·¨
+æ–‡ä»¶åˆ—è¡¨:
+- TopBar (145è¡Œ): Pawné€‰æ‹©å™¨å’Œç»Ÿè®¡ä¿¡æ¯
+- Controls (376è¡Œ): è¿‡æ»¤å™¨å’Œæ‰¹é‡æ“ä½œæŒ‰é’®  
+- Timeline (440è¡Œ): æ—¶é—´çº¿å’Œè®°å¿†å¡ç‰‡ç»˜åˆ¶
+- Actions (176è¡Œ): æ‰¹é‡æ“ä½œé€»è¾‘
+- ImportExport (230è¡Œ): å¯¼å…¥å¯¼å‡ºåŠŸèƒ½
+- Utilities (210è¡Œ): è¾…åŠ©æ–¹æ³•å’Œå¯¹è¯æ¡†
+- Helpers (280è¡Œ): è®°å¿†èšåˆç®—æ³•
 
-Breaking Changes: ÎŞ (ÍêÈ«Ïòºó¼æÈİ)
+Breaking Changes: æ—  (å®Œå…¨å‘åå…¼å®¹)
 "
 ```
 
-### 4. ÍÆËÍµ½Ô¶³Ì
+### 4. æ¨é€åˆ°è¿œç¨‹
 ```bash
-# ÍÆËÍµ½·ÖÖ§ 1
+# æ¨é€åˆ°åˆ†æ”¯ 1
 git push origin 1
 
-# »òÍÆËÍµ½ main
+# æˆ–æ¨é€åˆ° main
 git push origin HEAD:main
 ```
 
 ---
 
-## ¿ÉÑ¡£º´´½¨×¨ÃÅµÄ²ğ·Ö·ÖÖ§
+## å¯é€‰ï¼šåˆ›å»ºä¸“é—¨çš„æ‹†åˆ†åˆ†æ”¯
 
-### ´´½¨ĞÂ·ÖÖ§
+### åˆ›å»ºæ–°åˆ†æ”¯
 ```bash
 git checkout -b refactor/split-maintabwindow-memory
 ```
 
-### Ìá½»²¢ÍÆËÍ
+### æäº¤å¹¶æ¨é€
 ```bash
-git add Source/Memory/UI/MainTabWindow_Memory*.cs Docs/²ğ·Ö*.md
-git commit -m "refactor: ²ğ·Ö MainTabWindow_Memory Îª 8 ¸ö partial class ÎÄ¼ş"
+git add Source/Memory/UI/MainTabWindow_Memory*.cs Docs/æ‹†åˆ†*.md
+git commit -m "refactor: æ‹†åˆ† MainTabWindow_Memory ä¸º 8 ä¸ª partial class æ–‡ä»¶"
 git push origin refactor/split-maintabwindow-memory
 ```
 
-### ´´½¨ Pull Request
-È»ºóÔÚ GitHub ÉÏ´´½¨ Pull Request£¬ºÏ²¢µ½ main ·ÖÖ§
+### åˆ›å»º Pull Request
+ç„¶ååœ¨ GitHub ä¸Šåˆ›å»º Pull Requestï¼Œåˆå¹¶åˆ° main åˆ†æ”¯
 
 ---
 
-## ±¸·İÎÄ¼ş´¦Àí
+## å¤‡ä»½æ–‡ä»¶å¤„ç†
 
-### Ñ¡Ïî 1: ±£Áô±¸·İ£¨ÍÆ¼öÓÃÓÚµÚÒ»´ÎÌá½»£©
+### é€‰é¡¹ 1: ä¿ç•™å¤‡ä»½ï¼ˆæ¨èç”¨äºç¬¬ä¸€æ¬¡æäº¤ï¼‰
 ```bash
-# ±¸·İÎÄ¼şÒ²Ìá½»£¬ÒÔ±ã»Ø¹ö
+# å¤‡ä»½æ–‡ä»¶ä¹Ÿæäº¤ï¼Œä»¥ä¾¿å›æ»š
 git add Source/Memory/UI/MainTabWindow_Memory_OLD_BACKUP.cs
 ```
 
-### Ñ¡Ïî 2: É¾³ı±¸·İ£¨ºóĞøÇåÀí£©
+### é€‰é¡¹ 2: åˆ é™¤å¤‡ä»½ï¼ˆåç»­æ¸…ç†ï¼‰
 ```bash
-# É¾³ı±¸·İÎÄ¼ş
+# åˆ é™¤å¤‡ä»½æ–‡ä»¶
 rm Source/Memory/UI/MainTabWindow_Memory_OLD_BACKUP.cs
 
-# »òÒÆµ½ÆäËûÎ»ÖÃ
+# æˆ–ç§»åˆ°å…¶ä»–ä½ç½®
 mv Source/Memory/UI/MainTabWindow_Memory_OLD_BACKUP.cs ../backup/
 ```
 
 ---
 
-## ÑéÖ¤Çåµ¥
+## éªŒè¯æ¸…å•
 
-ÔÚÍÆËÍÖ®Ç°£¬È·ÈÏ£º
+åœ¨æ¨é€ä¹‹å‰ï¼Œç¡®è®¤ï¼š
 
-- [ ] ËùÓĞĞÂÎÄ¼şÒÑÌí¼Óµ½ Git
-- [ ] Ö÷ÎÄ¼şÒÑÕıÈ·Ìæ»»
-- [ ] ÎÄµµÎÄ¼şÒÑ°üº¬
-- [ ] Ìá½»ĞÅÏ¢ÇåÎúÃèÊöÁË±ä¸ü
-- [ ] £¨¿ÉÑ¡£©´úÂëÒÑ±àÒëÍ¨¹ı
-- [ ] £¨¿ÉÑ¡£©¹¦ÄÜÒÑ²âÊÔÍ¨¹ı
+- [ ] æ‰€æœ‰æ–°æ–‡ä»¶å·²æ·»åŠ åˆ° Git
+- [ ] ä¸»æ–‡ä»¶å·²æ­£ç¡®æ›¿æ¢
+- [ ] æ–‡æ¡£æ–‡ä»¶å·²åŒ…å«
+- [ ] æäº¤ä¿¡æ¯æ¸…æ™°æè¿°äº†å˜æ›´
+- [ ] ï¼ˆå¯é€‰ï¼‰ä»£ç å·²ç¼–è¯‘é€šè¿‡
+- [ ] ï¼ˆå¯é€‰ï¼‰åŠŸèƒ½å·²æµ‹è¯•é€šè¿‡
 
 ---
 
-## »Ø¹ö·½°¸£¨Èç¹ûĞèÒª£©
+## å›æ»šæ–¹æ¡ˆï¼ˆå¦‚æœéœ€è¦ï¼‰
 
-### »Ø¹öµ½²ğ·ÖÇ°×´Ì¬
+### å›æ»šåˆ°æ‹†åˆ†å‰çŠ¶æ€
 ```bash
-# »Ö¸´¾ÉÎÄ¼ş
+# æ¢å¤æ—§æ–‡ä»¶
 git restore Source/Memory/UI/MainTabWindow_Memory.cs
 
-# »òÊ¹ÓÃ±¸·İ
+# æˆ–ä½¿ç”¨å¤‡ä»½
 cp Source/Memory/UI/MainTabWindow_Memory_OLD_BACKUP.cs Source/Memory/UI/MainTabWindow_Memory.cs
 
-# É¾³ıĞÂÎÄ¼ş
+# åˆ é™¤æ–°æ–‡ä»¶
 git rm Source/Memory/UI/MainTabWindow_Memory_*.cs
 ```
 
 ---
 
-**¿ìËÙ²Î¿¼**: ¸´ÖÆÉÏÃæµÄÃüÁîÖ±½ÓÖ´ĞĞ¼´¿É£¡
+**å¿«é€Ÿå‚è€ƒ**: å¤åˆ¶ä¸Šé¢çš„å‘½ä»¤ç›´æ¥æ‰§è¡Œå³å¯ï¼

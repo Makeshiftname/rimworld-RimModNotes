@@ -1,4 +1,4 @@
-﻿# Changelog Maintenance Agent Guidelines
+# Changelog Maintenance Agent Guidelines
 
 ## 1. Role & Purpose
 As an AI Code Agent, your task is to automatically parse git commit histories and update the `CHANGELOG.md` file. You must strictly adhere to the **Keep a Changelog (v1.1.0)** standard, and map **Conventional Commits** to the appropriate sections.

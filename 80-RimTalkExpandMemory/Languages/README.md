@@ -1,39 +1,39 @@
 # RimTalk-ExpandMemory Translation Guide
 
-## ¹ØÓÚ / About / ¤Ë¤Ä¤¤¤Æ / ?? / §° §á§â§à§Ö§Ü§ä§Ö
+## å…³äº / About / ã«ã¤ã„ã¦ / ?? / Ğ Ğ¿Ñ€Ğ¾ĞµĞºÑ‚Ğµ
 
-RimTalk-ExpandMemory ÊÇÒ»¸öÎª RimWorld Ä£×é RimTalk Ìá¹©¼ÇÒäÏµÍ³À©Õ¹µÄÄ£×é¡£
+RimTalk-ExpandMemory æ˜¯ä¸€ä¸ªä¸º RimWorld æ¨¡ç»„ RimTalk æä¾›è®°å¿†ç³»ç»Ÿæ‰©å±•çš„æ¨¡ç»„ã€‚
 
 This is a mod that provides memory system expansion for the RimWorld mod RimTalk.
 
-## ·­Òë×´Ì¬ / Translation Status
+## ç¿»è¯‘çŠ¶æ€ / Translation Status
 
-| ÓïÑÔ / Language | ×´Ì¬ / Status | ·­ÒëÕß / Translator |
+| è¯­è¨€ / Language | çŠ¶æ€ / Status | ç¿»è¯‘è€… / Translator |
 |-----------------|---------------|-------------------|
-| ¼òÌåÖĞÎÄ (ChineseSimplified) | ? Íê³É | Ô­×÷Õß |
+| ç®€ä½“ä¸­æ–‡ (ChineseSimplified) | ? å®Œæˆ | åŸä½œè€… |
 | English | ? Complete | Original Author |
-| ÈÕ±¾ÕZ (Japanese) | ? ÍêÁË | AI Translation |
+| æ—¥æœ¬èª (Japanese) | ? å®Œäº† | AI Translation |
 | ??? (Korean) | ? ?? | AI Translation |
-| §²§å§ã§ã§Ü§Ú§Û (Russian) | ? §©§Ñ§Ó§Ö§â§ê§Ö§ß§à | AI Translation |
+| Ğ ÑƒÑÑĞºĞ¸Ğ¹ (Russian) | ? Ğ—Ğ°Ğ²ĞµÑ€ÑˆĞµĞ½Ğ¾ | AI Translation |
 
-## ĞèÒª·­ÒëµÄÎÄ¼ş / Files to Translate
+## éœ€è¦ç¿»è¯‘çš„æ–‡ä»¶ / Files to Translate
 
-Ã¿ÖÖÓïÑÔĞèÒª·­ÒëÒÔÏÂÎÄ¼ş£º
+æ¯ç§è¯­è¨€éœ€è¦ç¿»è¯‘ä»¥ä¸‹æ–‡ä»¶ï¼š
 
 Each language needs the following files translated:
 
-1. `Languages\[YourLanguage]\Keyed\MemoryPatch.xml` - Ö÷Òª·­ÒëÎÄ¼ş / Main translation file
-2. `Languages\[YourLanguage]\DefInjected\MainButtonDef\RimTalk_Memory.xml` - °´Å¥¶¨Òå / Button definition
+1. `Languages\[YourLanguage]\Keyed\MemoryPatch.xml` - ä¸»è¦ç¿»è¯‘æ–‡ä»¶ / Main translation file
+2. `Languages\[YourLanguage]\DefInjected\MainButtonDef\RimTalk_Memory.xml` - æŒ‰é’®å®šä¹‰ / Button definition
 
-## ÈçºÎ¹±Ï×·­Òë / How to Contribute Translations
+## å¦‚ä½•è´¡çŒ®ç¿»è¯‘ / How to Contribute Translations
 
-### ²½Öè / Steps
+### æ­¥éª¤ / Steps
 
-1. ¸´ÖÆ `Languages\English\` ÎÄ¼ş¼Ğ
-2. ÖØÃüÃûÎªÄúµÄÓïÑÔ£¨ÀıÈç£ºFrench, German, SpanishµÈ£©
-3. ·­Òë `Keyed\MemoryPatch.xml` ÖĞµÄËùÓĞÎÄ±¾
-4. ·­Òë `DefInjected\MainButtonDef\RimTalk_Memory.xml` ÖĞµÄÎÄ±¾
-5. Ìá½» Pull Request »òÍ¨¹ı GitHub Issues ·ÖÏíÄúµÄ·­Òë
+1. å¤åˆ¶ `Languages\English\` æ–‡ä»¶å¤¹
+2. é‡å‘½åä¸ºæ‚¨çš„è¯­è¨€ï¼ˆä¾‹å¦‚ï¼šFrench, German, Spanishç­‰ï¼‰
+3. ç¿»è¯‘ `Keyed\MemoryPatch.xml` ä¸­çš„æ‰€æœ‰æ–‡æœ¬
+4. ç¿»è¯‘ `DefInjected\MainButtonDef\RimTalk_Memory.xml` ä¸­çš„æ–‡æœ¬
+5. æäº¤ Pull Request æˆ–é€šè¿‡ GitHub Issues åˆ†äº«æ‚¨çš„ç¿»è¯‘
 
 ---
 
@@ -43,30 +43,30 @@ Each language needs the following files translated:
 4. Translate text in `DefInjected\MainButtonDef\RimTalk_Memory.xml`
 5. Submit a Pull Request or share your translation via GitHub Issues
 
-### ·­Òë×¢ÒâÊÂÏî / Translation Guidelines
+### ç¿»è¯‘æ³¨æ„äº‹é¡¹ / Translation Guidelines
 
-- **±£³Ö XML ±êÇ©²»±ä** / Keep XML tags unchanged
-- **±£³ÖÕ¼Î»·û¸ñÊ½** / Keep placeholder format (e.g., `{0}`, `{1}`, `{2}`, `{3}`)
-- **±£³ÖÎÄ¼ş±àÂëÎª UTF-8** / Keep file encoding as UTF-8
-- **²âÊÔÄúµÄ·­Òë** / Test your translations in-game
-- **×ñÑ­ RimWorld ·­Òë¹æ·¶** / Follow RimWorld translation conventions
+- **ä¿æŒ XML æ ‡ç­¾ä¸å˜** / Keep XML tags unchanged
+- **ä¿æŒå ä½ç¬¦æ ¼å¼** / Keep placeholder format (e.g., `{0}`, `{1}`, `{2}`, `{3}`)
+- **ä¿æŒæ–‡ä»¶ç¼–ç ä¸º UTF-8** / Keep file encoding as UTF-8
+- **æµ‹è¯•æ‚¨çš„ç¿»è¯‘** / Test your translations in-game
+- **éµå¾ª RimWorld ç¿»è¯‘è§„èŒƒ** / Follow RimWorld translation conventions
 
-### Õ¼Î»·ûËµÃ÷ / Placeholder Explanations
+### å ä½ç¬¦è¯´æ˜ / Placeholder Explanations
 
-- `{0}` - Í¨³£ÊÇÊı×Ö»òÃû³Æ / Usually a number or name
-- `{1}`, `{2}`, `{3}` - ¶îÍâµÄ²ÎÊı / Additional parameters
+- `{0}` - é€šå¸¸æ˜¯æ•°å­—æˆ–åç§° / Usually a number or name
+- `{1}`, `{2}`, `{3}` - é¢å¤–çš„å‚æ•° / Additional parameters
 
-ÀıÈç / Example:
-- `{0}'s Memories` - ½« {0} Ìæ»»ÎªÈëÖ²ÕßÃû³Æ / {0} will be replaced with colonist name
-- `Short-term: {0}/{1}` - {0} ÊÇµ±Ç°Öµ£¬{1} ÊÇ×î´óÖµ / {0} is current value, {1} is max value
+ä¾‹å¦‚ / Example:
+- `{0}'s Memories` - å°† {0} æ›¿æ¢ä¸ºå…¥æ¤è€…åç§° / {0} will be replaced with colonist name
+- `Short-term: {0}/{1}` - {0} æ˜¯å½“å‰å€¼ï¼Œ{1} æ˜¯æœ€å¤§å€¼ / {0} is current value, {1} is max value
 
-## Ö§³ÖµÄ RimWorld ÓïÑÔ / Supported RimWorld Languages
+## æ”¯æŒçš„ RimWorld è¯­è¨€ / Supported RimWorld Languages
 
-RimWorld Ö§³ÖÒÔÏÂÓïÑÔ£¬»¶Ó­ÎªÕâĞ©ÓïÑÔ¹±Ï×·­Òë£º
+RimWorld æ”¯æŒä»¥ä¸‹è¯­è¨€ï¼Œæ¬¢è¿ä¸ºè¿™äº›è¯­è¨€è´¡çŒ®ç¿»è¯‘ï¼š
 
 RimWorld supports the following languages, translations for these are welcome:
 
-- Catalan (Catal¨¤)
+- Catalan (CatalÃ )
 - Czech (?e?tina)
 - Danish (Dansk)
 - Dutch (Nederlands)
@@ -77,36 +77,36 @@ RimWorld supports the following languages, translations for these are welcome:
 - German (Deutsch)
 - Hungarian (Magyar)
 - Italian (Italiano)
-- Japanese (ÈÕ±¾ÕZ) ?
+- Japanese (æ—¥æœ¬èª) ?
 - Korean (???) ?
 - Latvian (Latvie?u)
 - Lithuanian (Lietuvi?)
 - Norwegian (Norsk)
 - Polish (Polski)
-- Portuguese (Portugu¨ºs)
-- Brazilian Portuguese (Portugu¨ºs Brasileiro)
+- Portuguese (PortuguÃªs)
+- Brazilian Portuguese (PortuguÃªs Brasileiro)
 - Romanian (Rom?n?)
-- Russian (§²§å§ã§ã§Ü§Ú§Û) ?
+- Russian (Ğ ÑƒÑÑĞºĞ¸Ğ¹) ?
 - Slovak (Sloven?ina)
 - Spanish (Espa?ol)
 - Latin American Spanish (Espa?ol Latinoamericano)
 - Swedish (Svenska)
-- Turkish (T¨¹rk?e)
-- Ukrainian (§µ§Ü§â§Ñ?§ß§ã§î§Ü§Ñ)
-- Chinese Simplified (¼òÌåÖĞÎÄ) ?
-- Chinese Traditional (·±ówÖĞÎÄ)
+- Turkish (TÃ¼rk?e)
+- Ukrainian (Ğ£ĞºÑ€Ğ°?Ğ½ÑÑŒĞºĞ°)
+- Chinese Simplified (ç®€ä½“ä¸­æ–‡) ?
+- Chinese Traditional (ç¹é«”ä¸­æ–‡)
 
-## ÁªÏµ·½Ê½ / Contact
+## è”ç³»æ–¹å¼ / Contact
 
 - GitHub Issues: https://github.com/sanguodxj-byte/RimTalk-ExpandMemory/issues
 - GitHub Discussions: https://github.com/sanguodxj-byte/RimTalk-ExpandMemory/discussions
 
-## Ğí¿ÉÖ¤ / License
+## è®¸å¯è¯ / License
 
-·­Òë¹±Ï×½«×ñÑ­±¾ÏîÄ¿µÄĞí¿ÉÖ¤¡£
+ç¿»è¯‘è´¡çŒ®å°†éµå¾ªæœ¬é¡¹ç›®çš„è®¸å¯è¯ã€‚
 
 Translation contributions will follow this project's license.
 
 ---
 
-¸ĞĞ»ÄúµÄ¹±Ï×£¡/ Thank you for your contribution!
+æ„Ÿè°¢æ‚¨çš„è´¡çŒ®ï¼/ Thank you for your contribution!
