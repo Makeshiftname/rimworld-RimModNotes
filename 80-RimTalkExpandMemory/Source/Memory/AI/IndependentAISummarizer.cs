@@ -567,7 +567,14 @@ namespace RimTalk.Memory.AI
             
             // 替换占位符
             string result = string.Format(escapedTemplate, pawn.LabelShort, memoryList);
-            
+
+            // ? 双保险/防御: 若自定义提示词未包含 {1} 占位符(记忆列表没进 prompt),
+            // 强制追加记忆列表, 避免 AI 收到"无记忆"的 prompt 而返回"无可归档/总结内容"。
+            if (memoryList.Length > 0 && !result.Contains(memoryList))
+            {
+                result += "\n\n【记忆列表】\n" + memoryList;
+            }
+
             return result;
         }
 
