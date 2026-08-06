@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--Vicious-->
+  <AbilityDef>
+    <defName>HVT_UnleashViciousness</defName>
+    <label>unleash viciousness</label>
+    <description>The caster releases a profound inner capacity for violence, gaining attack speed, accuracy, armor penetration, and damage for an hour.\n\nWhile this ability is ready to use, the caster's mood will steadily worsen.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>true</aiCanUse>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <hotKey>Misc12</hotKey>
+	<iconPath>Genes/HVT_Vicious</iconPath>
+	<cooldownTicksRange>57500</cooldownTicksRange>
+    <statBases>
+      <Ability_Duration>42</Ability_Duration>
+      <Ability_EffectRadius>0</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <verbClass>HautsFramework.Verb_CastAbilityCombatSelfBuff</verbClass><!--this lets combat AIs use the ability even though it was never designed to use self-buffs-->
+	  <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>HVT_ViciousStrike</hediffDef>
+        <onlyApplyToSelf>True</onlyApplyToSelf>
+        <replaceExisting>true</replaceExisting>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityGivesThought">
+        <compClass>HautsFramework.CompAbilityEffect_GivesThought</compClass>
+        <periodicity>2500</periodicity>
+        <thought>HVT_ViciousSad</thought>
+		<duringCooldown>false</duringCooldown>
+		<whileReady>true</whileReady>
+		<clearsThisThoughtOnActivation>true</clearsThisThoughtOnActivation>
+      </li>
+      <li Class="CompProperties_AbilityMustBeCapableOf">
+        <workTags>
+          <li>Violent</li>
+        </workTags>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_Vicious</li>
+		</forcingTraits>
+      </li>
+    </comps>
+  </AbilityDef>
+  <!--Guru-->
+  <AbilityGroupDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_GuruAbilities</defName>
+    <cooldownTicks>180000</cooldownTicks>
+    <ritualRoleIds>
+      <li>moralist</li>
+    </ritualRoleIds>
+  </AbilityGroupDef>
+  <AbilityDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_GuruConvert</defName>
+    <label>convert</label>
+    <description>Attempt to convert someone to the speaker's ideoligion. This will reduce the target's certainty in their own beliefs. The certainty reduction depends on the speaker's negotiation ability.</description>
+    <groupDef>HVT_GuruAbilities</groupDef>
+    <iconPath>UI/Abilities/Convert</iconPath>
+    <warmupMoteSocialSymbol>Things/Mote/SpeechSymbols/Convert</warmupMoteSocialSymbol>
+    <warmupSound>MoralistAbility_Warmup</warmupSound>
+    <hotKey>Misc12</hotKey>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <uiOrder>1</uiOrder>
+    <showWhenDrafted>false</showWhenDrafted>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <comps>
+      <li Class="CompProperties_AbilityConvert">
+        <successMessage>{INITIATOR_labelShort} has converted {RECIPIENT_labelShort} to {IDEO}.</successMessage>
+        <failMessage>{INITIATOR_labelShort} failed to convert {RECIPIENT_labelShort}. {RECIPIENT_labelShort} was upset by the attempt, but {RECIPIENT_possessive} certainty fell from {CERTAINTYBEFORE} to {CERTAINTYAFTER}.</failMessage>
+        <failedThoughtInitiator>FailedConvertAbilityInitiator</failedThoughtInitiator>
+        <failedThoughtRecipient>FailedConvertAbilityRecipient</failedThoughtRecipient>
+        <convertPowerFactor>2</convertPowerFactor>
+        <sound>MoralistAbility_Resolve</sound>
+      </li>
+      <li Class="CompProperties_AbilityMustBeCapableOf">
+        <workTags>
+          <li>Social</li>
+        </workTags>
+      </li>
+      <li Class="CompProperties_AbilityShowTargetIdeoCertainty" />
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_Guru</li>
+		</forcingTraits>
+		<forcingGenes MayRequire="Ludeon.RimWorld.Biotech">
+			<li>HVT_GuruGene</li>
+		</forcingGenes>
+      </li>
+    </comps>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>False</drawAimPie>
+      <range>-1</range>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetBuildings>False</canTargetBuildings>
+        <canTargetMutants>false</canTargetMutants>
+        <neverTargetHostileFaction>True</neverTargetHostileFaction>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <AbilityDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_GuruPreachHealth</defName>
+    <label>preach health</label>
+    <description>Preach moral strength to a sick or wounded person through the concepts of your ideology. This will improve their rate of wound healing and immunity gain.</description>
+    <groupDef>HVT_GuruAbilities</groupDef>
+    <iconPath>UI/Abilities/PreachHealth</iconPath>
+    <hotKey>Misc12</hotKey>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <emittedFleck>PreachHealth</emittedFleck>
+    <emissionInterval>60</emissionInterval>
+    <warmupMoteSocialSymbol>UI/Abilities/PreachHealth</warmupMoteSocialSymbol>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <uiOrder>4</uiOrder>
+    <warmupSound>PreachHealth_Warmup</warmupSound>
+    <showWhenDrafted>false</showWhenDrafted>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_Duration>1000</Ability_Duration>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>PreachHealth</hediffDef>
+        <onlyBrain>true</onlyBrain>
+        <replaceExisting>true</replaceExisting>
+        <sound>PreachHealth_Resolve</sound>
+      </li>
+      <li Class="CompProperties_AbilityMustBeCapableOf">
+        <workTags>
+          <li>Social</li>
+        </workTags>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>PreachHealth</interactionDef>
+        <canApplyToUnconscious>true</canApplyToUnconscious>
+      </li>
+      <li Class="CompProperties_PreachHealth" />
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_Guru</li>
+		</forcingTraits>
+		<forcingGenes MayRequire="Ludeon.RimWorld.Biotech">
+			<li>HVT_GuruGene</li>
+		</forcingGenes>
+      </li>
+    </comps>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>False</drawAimPie>
+      <range>-1</range>
+      <warmupTime>12.0</warmupTime>
+      <targetParams>
+        <canTargetBuildings>False</canTargetBuildings>
+        <neverTargetHostileFaction>True</neverTargetHostileFaction>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <AbilityDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_GuruReassure</defName>
+    <label>reassure</label>
+    <description>Increase someone's certainty in their own beliefs. The regained certainty is based on the speaker's negotiation ability.</description>
+    <groupDef>HVT_GuruAbilities</groupDef>
+    <iconPath>UI/Abilities/Reassure</iconPath>
+    <warmupMoteSocialSymbol>UI/Abilities/Reassure</warmupMoteSocialSymbol>
+    <warmupSound>MoralistAbility_Warmup</warmupSound>
+    <hotKey>Misc12</hotKey>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <uiOrder>2</uiOrder>
+    <showWhenDrafted>false</showWhenDrafted>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <comps>
+      <li Class="CompProperties_AbilityReassure">
+        <successMessage>{INITIATOR_labelShort} has reassured {RECIPIENT_labelShort}, increasing {RECIPIENT_possessive} certainty in {IDEO} from {BEFORECERTAINTY} to {AFTERCERTAINTY}.</successMessage>
+        <baseCertaintyGain>0.2</baseCertaintyGain>
+        <sound>MoralistAbility_Resolve</sound>
+      </li>
+      <li Class="CompProperties_AbilityMustBeCapableOf">
+        <workTags>
+          <li>Social</li>
+        </workTags>
+      </li>
+      <li Class="CompProperties_AbilityShowTargetIdeoCertainty" />
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_Guru</li>
+		</forcingTraits>
+		<forcingGenes MayRequire="Ludeon.RimWorld.Biotech">
+			<li>HVT_GuruGene</li>
+		</forcingGenes>
+      </li>
+    </comps>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>False</drawAimPie>
+      <range>-1</range>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetBuildings>False</canTargetBuildings>
+        <neverTargetHostileFaction>True</neverTargetHostileFaction>
+        <canTargetMutants>false</canTargetMutants>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <AbilityDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_GuruCounsel</defName>
+    <label>Counsel</label>
+    <description>Offer counsel to a person to cancel the effect of a sad memory. The chance of success depends on the speaker's social skills and their relationship with the listener.</description>
+    <groupDef>HVT_GuruAbilities</groupDef>
+    <iconPath>UI/Abilities/Counsel</iconPath>
+    <warmupMoteSocialSymbol>UI/Abilities/Counsel</warmupMoteSocialSymbol>
+    <warmupSound>MoralistAbility_Warmup</warmupSound>
+    <hotKey>Misc12</hotKey>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <uiOrder>3</uiOrder>
+    <showWhenDrafted>false</showWhenDrafted>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <comps>
+      <li Class="CompProperties_AbilityCounsel">
+        <successMessage>{INITIATOR_labelShort} successfully counselled {RECIPIENT_labelShort}, canceling the mood impact of {2}.</successMessage>
+        <successMessageNoNegativeThought>{INITIATOR_labelShort} successfully counselled {RECIPIENT_labelShort}, increasing {RECIPIENT_possessive} mood by {MOODBONUS}.</successMessageNoNegativeThought>
+        <failMessage>{INITIATOR_labelShort} botched the attempt to counsel {RECIPIENT_labelShort}. {RECIPIENT_labelShort} has become upset.</failMessage>
+        <failedThoughtRecipient>CounselFailed</failedThoughtRecipient>
+        <sound>MoralistAbility_Resolve</sound>
+      </li>
+      <li Class="CompProperties_AbilityMustBeCapableOf">
+        <workTags>
+          <li>Social</li>
+        </workTags>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_Guru</li>
+		</forcingTraits>
+		<forcingGenes MayRequire="Ludeon.RimWorld.Biotech">
+			<li>HVT_GuruGene</li>
+		</forcingGenes>
+      </li>
+    </comps>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>False</drawAimPie>
+      <range>-1</range>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetBuildings>False</canTargetBuildings>
+        <neverTargetHostileFaction>True</neverTargetHostileFaction>
+        <canTargetMutants>false</canTargetMutants>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  
+  <!--Mechaphobe-->
+  <AbilityDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_MechaphobeScramble</defName>
+    <label>scramble mechanoid</label>
+    <description>Overwhelm the target mechanoid with antipathy, stunning it and impairing its ability to defend itself for a duration scaling with the victim's psychic sensitivity.\n\nCoodown is reduced by the caster's max bandwidth, with diminishing returns.\n\nRequires at least 100% psychic sensitivity, as well as an installed mechlink or other source of bandwidth.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>true</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <iconPath>Genes/HVT_Mechaphobe</iconPath>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <writeCombatLog>True</writeCombatLog>
+    <uiOrder>3</uiOrder>
+    <aiCanUse>true</aiCanUse>
+    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
+    <cooldownTicksRange>20000</cooldownTicksRange>
+    <statBases>
+      <Ability_Duration>25</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>35</range>
+      <drawAimPie>true</drawAimPie>
+      <requireLineOfSight>true</requireLineOfSight>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>true</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps><!--can u believe this used 2 be even MORE complicated-->
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>HVT_ScrambleMech</hediffDef>
+        <applicableToMechs>True</applicableToMechs>
+		<durationMultiplier>PsychicSensitivity</durationMultiplier>
+      </li>
+      <li Class = "CompProperties_AbilityEffectWithDuration">
+        <compClass>CompAbilityEffect_Stun</compClass>
+		<durationMultiplier>PsychicSensitivity</durationMultiplier>
+      </li>
+      <li Class = "CompProperties_AbilityEffect"><compClass>HautsFramework.CompAbilityEffect_AvoidTargetingStunnedPawns</compClass></li>
+      <li Class="HautsFramework.CompProperties_AbilityCooldownStatScaling">
+        <compClass>HautsFramework.CompAbilityEffect_CooldownStatScaling</compClass>
+        <stat>MechBandwidth</stat>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>AtomizerFlashGrowing</fleckDef>
+      </li>
+	  <!--<li Class="HautsFramework.CompProperties_AbilityAiScansForTargets"> AI combatants will use this ability very liberally anyways, so there's no need to jig the AI into doing it
+        <compClass>HautsFramework.CompAbilityEffect_AiScansForTargets</compClass>
+		<periodicity>2500</periodicity>
+		<scanForPawnsOnly>true</scanForPawnsOnly>
+		<onlyHostiles>true</onlyHostiles>
+	  </li>-->
+      <li Class="HautsFramework.CompProperties_AbilityRequiresMinimumStat">
+        <compClass>HautsFramework.CompAbilityEffect_RequiresMinimumStat</compClass>
+		<minStats>
+			<li>
+				<key>MechBandwidth</key>
+				<value>1</value>
+			</li>
+			<li>
+				<key>PsychicSensitivity</key>
+				<value>1</value>
+			</li>
+		</minStats>
+		<hideIfDisabled>true</hideIfDisabled>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_Mechaphobe</li>
+		</forcingTraits>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  
+  
+  
+  
+  <!--Biotech: the Vicious, Guru, and Mechaphobe genes don't actually grant those traits... they just grant very, very similar effects. Unfortunately, if you gain one ability from multiple sources, it doesn't duplicate.
+	Therefore, in order for someone with one of these traits and its corresponding gene to actually get two instances of the ability, I need to make nigh-identical duplicates. Here they are-->
+	
+  <!--Combat Energy Reserves-->
+  <AbilityDef>
+    <defName>HVT_UnleashViciousness2</defName>
+    <label>unleash viciousness</label>
+    <description>The caster releases a profound inner capacity for violence, gaining attack speed, accuracy, armor penetration, and damage for an hour.\n\nWhile this ability is ready to use, the caster's mood will steadily worsen.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <aiCanUse>true</aiCanUse>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <hotKey>Misc12</hotKey>
+	<iconPath>Genes/HVT_Vicious</iconPath>
+	<cooldownTicksRange>57500</cooldownTicksRange>
+    <statBases>
+      <Ability_Duration>42</Ability_Duration>
+      <Ability_EffectRadius>0</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <verbClass>HautsFramework.Verb_CastAbilityCombatSelfBuff</verbClass><!--this lets combat AIs use the ability even though it was never designed to use self-buffs-->
+	  <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>HVT_ViciousStrike</hediffDef>
+        <onlyApplyToSelf>True</onlyApplyToSelf>
+        <replaceExisting>true</replaceExisting>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityGivesThought">
+        <compClass>HautsFramework.CompAbilityEffect_GivesThought</compClass>
+        <periodicity>2500</periodicity>
+        <thought>HVT_ViciousSad</thought>
+		<duringCooldown>false</duringCooldown>
+		<whileReady>true</whileReady>
+		<clearsThisThoughtOnActivation>true</clearsThisThoughtOnActivation>
+      </li>
+      <li Class="CompProperties_AbilityMustBeCapableOf">
+        <workTags>
+          <li>Violent</li>
+        </workTags>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingGenes MayRequire="Ludeon.RimWorld.Biotech">
+			<li>HVT_ViciousGene</li>
+		</forcingGenes>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!--Innate Wisdom-->
+  <AbilityGroupDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_GuruAbilities2</defName>
+    <cooldownTicks>180000</cooldownTicks>
+    <ritualRoleIds>
+      <li>moralist</li>
+    </ritualRoleIds>
+  </AbilityGroupDef>
+  <AbilityDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_GuruConvert2</defName>
+    <label>convert</label>
+    <description>Attempt to convert someone to the speaker's ideoligion. This will reduce the target's certainty in their own beliefs. The certainty reduction depends on the speaker's negotiation ability.</description>
+    <groupDef>HVT_GuruAbilities2</groupDef>
+    <iconPath>UI/Abilities/Convert</iconPath>
+    <warmupMoteSocialSymbol>Things/Mote/SpeechSymbols/Convert</warmupMoteSocialSymbol>
+    <warmupSound>MoralistAbility_Warmup</warmupSound>
+    <hotKey>Misc12</hotKey>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <uiOrder>1</uiOrder>
+    <showWhenDrafted>false</showWhenDrafted>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <comps>
+      <li Class="CompProperties_AbilityConvert">
+        <successMessage>{INITIATOR_labelShort} has converted {RECIPIENT_labelShort} to {IDEO}.</successMessage>
+        <failMessage>{INITIATOR_labelShort} failed to convert {RECIPIENT_labelShort}. {RECIPIENT_labelShort} was upset by the attempt, but {RECIPIENT_possessive} certainty fell from {CERTAINTYBEFORE} to {CERTAINTYAFTER}.</failMessage>
+        <failedThoughtInitiator>FailedConvertAbilityInitiator</failedThoughtInitiator>
+        <failedThoughtRecipient>FailedConvertAbilityRecipient</failedThoughtRecipient>
+        <convertPowerFactor>2</convertPowerFactor>
+        <sound>MoralistAbility_Resolve</sound>
+      </li>
+      <li Class="CompProperties_AbilityMustBeCapableOf">
+        <workTags>
+          <li>Social</li>
+        </workTags>
+      </li>
+      <li Class="CompProperties_AbilityShowTargetIdeoCertainty" />
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingGenes MayRequire="Ludeon.RimWorld.Biotech">
+			<li>HVT_GuruGene</li>
+		</forcingGenes>
+      </li>
+    </comps>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>False</drawAimPie>
+      <range>-1</range>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetBuildings>False</canTargetBuildings>
+        <neverTargetHostileFaction>True</neverTargetHostileFaction>
+        <canTargetMutants>false</canTargetMutants>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <AbilityDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_GuruPreachHealth2</defName>
+    <label>preach health</label>
+    <description>Preach moral strength to a sick or wounded person through the concepts of your ideology. This will improve their rate of wound healing and immunity gain.</description>
+    <groupDef>HVT_GuruAbilities2</groupDef>
+    <iconPath>UI/Abilities/PreachHealth</iconPath>
+    <hotKey>Misc12</hotKey>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <emittedFleck>PreachHealth</emittedFleck>
+    <emissionInterval>60</emissionInterval>
+    <warmupMoteSocialSymbol>UI/Abilities/PreachHealth</warmupMoteSocialSymbol>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <uiOrder>4</uiOrder>
+    <warmupSound>PreachHealth_Warmup</warmupSound>
+    <showWhenDrafted>false</showWhenDrafted>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_Duration>1000</Ability_Duration>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>PreachHealth</hediffDef>
+        <onlyBrain>true</onlyBrain>
+        <replaceExisting>true</replaceExisting>
+        <sound>PreachHealth_Resolve</sound>
+      </li>
+      <li Class="CompProperties_AbilityMustBeCapableOf">
+        <workTags>
+          <li>Social</li>
+        </workTags>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>PreachHealth</interactionDef>
+        <canApplyToUnconscious>true</canApplyToUnconscious>
+      </li>
+      <li Class="CompProperties_PreachHealth" />
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingGenes MayRequire="Ludeon.RimWorld.Biotech">
+			<li>HVT_GuruGene</li>
+		</forcingGenes>
+      </li>
+    </comps>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>False</drawAimPie>
+      <range>-1</range>
+      <warmupTime>12.0</warmupTime>
+      <targetParams>
+        <canTargetBuildings>False</canTargetBuildings>
+        <neverTargetHostileFaction>True</neverTargetHostileFaction>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <AbilityDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_GuruReassure2</defName>
+    <label>reassure</label>
+    <description>Increase someone's certainty in their own beliefs. The regained certainty is based on the speaker's negotiation ability.</description>
+    <groupDef>HVT_GuruAbilities2</groupDef>
+    <iconPath>UI/Abilities/Reassure</iconPath>
+    <warmupMoteSocialSymbol>UI/Abilities/Reassure</warmupMoteSocialSymbol>
+    <warmupSound>MoralistAbility_Warmup</warmupSound>
+    <hotKey>Misc12</hotKey>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <uiOrder>2</uiOrder>
+    <showWhenDrafted>false</showWhenDrafted>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <comps>
+      <li Class="CompProperties_AbilityReassure">
+        <successMessage>{INITIATOR_labelShort} has reassured {RECIPIENT_labelShort}, increasing {RECIPIENT_possessive} certainty in {IDEO} from {BEFORECERTAINTY} to {AFTERCERTAINTY}.</successMessage>
+        <baseCertaintyGain>0.2</baseCertaintyGain>
+        <sound>MoralistAbility_Resolve</sound>
+      </li>
+      <li Class="CompProperties_AbilityMustBeCapableOf">
+        <workTags>
+          <li>Social</li>
+        </workTags>
+      </li>
+      <li Class="CompProperties_AbilityShowTargetIdeoCertainty" />
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingGenes MayRequire="Ludeon.RimWorld.Biotech">
+			<li>HVT_GuruGene</li>
+		</forcingGenes>
+      </li>
+    </comps>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>False</drawAimPie>
+      <range>-1</range>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetBuildings>False</canTargetBuildings>
+        <neverTargetHostileFaction>True</neverTargetHostileFaction>
+        <canTargetMutants>false</canTargetMutants>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <AbilityDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_GuruCounsel2</defName>
+    <label>Counsel</label>
+    <description>Offer counsel to a person to cancel the effect of a sad memory. The chance of success depends on the speaker's social skills and their relationship with the listener.</description>
+    <groupDef>HVT_GuruAbilities2</groupDef>
+    <iconPath>UI/Abilities/Counsel</iconPath>
+    <warmupMoteSocialSymbol>UI/Abilities/Counsel</warmupMoteSocialSymbol>
+    <warmupSound>MoralistAbility_Warmup</warmupSound>
+    <hotKey>Misc12</hotKey>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <uiOrder>3</uiOrder>
+    <showWhenDrafted>false</showWhenDrafted>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <comps>
+      <li Class="CompProperties_AbilityCounsel">
+        <successMessage>{INITIATOR_labelShort} successfully counselled {RECIPIENT_labelShort}, canceling the mood impact of {2}.</successMessage>
+        <successMessageNoNegativeThought>{INITIATOR_labelShort} successfully counselled {RECIPIENT_labelShort}, increasing {RECIPIENT_possessive} mood by {MOODBONUS}.</successMessageNoNegativeThought>
+        <failMessage>{INITIATOR_labelShort} botched the attempt to counsel {RECIPIENT_labelShort}. {RECIPIENT_labelShort} has become upset.</failMessage>
+        <failedThoughtRecipient>CounselFailed</failedThoughtRecipient>
+        <sound>MoralistAbility_Resolve</sound>
+      </li>
+      <li Class="CompProperties_AbilityMustBeCapableOf">
+        <workTags>
+          <li>Social</li>
+        </workTags>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingGenes MayRequire="Ludeon.RimWorld.Biotech">
+			<li>HVT_GuruGene</li>
+		</forcingGenes>
+      </li>
+    </comps>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>False</drawAimPie>
+      <range>-1</range>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetBuildings>False</canTargetBuildings>
+        <neverTargetHostileFaction>True</neverTargetHostileFaction>
+        <canTargetMutants>false</canTargetMutants>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  
+  <!--Anti-mechanoid Projection-->
+  <AbilityDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_MechaphobeScramble2</defName>
+    <label>scramble mechanoid</label>
+    <description>Overwhelm the target mechanoid with antipathy, stunning it and impairing its ability to defend itself for a duration scaling with the victim's psychic sensitivity.\n\nCoodown is reduced by the caster's max bandwidth, with diminishing returns.\n\nRequires at least 100% psychic sensitivity, as well as an installed mechlink or other source of bandwidth.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>true</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <iconPath>Genes/HVT_Mechaphobe</iconPath>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <writeCombatLog>True</writeCombatLog>
+    <uiOrder>3</uiOrder>
+    <aiCanUse>true</aiCanUse>
+    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
+    <cooldownTicksRange>20000</cooldownTicksRange>
+    <statBases>
+      <Ability_Duration>25</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>35</range>
+      <drawAimPie>true</drawAimPie>
+      <requireLineOfSight>true</requireLineOfSight>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>true</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>HVT_ScrambleMech</hediffDef>
+        <applicableToMechs>True</applicableToMechs>
+		<durationMultiplier>PsychicSensitivity</durationMultiplier>
+      </li>
+      <li Class = "CompProperties_AbilityEffectWithDuration">
+        <compClass>CompAbilityEffect_Stun</compClass>
+		<durationMultiplier>PsychicSensitivity</durationMultiplier>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>AtomizerFlashGrowing</fleckDef>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityRequiresMinimumStat">
+        <compClass>HautsFramework.CompAbilityEffect_RequiresMinimumStat</compClass>
+		<minStats>
+			<li>
+				<key>MechBandwidth</key>
+				<value>1</value>
+			</li>
+			<li>
+				<key>PsychicSensitivity</key>
+				<value>1</value>
+			</li>
+		</minStats>
+		<hideIfDisabled>true</hideIfDisabled>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingGenes MayRequire="Ludeon.RimWorld.Biotech">
+			<li>HVT_MechaphobeGene</li>
+		</forcingGenes>
+      </li>
+    </comps>
+  </AbilityDef>
+</Defs>

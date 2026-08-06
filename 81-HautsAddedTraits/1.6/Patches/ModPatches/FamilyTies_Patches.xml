@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Family Ties</li>
+		</mods>
+		<match Class="PatchOperationFindMod">
+			<mods>
+				<li>Biotech</li>
+			</mods>
+			<match Class="PatchOperationSequence">
+				<operations>
+					<!--Family Person ew/ Misopedist-->
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/TraitDef[defName="FamilyPerson"]/conflictingTraits</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>/Defs/TraitDef[defName="FamilyPerson"]</xpath>
+							<value>
+								<conflictingTraits>
+									<li>HVT_Misopedist</li>
+								</conflictingTraits>
+							</value>
+						</nomatch>
+						<match Class="PatchOperationAdd">
+							<xpath>/Defs/TraitDef[defName="FamilyPerson"]/conflictingTraits</xpath>
+							<value>
+								<li>HVT_Misopedist</li>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</match>
+		</match>
+	</Operation>
+</Patch>

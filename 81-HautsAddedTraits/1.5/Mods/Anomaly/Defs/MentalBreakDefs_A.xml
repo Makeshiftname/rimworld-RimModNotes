@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <MentalBreakDef>
+    <defName>HVT_HumanityBreak</defName>
+    <label>humanity break</label>
+    <intensity>Extreme</intensity>
+    <baseCommonality>999</baseCommonality>
+	<requiredTrait>HVT_Twisted</requiredTrait>
+    <workerClass>MentalBreakWorker_HumanityBreak</workerClass>
+    <mentalState>HVT_HumanityBreak</mentalState>
+  </MentalBreakDef>
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>HVT_HumanityBreak</defName>
+    <label>humanity break</label>
+    <stateClass>MentalState_HumanityBreak</stateClass>
+    <category>Misc</category>
+    <nameColor>(0.65, 0.9, 0.93)</nameColor>
+    <baseInspectLine>Mental state: Humanity break</baseInspectLine>
+    <beginLetter>{PAWN_nameDef} has relinquished {PAWN_possessive} remaining ties to humanity and embraced {PAWN_possessive} inner alignment with the void. {PAWN_possessive} concern for health, family, friendship, and love have been broken.\n\n{PAWN_nameDef} is now inhumanized, and will suffer a breakdown as {PAWN_pronoun} tries to grapple with {PAWN_possessive} new mental alignment.</beginLetter>
+    <blockNormalThoughts>true</blockNormalThoughts>
+    <downedCanDo>true</downedCanDo>
+    <recoverFromDowned>false</recoverFromDowned>
+    <recoverFromCollapsingExhausted>false</recoverFromCollapsingExhausted>
+    <inCaravanCanDo>true</inCaravanCanDo>
+    <unspawnedNotInCaravanCanDo>true</unspawnedNotInCaravanCanDo>
+    <blockInteractionInitiationExcept>
+      <li>Insult</li>
+      <li>Slight</li>
+    </blockInteractionInitiationExcept>
+    <blockInteractionRecipientExcept>
+      <li>Insult</li>
+      <li>Slight</li>
+    </blockInteractionRecipientExcept>
+  </MentalStateDef>
+  
+</Defs>

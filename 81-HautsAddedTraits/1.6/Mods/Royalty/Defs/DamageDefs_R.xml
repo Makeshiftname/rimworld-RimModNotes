@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<MVCF.ModDef>
+		<defName>Hauts_HVT_MVCF</defName>
+		<label>Kylian said this shouldn't be empty</label>
+		<description> but also that it otherwise doesn't matter what's put in here</description>
+		<ActivateFeatures>
+			<li>Drawing</li>
+			<li>HediffVerbs</li>
+            <li>IndependentFire</li>
+            <li>IntegratedToggle</li>
+		</ActivateFeatures>
+	</MVCF.ModDef>
+	
+  <!--bluejay-->
+  <ThingDef ParentName="BaseBullet">
+    <defName>PsychicBluejayProjectile</defName>
+    <label>psychic attack rush</label>
+    <graphicData>
+      <texPath>Things/Ethereal/Tornado</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Hauts_PsychicAttackRush</damageDef>
+      <damageAmountBase>9</damageAmountBase>
+      <stoppingPower>5</stoppingPower>
+      <speed>1000</speed>
+    </projectile>
+  </ThingDef>
+  <DamageDef ParentName="BluntBase">
+    <defName>Hauts_PsychicAttackRush</defName>
+    <label>psychic attack rush</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <isExplosive>true</isExplosive>
+    <deathMessage>{0} has been ravaged to death by an immaterial presence.</deathMessage>
+  </DamageDef>
+  <!--fulmar-->
+  <ThingDef ParentName="BaseBullet">
+    <defName>HVT_PsychicFulmarProjectile</defName>
+    <label>psychic siege blast</label>
+	<graphicData>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <texPath>Things/Mote/PsycastCast</texPath>
+	  <shaderType>MoteGlowDistorted</shaderType>
+	  <color>(55,55,185)</color>
+	  <drawSize>3</drawSize>
+	  <shaderParameters>
+		<_DistortionTex>/Other/Ripples</_DistortionTex>
+		<_distortionIntensity>0.11</_distortionIntensity>
+		<_DistortionScale>0.4</_DistortionScale>
+		<_distortionScrollSpeed>(0.5, 0.5, 0.0)</_distortionScrollSpeed>
+	  </shaderParameters>
+	</graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <damageDef>Hauts_PsychicBlast</damageDef>
+      <!-- damage amount is the damage def default -->
+      <speed>41</speed>
+      <explosionRadius>2.9</explosionRadius>
+	  <damageAmountBase>30</damageAmountBase>
+	  <stoppingPower>0.5</stoppingPower>
+	  <flyOverhead>true</flyOverhead>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <preExplosionSpawnSingleThingDef>Filth_BlastMark</preExplosionSpawnSingleThingDef>
+    </projectile>
+  </ThingDef>
+  <!--hornet-->
+  <ThingDef ParentName="BaseBullet">
+    <defName>HVT_PsychicHornetProjectile</defName>
+    <label>psychic blast projectile</label>
+	<graphicData>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <texPath>Things/Mote/PsycastCast</texPath>
+	  <shaderType>MoteGlowDistorted</shaderType>
+	  <color>(185,0,50)</color>
+	  <drawSize>1</drawSize>
+	  <shaderParameters>
+		<_DistortionTex>/Other/Ripples</_DistortionTex>
+		<_distortionIntensity>0.11</_distortionIntensity>
+		<_DistortionScale>0.4</_DistortionScale>
+		<_distortionScrollSpeed>(0.5, 0.5, 0.0)</_distortionScrollSpeed>
+	  </shaderParameters>
+	</graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>120</speed>
+      <damageDef>Hauts_PsychicBlast</damageDef>
+      <explosionRadius>1.9</explosionRadius>
+      <explosionDelay>10</explosionDelay>
+      <damageAmountBase>4</damageAmountBase>
+    </projectile>
+  </ThingDef>
+  <DamageDef Name="PsychicBlast">
+    <defName>Hauts_PsychicBlast</defName>
+    <label>psychic blast</label>
+    <workerClass>HautsTraitsRoyalty.DamageWorker_AddInjuryPsyBlast</workerClass>
+    <externalViolence>true</externalViolence>
+    <isExplosive>true</isExplosive>
+    <makesAnimalsFlee>true</makesAnimalsFlee>
+    <deathMessage>{0} has been dynakinetically ravaged to death.</deathMessage>
+    <hediff>Shredded</hediff>
+    <hediffSolid>Crack</hediffSolid>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Tornado</impactSoundType>
+    <armorCategory>Blunt</armorCategory>
+    <minDamageToFragment>10</minDamageToFragment>
+    <defaultDamage>16</defaultDamage>
+    <defaultStoppingPower>0.5</defaultStoppingPower>
+    <defaultArmorPenetration>0.10</defaultArmorPenetration>
+    <buildingDamageFactorImpassable>4</buildingDamageFactorImpassable>
+    <buildingDamageFactorPassable>2</buildingDamageFactorPassable>
+    <plantDamageFactor>4</plantDamageFactor>
+    <corpseDamageFactor>0.5</corpseDamageFactor>
+    <explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
+    <explosionHeatEnergyPerCell>5</explosionHeatEnergyPerCell>
+    <explosionCellFleck>BlastDry</explosionCellFleck>
+    <explosionColorCenter>(1, 0.8, 0.86)</explosionColorCenter>
+    <explosionColorEdge>(0.7, 1, 0.9)</explosionColorEdge>
+    <explosionInteriorFleck>ElectricalSpark</explosionInteriorFleck>
+    <soundExplosion>Explosion_Stun</soundExplosion>
+    <combatLogRules>Damage_Bomb</combatLogRules>
+  </DamageDef>
+  <!--yellowjacket-->
+  <ThingDef ParentName="BaseBullet">
+    <defName>HVT_PsychicYellowjacketProjectile</defName>
+    <label>psychic bolt projectile</label>
+	<graphicData>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <texPath>Things/Projectile/ChargeLanceShot</texPath>
+	  <shaderType>MoteGlowDistorted</shaderType>
+	  <color>(255,255,10)</color>
+	  <drawSize>1</drawSize>
+	  <shaderParameters>
+		<_DistortionTex>/Other/Ripples</_DistortionTex>
+		<_distortionIntensity>0.11</_distortionIntensity>
+		<_DistortionScale>0.4</_DistortionScale>
+		<_distortionScrollSpeed>(0.5, 0.5, 0.0)</_distortionScrollSpeed>
+	  </shaderParameters>
+	</graphicData>
+    <projectile>
+      <speed>70</speed>
+      <damageDef>Hauts_PsychicBolt</damageDef>
+      <damageAmountBase>22</damageAmountBase>
+      <armorPenetrationBase>0.75</armorPenetrationBase>
+	  <stoppingPower>3</stoppingPower>
+    </projectile>
+  </ThingDef>
+  <DamageDef Name="PsychicBolt">
+    <defName>Hauts_PsychicBolt</defName>
+    <label>psychic bolt</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has been dynakinetically ravaged to death.</deathMessage>
+    <hediff>Shredded</hediff>
+    <hediffSolid>Crack</hediffSolid>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Tornado</impactSoundType>
+    <armorCategory>Sharp</armorCategory>
+    <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+    <defaultDamage>16</defaultDamage>
+    <defaultStoppingPower>0.5</defaultStoppingPower>
+    <defaultArmorPenetration>0.75</defaultArmorPenetration>
+    <isRanged>true</isRanged>
+    <makesAnimalsFlee>true</makesAnimalsFlee>
+  </DamageDef>
+  <!--ziz-->
+  <ThingDef ParentName="BaseBullet">
+    <defName>HVT_ZizBlastProjectile</defName>
+    <label>pulverization blast projectile</label>
+	<graphicData>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <texPath>Things/Mote/PsycastCast</texPath>
+	  <shaderType>MoteGlowDistorted</shaderType>
+	  <color>(229, 255, 215)</color>
+	  <drawSize>1</drawSize>
+	  <shaderParameters>
+		<_DistortionTex>/Other/Ripples</_DistortionTex>
+		<_distortionIntensity>0.11</_distortionIntensity>
+		<_DistortionScale>0.4</_DistortionScale>
+		<_distortionScrollSpeed>(0.5, 0.5, 0.0)</_distortionScrollSpeed>
+	  </shaderParameters>
+	</graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>80</speed>
+      <damageDef>Hauts_SkipFrag</damageDef>
+      <explosionRadius>1.9</explosionRadius>
+      <explosionDelay>10</explosionDelay>
+      <damageAmountBase>9</damageAmountBase>
+    </projectile>
+  </ThingDef>
+</Defs>

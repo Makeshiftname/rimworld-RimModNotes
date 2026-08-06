@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Questing Meme</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--outdoorsy obviously. yes, not all quests require caravan travel. HOWEVER, it's the spirit of the thing-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="QuesterMeme_QuesterMeme"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="QuesterMeme_QuesterMeme"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Outdoorsy</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="QuesterMeme_QuesterMeme"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Outdoorsy</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

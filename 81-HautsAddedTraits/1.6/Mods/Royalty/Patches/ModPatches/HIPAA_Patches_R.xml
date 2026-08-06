@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Hauts' Intelligent Psycasters: Allies and Adversaries</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!-- +0.25x commonality for latent psychics and non-zero commonality for woke psychics.-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_LatentPsychic"]/commonality</xpath>
+					<value>
+						<commonality>0.85</commonality>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_LatentPsychic"]/modExtensions/li[@Class="HautsTraitsRoyalty.RemovedOnAwakening"]/awakenChance</xpath>
+					<value>
+						<awakenChance>0.12</awakenChance>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

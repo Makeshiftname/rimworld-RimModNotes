@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch><!--add these uncraftable items to the list of things Psychic Musangs can produce-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffMusang"]/comps/li[@Class="HautsTraitsRoyalty.HediffCompProperties_KopiLuwak"]/spawnedThingAndCountPerTrigger</xpath>
+					<value>
+						<li><key>ArchiteCapsule</key><value>2~4</value></li>
+						<li><key>DeathrestCapacitySerum</key><value>1</value></li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>ReSplice: Charmweavers</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffMusang"]/comps/li[@Class="HautsTraitsRoyalty.HediffCompProperties_KopiLuwak"]/spawnedThingAndCountPerTrigger</xpath>
+					<value>
+						<li><key>RS_LovethrallCapacitySerum</key><value>1</value></li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

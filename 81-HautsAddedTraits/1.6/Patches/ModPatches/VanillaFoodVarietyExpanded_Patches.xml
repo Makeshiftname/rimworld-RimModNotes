@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Food Variety Expanded</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="VCEV_NeedVariety"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="VCEV_NeedVariety"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_MetabolicFreak</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="VCEV_NeedVariety"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_MetabolicFreak</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

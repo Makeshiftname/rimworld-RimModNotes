@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Pathfinding Framework</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--get rid of the improvised swim speed boost for mariner-->
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/HediffDef[defName="HVT_ILoveWater"]/stages/li[minSeverity=0.3]/statFactors/MoveSpeed</xpath>
+				</li>
+				<!--now give it TRUE power-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/HediffDef[defName="HVT_ILoveWater"]</xpath>
+					<value>
+						<li Class="PathfindingFramework.MovementExtension">
+							<movementDef>PF_Movement_Amphibious</movementDef>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+		<nomatch Class="PatchOperationFindMod">
+			<mods>
+				<li>SwimmingKit</li>
+			</mods>
+			<match Class="PatchOperationSequence">
+				<operations>
+					<!--get rid of the improvised swim speed boost for mariner-->
+					<li Class="PatchOperationReplace">
+						<xpath>/Defs/HediffDef[defName="HVT_ILoveWater"]/stages/li[minSeverity=0.3]/statFactors/MoveSpeed</xpath>
+					</li>
+				</operations>
+			</match>
+		</nomatch>
+	</Operation>
+</Patch>

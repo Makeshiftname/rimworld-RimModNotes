@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>RimTraits - General Traits</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Sniper exclusive w/ Nearsighted-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="RT_Nearsighted"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Sniper</li>
+					</value>
+				</li>
+				<!--Staid exclusive w/ Easily Amused-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="RT_EasilyAmused"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Staid</li>
+					</value>
+				</li>
+				<!--Tranquil, as usual, exclusive w/ combat traits, but also exclusive w/ those that only affect social fight chance and mb threshold-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="RT_Nearsighted" or defName="RT_Farsighted" or defName="RT_Rowdy" or defName="RT_Composed" or defName="RT_Coordinated" or defName="RT_Clumsy" or defName="RT_Ignorant"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Tranquil</li>
+						<li>HVT_Tranquil0</li>
+					</value>
+				</li>
+				<!--Strength traits exclusive with Frail-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="RT_Frail"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Strong</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

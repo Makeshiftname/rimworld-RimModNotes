@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--anarchists refuse the yoke of autocracy. any kind of cracy, really, but especially imperial cracies-->
+  <ThoughtDef>
+    <defName>HVT_AnarchistHatesEmpire</defName>
+    <thoughtClass>HautsTraitsRoyalty.Thought_Situational_RelationsWithEmpire</thoughtClass>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <requiredTraits>
+      <li>HVT_Anarchist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>down with empire!</label>
+        <description>Empire is a parasitic, unsustainable force, and we should not be complicit in its atrocities.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--*throws a brick at the plasamsword-wielding cataphract*-->
+  <ThoughtDef>
+    <defName>HVT_AnarchistVsImperials</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraitsRoyalty.ThoughtWorker_Imperial</workerClass>
+    <requiredTraits>
+      <li>HVT_Anarchist</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>imperial lapdog</label>
+        <baseOpinionOffset>-10</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--no gods, no masters! says the Anarchist. meanwhile Serviles...-->
+  <ThoughtDef>
+    <defName>HVT_AnarchistVsLeaders</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraitsRoyalty.ThoughtWorker_Leader</workerClass>
+    <requiredTraits>
+      <li>HVT_Anarchist</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>anarchist vs authority</label>
+        <baseOpinionOffset>-25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_ServileLikesLeaders</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraitsRoyalty.ThoughtWorker_Leader</workerClass>
+    <requiredTraits>
+      <li>HVT_Servile</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>servile loves authority</label>
+        <baseOpinionOffset>25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--serviles gain mood per each noble of their faction or role-holder of their ideo&faction in the same map or caravan-->
+  <ThoughtDef>
+    <defName>HVT_Servile_LeadersInColony</defName>
+    <thoughtClass>HautsTraitsRoyalty.Thought_Situational_LeadersInColony</thoughtClass>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <requiredTraits>
+      <li>HVT_Servile</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>wants to be led</label>
+        <description>I don't want to lead anyone. In fact, I want others in strong positions of leadership.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--serviles and anarchists hate each other-->
+  <ThoughtDef>
+    <defName>HVT_AnarchistVsServile</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraitsRoyalty.ThoughtWorker_HVT_AnarchistVsServile</workerClass>
+    <requiredTraits>
+      <li>HVT_Anarchist</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>servile lapdog!</label>
+        <baseOpinionOffset>-25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_ServileVsAnarchist</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraitsRoyalty.ThoughtWorker_HVT_ServileVsAnarchist</workerClass>
+    <requiredTraits>
+      <li>HVT_Servile</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>anarchist cur!</label>
+        <baseOpinionOffset>-25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--Transcendent thoughts-->
+  <ThoughtDef>
+    <defName>HVT_CanarySong</defName>
+    <durationDays>5</durationDays>
+    <stackLimit>3</stackLimit>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>transcendent speech echo</label>
+        <description>That was just what I needed to hear.</description>
+        <baseMoodEffect>18</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_TCuckoo</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraitsRoyalty.ThoughtWorker_HVT_TCuckoo</workerClass>
+    <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>psychic cuckoo</label>
+        <baseOpinionOffset>250</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_GoldfinchThought</defName>
+    <durationDays>0.1</durationDays>
+    <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
+    <stages>
+      <li>
+        <label>daily goldfinch euphoria</label>
+        <description>I'm on top of the world!</description>
+        <baseMoodEffect>100</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_WhaleheadTerror</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>1</stackLimit>
+    <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>transcendent terror</label>
+        <description>Evil surrounds us. Unspeakable evil...</description>
+        <baseMoodEffect>-80</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_PtarmiganBright</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>HVT_PtarmiganBright</hediff>
+    <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>happy transcendent ptarmigan</label>
+        <description>I feel so light. Everything is clear!</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_SwanBondThought</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>HVT_SwanBuff</hediff>
+    <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>transcendent swan bond</label>
+        <description>I can feel a benevolent, tender presence. It promises everything will be alright...</description>
+        <baseMoodEffect>20</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

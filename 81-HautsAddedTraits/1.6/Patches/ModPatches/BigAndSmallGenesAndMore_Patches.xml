@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Big and Small - Genes &amp; More</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="BS_Unpretentious"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Aestheticist</li>
+						<li>HVT_Judgemental</li>
+						<li>HVT_Sadist</li>
+						<li>HVT_Textile</li>
+						<li>HVT_Vain</li>
+						<li>HVT_Prideful</li>
+						<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Intolerant</li>
+						<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Subjugator</li>
+						<li>HVT_GenePurist</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/GeneDef[defName="BS_GiantWeaponWielder"]/modExtensions/li[@Class="BigAndSmall.GenePrerequisites"]/prerequisiteSets/li[type="AnyOf"]/prerequisites</xpath>
+					<value>
+						<li>HVT_MightyGene</li>
+						<li>HVT_HerculeanGene</li>
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>/Defs/AbilityDef[defName="BS_Mimic_Abillity"]/comps/li[@Class="BigAndSmall.CompPropertiesMimic"]/genesToRetain</xpath>
+								<value>
+									<li>HVT_AAugurGene</li>
+									<li>HVT_AChanshiGene</li>
+									<li>HVT_ADelugeGene</li>
+									<li>HVT_AEruditeGene</li>
+									<li>HVT_AIncarnateGene</li>
+									<li>HVT_ALuminaryGene</li>
+									<li>HVT_AMantraistGene</li>
+									<li>HVT_APerennialGene</li>
+									<li>HVT_ASageGene</li>
+									<li>HVT_ASiphonerGene</li>
+									<li>HVT_ATitanGene</li>
+									<li>HVT_AUndyingGene</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>/Defs/AbilityDef[defName="BS_DisintegrateXenoGenes" or defName="BS_StopMimic"]/comps/li[@Class="BigAndSmall.CompPropertiesMimicOff"]/genesToRetain</xpath>
+								<value>
+									<li>HVT_AAugurGene</li>
+									<li>HVT_AChanshiGene</li>
+									<li>HVT_ADelugeGene</li>
+									<li>HVT_AEruditeGene</li>
+									<li>HVT_AIncarnateGene</li>
+									<li>HVT_ALuminaryGene</li>
+									<li>HVT_AMantraistGene</li>
+									<li>HVT_APerennialGene</li>
+									<li>HVT_ASageGene</li>
+									<li>HVT_ASiphonerGene</li>
+									<li>HVT_ATitanGene</li>
+									<li>HVT_AUndyingGene</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

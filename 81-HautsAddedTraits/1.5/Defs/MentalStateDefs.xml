@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--azphobe-->
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>HVT_PanicFleeAnimals</defName>
+    <label>panic-fleeing from wild animals</label>
+    <stateClass>HautsTraits.MentalState_PanicFleeAnimals</stateClass>
+    <workerClass>HautsTraits.MentalStateWorker_PanicFleeAnimals</workerClass>
+    <category>Misc</category>
+    <nameColor>(0.65, 0.9, 0.93)</nameColor>
+    <beginLetterLabel>fleeing from wild animals</beginLetterLabel>
+    <beginLetter>{0} is fleeing from wild animals.</beginLetter>
+    <recoveryMessage>{0} is no longer fleeing from wild animals.</recoveryMessage>
+    <baseInspectLine>Mental state: Fleeing from wild animals</baseInspectLine>
+    <blockNormalThoughts>true</blockNormalThoughts>
+    <minTicksBeforeRecovery>60</minTicksBeforeRecovery>
+  </MentalStateDef>
+  <!--visionary-->
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>HVT_VisionaryEureka</defName>
+    <workerClass>HautsTraits.MentalStateWorker_Eureka</workerClass>
+    <stateClass>HautsTraits.MentalState_Eureka</stateClass>
+    <label>created a schematic</label>
+    <category>Misc</category>
+    <nameColor>(0.8,0.36,1)</nameColor>
+	<downedCanDo>true</downedCanDo>
+	<slavesCanDo>true</slavesCanDo>
+	<prisonersCanDo>true</prisonersCanDo>
+    <colonistsOnly>false</colonistsOnly>
+	<minTicksBeforeRecovery>1</minTicksBeforeRecovery>
+	<maxTicksBeforeRecovery>1</maxTicksBeforeRecovery>
+    <beginLetter>{PAWN_nameDef} has experienced a profound insight into the workings of reality. Studying the schematics {PAWN_pronoun} has scribbled down could help unlock potential applications of that insight.</beginLetter>
+    <beginLetterDef>NeutralEvent</beginLetterDef>
+    <baseInspectLine>Mental state: Created a schematic</baseInspectLine>
+  </MentalStateDef>
+  <!--radthinker-->
+  <MentalStateDef ParentName="BaseMentalState" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_RadThinkerState</defName>
+    <workerClass>HautsTraits.MentalStateWorker_RadThinker</workerClass>
+    <stateClass>HautsTraits.MentalState_RadThinker</stateClass>
+    <label>invented new ideo</label>
+    <category>Misc</category>
+    <nameColor>(0.8,0.36,1)</nameColor>
+	<downedCanDo>true</downedCanDo>
+	<slavesCanDo>true</slavesCanDo>
+	<prisonersCanDo>true</prisonersCanDo>
+    <colonistsOnly>false</colonistsOnly>
+	<minTicksBeforeRecovery>1</minTicksBeforeRecovery>
+	<maxTicksBeforeRecovery>1</maxTicksBeforeRecovery>
+    <beginLetter>{PAWN_nameDef} has come up with a new ideoligion. {PAWN_pronoun} is extremely eager to share it, and will only stop if {PAWN_pronoun} is converted to a different ideoligion.</beginLetter>
+    <beginLetterDef>NeutralEvent</beginLetterDef>
+    <baseInspectLine>Mental state: Invented new ideo</baseInspectLine>
+  </MentalStateDef>
+  <MentalStateDef ParentName="BaseMentalState" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVT_SightstealerAttack</defName>
+    <workerClass>HautsTraits.MentalStateWorker_SightstealerAttack</workerClass>
+    <stateClass>HautsTraits.MentalState_SightstealerAttack</stateClass>
+    <label>haunted</label>
+    <category>Misc</category>
+    <nameColor>(0.8,0.36,1)</nameColor>
+	<downedCanDo>true</downedCanDo>
+	<slavesCanDo>true</slavesCanDo>
+	<prisonersCanDo>true</prisonersCanDo>
+    <colonistsOnly>false</colonistsOnly>
+	<minTicksBeforeRecovery>1</minTicksBeforeRecovery>
+	<maxTicksBeforeRecovery>1</maxTicksBeforeRecovery>
+    <beginLetter>{PAWN_nameDef} feels a jolt of alarm. The beings that haunt {PAWN_objective} are attacking!</beginLetter>
+    <beginLetterDef>NeutralEvent</beginLetterDef>
+    <baseInspectLine>Mental state: Invented new ideo</baseInspectLine>
+  </MentalStateDef>
+</Defs>

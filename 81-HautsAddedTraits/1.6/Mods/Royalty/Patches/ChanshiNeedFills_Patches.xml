@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Dubs Bad Hygiene</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicChanshi"]/comps/li[@Class="HautsTraitsRoyalty.HediffCompProperties_Chanshi"]/needsSatisfied</xpath>
+					<value>
+						<li><key>Bladder</key><value>0.003</value></li>
+						<li><key>Hygiene</key><value>0.003</value></li>
+						<li><key>DBHThirst</key><value>0.003</value></li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Goji's Fantasy Race: Merren</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicChanshi"]/comps/li[@Class="HautsTraitsRoyalty.HediffCompProperties_Chanshi"]/needsSatisfied</xpath>
+					<value>
+						<li><key>Stagz_NeedAquatic</key><value>0.005</value></li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	
+</Patch>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Vehicles Expanded</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Ideology</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--Earthborne/Skybound d/aw/ Skyseekers-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VVE_Skyseekers"]/agreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VVE_Skyseekers"]</xpath>
+									<value>
+										<agreeableTraits>
+											<li>HVT_Skybound</li>
+										</agreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VVE_Skyseekers"]/agreeableTraits</xpath>
+									<value>
+										<li>HVT_Skybound</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VVE_Skyseekers"]/disagreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VVE_Skyseekers"]</xpath>
+									<value>
+										<disagreeableTraits>
+											<li>HVT_Earthborne</li>
+										</disagreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VVE_Skyseekers"]/disagreeableTraits</xpath>
+									<value>
+										<li>HVT_Earthborne</li>
+									</value>
+								</match>
+							</li>
+							<!--earthborne can't be made to like flying, and skybound can't be made to hate it-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="VVE_Flying_Approved"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="VVE_Flying_Approved"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Earthborne</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="VVE_Flying_Approved"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Earthborne</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="VVE_Flying_Required"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="VVE_Flying_Required"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Earthborne</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="VVE_Flying_Required"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Earthborne</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="VVE_Flying_Horrible"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="VVE_Flying_Horrible"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Skybound</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="VVE_Flying_Horrible"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Skybound</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

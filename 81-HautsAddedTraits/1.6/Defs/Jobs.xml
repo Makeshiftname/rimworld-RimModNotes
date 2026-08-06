@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <JobDef>
+    <defName>HVT_UseTraitGiverSerum</defName>
+    <driverClass>HautsTraits.JobDriver_UseTraitGiverSerum</driverClass>
+    <reportString>administering trait serum to TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+  <JobDef>
+    <defName>HVT_DisarmExplosive</defName>
+    <driverClass>HautsTraits.JobDriver_DisarmExplosive</driverClass>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    <reportString>Disarming TargetA.</reportString>
+  </JobDef>
+
+</Defs>

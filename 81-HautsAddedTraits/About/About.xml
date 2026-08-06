@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>Hauts' Added Traits</name>
+    <author>Hautarche</author>
+    <packageId>Hautarche.HautsTraits</packageId>
+    <supportedVersions>
+		<li>1.5</li>
+		<li>1.6</li>
+    </supportedVersions>
+	<description>Adds 50 fun traits for pawns (+15 with Ideology, +7 with Biotech, +4 with Royalty, +6 with Anomaly, and +8 with Odyssey; 89 with all DLCs). Most have unique mechanics, such as activatable combat abilities, new ways to get inspirations, and more. To experience more trait goodness, this mod also includes a serum that adds traits of your choice to pawns, and the mod settings enable you to tweak the number of traits pawns can spawn with, from anywhere between 1 to 9.
+
+With Royalty: exposing those with the Latent Psychic trait to extraordinary or traumatic events may 'awaken' them, transforming them into powerful psycasters with extra capabilities, and opening the path for them to develop even further, unique psychic powers. A new start scenario lets you start with six Latent Psychics, either at an industrial or tribal tech level.
+
+With Biotech: there are genes which either grant certain traits from this mod or provide near-identical effects. If the mod settings allow for more than 3 traits per pawn, children will have more frequent growth moments to enable them to attain that many traits.
+
+With Anomaly: there are two new benefits and two new downsides available to 'creepy joiners', each involving a unique trait.
+
+See the full description here: https://docs.google.com/document/d/1AjWjya-8knskExfpUYtH3eyMT3oHOg1_BPJzgBO_3FE/edit?usp=sharing
+    </description>
+	<modIconPath IgnoreIfNoMatchingField="True">UI/HautsLogo_Draft0</modIconPath>
+	<modDependencies>
+        <li>
+            <packageId>brrainz.harmony</packageId>
+            <displayName>Harmony</displayName>
+            <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+            <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077</steamWorkshopUrl>
+        </li>
+		<li>
+			<packageId>Hautarche.HautsFramework</packageId>
+			<displayName>Hauts Framework</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3422815711</steamWorkshopUrl>
+			<downloadUrl>https://drive.google.com/drive/folders/1a22eD9tPS-IScSWPuz1Qw1RCMErd0fcZ?usp=drive_link</downloadUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+		<li>VanillaExpanded.VPsycastsE</li>
+		<li>Danzen.VPE.BiotechIntegration</li>
+		<li>VanillaExpanded.VPE.Puppeteer</li>
+		<li>VPE.Neurophage.Sentinel</li>
+		<li>kikohi.cybernetic</li>
+		<li>vanillaracesexpanded.highmate</li>
+		<li>Hautarche.HautsFramework</li>
+		<li>CETeam.CombatExtended</li>
+	</loadAfter>
+	<incompatibleWith>
+		<li>Hautarche.IncreasedTraitLimit</li>
+	</incompatibleWith>
+</ModMetaData>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Extra Psycasts (Continued)</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--some abilities can't affect awakened psychics-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/AbilityDef[defName="ExtraPsycasts_PsyLance"]/comps</xpath>
+					<value>
+						<li Class="HautsTraitsRoyalty.CompProperties_AbilityCantTargetWoke">
+							<compClass>HautsTraitsRoyalty.CompAbilityEffect_CantTargetWoke</compClass>
+					    </li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

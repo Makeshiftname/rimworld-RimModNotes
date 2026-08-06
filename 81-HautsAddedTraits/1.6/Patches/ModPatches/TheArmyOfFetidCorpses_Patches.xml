@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>The Army Of Fetid Corpses (Continued)</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="GameCon_NecrotionFallout"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="HowlingSpider" or defName="ExecutionerGhoul"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<forcePositive>
+							  <li>HVT_MonsterLover</li>
+							</forcePositive>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

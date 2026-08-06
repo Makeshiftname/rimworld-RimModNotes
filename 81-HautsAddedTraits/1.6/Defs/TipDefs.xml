@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TipSetDef>
+    <defName>HVT_Tipset</defName>
+    <tips>
+      <li TKey="HVT_PNF">Personality neuroformatters can be used to give new traits to colonists. Each neuroformatter has enough energy to grant multiple traits, but rarer traits cost more energy to grant.</li>
+      <li TKey="HVT_SkulkOnCaravans">Bring colonists with the Skulker trait on your caravans. They passively reduce the chances of the caravan being ambushed, and can perform special interactions with any sites or settlements the caravan reaches.</li>
+      <li TKey="HVT_SniperVSniper">A sniper rifle, augmented by the range bonus from the Sniper trait, will outrange every other weapon in the base game - except for another Sniper wielding a sniper rifle.</li>
+      <li TKey="HVT_WartistWhatIsItGoodFor">The Weapon Artist trait grants different combat stat bonuses depending on the weapon wielded. If you need more melee damage, use a sharp weapon; if you need more melee crowd control, use a blunt one.</li>
+      <li TKey="HVT_OffensiveLuminary" MayRequire="Ludeon.RimWorld.Royalty">Awakened Luminaries grant psychic sensitivity to anyone nearby - even their enemies. By positioning a Luminary near a psychically deaf pawn, it will become vulnerable to psycasts.</li>
+      <li TKey="HVT_TraitCrafting" MayRequire="VanillaExpanded.VPsycastsE">The Mindbender psycast path can be used to add and remove traits. While each individual psycast has its own use, together they can be used to craft personalities of your choice.</li>
+    </tips>
+  </TipSetDef>
+
+</Defs>

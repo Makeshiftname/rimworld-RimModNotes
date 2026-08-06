@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Cooler Psycasts</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--psychic unveiler disrupts all psychic invisibility types, except Mite which is technically due to being too small to see-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="CoolPsycasts_PsychicUnveilerHD"]/comps/li[@Class="CoolPsycasts.HediffCompProperties_NegateHediffs"]/hediffs</xpath>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="CoolPsycasts_PsychicUnveilerHD"]/comps/li[@Class="CoolPsycasts.HediffCompProperties_NegateHediffs"]/hediffs</xpath>
+						<value>
+							<li>HVT_THediffGnat</li>
+							<li>HVT_THediffHummingbird</li>
+							<li>HVT_THediffMite</li>
+							<li>HVT_TMNBuff</li>
+							<li MayRequire="VanillaExpanded.VPsycastsE">HVT_SnoopingAroundISee</li>
+						</value>
+					</match>
+				</li>
+				<!--some abilities can't affect awakened psychics-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/AbilityDef[defName="CoolPsycasts_PsychicFeedback"]/comps</xpath>
+					<value>
+						<li Class="HautsTraitsRoyalty.CompProperties_AbilityCantTargetWoke">
+							<compClass>HautsTraitsRoyalty.CompAbilityEffect_CantTargetWoke</compClass>
+					    </li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/AbilityDef[defName="CoolPsycasts_Enslave"]/comps</xpath>
+					<value>
+						<li Class="HautsTraitsRoyalty.CompProperties_AbilityCantTargetWoke">
+							<compClass>HautsTraitsRoyalty.CompAbilityEffect_CantTargetWoke</compClass>
+					    </li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/AbilityDef[defName="CoolPsycasts_RewriteMind"]/comps</xpath>
+					<value>
+						<li Class="HautsTraitsRoyalty.CompProperties_AbilityCantTargetWoke">
+							<compClass>HautsTraitsRoyalty.CompAbilityEffect_CantTargetWoke</compClass>
+					    </li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/AbilityDef[defName="CoolPsycasts_Possess"]/comps</xpath>
+					<value>
+						<li Class="HautsTraitsRoyalty.CompProperties_AbilityCantTargetWoke">
+							<compClass>HautsTraitsRoyalty.CompAbilityEffect_CantTargetWoke</compClass>
+					    </li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

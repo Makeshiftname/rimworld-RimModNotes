@@ -1,0 +1,1028 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Ideology Expanded - Memes and Structures</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Aestheticist likes Craft Culture and Cultured; Bookworm, Daydreamer, Hedonist also like Cultured; Vain also likes Craft Culture-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_CraftCulture"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_CraftCulture"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Aestheticist</li>
+								<li>HVT_Vain</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_CraftCulture"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Aestheticist</li>
+							<li>HVT_Vain</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Vanilla Books Expanded</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_Cultured"]/agreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Cultured"]</xpath>
+									<value>
+										<agreeableTraits>
+											<li>HVT_Aestheticist</li>
+											<li>HVT_Bookworm</li>
+											<li>HVT_Daydreamer</li>
+											<li>HVT_Hedonist</li>
+										</agreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Cultured"]/agreeableTraits</xpath>
+									<value>
+										<li>HVT_Aestheticist</li>
+										<li>HVT_Bookworm</li>
+										<li>HVT_Daydreamer</li>
+										<li>HVT_Hedonist</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<!--Agrizoophobe hates Insectoid Supremacy and Fishing Culture; Outdoorsies like Fishing Culture instead-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_InsectoidSupremacy"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_InsectoidSupremacy"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Agrizoophobe</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_InsectoidSupremacy"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Agrizoophobe</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Vanilla Fishing Expanded</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_Angler"]/disagreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Angler"]</xpath>
+									<value>
+										<disagreeableTraits>
+											<li>HVT_Agrizoophobe</li>
+										</disagreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Angler"]/disagreeableTraits</xpath>
+									<value>
+										<li>HVT_Agrizoophobe</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_Angler"]/agreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Angler"]</xpath>
+									<value>
+										<agreeableTraits>
+											<li>HVT_Outdoorsy</li>
+										</agreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Angler"]/agreeableTraits</xpath>
+									<value>
+										<li>HVT_Outdoorsy</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<!--Asocial likes Anon, hates Trader. Skulker likes Anon too-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Anonymity"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Anonymity"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Asocial</li>
+								<li>HVT_Skulker</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Anonymity"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Asocial</li>
+							<li>HVT_Skulker</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Trader"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Trader"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Asocial</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Trader"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Asocial</li>
+						</value>
+					</match>
+				</li>
+				<!--Champion likes Egalitarian, Emancipation, Gestalt, and Nationalist. Anarchist, Liberator, and the tolerance traits like Egal; Humble, Lib, and Anarchist like Emancipation;
+				Humble, Allegiant, and Conformist like Gestalt; Allegiant, Prideful, Conform, and Intolerant like Nationalist-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Egalitarian"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Egalitarian"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Champion</li>
+								<li>HVT_Liberator</li>
+								<li>HVT_Tolerant</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Egalitarian"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Champion</li>
+							<li>HVT_Liberator</li>
+							<li>HVT_Tolerant</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Emancipation"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Emancipation"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Champion</li>
+								<li>HVT_Humble</li>
+								<li>HVT_Liberator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Emancipation"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Champion</li>
+							<li>HVT_Humble</li>
+							<li>HVT_Liberator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Gestalt"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Gestalt"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Champion</li>
+								<li>HVT_Allegiant</li>
+								<li>HVT_Humble</li>
+								<li>HVT_Conformist</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Gestalt"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Champion</li>
+							<li>HVT_Allegiant</li>
+							<li>HVT_Humble</li>
+							<li>HVT_Conformist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Nationalist"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Nationalist"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Champion</li>
+								<li>HVT_Allegiant</li>
+								<li>HVT_Prideful</li>
+								<li>HVT_Conformist</li>
+								<li>HVT_Intolerant</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Nationalist"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Champion</li>
+							<li>HVT_Allegiant</li>
+							<li>HVT_Prideful</li>
+							<li>HVT_Conformist</li>
+							<li>HVT_Intolerant</li>
+						</value>
+					</match>
+				</li>
+				<!--Conversationalist likes Party Life, as do Hedonist and Reveller-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_PartyLife"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_PartyLife"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Conversationalist</li>
+								<li>HVT_Hedonist</li>
+								<li>HVT_Reveller</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_PartyLife"]/agreeableTraits</xpath>
+						<value>
+								<li>HVT_Conversationalist</li>
+								<li>HVT_Hedonist</li>
+								<li>HVT_Reveller</li>
+						</value>
+					</match>
+				</li>
+				<!--Daydreamer likes Astrology; so does Tempestophile-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Astrology"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Astrology"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Daydreamer</li>
+								<li>HVT_Tempestophile</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Astrology"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Daydreamer</li>
+							<li>HVT_Tempestophile</li>
+						</value>
+					</match>
+				</li>
+				<!--Graver likes Flesh Crafter-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Fleshcrafters"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Fleshcrafters"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Graver</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Fleshcrafters"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Graver</li>
+						</value>
+					</match>
+				</li>
+				<!--Hedonist likes Sweet Teeth-->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Vanilla Cooking Expanded</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_SweetTeeth"]/agreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_SweetTeeth"]</xpath>
+									<value>
+										<agreeableTraits>
+											<li>HVT_Hedonist</li>
+										</agreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_SweetTeeth"]/agreeableTraits</xpath>
+									<value>
+										<li>HVT_Hedonist</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<!--Allegiant likes God-Emprah and VC. Subs and Servs like GE too; Sadist, Intolerant, Sub, and Proclaimer like VC too-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_GodEmperor"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_GodEmperor"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Allegiant</li>
+								<li>HVT_Subjugator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Servile</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_GodEmperor"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Allegiant</li>
+							<li>HVT_Subjugator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Servile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_ViolentConversion"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_ViolentConversion"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Allegiant</li>
+								<li>HVT_Sadist</li>
+								<li>HVT_Intolerant</li>
+								<li>HVT_Subjugator</li>
+								<li>HVT_Proclaimer</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_ViolentConversion"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Allegiant</li>
+							<li>HVT_Sadist</li>
+							<li>HVT_Intolerant</li>
+							<li>HVT_Subjugator</li>
+							<li>HVT_Proclaimer</li>
+						</value>
+					</match>
+				</li>
+				<!--Outdoorsies like Nomad-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Nomad"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Nomad"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Outdoorsy</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Nomad"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Outdoorsy</li>
+						</value>
+					</match>
+				</li>
+				<!--PPleasers and Pridefuls hate Anonymity-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Anonymity"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Anonymity"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_PeoplePleaser</li>
+								<li>HVT_Prideful</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Anonymity"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_PeoplePleaser</li>
+							<li>HVT_Prideful</li>
+						</value>
+					</match>
+				</li>
+				<!--Sadist likes Blood Court; hates Egalitarian, Emancipation, and Pacifist. Vicious likes Blood Court and hates Pacifist too. Gravers like Blood Court since it produces corpses.
+					Subjugator also hates Egalitarian, Emancipation, Pacifist; Servile hates Egalitarian; Intolerants hate Egal-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_BloodCourt"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_BloodCourt"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Graver</li>
+								<li>HVT_Sadist</li>
+								<li>HVT_Vicious</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_BloodCourt"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Sadist</li>
+							<li>HVT_Vicious</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Egalitarian"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Egalitarian"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Sadist</li>
+								<li>HVT_Intolerant</li>
+								<li>HVT_Subjugator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Servile</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Egalitarian"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Sadist</li>
+							<li>HVT_Intolerant</li>
+							<li>HVT_Subjugator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Servile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Emancipation"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Emancipation"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Sadist</li>
+								<li>HVT_Subjugator</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Emancipation"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Sadist</li>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Pacifist"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Pacifist"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Sniper</li>
+								<li>HVT_Sadist</li>
+								<li>HVT_Vicious</li>
+								<li>HVT_Subjugator</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Pacifist"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Sniper</li>
+							<li>HVT_Sadist</li>
+							<li>HVT_Vicious</li>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<!--Skulker hates Bushido and Light. Tranquil and Liberator also hate Bushido-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Bushido"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Bushido"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Skulker</li>
+								<li>HVT_Tranquil</li>
+								<li>HVT_Tranquil0</li>
+								<li>HVT_Liberator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Bushido"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Skulker</li>
+							<li>HVT_Tranquil</li>
+							<li>HVT_Tranquil0</li>
+							<li>HVT_Liberator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Light"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Light"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Skulker</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Light"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Skulker</li>
+						</value>
+					</match>
+				</li>
+				<!--Staid likes Industrialist-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_HardcoreIndustrialism"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_HardcoreIndustrialism"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Staid</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_HardcoreIndustrialism"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Staid</li>
+						</value>
+					</match>
+				</li>
+				<!--Textiles hate Scrapper since it forces no aversion to tattered apparel-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Scrapper"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Scrapper"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Textile</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Scrapper"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<!--Vagabonds hate Gestalt, Nationalist, City Builders; Outdoorsies also hate City Builders; Tranquils also hate Nationalist-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Gestalt"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Gestalt"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Vagabond</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Gestalt"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Vagabond</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Nationalist"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Nationalist"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Tranquil</li>
+								<li>HVT_Tranquil0</li>
+								<li>HVT_Vagabond</li>
+								<li>HVT_Tolerant</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Nationalist"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+							<li>HVT_Tranquil0</li>
+							<li>HVT_Vagabond</li>
+							<li>HVT_Tolerant</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_CityBuilders"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_CityBuilders"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Outdoorsy</li>
+								<li>HVT_Vagabond</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_CityBuilders"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Outdoorsy</li>
+							<li>HVT_Vagabond</li>
+						</value>
+					</match>
+				</li>
+				<!--Pridefuls, Subjugators and Serviles like Aristocratic-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Aristocratic"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Aristocratic"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Prideful</li>
+								<li>HVT_Subjugator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Servile</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Aristocratic"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Prideful</li>
+							<li>HVT_Subjugator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Servile</li>
+						</value>
+					</match>
+				</li>
+				<!--Liberators like Pacifist, disagrees w/ Violent Conversion; Tranquils like Pacifist, and Anarchist and Tranquil vs VC as well-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Pacifist"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Pacifist"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Tranquil</li>
+								<li>HVT_Tranquil0</li>
+								<li>HVT_Liberator</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Pacifist"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+							<li>HVT_Tranquil0</li>
+							<li>HVT_Liberator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_ViolentConversion"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_ViolentConversion"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Tranquil</li>
+								<li>HVT_Tranquil0</li>
+								<li>HVT_Liberator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_ViolentConversion"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+							<li>HVT_Tranquil0</li>
+							<li>HVT_Liberator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<!--Subjugator likes Bushido and Republic; Servile likes Republic too-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Bushido"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Bushido"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Subjugator</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Bushido"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="VME_Republic"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Republic"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Subjugator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Servile</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="VME_Republic"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Servile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Biotech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--Mechaphiles like Progressive and Mech Supremacy, Mechaphobes hates the latter-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_Progressive"]/agreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Progressive"]</xpath>
+									<value>
+										<agreeableTraits>
+											<li>HVT_Mechaphile</li>
+										</agreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Progressive"]/agreeableTraits</xpath>
+									<value>
+										<li>HVT_Mechaphile</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_MechanoidSupremacy"]/agreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_MechanoidSupremacy"]</xpath>
+									<value>
+										<agreeableTraits>
+											<li>HVT_Mechaphile</li>
+										</agreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_MechanoidSupremacy"]/agreeableTraits</xpath>
+									<value>
+										<li>HVT_Mechaphile</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_MechanoidSupremacy"]/disagreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_MechanoidSupremacy"]</xpath>
+									<value>
+										<disagreeableTraits>
+											<li>HVT_Mechaphobe</li>
+										</disagreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_MechanoidSupremacy"]/disagreeableTraits</xpath>
+									<value>
+										<li>HVT_Mechaphobe</li>
+									</value>
+								</match>
+							</li>
+							<!--Environmentalists like Scrapper but not City Builders-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_Scrapper"]/agreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Scrapper"]</xpath>
+									<value>
+										<agreeableTraits>
+											<li>HVT_Environmentalist</li>
+										</agreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Scrapper"]/agreeableTraits</xpath>
+									<value>
+										<li>HVT_Environmentalist</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_CityBuilders"]/disagreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_CityBuilders"]</xpath>
+									<value>
+										<disagreeableTraits>
+											<li>HVT_Environmentalist</li>
+										</disagreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_CityBuilders"]/disagreeableTraits</xpath>
+									<value>
+										<li>HVT_Environmentalist</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--Blanks don't jive with ideoligions about stuff they can't experience-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_PsychicFocus"]/disagreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_PsychicFocus"]</xpath>
+									<value>
+										<disagreeableTraits>
+											<li>HVT_PsychicallyBlank</li>
+										</disagreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_PsychicFocus"]/disagreeableTraits</xpath>
+									<value>
+										<li>HVT_PsychicallyBlank</li>
+									</value>
+								</match>
+							</li>
+							<!--anarchists don't want exalted priests or royals, serviles do; anarchists also hate aristocrats and god-emperors-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_ExaltedPriesthood"]/agreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_ExaltedPriesthood"]</xpath>
+									<value>
+										<agreeableTraits>
+											<li>HVT_Servile</li>
+										</agreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_ExaltedPriesthood"]/agreeableTraits</xpath>
+									<value>
+										<li>HVT_Servile</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_ExaltedPriesthood"]/disagreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_ExaltedPriesthood"]</xpath>
+									<value>
+										<disagreeableTraits>
+											<li>HVT_Anarchist</li>
+										</disagreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_ExaltedPriesthood"]/disagreeableTraits</xpath>
+									<value>
+										<li>HVT_Anarchist</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_Royal"]/agreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Royal"]</xpath>
+									<value>
+										<agreeableTraits>
+											<li>HVT_Servile</li>
+										</agreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Royal"]/agreeableTraits</xpath>
+									<value>
+										<li>HVT_Servile</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_Royal"]/disagreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Royal"]</xpath>
+									<value>
+										<disagreeableTraits>
+											<li>HVT_Anarchist</li>
+										</disagreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Royal"]/disagreeableTraits</xpath>
+									<value>
+										<li>HVT_Anarchist</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_Aristocratic"]/disagreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Aristocratic"]</xpath>
+									<value>
+										<disagreeableTraits>
+											<li>HVT_Anarchist</li>
+										</disagreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_Aristocratic"]/disagreeableTraits</xpath>
+									<value>
+										<li>HVT_Anarchist</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_GodEmperor"]/disagreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_GodEmperor"]</xpath>
+									<value>
+										<disagreeableTraits>
+											<li>HVT_Anarchist</li>
+										</disagreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_GodEmperor"]/disagreeableTraits</xpath>
+									<value>
+										<li>HVT_Anarchist</li>
+									</value>
+								</match>
+							</li>
+							<!--Psychics dig psyfocus-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VME_PsychicFocus"]/agreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_PsychicFocus"]</xpath>
+									<value>
+										<agreeableTraits>
+											<li>HVT_LatentPsychic</li>
+											<li>HVT_AwakenedAugur</li>
+											<li>HVT_AwakenedChanshi</li>
+											<li>HVT_AwakenedDeluge</li>
+											<li>HVT_AwakenedErudite</li>
+											<li>HVT_AwakenedIncarnate</li>
+											<li>HVT_AwakenedLuminary</li>
+											<li>HVT_AwakenedMantraist</li>
+											<li>HVT_AwakenedPerennial</li>
+											<li>HVT_AwakenedSage</li>
+											<li>HVT_AwakenedSiphoner</li>
+											<li>HVT_AwakenedTitan</li>
+											<li>HVT_AwakenedUndying</li>
+										</agreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VME_PsychicFocus"]/agreeableTraits</xpath>
+									<value>
+										<li>HVT_LatentPsychic</li>
+											<li>HVT_AwakenedAugur</li>
+											<li>HVT_AwakenedChanshi</li>
+											<li>HVT_AwakenedDeluge</li>
+											<li>HVT_AwakenedErudite</li>
+											<li>HVT_AwakenedIncarnate</li>
+											<li>HVT_AwakenedLuminary</li>
+											<li>HVT_AwakenedMantraist</li>
+											<li>HVT_AwakenedPerennial</li>
+											<li>HVT_AwakenedSage</li>
+											<li>HVT_AwakenedSiphoner</li>
+											<li>HVT_AwakenedTitan</li>
+											<li>HVT_AwakenedUndying</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

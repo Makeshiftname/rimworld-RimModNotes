@@ -1,0 +1,2363 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<TraitDef>
+		<defName>HVT_Aestheticist</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>aestheticist</label>
+			<description>{PAWN_nameDef} is much more strongly affected by the beauty (or ugliness) of {PAWN_possessive} surroundings and fellow persons.</description>
+			<allowedMeditationFocusTypes><li>Artistic</li></allowedMeditationFocusTypes>
+			<skillGains>
+			  <Artistic>3</Artistic>
+			  <Crafting>3</Crafting>
+			</skillGains>
+			<possessions>
+			  <SculptureSmall />
+			</possessions>
+			<disallowedThoughts>
+			  <li>NeedBeauty</li><!--has its own set of thoughts, so that even if the originals are overriden by another trait, gene, etc. Aestheticists will still care-->
+			  <li>Disfigured</li>
+			  <li>Pretty</li>
+			  <li>Ugly</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits>
+		  <li>Ascetic</li>
+		  <li>HVT_Staid</li>
+		</conflictingTraits>
+		<requiredWorkTags><li>Artistic</li></requiredWorkTags>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Agrizoophobe</defName>
+		<commonality>0.4</commonality>
+		<disabledWorkTags>Animals</disabledWorkTags>
+		<degreeDatas>
+		  <li>
+			<label>agrizoophobe</label>
+			<description>{PAWN_nameDef} might be fine with tame animals, but few things are more terrifying to {PAWN_objective} than wild or insane animals. {PAWN_pronoun} is prone to uncontrollable panic if any are nearby.</description>
+			<disallowedInspirations><li>Inspired_Taming</li></disallowedInspirations>
+			<forcedMentalState>HVT_PanicFleeAnimals</forcedMentalState>
+			<forcedMentalStateMtbDays>0.1</forcedMentalStateMtbDays>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<conflictingPassions><li>Animals</li></conflictingPassions>
+		<conflictingTraits><li MayRequire="Ludeon.RimWorld.Odyssey">HVT_Angler</li></conflictingTraits>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Allegiant</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>allegiant</label>
+			<description>{PAWN_nameDef} is steadfastly loyal to {PAWN_possessive} faction. {PAWN_pronoun} tries harder to get along with {PAWN_possessive} compatriots and will never bail on them.\n\nIf imprisoned, {PAWN_pronoun} will be exceptionally uncooperative with {PAWN_possessive} captors.</description>
+			<disallowedMentalStates><li>GiveUpExit</li></disallowedMentalStates>
+			<statOffsets>
+			  <VAEI_SanityGainMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.20</VAEI_SanityGainMultiplier>
+			  <Suppressability MayRequire="CETeam.CombatExtended">-0.25</Suppressability>
+			</statOffsets>
+			<statFactors>
+			  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</CertaintyLossFactor>
+			</statFactors>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Group</li></allowedMeditationFocusTypes>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<prisonerResolveFactor>
+					<li>
+						<key>0</key><value>5</value>
+					</li>
+				</prisonerResolveFactor>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Vagabond</li></conflictingTraits>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Asocial</defName>
+		<commonality>0.8</commonality>
+		<degreeDatas>
+		  <li>
+			<label>asocial</label>
+			<description>{PAWN_nameDef} doesn't care for conversation. {PAWN_pronoun} doesn't chitchat with others, never engages in social recreation, and doesn't enjoy parties. {PAWN_pronoun} doesn't mind it when others slight or insult {PAWN_objective} - it's just words, after all.</description>
+			<statFactors>
+			  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</CertaintyLossFactor>
+			</statFactors>
+			<skillGains>
+			  <Social>-2</Social>
+			</skillGains>
+			<disallowedThoughts>
+			  <li>Slighted</li>
+			  <li>Insulted</li>
+			  <li>InsultedMood</li>
+			  <li>MissingTongue</li><!--so no tongue?-->
+			  <li>AttendedConcert</li>
+			  <li>AttendedParty</li>
+			  <li>AttendedWedding</li>
+			  <li>HeldConcert</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key>
+						<value><li>HVT_AsocialDontHangOut</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+        </modExtensions>
+		<conflictingPassions><li>Social</li></conflictingPassions>
+		<conflictingTraits><li>HVT_Conversationalist</li><li>HVT_Reveller</li><li MayRequire="Ludeon.RimWorld.Ideology">HVT_Proclaimer</li><li MayRequire="Ludeon.RimWorld.Biotech">HVT_Mentor</li><li MayRequire="Ludeon.RimWorld.Anomaly">Occultist</li><li MayRequire="Goji.TheSimsTraits">ST_Chatterbox</li></conflictingTraits>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Bookworm</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>bookworm</label>
+			<description>{PAWN_nameDef} could spend hours lost between the pages of a good book - {PAWN_pronoun} will feel happier after spending enough time reading. However, this preoccupation with reading has caused {PAWN_objective} to slightly neglect more physical pursuits.</description>
+			<statOffsets>
+			  <ReadingSpeed>0.15</ReadingSpeed>
+			  <MeleeHitChance>-1</MeleeHitChance>
+			  <ShootingAccuracyPawn>-1</ShootingAccuracyPawn>
+			</statOffsets>
+			<skillGains>
+			  <Intellectual>2</Intellectual>
+			</skillGains>
+			<possessions>
+			  <Novel />
+			</possessions>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>HVT_Staid</li></conflictingTraits>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Champion</defName>
+		<commonality>0.4</commonality>
+		<degreeDatas>
+		  <li>
+			<label>champion</label>
+			<description>{PAWN_nameDef} is driven to great heights by thoughts of those dear to {PAWN_objective}. {PAWN_pronoun} works harder, learns faster, and becomes more resistant to pain and stress based on the total strength of {PAWN_possessive} positive relationships.</description>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Group</li></allowedMeditationFocusTypes>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_ChampionPower</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+        </modExtensions>
+		<conflictingTraits><li>Abrasive</li><li>Psychopath</li></conflictingTraits>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Conversationalist</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>conversationalist</label>
+			<description>{PAWN_nameDef} is a master of small talk; speaking with others grants them a stacking mood bonus. If {PAWN_pronoun} goes on a mental break, it is likely to be an insulting spree.</description>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Group</li></allowedMeditationFocusTypes>
+			<skillGains>
+			  <Social>3</Social>
+			</skillGains>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>3</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Asocial</li><li>HVT_Curmudgeon</li><li MayRequire="Ludeon.RimWorld.Anomaly">Disturbing</li></conflictingTraits>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Curmudgeon</defName>
+		<commonality>0.3</commonality>
+		<degreeDatas>
+		  <li>
+			<label>curmudgeon</label>
+			<description>{PAWN_nameDef} dislikes overt displays of happiness. {PAWN_pronoun} gets irritated when talking to anyone who is in a good mood, unless they share this particular outlook.</description>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>Kind</li><li>HVT_Conversationalist</li></conflictingTraits>
+	</TraitDef>
+		
+	<TraitDef>
+		<defName>HVT_Daydreamer</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>daydreamer</label>
+			<description>{PAWN_nameDef} has an overactive imagination. At random, or if {PAWN_pronoun} becomes too stressed, {PAWN_pronoun} will retreat into {PAWN_possessive} imagination, resulting in a harmless mental break. After indulging {PAWN_possessive} imagination in such a way, {PAWN_pronoun} becomes inspired.</description>
+			<statOffsets>
+			  <WorkSpeedGlobal>-0.05</WorkSpeedGlobal>
+			  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.30</VAEI_SanityMultiplier>
+			</statOffsets>
+			<allowedMeditationFocusTypes><li>Minimal</li></allowedMeditationFocusTypes>
+			<statFactors>
+			  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2</CertaintyLossFactor>
+			</statFactors>
+			<theOnlyAllowedMentalBreaks>
+			  <li>Catatonic</li>
+			  <li>Wander_Psychotic</li>
+			  <li>Wander_Sad</li>
+			  <li>Wander_OwnRoom</li>
+			  <li MayRequire="Ludeon.RimWorld.Anomaly">DarkVisions</li>
+			  <li MayRequire="Ludeon.RimWorld.Anomaly">InsaneRamblings</li>
+			</theOnlyAllowedMentalBreaks>
+			<randomMentalState>Wander_Psychotic</randomMentalState>
+			<randomMentalStateMtbDaysMoodCurve><points><li>(0, 35)</li></points></randomMentalStateMtbDaysMoodCurve>
+		  </li>
+		</degreeDatas>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Drudge</defName>
+		<commonality>0.5</commonality>
+		<disabledWorkTags>Intellectual</disabledWorkTags>
+		<exclusionTags><li>SlowFastLearner</li></exclusionTags>
+		<degreeDatas>
+		  <li>
+			<label>drudge</label>
+			<description>{PAWN_nameDef} is exceptionally skilled at basic tasks, but struggles with advanced concepts. Except for shooting, melee, and social, {PAWN_possessive} skills degrade rapidly while above level 10.</description>
+			<statOffsets>
+			  <WorkSpeedGlobal>0.55</WorkSpeedGlobal>
+			</statOffsets>
+			<disallowedInspirations><li>Inspired_Creativity</li></disallowedInspirations>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_DrudgeLimiter</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>3</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingPassions><li>Intellectual</li></conflictingPassions>
+		<conflictingTraits><li>GreatMemory</li><li>TooSmart</li><li>HVT_Visionary</li><li MayRequire="Ludeon.RimWorld.Anomaly">PerfectMemory</li><li MayRequire="RavingLegend.MoreTraits">RT_Perfectionist</li><li MayRequire="Goji.TheSimsTraits">ST_Procrastinator</li></conflictingTraits>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Forgettable</defName>
+		<commonality>0.2</commonality>
+		<degreeDatas>
+		  <li>
+			<label>forgettable</label>
+			<description>With {PAWN_possessive} bland demeanor and generic appearance, it can be easy to forget {PAWN_nameDef} is around. Others’ opinions of {PAWN_objective} (both positive and negative) are only two-thirds as strong as normal.</description>
+			<skillGains>
+			  <Social>-2</Social>
+			</skillGains>
+			<statOffsets>
+			  <Hauts_PilferingStealth>0.5</Hauts_PilferingStealth>
+			</statOffsets>
+			<statFactors>
+			  <SocialImpact>0.8</SocialImpact>
+			  <PawnBeauty>0.5</PawnBeauty>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>Abrasive</li><li>HVT_Winsome</li><li MayRequire="RavingLegend.MoreTraits">RT_Celebrity</li></conflictingTraits>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>4</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Graver</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>graver</label>
+			<description>Looking at corpses makes {PAWN_nameDef} happy, and {PAWN_pronoun} doesn't mind wearing tainted apparel.</description>
+			<allowedMeditationFocusTypes><li>Morbid</li></allowedMeditationFocusTypes>
+			<randomMentalState>CorpseObsession</randomMentalState>
+			<randomMentalStateMtbDaysMoodCurve><points><li>(0, 50)</li></points></randomMentalStateMtbDaysMoodCurve>
+			<possessions>
+			  <Skull>2~8</Skull>
+			</possessions>
+			<statOffsets>
+			  <VAEI_SanityGainMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">-0.20</VAEI_SanityGainMultiplier>
+			</statOffsets>
+			<disallowedThoughts>
+			  <li>DeadMansApparel</li>
+			  <li>ObservedLayingCorpse</li>
+			  <li>ObservedLayingRottingCorpse</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">ObservedGibbetCage</li><!--I reject your gibbet and skullspike thoughts, and substitute my own-->
+			  <li MayRequire="Ludeon.RimWorld.Ideology">ObservedSkullspike</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">Skullspike_Desired</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">Skullspike_Disapproved</li>
+			  <li MayRequire="Ludeon.RimWorld.Anomaly">BecameGhoul</li>
+			  <li MayRequire="Ludeon.RimWorld.Anomaly">DeathPall</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Hale</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>hale</label>
+			<description>{PAWN_nameDef} is filled with vigor. {PAWN_pronoun} is difficult to harm, and is quick to bounce back from exhaustion, injury, and illness.</description>
+			<statOffsets>
+			  <VEF_MassCarryCapacity>20</VEF_MassCarryCapacity>
+			  <CarryWeight MayRequire="CETeam.CombatExtended">30</CarryWeight>
+			  <ImmunityGainSpeed>0.1</ImmunityGainSpeed>
+			  <InjuryHealingFactor>0.2</InjuryHealingFactor>
+			  <LifespanFactor>0.2</LifespanFactor>
+			  <RestRateMultiplier>0.15</RestRateMultiplier>
+			  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.10</P42_AllergicSensitivity>
+			  <Hauts_HemogenContentFactor MayRequire="Ludeon.RimWorld.Biotech">0.33</Hauts_HemogenContentFactor>
+			  <SmokeSensitivity MayRequire="CETeam.CombatExtended">-0.1</SmokeSensitivity>
+			</statOffsets>
+			<statFactors>
+			  <IncomingDamageFactor>0.85</IncomingDamageFactor>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>Immunity</li><li MayRequire="Ludeon.RimWorld.Biotech">Delicate</li></conflictingTraits>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>4</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Hedonist</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>hedonist</label>
+			<description>Fun is everything to {PAWN_nameDef}. {PAWN_pronoun} never gets bored of any kind of recreation, but {PAWN_pronoun} needs it more frequently than others.</description>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+			<statFactors>
+			  <Hauts_SkillGainFromRecreation>1.5</Hauts_SkillGainFromRecreation>
+			  <JoyFallRateFactor>1.5</JoyFallRateFactor>
+			</statFactors>
+			<statOffsets>
+			  <Hauts_BoredomDropPerDay>999.99</Hauts_BoredomDropPerDay>
+			</statOffsets>
+			<possessions>
+			  <Chocolate>2~5</Chocolate>
+			  <ChessTable />
+			</possessions>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>HVT_Staid</li></conflictingTraits>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Hotfoot</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>hotfoot</label>
+			<description>{PAWN_nameDef} moves swiftly and lightly.</description>
+			<statOffsets>
+			  <MoveSpeed>0.6</MoveSpeed>
+			</statOffsets>
+			<statFactors>
+			  <CarryingCapacity>0.5</CarryingCapacity>
+			  <VEF_MassCarryCapacity>0.5</VEF_MassCarryCapacity>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>SpeedOffset</li></conflictingTraits>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Hysteric</defName>
+		<commonality>0.4</commonality>
+		<degreeDatas>
+		  <li>
+			<label>hysteric</label>
+			<description>{PAWN_nameDef} goes into exaggerated histrionics when below {PAWN_possessive} mental break threshold, stressing out anyone who can see or hear {PAWN_objective}.</description>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+			<statFactors>
+			  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.5</CertaintyLossFactor>
+			</statFactors>
+			<possessions>
+			  <SmokeleafJoint>20~24</SmokeleafJoint>
+			</possessions>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_Hysterical0</li></value>
+					</li>
+				</grantedHediffs>
+				<otherHediffsToRemoveOnRemoval>
+					<li>
+						<key>0</key><value><li>HVT_Hysterical1</li></value>
+					</li>
+				</otherHediffsToRemoveOnRemoval>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>3</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Judgemental</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>judgemental</label>
+			<description>{PAWN_nameDef} is quick to assume the worst of other people. {PAWN_possessive} opinions of others are much more strongly influenced by negative impressions than positive ones.</description>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+			<statFactors>
+			  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</CertaintyLossFactor>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>Ascetic</li><li>Kind</li><li>HVT_Humble</li><li MayRequire="Goji.TheSimsTraits">ST_Naive</li></conflictingTraits>
+		<modExtensions>
+            <li Class="HautsFramework.ConceitedTrait" />
+		</modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Lech</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>lech</label>
+			<description>{PAWN_nameDef} really likes anyone {PAWN_pronoun} could be even a little attracted to. Sadly, the way in which {PAWN_pronoun} exhibits this is gross and creepy, so they tend not to like {PAWN_objective} back.</description>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>Asexual</li></conflictingTraits>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Lovesick</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>lovesick</label>
+			<description>{PAWN_nameDef} needs someone to love with all {PAWN_possessive} being. {PAWN_possessive} mood soars immensely when {PAWN_pronoun} has a lover, but {PAWN_pronoun} is much more sensitive to romantic hurt, and those who spurn {PAWN_objective} also suffer.</description>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>Asexual</li><li MayRequire="Goji.TheSimsTraits">ST_NonCommital</li></conflictingTraits>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>3</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Mariner</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>mariner</label>
+			<description>{PAWN_nameDef} loves being in the water. {PAWN_pronoun} enjoys getting wet, and swims quite quickly.</description>
+			<allowedMeditationFocusTypes><li MayRequire="Arquebus.StagzMerfolk">Stagz_Water</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.5</SwimSpeed>
+			</statOffsets>
+			<disallowedThoughts>
+			  <li>SoakingWet</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_ILoveWater</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_MetabolicFreak</defName>
+		<commonality>0.8</commonality>
+		<degreeDatas>
+		  <li>
+			<label>metabolic freak</label>
+			<description>{PAWN_nameDef} has an inexplicably robust metabolism. {PAWN_pronoun} doesn't need to eat as often and never gets food poisoning. So long as the food isn't raw, {PAWN_pronoun} also doesn't care what it is.</description>
+			<disallowedMentalStates><li>Binging_Food</li></disallowedMentalStates>
+			<hungerRateFactor>0.6</hungerRateFactor>
+			<possessions>
+			  <MealSurvivalPack>1~3</MealSurvivalPack>
+			</possessions>
+			<disallowedThoughts>
+			  <li>AteWithoutTable</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li MayRequire="Ludeon.RimWorld.Odyssey">HVT_Pescatarian</li><li MayRequire="RavingLegend.MoreTraits">RT_Gluttonous</li><li MayRequire="RavingLegend.MoreTraits">RT_Anorexic</li></conflictingTraits>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>5</value></li></chargeCosts></li>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_MetaFreak</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Outdoorsy</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>outdoorsy</label>
+			<description>Roughing it out in the wilderness doesn't bother {PAWN_nameDef}, but {PAWN_pronoun} despises being locked indoors.</description>
+			<statFactors>
+			  <ForagedNutritionPerDay>2</ForagedNutritionPerDay>
+			</statFactors>
+			<statOffsets>
+			  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.1</SwimSpeed>
+			</statOffsets>
+			<possessions>
+			  <WoodLog>40~75</WoodLog>
+			  <Pemmican>40~75</Pemmican>
+			</possessions>
+			<disallowedThoughts>
+			  <li>NeedOutdoors</li><!--same deal as Aestheticist-->
+			  <li>NeedIndoors</li>
+			  <li>AteWithoutTable</li>
+			  <li>EnvironmentDark</li>
+			  <li>SleptOutside</li>
+			  <li>SleptOnGround</li>
+			  <li>SoakingWet</li>
+			  <li>EnvironmentCold</li>
+			  <li>EnvironmentHot</li>
+			  <li>SleptInCold</li>
+			  <li>SleptInHeat</li>
+			  <li MayRequire="Ludeon.RimWorld.Biotech">NoxiousHaze</li>
+			  <li MayRequire="Ludeon.RimWorld.Odyssey">BlowingSand</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>Undergrounder</li></conflictingTraits>
+		<requiredWorkTags><li>PlantWork</li></requiredWorkTags>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_PeoplePleaser</defName>
+		<commonality>0.3</commonality>
+		<degreeDatas>
+		  <li>
+			<label>people pleaser</label>
+			<description>{PAWN_nameDef} craves the approval of those {PAWN_pronoun} knows. {PAWN_pronoun} is happy when others like {PAWN_objective}, and sad when they don't.</description>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Group</li></allowedMeditationFocusTypes>
+			<statFactors>
+			  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.5</CertaintyLossFactor>
+			</statFactors>
+			<skillGains>
+			  <Social>2</Social>
+			</skillGains>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>HVT_Asocial</li><li>HVT_Sadist</li></conflictingTraits>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Rambunctious</defName>
+		<commonality>0.4</commonality>
+		<degreeDatas>
+		  <li>
+			<label>rambunctious</label>
+			<description>Sitting still is a frustrating chore for {PAWN_nameDef}. While praying, meditating, or even rarely while sleeping or resting, {PAWN_pronoun} may break out into an uncontrollable run.</description>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs><li><key>0</key><value><li>HVT_Ramby</li></value></li></grantedHediffs>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Tranquil</li></conflictingTraits>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_RepressedRage</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>repressed rage</label>
+			<description>{PAWN_nameDef} harbors an extremely dangerous dark side which comes out when {PAWN_pronoun} starts to lose control. While stressed or in a mental break, {PAWN_pronoun} becomes much faster, stronger, and harder to subdue; during such an episode, any damage {PAWN_pronoun} takes may cause {PAWN_objective} to go berserk.</description>
+			<allowedMeditationFocusTypes><li>Morbid</li></allowedMeditationFocusTypes>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+			<statOffsets>
+			  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.25</VAEI_SanityLossMultiplier>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_RRUnleashed</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+        </modExtensions>
+		<!--<requiredWorkTags><li>Violent</li></requiredWorkTags> This isn't necessary since it turns out even pawns ordinarily incapable of violence CAN go berserk. Fascinating!-->
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Reveller</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>reveller</label>
+			<description>{PAWN_nameDef} is all about the party life! {PAWN_pronoun} throws a party whenever {PAWN_pronoun} becomes inspired, and {PAWN_pronoun} loves attending any sort of social function.</description>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Group</li></allowedMeditationFocusTypes>
+			<possessions>
+			  <Drum MayRequire="Ludeon.RimWorld.Ideology"/>
+			  <Ambrosia>1~3</Ambrosia>
+			</possessions>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>HVT_Asocial</li><li>HVT_Staid</li></conflictingTraits>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Sadist</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>sadistic</label>
+			<description>{PAWN_nameDef} gains mood and has a chance to become inspired when other people mentally break or socially fight. However, this tends not to endear {PAWN_objective} to those people.</description>
+			<allowedMeditationFocusTypes><li>Morbid</li></allowedMeditationFocusTypes>
+			<possessions>
+			  <MeleeWeapon_Knife />
+			  <Apparel_TortureCrown MayRequire="Ludeon.RimWorld.Ideology"/>
+			</possessions>
+			<statOffsets>
+			  <VAEI_SanityGainMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">-0.20</VAEI_SanityGainMultiplier>
+			</statOffsets>
+			<disallowedThoughts>
+			  <li MayRequire="Ludeon.RimWorld.Anomaly">BecameGhoul</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>Ascetic</li><li>Kind</li><li>HVT_Humble</li></conflictingTraits>
+		<modExtensions>
+            <li Class="HautsFramework.ConceitedTrait" />
+		</modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Skulker</defName>
+		<commonality>0.2</commonality>
+		<degreeDatas>
+		  <li>
+			<label>skulker</label>
+			<description>{PAWN_nameDef} is quite adept at evading detection. {PAWN_pronoun} doesn’t leave tracks and is difficult to spot. {PAWN_pronoun} even helps mask the passage of caravans {PAWN_pronoun} is part of.</description>
+			<statFactors>
+			  <HuntingStealth>1.5</HuntingStealth>
+			  <Hauts_PersonalCaravanVisibilityFactor>0</Hauts_PersonalCaravanVisibilityFactor>
+			  <FilthRate>0</FilthRate>
+			</statFactors>
+			<statOffsets>
+			  <Hauts_CaravanVisibilityOffset>-0.5</Hauts_CaravanVisibilityOffset>
+			  <Hauts_TrackSize>-2</Hauts_TrackSize>
+			  <Hauts_PilferingStealth>0.5</Hauts_PilferingStealth>
+			</statOffsets>
+			<disallowedThoughts>
+			  <li>EnvironmentDark</li>
+			  <li MayRequire="Ludeon.RimWorld.Anomaly">SwallowedByDarkness</li>
+			  <li MayRequire="Ludeon.RimWorld.Anomaly">UnnaturalDarkness</li>
+			  <li MayRequire="Ludeon.RimWorld.Anomaly">DarknessLifted</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>6</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Sniper</defName>
+		<commonality>1</commonality>
+		<forcedPassions><li>Shooting</li></forcedPassions>
+		<degreeDatas>
+		  <li>
+			<label>sniper</label>
+			<description>{PAWN_nameDef} can pick out targets at further distances than anyone else. However, {PAWN_pronoun} is less talented at close-quarters combat, and {PAWN_pronoun} feels unsafe without a ranged weapon.</description>
+			<skillGains>
+			  <Shooting>4</Shooting>
+			  <Melee>-10</Melee>
+			</skillGains>
+			<statOffsets>
+			  <VEF_VerbRangeFactor>0.2</VEF_VerbRangeFactor>
+			</statOffsets>
+			<statFactors>
+			  <MortarMissRadiusFactor>0.8</MortarMissRadiusFactor>
+			</statFactors>
+			<possessions>
+			  <Bow_Great />
+			</possessions>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>4</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>Brawler</li></conflictingTraits>
+		<conflictingPassions><li>Melee</li></conflictingPassions>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Staid</defName>
+		<commonality>1</commonality>
+		<disabledWorkTags>Artistic</disabledWorkTags>
+		<degreeDatas>
+		  <li>
+			<label>staid</label>
+			<description>{PAWN_nameDef} lacks some sort of ineffable inner spark. {PAWN_pronoun} won't recreate, doesn't care for beauty, and can't become inspired.</description>
+			<statFactors>
+			  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2</CertaintyLossFactor>
+			  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.9</VAEI_SanityMultiplier>
+			</statFactors>
+			<disablesNeeds>
+				<li>Beauty</li>
+				<li>Joy</li>
+			</disablesNeeds>
+			<disallowedThoughts>
+			  <li>NeedBeauty</li>
+			  <li>Disfigured</li>
+			  <li>Pretty</li>
+			  <li>Ugly</li>
+			</disallowedThoughts>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>TorturedArtist</li><li>HVT_Aestheticist</li><li>HVT_Bookworm</li><li>HVT_Daydreamer</li><li>HVT_Hedonist</li><li MayRequire="Goji.TheSimsTraits">ST_Bookworm</li><li MayRequire="Goji.TheSimsTraits">ST_PartyAnimal</li><li MayRequire="Goji.TheSimsTraits,Ludeon.RimWorld.Biotech">ST_Childish</li></conflictingTraits>
+		<exclusionTags><!--used for Obsidia Expansion - Paths and Stories-->
+		  <li>OEUnstableTrait</li>
+		</exclusionTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_StaidBlocker</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Sunbather</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>sunbather</label>
+			<description>{PAWN_nameDef} luxuriates in the sunlight, and loves soaking up its rays. Being in direct sunlight makes {PAWN_objective} happier but also makes {PAWN_objective} work slower.</description>
+			<statOffsets>
+			  <ComfyTemperatureMax>4</ComfyTemperatureMax>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_BaskInTheSun</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+        </modExtensions>
+		<conflictingTraits><li>NightOwl</li><li>Undergrounder</li></conflictingTraits>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Tempestophile</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>tempestophile</label>
+			<description>{PAWN_nameDef} loves turbulent weather. {PAWN_pronoun} receives a slight mood boost when the weather acts up, and exotic conditions like eclipses, auroras, or even toxic fallout bring {PAWN_objective} great joy.</description>
+			<possessions>
+			  <Apparel_Jacket />
+			  <Telescope />
+			</possessions>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>Undergrounder</li></conflictingTraits>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Textile</defName>
+		<commonality>0.4</commonality>
+		<degreeDatas>
+		  <li>
+			<label>textile</label>
+			<description>{PAWN_nameDef} places great importance on the wearing of garments. {PAWN_pronoun} dislikes being naked, and thinks poorly of others for not covering up at all times. {PAWN_pronoun} also can't stand wearing tattered apparel, so {PAWN_pronoun} takes good care of what {PAWN_pronoun} wears.</description>
+			<statOffsets>
+			  <Hauts_ApparelWearRateFactor>-0.6</Hauts_ApparelWearRateFactor>
+			</statOffsets>
+			<skillGains>
+			  <Crafting>2</Crafting>
+			</skillGains>
+			<possessions>
+			  <Apparel_Pants />
+			  <DevilstrandCloth>40~75</DevilstrandCloth>
+			</possessions>
+			<disallowedThoughts>
+			  <li>Naked</li><!--same deal as Aestheticist-->
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AnyBodyPartCovered_Disapproved_Male</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AnyBodyPartCovered_Disapproved_Female</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AnyBodyPartCovered_Disapproved_Memory</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AnyBodyPartCovered_Disapproved_Social_Male</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AnyBodyPartCovered_Disapproved_Social_Female</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AnyBodyPartButGroinCovered_Disapproved_Male</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AnyBodyPartButGroinCovered_Disapproved_Female</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AnyBodyPartButGroinCovered_Disapproved_Memory</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AnyBodyPartButGroinCovered_Disapproved_Social_Male</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AnyBodyPartButGroinCovered_Disapproved_Social_Female</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">GroinUncovered_Disapproved_Male</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">GroinUncovered_Disapproved_Female</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">GroinOrChestUncovered_Disapproved_Male</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">GroinOrChestUncovered_Disapproved_Female</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">GroinChestOrHairUncovered_Disapproved_Male</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">GroinChestOrHairUncovered_Disapproved_Female</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">GroinChestHairOrFaceUncovered_Disapproved_Male</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">GroinChestHairOrFaceUncovered_Disapproved_Female</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>Nudist</li></conflictingTraits>
+		<requiredWorkTags><li>Crafting</li></requiredWorkTags>
+    </TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Tranquil</defName>
+		<allowOnHostileSpawn>false</allowOnHostileSpawn>
+		<commonality>0</commonality>
+		<disabledWorkTags>Violent</disabledWorkTags>
+		<degreeDatas>
+		  <li>
+			<label>tranquil</label>
+			<description>{PAWN_nameDef} is utterly at peace. {PAWN_pronoun} will not participate in violence, and can't mentally break. Ever.</description>
+			<socialFightChanceFactor>0</socialFightChanceFactor>
+			<allowedMeditationFocusTypes><li>Minimal</li></allowedMeditationFocusTypes>
+			<statFactors>
+			  <MentalBreakThreshold>0</MentalBreakThreshold>
+			  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.15</VAEI_SanityMultiplier>
+			  <Suppressability MayRequire="CETeam.CombatExtended">0</Suppressability>
+			</statFactors>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+			<theOnlyAllowedMentalBreaks><!--0x mbt doesn't actually make mental breaks impossible. Tranquil instantly ends any mental states, but doesn't prevent mental breaks so the game engine can "let off steam". this means there's one more thing to do: prevent low mood from causing mental breaks that DON'T cause mental states and therefore can't be prematurely ended by Tranquil-->
+			  <li>Wander_Sad</li>
+			  <li>Wander_OwnRoom</li>
+			  <li>Wander_Psychotic</li>
+			  <li>GiveUpExit</li>
+			</theOnlyAllowedMentalBreaks>
+			<disallowedThoughts>
+			  <li>Catharsis</li><!--as they narratively never have a mental break, there's no reason for them to actually have catharsis-->
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits>
+		  <li>Abrasive</li>
+		  <li>TorturedArtist</li>
+		  <li>Nerves</li>
+		  <li>HVT_Daydreamer</li>
+		  <li>HVT_RepressedRage</li>
+		  <li>HVT_Sniper</li>
+		  <li>HVT_Vicious</li>
+		  <li>HVT_WeaponArtist</li>
+		  <li MayRequire="Goji.TheSimsTraits">ST_Emotional</li>
+		  <li MayRequire="Goji.TheSimsTraits">ST_Insane</li>
+		  <li>HVT_Tranquil0</li>
+		</conflictingTraits>
+		<conflictingPassions><li>Shooting</li><li>Melee</li></conflictingPassions>
+		<exclusionTags><!--see Staid-->
+		  <li>OEUnstableTrait</li>
+		</exclusionTags>
+	</TraitDef>
+		<TraitDef><!--RimWorld is usually pretty robust about making sure pawns that are supposed to be capable of violence don't get things that make them incapable of violence, but trade caravan guards are supposed to be capable of violence and yet their protections are
+						insufficient to prevent them from possibly getting violence-disabling traits. If a pawn that's supposed to be violence-capable gets generated as incapable of violence, the game "aborts" them as well as any other pawns they were generated alongside,
+						which means that Tranquil will sometimes cause trade caravans to fail to spawn. Therefore, to get around this we have this dummy trait here, which does nothing except TURN INTO Tranquil once the pawn experiences the flow of time, which necessarily
+						happens after pawn generation is complete. (If the pawn has to be capable of violence, though, this trait will either just disappear if the pawn has at least one other trait, or turn into the Kind trait otherwise)-->
+			<defName>HVT_Tranquil0</defName>
+			<allowOnHostileSpawn>false</allowOnHostileSpawn>
+			<commonality>0.4</commonality>
+			<degreeDatas>
+			  <li>
+				<label>tranquil</label>
+				<description>{PAWN_nameDef} is utterly at peace. {PAWN_pronoun} will not participate in violence, and can't mentally break. Ever.\n\n\n\nFor technical reasons, this trait does not actually disable violence until the game starts.</description>
+				<socialFightChanceFactor>0</socialFightChanceFactor>
+				<allowedMeditationFocusTypes><li>Minimal</li></allowedMeditationFocusTypes>
+				<statFactors>
+				  <MentalBreakThreshold>0</MentalBreakThreshold>
+				  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.15</VAEI_SanityMultiplier>
+				</statFactors>
+				<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+			  </li>
+			</degreeDatas>
+			<modExtensions>
+				<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>6</value></li></chargeCosts></li>
+				<li Class="HautsFramework.TraitGrantedStuff">
+					<grantedHediffs>
+						<li>
+							<key>0</key><value><li>HVT_TranquilWorkaround</li></value>
+						</li>
+					</grantedHediffs>
+				</li>
+			</modExtensions>
+			<conflictingPassions><li>Shooting</li><li>Melee</li></conflictingPassions>
+			<exclusionTags>
+			  <li>OEUnstableTrait</li>
+			</exclusionTags>
+		</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Vagabond</defName>
+		<commonality>0.7</commonality>
+		<degreeDatas>
+		  <li>
+			<label>vagabond</label>
+			<description>{PAWN_nameDef} doesn’t feel the need to be in a community. If things get too bad, or if {PAWN_pronoun} experiences a random surge of wanderlust, {PAWN_pronoun} will leave.\n\nIf imprisoned, {PAWN_pronoun} will be uncooperative with {PAWN_possessive} captors.</description>
+			<statOffsets>
+			  <CaravanBonusSpeedFactor>0.1</CaravanBonusSpeedFactor>
+			</statOffsets>
+			<theOnlyAllowedMentalBreaks><li>GiveUpExit</li></theOnlyAllowedMentalBreaks>
+			<randomMentalState>GiveUpExit</randomMentalState>
+			<randomMentalStateMtbDaysMoodCurve><points><li>(0, 150)</li></points></randomMentalStateMtbDaysMoodCurve>
+			<disallowedInspirations><li>Inspired_Recruitment</li></disallowedInspirations>
+			<possessions>
+			  <Bedroll />
+			  <Pemmican>10~20</Pemmican>
+			</possessions>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>HVT_Allegiant</li><li MayRequire="Goji.TheSimsTraits">ST_Loyal</li></conflictingTraits>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff"><prisonerResolveFactor><li><key>0</key><value>1.5</value></li></prisonerResolveFactor></li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Vain</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>vain</label>
+			<description>{PAWN_nameDef} is obsessed with {PAWN_possessive} own appearance. {PAWN_possessive} beauty and the quality of {PAWN_possessive} apparel impact {PAWN_possessive} mood.</description>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Wealth</li></allowedMeditationFocusTypes>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+			<statOffsets>
+			  <Hauts_ApparelWearRateFactor>-0.2</Hauts_ApparelWearRateFactor>
+			</statOffsets>
+			<possessions>
+			  <AC_Perfume MayRequire="sarg.alphacrafts">10~20</AC_Perfume>
+			  <AC_Soap MayRequire="sarg.alphacrafts">10~20</AC_Soap>
+			</possessions>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>Ascetic</li><li>HVT_Humble</li></conflictingTraits>
+		<modExtensions>
+            <li Class="HautsFramework.ConceitedTrait" />
+		</modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Vicious</defName>
+		<commonality>1</commonality>
+		<forcedPassions><li>Shooting</li><li>Melee</li></forcedPassions>
+		<degreeDatas>
+		  <li>
+			<label>vicious</label>
+			<description>Violent intent builds up within {PAWN_nameDef}, causing {PAWN_possessive} mood to worsen until {PAWN_pronoun} unleashes it in a savage, lethal burst.</description>
+			<allowedMeditationFocusTypes><li>Morbid</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.25</VAEI_SanityLossMultiplier>
+			</statOffsets>
+			<possessions>
+			  <Pila />
+			  <MeleeWeapon_Mace />
+			</possessions>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedAbilities>
+					<li>
+						<key>0</key><value><li>HVT_UnleashViciousness</li></value>
+					</li>
+				</grantedAbilities>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>3</value></li></chargeCosts></li>
+        </modExtensions>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Visionary</defName>
+		<commonality>0.2</commonality>
+		<forcedPassions><li>Intellectual</li></forcedPassions>
+		<degreeDatas>
+		  <li>
+			<label>visionary</label>
+			<description>{PAWN_nameDef} occasionally has episodes of profound insight during which {PAWN_pronoun} will create a schematic for a new technology. This happens more frequently when {PAWN_pronoun} is happier.</description>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Science</li></allowedMeditationFocusTypes>
+			<randomMentalState>HVT_VisionaryEureka</randomMentalState>
+			<randomMentalStateMtbDaysMoodCurve>
+				<points>
+					<li>(0, 120)</li>
+					<li>(0.5, 120)</li>
+					<li>(0.8, 50)</li>
+					<li>(1, 20)</li>
+				</points>
+			</randomMentalStateMtbDaysMoodCurve>
+			<statOffsets>
+			  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.75</VAEI_SanityMultiplier>
+			</statOffsets>
+			<possessions>
+			  <Schematic />
+			</possessions>
+			<skillGains>
+			  <Intellectual>4</Intellectual>
+			</skillGains>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>HVT_Drudge</li></conflictingTraits>
+		<requiredWorkTags><li>Intellectual</li></requiredWorkTags>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>4</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_WeaponArtist</defName>
+		<commonality>0.3</commonality>
+		<forcedPassions><li>Shooting</li><li>Melee</li></forcedPassions>
+		<degreeDatas>
+		  <li>
+			<label>weapon artist</label>
+			<description>{PAWN_nameDef} intuitively leans into the strengths of any weapon {PAWN_pronoun} wields, gaining different bonuses depending on the currently wielded weapon’s nature.</description>
+			<statOffsets>
+			  <MeleeCritChance MayRequire="CETeam.CombatExtended">0.03</MeleeCritChance>
+			  <MeleeParryChance MayRequire="CETeam.CombatExtended">0.02</MeleeParryChance>
+			</statOffsets>
+			<possessions>
+			  <MeleeWeapon_LongSword />
+			</possessions>
+		  </li>
+		</degreeDatas>
+		<modExtensions>
+			<li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_WeaponArts</li></value>
+					</li>
+				</grantedHediffs>
+			</li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>3</value></li></chargeCosts></li>
+        </modExtensions>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>HVT_Winsome</defName>
+		<commonality>0.2</commonality>
+		<degreeDatas>
+		  <li>
+			<label>winsome</label>
+			<description>There's just something really likeable about {PAWN_nameDef}.</description>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Group</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <ArrestSuccessChance>0.08</ArrestSuccessChance>
+			  <NegotiationAbility>0.08</NegotiationAbility>
+			  <SocialImpact>0.03</SocialImpact>
+			  <TradePriceImprovement>0.02</TradePriceImprovement>
+			  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.09</ConversionPower>
+			  <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">0.03</SuppressionPower>
+			  <RecruitRelationshipDamage MayRequire="Orion.Hospitality">5</RecruitRelationshipDamage>
+			  <ForcedRecruitRelationshipDamage MayRequire="Orion.Hospitality">5</ForcedRecruitRelationshipDamage>
+			  <!--<RecruitEffectivity MayRequire="Orion.Hospitality">0.125</RecruitEffectivity> This doesn't work for some reason-->
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>AnnoyingVoice</li><li>CreepyBreathing</li><li>HVT_Forgettable</li><li MayRequire="RavingLegend.MoreTraits">RT_Unwanted</li></conflictingTraits>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>5</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<!--'dream' spectrum-->
+	<TraitDef>
+		<defName>HVT_ChronicNightmares</defName>
+		<commonality>0.4</commonality>
+		<degreeDatas>
+		  <li>
+			<label>chronic nightmares</label>
+			<description>{PAWN_nameDef} never sleeps well. The longer {PAWN_pronoun} stays asleep, the worse {PAWN_possessive} mood will be on waking up.</description>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+			<possessions>
+			  <WakeUp>2~4</WakeUp>
+			</possessions>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs><li><key>0</key><value><li>HVT_TheseNightmaresSureAreChronic</li></value></li></grantedHediffs>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Tranquil</li><li>HVT_VividDreams</li></conflictingTraits>
+	</TraitDef>
+	<TraitDef>
+		<defName>HVT_VividDreams</defName>
+		<commonality>0.4</commonality>
+		<degreeDatas>
+		  <li>
+			<label>vivid dreams</label>
+			<description>After spending 6 continuous hours asleep, {PAWN_nameDef} enters an unusually potent dreaming state. Waking thereafter grants {PAWN_objective} mood and a chance to be inspired, both of which scale with additional time spent asleep.</description>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs><li><key>0</key><value><li>HVT_VividDreaming</li></value></li></grantedHediffs>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>5</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Staid</li><li>HVT_ChronicNightmares</li></conflictingTraits>
+	</TraitDef>
+	
+	<!--'expectation' spectrum-->
+	<TraitDef>
+		<defName>HVT_Prideful</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<degree>1</degree>
+			<label>entitled</label>
+			<description>{PAWN_nameDef} has high expectations at minimum. When they are met, {PAWN_pronoun} loses motivation, so {PAWN_pronoun} works and learns slower.</description>
+		  </li>
+		  <li>
+			<degree>2</degree>
+			<label>prideful</label>
+			<description>{PAWN_nameDef} has high expectations at minimum. When they are met, {PAWN_pronoun} becomes motivated, so {PAWN_pronoun} works and learns faster.</description>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>1</key><value><li>HVT_Entitlement</li></value>
+					</li>
+					<li>
+						<key>2</key><value><li>HVT_Pride</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsFramework.ConceitedTrait" />
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>1</key><value>1</value></li>
+					<li><key>2</key><value>4</value></li>
+				</chargeCosts>
+			</li>
+        </modExtensions>
+		<conflictingTraits><li>Ascetic</li><li>HVT_Humble</li></conflictingTraits>
+	</TraitDef>
+	<TraitDef>
+		<defName>HVT_Humble</defName>
+		<commonality>0.2</commonality>
+		<degreeDatas>
+		  <li>
+			<label>humble</label>
+			<description>{PAWN_nameDef} keeps {PAWN_possessive} expectations low, no matter how pampered {PAWN_pronoun} gets. Even if {PAWN_pronoun} gains a position of authority, {PAWN_possessive} expectations still won't progress past the moderate level.</description>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits>
+		  <li>Abrasive</li>
+		  <li>Greedy</li>
+		  <li>Jealous</li>
+		  <li>HVT_Judgemental</li>
+		  <li>HVT_Prideful</li>
+		  <li MayRequire="Ludeon.RimWorld.Ideology">HVT_Subjugator</li>
+		  <li MayRequire="Goji.TheSimsTraits,Ludeon.RimWorld.Royalty">ST_HighMaintenance</li>
+		</conflictingTraits>
+		<requiredWorkTags><li>ManualDumb</li></requiredWorkTags>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>7</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<!--Sense "spectrum"-->
+	<TraitDef>
+		<defName>HVT_Imperceptive</defName>
+		<commonality>0.7</commonality>
+		<degreeDatas>
+		  <li>
+			<label>imperceptive</label>
+			<description>{PAWN_nameDef} pays less attention to {PAWN_possessive} senses than most. Though this is mostly disadvantageous, {PAWN_pronoun} can sleep soundly through anything, as well as weather more trying temperatures.</description>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+			<statOffsets>
+				<ComfyTemperatureMin>-4.4</ComfyTemperatureMin>
+				<ComfyTemperatureMax>4.4</ComfyTemperatureMax>
+				<P42_AllergicSensitivity MayRequire="phil42.allergies">-0.10</P42_AllergicSensitivity>
+				<Suppressability MayRequire="CETeam.CombatExtended">-0.2</Suppressability>
+			</statOffsets>
+			<disablesNeeds>
+				<li>Comfort</li>
+			</disablesNeeds>
+			<disallowedThoughts>
+			  <li>SleepDisturbed</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_ImperceptiveSenses</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Perceptive</li><li MayRequire="Goji.TheSimsTraits,Ludeon.RimWorld.Biotech">ST_Observant</li></conflictingTraits>
+	</TraitDef>
+	<TraitDef>
+		<defName>HVT_Perceptive</defName>
+		<commonality>0.7</commonality>
+		<degreeDatas>
+		  <li>
+			<degree>1</degree>
+			<label>keen senses</label>
+			<description>{PAWN_nameDef} has very sharp senses. Though this is mostly a boon, it also makes {PAWN_objective} more sensitive to comfort, discomfort and extreme temperatures.</description>
+			<statOffsets>
+				<ComfyTemperatureMax>-2.2</ComfyTemperatureMax>
+				<ComfyTemperatureMin>2.2</ComfyTemperatureMin>
+				<P42_AllergicSensitivity MayRequire="phil42.allergies">0.05</P42_AllergicSensitivity>
+				<NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.2</NightVisionEfficiency>
+				<SmokeSensitivity MayRequire="CETeam.CombatExtended">0.1</SmokeSensitivity>
+			</statOffsets>
+			<possessions>
+			  <Apparel_Blindfold MayRequire="Ludeon.RimWorld.Ideology"/>
+			</possessions>
+		  </li>
+		  <li>
+			<degree>2</degree>
+			<label>powerful senses</label>
+			<description>{PAWN_nameDef} has senses almost on par with bionic augmentation. Though this is mostly a boon, it also makes {PAWN_objective} more sensitive to comfort, discomfort and extreme temperatures.</description>
+			<statOffsets>
+				<ComfyTemperatureMax>-4.4</ComfyTemperatureMax>
+				<ComfyTemperatureMin>4.4</ComfyTemperatureMin>
+				<P42_AllergicSensitivity MayRequire="phil42.allergies">0.10</P42_AllergicSensitivity>
+				<NightVisionEfficiency MayRequire="CETeam.CombatExtended">0.4</NightVisionEfficiency>
+				<SmokeSensitivity MayRequire="CETeam.CombatExtended">0.2</SmokeSensitivity>
+			</statOffsets>
+			<possessions>
+			  <Apparel_Blindfold MayRequire="Ludeon.RimWorld.Ideology"/>
+			</possessions>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>1</key><value><li>HVT_Perceptive1</li></value>
+					</li>
+					<li>
+						<key>2</key><value><li>HVT_Perceptive2</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>1</key><value>3</value></li>
+					<li><key>2</key><value>5</value></li>
+				</chargeCosts>
+			</li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Imperceptive</li></conflictingTraits>
+	</TraitDef>
+	
+	<!--Strength "spectrum"-->
+	<TraitDef>
+		<defName>HVT_Strong</defName>
+		<commonality>1.2</commonality>
+		<degreeDatas>
+		  <li>
+			<degree>1</degree>
+			<label>mighty</label>
+			<description>{PAWN_nameDef} hones {PAWN_possessive} body to a state of notable physical fitness, allowing {PAWN_objective} to carry more and hit harder.</description>
+			<statFactors>
+			  <VEF_MassCarryCapacity>1.8</VEF_MassCarryCapacity>
+			  <CarryWeight MayRequire="CETeam.CombatExtended">1.4</CarryWeight>
+			  <MiningSpeed>1.3</MiningSpeed>
+			</statFactors>
+			<statOffsets>
+			  <MeleeDamageFactor>0.6</MeleeDamageFactor>
+			  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.1</SwimSpeed>
+			  <VEF_BodySize_Offset>0.07</VEF_BodySize_Offset>
+			</statOffsets>
+		  </li>
+		  <li>
+			<degree>2</degree>
+			<label>herculean</label>
+			<description>{PAWN_nameDef} is immensely, ridiculously strong, allowing {PAWN_objective} to carry far more and hit far harder.</description>
+			<statFactors>
+			  <VEF_MassCarryCapacity>2.6</VEF_MassCarryCapacity>
+			  <CarryWeight MayRequire="CETeam.CombatExtended">1.8</CarryWeight>
+			  <MiningSpeed>1.6</MiningSpeed>
+			</statFactors>
+			<statOffsets>
+			  <MeleeDamageFactor>1.2</MeleeDamageFactor>
+			  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.2</SwimSpeed>
+			  <VEF_BodySize_Offset>0.15</VEF_BodySize_Offset>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li MayRequire="RavingLegend.MoreTraits">RT_Weak</li></conflictingTraits>
+        <modExtensions>
+			<li Class="HautsFramework.TraitGrantedStuff">
+				<forcedBodyTypes>
+					<li><key>Thin</key><value><li>Hulk</li></value></li>
+					<li><key>Male</key><value><li>Hulk</li></value></li>
+					<li><key>Female</key><value><li>Hulk</li></value></li>
+				</forcedBodyTypes>
+				<forcedBodyTypeWorker>HautsTraits.ForcedBodyTypeWorker_StrengthTraits</forcedBodyTypeWorker>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>1</key><value>4</value></li>
+					<li><key>2</key><value>7</value></li>
+				</chargeCosts>
+			</li>
+        </modExtensions>
+	</TraitDef>
+	
+	<!--Ideology traits-->
+		<!--Ideoligion impact "spectrum"-->
+	<TraitDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>HVT_Faithful</defName>
+		<commonality>2</commonality>
+		<degreeDatas>
+		  <li>
+			<degree>-2</degree>
+			<label>overly credulous</label>
+			<description>{PAWN_nameDef} is so gullible it beggars belief. {PAWN_pronoun} is very strongly affected by {PAWN_possessive} ideoligion, yet is also very susceptible to conversion attempts.</description>
+			<statFactors>
+			  <CertaintyLossFactor>5</CertaintyLossFactor>
+			  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">1.5</VAEI_SanityMultiplier>
+			</statFactors>
+			<statOffsets>
+			  <Hauts_IdeoAbilityDurationSelf>1.5</Hauts_IdeoAbilityDurationSelf>
+			  <Hauts_IdeoThoughtFactor>1</Hauts_IdeoThoughtFactor>
+			</statOffsets>
+		  </li>
+		  <li>
+			<degree>-1</degree>
+			<label>credulous</label>
+			<description>{PAWN_nameDef} believes almost anything anyone tells {PAWN_objective}. {PAWN_pronoun} is strongly affected by {PAWN_possessive} ideoligion, yet is also susceptible to conversion attempts.</description>
+			<statFactors>
+			  <CertaintyLossFactor>3</CertaintyLossFactor>
+			  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">1.25</VAEI_SanityMultiplier>
+			</statFactors>
+			<statOffsets>
+			  <Hauts_IdeoAbilityDurationSelf>0.75</Hauts_IdeoAbilityDurationSelf>
+			  <Hauts_IdeoThoughtFactor>0.5</Hauts_IdeoThoughtFactor>
+			</statOffsets>
+		  </li>
+		  <li>
+			<degree>1</degree>
+			<label>adherent</label>
+			<description>{PAWN_nameDef} has nearly unshakable faith in {PAWN_possessive} ideoligion. {PAWN_pronoun} is strongly affected by {PAWN_possessive} ideoligion, and is very resistant to conversion attempts.</description>
+			<statFactors>
+			  <CertaintyLossFactor>0.1</CertaintyLossFactor>
+			  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.5</VAEI_SanityMultiplier>
+			</statFactors>
+			<statOffsets>
+			  <Hauts_IdeoAbilityDurationSelf>0.75</Hauts_IdeoAbilityDurationSelf>
+			  <Hauts_IdeoThoughtFactor>0.5</Hauts_IdeoThoughtFactor>
+			</statOffsets>
+		  </li>
+		  <li>
+			<degree>2</degree>
+			<label>unquestioning adherent</label>
+			<description>{PAWN_nameDef} spends every breath in service of {PAWN_possessive} ideoligion. {PAWN_pronoun} is very strongly affected by {PAWN_possessive} ideoligion, and is immune to conversion attempts.</description>
+			<statFactors>
+			  <CertaintyLossFactor>0</CertaintyLossFactor>
+			  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.1</VAEI_SanityMultiplier>
+			</statFactors>
+			<statOffsets>
+			  <Hauts_IdeoAbilityDurationSelf>1.5</Hauts_IdeoAbilityDurationSelf>
+			  <Hauts_IdeoThoughtFactor>1</Hauts_IdeoThoughtFactor>
+			</statOffsets>
+			<disallowedMentalStates><li>IdeoChange</li></disallowedMentalStates>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>-2</key><value>4</value></li>
+					<li><key>-1</key><value>2</value></li>
+					<li><key>1</key><value>3</value></li>
+					<li><key>2</key><value>5</value></li>
+				</chargeCosts>
+			</li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Doubtful</li><li MayRequire="RavingLegend.MoreTraits">RT_Faithful</li><li MayRequire="RavingLegend.MoreTraits">RT_Stubborn</li><li MayRequire="RavingLegend.MoreTraits">RT_Gullible</li></conflictingTraits>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>HVT_Doubtful</defName>
+		<commonality>0.5</commonality>
+		<degreeDatas>
+		  <li>
+			<label>doubtful</label>
+			<description>{PAWN_nameDef} is chronically uncertain about everything; {PAWN_pronoun} is less affected by {PAWN_possessive} ideoligion.</description>
+			<statFactors>
+			  <Hauts_IdeoAbilityDurationSelf>0.5</Hauts_IdeoAbilityDurationSelf>
+			  <Hauts_IdeoThoughtFactor>0.5</Hauts_IdeoThoughtFactor>
+			  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.5</VAEI_SanityMultiplier>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Faithful</li><li MayRequire="RavingLegend.MoreTraits">RT_Faithful</li><li MayRequire="RavingLegend.MoreTraits">RT_Stubborn</li><li MayRequire="RavingLegend.MoreTraits">RT_Gullible</li><li MayRequire="Goji.TheSimsTraits">ST_Devout</li></conflictingTraits>
+	</TraitDef>
+		<!--tolerance "spectrum"-->
+	<TraitDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>HVT_Intolerant</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>intolerant</label>
+			<description>{PAWN_nameDef} dislikes and distrusts anyone who doesn't believe the things {PAWN_pronoun} does. Conversion attempts upset {PAWN_objective}, and changing to a new ideo frightens {PAWN_objective} terribly.</description>
+			<statFactors>
+			  <CertaintyLossFactor>0.25</CertaintyLossFactor>
+			</statFactors>
+			<disallowedThoughts>
+			  <li>IdeoDiversity_Approved</li>
+			  <li>IdeoDiversity_Respected</li>
+			  <li>IdeoDiversity_Exalted</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_IntolerantConverted</li></value>
+					</li>
+				</grantedHediffs>
+				<otherHediffsToRemoveOnRemoval>
+					<li>
+						<key>0</key><value><li>HVT_IntolerantConverted0</li></value>
+					</li>
+				</otherHediffsToRemoveOnRemoval>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Tolerant</li><li MayRequire="Goji.TheSimsTraits">ST_Naive</li></conflictingTraits>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>HVT_Tolerant</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>tolerant</label>
+			<description>{PAWN_nameDef} tolerates those who don’t follow {PAWN_possessive} beliefs. {PAWN_pronoun} isn't quite so upset with non-believers who violate {PAWN_possessive} ideoligion's taboos, and {PAWN_pronoun} isn’t upset by botched conversion attempts.</description>
+			<disallowedThoughts>
+			  <li>IdeoLeaderResentmentStandard</li>
+			  <li>IdeoLeaderResentmentDisapproved</li>
+			  <li>IdeoLeaderResentmentHorrible</li>
+			  <li>IdeoLeaderResentmentAbhorrent</li>
+			  <li>FailedConvertAbilityInitiator</li>
+			  <li>FailedConvertAbilityRecipient</li>
+			  <li>FailedConvertIdeoAttemptResentment</li>
+			  <li>ChangedIdeo_Know_Abhorrent</li>
+			  <li>ChangedIdeo_Know_Horrible</li>
+			  <li>ChangedIdeo_Know_Disapproved</li>
+			  <li>IdeoDiversity_Abhorrent</li>
+			  <li>IdeoDiversity_Abhorrent_Uniform</li>
+			  <li>IdeoDiversity_Abhorrent_Social</li>
+			  <li>IdeoDiverity_Abhorrent_AltarSharing</li>
+			  <li>IdeoDiversity_Abhorrent_ParticipatedInOthersRitual</li>
+			  <li>IdeoDiversity_Horrible</li>
+			  <li>IdeoDiversity_Horrible_Uniform</li>
+			  <li>IdeoDiversity_Horrible_Social</li>
+			  <li>IdeoDiverity_Horrible_AltarSharing</li>
+			  <li>IdeoDiversity_Horrible_ParticipatedInOthersRitual</li>
+			  <li>IdeoDiversity_Disapproved</li>
+			  <li>IdeoDiversity_Disapproved_Uniform</li>
+			  <li>IdeoDiversity_Disapproved_Social</li>
+			  <li>IdeoDiverity_Disapproved_AltarSharing</li>
+			  <li>IdeoDiversity_Disapproved_ParticipatedInOthersRitual</li>
+			  <li>IsApostate_Abhorrent_Social</li>
+			  <li>IsApostate_Horrible_Social</li>
+			  <li>IsApostate_Disapproved_Social</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Intolerant</li></conflictingTraits>
+	</TraitDef>
+		<!--freedom traits-->
+	<TraitDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>HVT_Subjugator</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>subjugator</label>
+			<description>{PAWN_nameDef} doesn’t just want to be above others - {PAWN_pronoun} needs others to be far beneath {PAWN_objective}. {PAWN_pronoun} can be satisfied by holding a position of authority or by the presence of enough slaves.</description>
+			<statOffsets>
+			  <SuppressionPower>0.08</SuppressionPower>
+			</statOffsets>
+			<possessions>
+			  <Apparel_AuthorityCap />
+			  <Apparel_BodyStrap />
+			</possessions>
+			<disallowedThoughts>
+			  <li>ExpectationsSlave</li>
+			  <li>Slavery_Abhorrent_SlavesInColony</li><!--the states' rights to do what, exactly?-->
+			  <li>SoldSlave_Know_Abhorrent</li>
+			  <li>SoldSlave_Know_Abhorrent_Mood</li>
+			  <li>EnslavedPrisoner_Know_Abhorrent</li>
+			  <li>Slavery_Horrible_SlavesInColony</li>
+			  <li>SoldSlave_Horrible</li>
+			  <li>EnslavedPrisoner_Horrible</li>
+			  <li>SoldSlave_Know_Horrible</li>
+			  <li>SoldSlave_Know_Horrible_Mood</li>
+			  <li>EnslavedPrisoner_Know_Horrible</li>
+			  <li>EnslavedPrisoner_Know_Horrible_Mood</li>
+			  <li>Slavery_Disapproved_SlavesInColony</li>
+			  <li>SoldSlave_Disapproved</li>
+			  <li>EnslavedPrisoner_Disapproved</li>
+			  <li>SoldSlave_Know_Disapproved</li>
+			  <li>SoldSlave_Know_Disapproved_Mood</li>
+			  <li>EnslavedPrisoner_Know_Disapproved</li>
+			  <li>EnslavedPrisoner_Know_Disapproved_Mood</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>3</value></li></chargeCosts></li>
+            <li Class="HautsFramework.ConceitedTrait" />
+		</modExtensions>
+		<conflictingTraits><li>Ascetic</li><li>HVT_Humble</li><li>HVT_Liberator</li><li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li></conflictingTraits>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>HVT_Liberator</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>liberator</label>
+			<description>{PAWN_nameDef} believes freedom is a right everyone should enjoy. {PAWN_pronoun} disapproves of slavery, and, to a lesser extent, imprisonment of anyone {PAWN_pronoun} knows.\n\nIf imprisoned, {PAWN_pronoun} will be uncooperative with {PAWN_possessive} captors.</description>
+			<statOffsets>
+			  <SuppressionPower>-0.08</SuppressionPower>
+			</statOffsets>
+			<disallowedThoughts>
+			  <li>ExpectationsSlave</li><!--it's a different kind of danger/and the bells are ringing out/and I'm calling for my mother/as I pull the pillars down-->
+			  <li>Slavery_Honorable_SlavesInColony</li>
+			  <li>Slavery_Honorable_NoSlavesInColony</li>
+			  <li>SoldSlave_Honorable</li>
+			  <li>EnslavedPrisoner_Honorable</li>
+			  <li>SoldSlave_Know_Honorable</li>
+			  <li>SoldSlave_Know_Honorable_Mood</li>
+			  <li>EnslavedPrisoner_Know_Honorable</li>
+			  <li>EnslavedPrisoner_Know_Honorable_Mood</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<prisonerResolveFactor>
+					<li>
+						<key>0</key><value>1.3</value>
+					</li>
+				</prisonerResolveFactor>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>4</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Subjugator</li><li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li></conflictingTraits>
+	</TraitDef>
+		<!--rest of the Ideology traits-->
+	<TraitDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>HVT_Conformist</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>conformist</label>
+			<description>For {PAWN_nameDef}, maintaining ideoligious solidarity is more important than embracing the truth. {PAWN_pronoun} will never be in the ideoligious minority for longer than two days; {PAWN_pronoun} then converts to whatever the most people in the faction {PAWN_pronoun} belongs to (or is enslaved by) believes.</description>
+			<allowedMeditationFocusTypes>
+				<li MayRequire="VanillaExpanded.VPsycastsE">VPE_Group</li>
+			</allowedMeditationFocusTypes>
+			<statFactors>
+			  <CertaintyLossFactor>0.8</CertaintyLossFactor>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_ConformistResetEffect</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>4</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_PersecutionComplex</li></conflictingTraits>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>HVT_Guru</defName>
+		<commonality>0.1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>guru</label>
+			<description>{PAWN_nameDef} projects a sense of wisdom, allowing {PAWN_objective} to use the abilities of a moral guide. If {PAWN_pronoun} actually has the moral guide role, {PAWN_pronoun} will have two copies of the ability set, on separate cooldowns.</description>
+			<skillGains>
+			  <Social>4</Social>
+			</skillGains>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedAbilities>
+					<li>
+						<key>0</key>
+						<value>
+							<li>HVT_GuruConvert</li>
+							<li>HVT_GuruCounsel</li>
+							<li>HVT_GuruReassure</li>
+							<li>HVT_GuruPreachHealth</li>
+						</value>
+					</li>
+				</grantedAbilities>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>8</value></li></chargeCosts></li>
+        </modExtensions>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>HVT_PersecutionComplex</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>persecution complex</label>
+			<description>{PAWN_nameDef} feels restless and unhappy when {PAWN_possessive} ideoligion is in the majority. Conversely, {PAWN_pronoun} works harder and is more determined when in the minority.</description>
+			<statOffsets>
+			  <MentalBreakThreshold>0.15</MentalBreakThreshold>
+			  <Suppressability MayRequire="CETeam.CombatExtended">0.2</Suppressability>
+			</statOffsets>
+			<statFactors>
+			  <CertaintyLossFactor>0.2</CertaintyLossFactor>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_PerCompBuff</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Conformist</li></conflictingTraits>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>HVT_Proclaimer</defName>
+		<commonality>0.8</commonality>
+		<forcedPassions><li>Social</li></forcedPassions>
+		<degreeDatas>
+		  <li>
+			<label>proclaimer</label>
+			<description>{PAWN_nameDef} is very eager to convert others to {PAWN_possessive} ideoligion.</description>
+			<skillGains>
+			  <Social>2</Social>
+			</skillGains>
+			<statFactors>
+			  <CertaintyLossFactor>0.8</CertaintyLossFactor>
+			  <SocialIdeoSpreadFrequencyFactor>12</SocialIdeoSpreadFrequencyFactor>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>HVT_Asocial</li></conflictingTraits>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>HVT_RadicalThinker</defName>
+		<commonality>0.1</commonality>
+		<forcedPassions><li>Intellectual</li><li>Social</li></forcedPassions>
+		<degreeDatas>
+		  <li>
+			<label>radical thinker</label>
+			<description>{PAWN_nameDef} constantly questions the nature and purpose of reality, personhood, and other profound topics. As a result, {PAWN_pronoun} may randomly come up with a new ideoligion, which {PAWN_pronoun} will be very passionate about spreading.</description>
+			<randomMentalState MayRequire="Ludeon.RimWorld.Ideology">HVT_RadThinkerState</randomMentalState>
+			<randomMentalStateMtbDaysMoodCurve><points><li>(0, 120)</li></points></randomMentalStateMtbDaysMoodCurve>
+			<statFactors>
+			  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">2</VAEI_SanityMultiplier>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>HVT_Faithful</li></conflictingTraits>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>5</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Ideology">
+		<defName>HVT_Superstitious</defName>
+		<commonality>0.4</commonality>
+		<degreeDatas>
+		  <li>
+			<label>superstitious</label>
+			<description>{PAWN_nameDef} believes in a wide variety of superstitions. As {PAWN_pronoun} randomly comes across what {PAWN_pronoun} believes to be omens, {PAWN_possessive} mood will fluctuate.</description>
+			<statOffsets>
+			  <Hauts_IdeoThoughtFactor>0.25</Hauts_IdeoThoughtFactor>
+			  <PsychicRitualQualityOffset MayRequire="Ludeon.RimWorld.Anomaly">0.1</PsychicRitualQualityOffset>
+			  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.50</VAEI_SanityLossMultiplier>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_Superstition</li></value><!--stevie wonder this one is for you-->
+					</li>
+				</grantedHediffs>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<!--biotech traits, starting with the childcare spectrum-->
+	<TraitDef MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>HVT_Misopedist</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>misopedist</label>
+			<description>{PAWN_nameDef} really dislikes and distrusts children and pregnant people.</description>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+			<disallowedThoughts>
+			  <li>ChildInGrowthVat</li>
+			  <li>PregnancyTerminated</li>
+			  <li>BreastfedBaby</li>
+			  <li>FedBaby</li>
+			  <li>GaveLesson</li>
+			  <li>MyChildHappy</li>
+			  <li>MyChildrenHappy</li>
+			  <li>MyChildSad</li>
+			  <li>MyChildrenSad</li>
+			  <li>YoungstersHappy</li>
+			  <li>YoungstersSad</li>
+			  <li>PartnerMiscarried</li>
+			  <li>BabyBorn</li>
+			  <li>BabyGiggledSocial</li>
+			  <li>PregnancyMood_Up</li>
+			  <li>PregnancyMood_High</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">GrowthVat_Prohibited_GrowthVatInColony</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">GrowthVat_Prohibited_ChildInGrowthVat</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">GrowthVat_Prohibited_ChildNotInGrowthVat</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Caretaker</li><li MayRequire="Goji.TheSimsTraits">ST_Naive</li></conflictingTraits>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>HVT_Caretaker</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>caretaker</label>
+			<description>{PAWN_nameDef} believes that children are the most important thing in the universe. {PAWN_pronoun} enjoys taking care of them; living in a place without kids makes {PAWN_objective} feel empty.</description>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Group</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <Hauts_InstructiveAbility>0.75</Hauts_InstructiveAbility>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Misopedist</li></conflictingTraits>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+	</TraitDef>
+	<!--mechanoid spectrum-->
+	<TraitDef MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>HVT_Mechaphile</defName>
+		<commonality>0.4</commonality>
+		<forcedPassions><li>Crafting</li></forcedPassions>
+		<degreeDatas>
+		  <li>
+			<label>mechaphile</label>
+			<description>{PAWN_nameDef} likes having mechanoids around. {PAWN_pronoun} will be saddened if an allied mechanoid dies.</description>
+			<possessions>
+			  <ComponentIndustrial>1~3</ComponentIndustrial>
+			  <SubcoreBasic />
+			</possessions>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Mechaphobe</li></conflictingTraits>
+		<requiredWorkTags><li>Crafting</li></requiredWorkTags>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>HVT_Mechaphobe</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>mechaphobe</label>
+			<description>{PAWN_nameDef} hates mechanoids, and {PAWN_pronoun} dislikes and distrusts those who control them. This antipathy is so strong that {PAWN_pronoun} can project it to discombobulate mechanoids, provided {PAWN_pronoun} has the means to broadcast on their bandwidth.</description>
+			<statFactors>
+			  <MechBandwidth>0.34</MechBandwidth>
+			</statFactors>
+			<possessions>
+			  <ChunkMechanoidSlag />
+			  <Weapon_GrenadeEMP />
+			</possessions>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedAbilities>
+					<li>
+						<key>0</key><value><li>HVT_MechaphobeScramble</li></value>
+					</li>
+				</grantedAbilities>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>3</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Mechaphile</li></conflictingTraits>
+	</TraitDef>
+	<!--the rest of the biotech traits-->
+	<TraitDef MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>HVT_Environmentalist</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>environmentalist</label>
+			<description>{PAWN_nameDef} thinks the beauty and health of the land should be preserved. {PAWN_pronoun} despises pollution, and appreciates being anywhere without its taint.</description>
+			<skillGains>
+			  <Animals>2</Animals>
+			  <Mining>2</Mining>
+			  <Plants>2</Plants>
+			</skillGains>
+			<statOffsets>
+			  <Hauts_RecyclingSpeed MayRequire="VanillaExpanded.Recycling">0.25</Hauts_RecyclingSpeed>
+			</statOffsets>
+			<disallowedThoughts>
+			  <li>NoxiousHaze</li><!--same deal as Aestheticist-->
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>4</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>HVT_Mentor</defName>
+		<commonality>0.6</commonality>
+		<forcedPassions><li>Social</li></forcedPassions>
+		<degreeDatas>
+		  <li>
+			<label>mentor</label>
+			<description>{PAWN_nameDef} takes any opportunity {PAWN_pronoun} can to arm others with knowledge. Whenever {PAWN_pronoun} socially interacts with someone, they gain experience in a random skill both parties can use.</description>
+			<statOffsets>
+			  <Hauts_InstructiveAbility>2</Hauts_InstructiveAbility>
+			  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.1</VAEI_SanityMultiplier>
+			</statOffsets>
+			<statFactors>
+			  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.5</CertaintyLossFactor>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>HVT_Asocial</li></conflictingTraits>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>3</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>HVT_GenePurist</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>xenotypist</label>
+			<description>{PAWN_nameDef} really dislikes and distrusts those of different xenotypes. {PAWN_pronoun} may not mind variation in the genetics of {PAWN_possessive} own kind, but even xenotypes very similar to {PAWN_possessive} own are disgusting in {PAWN_possessive} eyes.</description>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li MayRequire="Ludeon.RimWorld.Anomaly">HVT_MonsterLover</li><li MayRequire="Goji.TheSimsTraits">ST_Naive</li></conflictingTraits>
+	</TraitDef>
+	
+	<!--anomaly traits-->
+	<TraitDef MayRequire="Ludeon.RimWorld.Anomaly">
+		<defName>HVT_Catastrophist</defName>
+		<commonality>0.4</commonality>
+		<degreeDatas>
+		  <li>
+			<label>catastrophist</label>
+			<description>{PAWN_nameDef} is fascinated with the idea of the world ending. Climate calamities, incoming planetkillers, and rising anomalous activity will all improve {PAWN_possessive} mood.</description>
+			<allowedMeditationFocusTypes><li>Morbid</li></allowedMeditationFocusTypes>
+			<possessions>
+			  <MealSurvivalPack>1~3</MealSurvivalPack>
+			  <Telescope />
+			</possessions>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Anomaly">
+		<defName>HVT_Corruptible</defName>
+		<commonality>0.2</commonality>
+		<degreeDatas>
+		  <li>
+			<label>corruptible</label>
+			<description>{PAWN_nameDef} is linked to a dark influence. The further it influences reality, the more sensitive {PAWN_pronoun} becomes to the supernatural... but it also takes a toll on {PAWN_possessive} sanity.</description>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li>Void</li></allowedMeditationFocusTypes>
+			<possessions>
+			  <Shard>1~2</Shard>
+			</possessions>
+			<statOffsets>
+			  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.5</VAEI_SanityLossMultiplier>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li MayRequire="Ludeon.RimWorld.Royalty">HVT_PsychicallyBlank</li></conflictingTraits>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key>
+						<value><li>HVT_CorruptionTracker</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Anomaly">
+		<defName>HVT_Haunted</defName>
+		<commonality>0.1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>haunted</label>
+			<description>{PAWN_nameDef} is inextricably connected to a lurking, invisible presence. Day and night, it attempts to psychically torment {PAWN_objective}, and it will even infrequently attack {PAWN_objective} in the physical world.</description>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+			<statOffsets>
+			  <PsychicSensitivity>0.25</PsychicSensitivity>
+			  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.25</VAEI_SanityLossMultiplier>
+			</statOffsets>
+			<allowedMeditationFocusTypes><li>Void</li></allowedMeditationFocusTypes>
+			<randomMentalState>HVT_SightstealerAttack</randomMentalState>
+			<randomMentalStateMtbDaysMoodCurve><points><li>(0, 20)</li></points></randomMentalStateMtbDaysMoodCurve>
+			<possessions>
+			  <Shard>1~2</Shard>
+			</possessions>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li MayRequire="Ludeon.RimWorld.Royalty">HVT_PsychicallyBlank</li></conflictingTraits>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Anomaly">
+		<defName>HVT_MonsterHunter</defName>
+		<commonality>0.5</commonality>
+		<degreeDatas>
+		  <li>
+			<label>monster hunter</label>
+			<description>{PAWN_nameDef} knows that the best eldritch horror is a thoroughly destroyed one. {PAWN_pronoun} is happy to kill them, and will be content if void activity is minimal. However, {PAWN_pronoun} may also sometimes randomly slaughter captured ones.</description>
+			<allowedMeditationFocusTypes><li>Morbid</li></allowedMeditationFocusTypes>
+			<skillGains>
+			  <Shooting>2</Shooting>
+			  <Melee>2</Melee>
+			</skillGains>
+			<statOffsets>
+			  <Hauts_EntityDamageFactor>0.5</Hauts_EntityDamageFactor>
+			  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">-0.35</VAEI_SanityLossMultiplier>
+			</statOffsets>
+			<randomMentalState>EntityKiller</randomMentalState>
+			<randomMentalStateMtbDaysMoodCurve><points><li>(0, 50)</li></points></randomMentalStateMtbDaysMoodCurve>
+			<possessions>
+			  <NerveSpiker />
+			</possessions>
+			<disallowedThoughts>
+			  <li>WearingDreadLeather</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>3</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_MonsterLover</li></conflictingTraits>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Anomaly">
+		<defName>HVT_MonsterLover</defName>
+		<commonality>0.5</commonality>
+		<degreeDatas>
+		  <li>
+			<label>monster lover</label>
+			<description>{PAWN_nameDef} appreciates the strange forms of nonhuman entities. {PAWN_pronoun} will be agitated if void activity is minimal. Motivated by a strange sense of compassion, {PAWN_pronoun} may randomly decide to free captive entities.</description>
+			<allowedMeditationFocusTypes><li>Void</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <StudyEfficiency>0.1</StudyEfficiency>
+			  <ActivitySuppressionRate>-0.05</ActivitySuppressionRate>
+			  <VAEI_SanityGainMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">-0.35</VAEI_SanityGainMultiplier>
+			</statOffsets>
+			<randomMentalState>EntityLiberator</randomMentalState>
+			<randomMentalStateMtbDaysMoodCurve><points><li>(0, 50)</li></points></randomMentalStateMtbDaysMoodCurve>
+			<possessions>
+			  <Tome />
+			</possessions>
+			<disallowedThoughts>
+			  <li>FleshTentacle</li><!--hentai? in MY RimWorld?? it's more likely than you think-->
+			  <li>FleshWhip</li>
+			  <li>MutatedMyArm</li>
+			  <li>Voidsight</li>
+			  <li>ImprisonedWithEntity</li>
+			  <li>WearingDreadLeather</li>
+			  <li>BecameGhoul</li>
+			  <li>ClosedTheVoid</li>
+			  <li>VoidClosed</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_MonsterHunter</li><li MayRequire="Ludeon.RimWorld.Biotech">HVT_GenePurist</li><li MayRequire="RavingLegend.MoreTraits">RT_Weird</li></conflictingTraits>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Anomaly">
+		<defName>HVT_Twisted</defName>
+		<commonality>0.3</commonality>
+		<degreeDatas>
+		  <li>
+			<label>twisted</label>
+			<description>{PAWN_nameDef} cares less about others and is prone to saying macabre, disturbing things when stressed to the breaking point. {PAWN_pronoun} is unperturbed by monsters and corpses, and has no issue with using either for sustenance or apparel. Ultimately, {PAWN_pronoun} feels restrained by {PAWN_possessive} humanity - and if {PAWN_pronoun} has an extreme mental break, {PAWN_pronoun} might just free {PAWN_objective}self from it.</description>
+			<allowedMeditationFocusTypes><li>Morbid</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.75</VAEI_SanityLossMultiplier>
+			</statOffsets>
+			<theOnlyAllowedMentalBreaks>
+			  <li>DarkVisions</li>
+			  <li>InsaneRamblings</li>
+			  <!--<li>HVT_HumanityBreak</li> while heavily likely to do this for extreme mental break, it's not the only one they can do-->
+			</theOnlyAllowedMentalBreaks>
+			<possessions>
+			  <Meat_Twisted>30~60</Meat_Twisted>
+			  <VoidsightSerum>1~4</VoidsightSerum>
+			</possessions>
+			<disallowedThoughts>
+			  <li>DeadMansApparel</li>
+			  <li>ObservedLayingCorpse</li>
+			  <li>ObservedLayingRottingCorpse</li>
+			  <li>WearingDreadLeather</li>
+			  <li>AteTwistedMeat</li>
+			  <li>AteHumanlikeMeatDirect</li>
+			  <li>AteHumanlikeMeatAsIngredient</li>
+			  <li>HumanLeatherApparelSad</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AteHumanMeat_Abhorrent</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AteHumanMeat_Know_Abhorrent</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">HumanLeatherApparel_Abhorrent</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AteHumanMeat_Horrible</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AteHumanMeat_Know_Horrible</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">HumanLeatherApparel_Horrible</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AteHumanMeat_Disapproved</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">AteHumanMeat_Know_Disapproved</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">HumanLeatherApparel_Disapproved</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key>
+						<value><li>HVT_TwistedHumanApathy</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_MonsterHunter</li><li MayRequire="RavingLegend.MoreTraits">RT_Weird</li></conflictingTraits>
+	</TraitDef>
+	
+	<!--odyssey traits, starting with the aerospace spectrum-->
+	<TraitDef MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVT_Earthborne</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>earthborne</label>
+			<description>{PAWN_nameDef} hates aerial travel of any kind, and doesn't like being in space. These things make {PAWN_objective} nauseous.</description>
+			<statOffsets>
+			  <Hauts_JumpRangeFactor>-0.1</Hauts_JumpRangeFactor>
+			</statOffsets>
+			<marketValueFactorOffset>-0.15</marketValueFactorOffset>
+			<disallowedThoughts>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">SpaceHabitat_Mood</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Skybound</li><li>HVT_CelestialCelerity</li></conflictingTraits>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVT_Skybound</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>skybound</label>
+			<description>{PAWN_nameDef} yearns for the open sky and the feeling of the wind. {PAWN_pronoun} enjoys aerial travel of any kind, and {PAWN_pronoun} likes the sensation of being in high orbit.</description>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>Undergrounder</li><li>HVT_Earthborne</li></conflictingTraits>
+	</TraitDef>
+	<!--the rest of the odyssey traits-->
+	<TraitDef MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVT_Angler</defName>
+		<commonality>0.6</commonality>
+		<forcedPassions><li>Animals</li></forcedPassions>
+		<degreeDatas>
+		  <li>
+			<label>angler</label>
+			<description>Fishing makes {PAWN_nameDef} happy, and {PAWN_possessive} skill at fishing makes {PAWN_objective} half as prone to fumble a catch or get hurt by a fish. However, {PAWN_pronoun} will be sad if there are no fish nearby.</description>
+			<allowedMeditationFocusTypes><li MayRequire="Arquebus.StagzMerfolk">Stagz_Water</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <FishingSpeed>0.1</FishingSpeed>
+			</statOffsets>
+			<possessions>
+			  <Fish_Bass>5~15</Fish_Bass>
+			</possessions>
+			<disallowedThoughts>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">SlaughteredFish_Know_Prohibited</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">SlaughteredFish_Know_Prohibited_Mood</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">SlaughteredFish_Disapproved</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">SlaughteredFish_Know_Disapproved</li>
+			  <li MayRequire="Ludeon.RimWorld.Ideology">SlaughteredFish_Know_Disapproved_Mood</li>
+			</disallowedThoughts>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>HVT_Agrizoophobe</li></conflictingTraits>
+		<requiredWorkTags><li>Animals</li></requiredWorkTags>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVT_CelestialCelerity</defName>
+		<commonality>0.2</commonality>
+		<degreeDatas>
+		  <li>
+			<label>celestial celerity</label>
+			<description>{PAWN_nameDef} moves in a strange way. {PAWN_pronoun} is a little awkward in surface gravity, but becomes more graceful out in space.</description>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>HVT_Earthborne</li></conflictingTraits>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_SpaceSpeed</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>4</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVT_Globetrotter</defName>
+		<commonality>0.4</commonality>
+		<degreeDatas>
+		  <li>
+			<label>globetrotter</label>
+			<description>{PAWN_nameDef} wants to witness all the wonders of the world. {PAWN_pronoun} gains a permanent mood bonus per unique biome or landmark feature visited.</description>
+			<statOffsets>
+			  <CaravanBonusSpeedFactor>0.1</CaravanBonusSpeedFactor>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_GlobetrotterTracker</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVT_Navigator</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>navigator</label>
+			<description>{PAWN_nameDef} has an impressive sense of direction, as well as great situational awareness. {PAWN_pronoun} rarely gets lost, surprised by traps, or otherwise inconvenienced by difficulties during travel.</description>
+			<statOffsets>
+			  <CaravanBonusSpeedFactor>0.15</CaravanBonusSpeedFactor>
+			  <PilotingAbility>0.1</PilotingAbility>
+			  <Hauts_CaravanVisibilityOffset>-0.5</Hauts_CaravanVisibilityOffset>
+			</statOffsets>
+			<statFactors>
+			  <PawnTrapSpringChance>0.2</PawnTrapSpringChance>
+			</statFactors>
+			<possessions>
+			  <Map>1~2</Map>
+			</possessions>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li>HVT_Imperceptive</li></conflictingTraits>
+		<requiredWorkTags><li>Intellectual</li></requiredWorkTags>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>5</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVT_Pescatarian</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>pescatarian</label>
+			<description>{PAWN_nameDef} enjoys eating fish.</description>
+			<skillGains>
+			  <Cooking>4</Cooking>
+			</skillGains>
+			<possessions><!--yum yum yum, my favorites-->
+			  <Fish_Tilapia>25</Fish_Tilapia>
+			  <Fish_Salmon>25</Fish_Salmon>
+			</possessions>
+		  </li>
+		</degreeDatas>
+		<conflictingTraits><li MayRequire="Goji.TheSimsTraits">ST_Vegan</li></conflictingTraits>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HVT_Scavenger</defName>
+		<commonality>0.2</commonality>
+		<degreeDatas>
+		  <li>
+			<label>treasure seeker</label>
+			<description>{PAWN_nameDef} is always on the lookout for precious baubles.\n\nAmong other things, {PAWN_pronoun} fishes in an unorthodox manner that grants {PAWN_objective} a higher chance to find rare items instead of fish.</description>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Wealth</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <Hauts_SurveySpeed>0.2</Hauts_SurveySpeed>
+			  <FishingSpeed>-0.1</FishingSpeed>
+			  <MiningSpeed MayRequire="sarg.alphaskills">-0.2</MiningSpeed>
+			  <AS_ExtraComponentsYield MayRequire="sarg.alphaskills">0.02</AS_ExtraComponentsYield>
+			  <AS_ExtraGoldYield MayRequire="sarg.alphaskills">0.02</AS_ExtraGoldYield>
+			  <EL_ArcheologySpeed MayRequire="ellit.Archeology">0.1</EL_ArcheologySpeed>
+			  <Hauts_MaxPilferingValue>40</Hauts_MaxPilferingValue>
+			</statOffsets>
+			<statFactors>
+			  <ForagedNutritionPerDay>2</ForagedNutritionPerDay>
+			</statFactors>
+			<possessions>
+			  <Gold>2~3</Gold>
+			</possessions>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>4</value></li></chargeCosts></li>
+        </modExtensions>
+		<requiredWorkTags><li>Animals</li></requiredWorkTags>
+	</TraitDef>
+	
+<!--this is a test trait that you can add to a pawn in Dev Mode. I made it after finding a dismayingly large number of mods whose authors seem to believe Melee DPS and Melee Armor Penetration do anything, even though it's
+	trivial to test and realize that 1) these stats are unmodifiable, 2) they are REPRESENTATIONS of the pawn's averaged dps and armor penetration from all melee attacks, and 3) they don't do anything*.
+	They exist purely so that you can click on a pawn, go to the info tab, and check APPROXIMATELY how likely they are to wreck shop in melee.
+	If you see a mod provide bonuses or maluses to these stats, it is a sure and unfortunate sign that the author did not actually test their creation - and so there might be other things that don't work as advertised/at all.
+		*After all, if Melee DPS determined a pawn's melee damage output (rather than the other way round), the VanillaEx team would not need to have created a Melee Attack Damage Factor/Melee Attack Speed Factor stat, and
+		Ludeon Studios would not have had to make Melee Damage Factor in 1.4 and Melee Cooldown Factor in 1.5.
+	Nowadays, this is my dud trait for testing purposes, as the defName indicates. I temporarily add new stats or DefModExtensions to it when working on them.-->
+	<TraitDef>
+		<defName>HVT_Test</defName>
+		<commonality>0</commonality>
+		<degreeDatas>
+		  <li>
+			<label>game developer</label>
+			<description>Buy Tynan's book. Otherwise, you'll find out that {PAWN_possessive} melee dps and armor penetration are over NINE THOUSAND!!1!\n\n({PAWN_nameDef} isn't actually any better at doing damage).</description>
+			<statFactors>
+			  <MeleeDPS>100</MeleeDPS>
+			  <MeleeArmorPenetration>100</MeleeArmorPenetration>
+			  <!--<CultivationSpeed MayRequire="Aranmaho.Xianxia">3</CultivationSpeed>that's right. I've made him xianxiaslop.-->
+			</statFactors>
+			<statOffsets>
+			  <MeleeDPS>100</MeleeDPS>
+			  <MeleeArmorPenetration>100</MeleeArmorPenetration>
+			  <VEF_MeleeWeaponRange>3</VEF_MeleeWeaponRange>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+	</TraitDef>
+</Defs>

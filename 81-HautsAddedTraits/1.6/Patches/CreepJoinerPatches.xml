@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+		  <li>Anomaly</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations><!--Deal Maker can be Evolved-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/CreepJoinerFormKindDef[defName="DealMaker"]/requires</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/CreepJoinerFormKindDef[defName="DealMaker"]</xpath>
+						<value>
+							<requires>
+								<li>HVT_Evolved</li>
+							</requires>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/CreepJoinerFormKindDef[defName="DealMaker"]/requires</xpath>
+						<value>
+							<li>HVT_Evolved</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

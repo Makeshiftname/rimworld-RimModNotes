@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>[LYN] Cookie Traits</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Creative can only be added via methods that ignore trait commonality e.g. dev tools. Just in case, I'll still implement exclusivity w/ Staid.-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="LC_Creative"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="LC_Creative"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Staid</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="LC_Creative"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Staid</li>
+						</value>
+					</match>
+				</li>
+				<!--Liberator scruples can't coexist with Indifferent-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="LC_Jaded"]/conflictingTraits</xpath>
+					<value>
+						<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Liberator</li>
+					</value>
+				</li>
+				<!--Conversationalist, Reveller, Mentor exclusive w/ Lone Wolf-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="LC_LoneWolf"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Conversationalist</li>
+						<li>HVT_Reveller</li>
+						<li MayRequire="Ludeon.RimWorld.Biotech">HVT_Mentor</li>
+					</value>
+				</li>
+				<!--Artisan's art buff renders it exclusive w/ Staid. Unfortunately, due to it being part of the same trait on a technical level, Crafter is also caught in the crossfire.-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="LC_Artisan"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Staid</li>
+					</value>
+				</li>
+				<!--The combat traits from this mod are exclusive w/ Tranquil-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="LC_Fighter" or defName="LC_Gunslinger"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Tranquil</li>
+						<li>HVT_Tranquil0</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

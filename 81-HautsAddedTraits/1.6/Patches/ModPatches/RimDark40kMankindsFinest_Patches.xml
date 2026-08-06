@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>RimDark 40k - Mankinds Finest</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--you can get certain Ranks from more genes or traits-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/Genes40k.ChapterRankDef[defName="BEWH_AstartesRankVanguard"]/requiredTraitsOneAmong</xpath>
+					<value>
+						<HVT_Hotfoot />
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li>
+					</mods>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/Genes40k.ChapterRankDef[defName="BEWH_AstartesRankAcolytum"]/requiredGenesOneAmong</xpath>
+						<value>
+							<li>HVT_AAugurGene</li>
+							<li>HVT_AChanshiGene</li>
+							<li>HVT_ADelugeGene</li>
+							<li>HVT_AEruditeGene</li>
+							<li>HVT_AIncarnateGene</li>
+							<li>HVT_ALuminaryGene</li>
+							<li>HVT_AMantraistGene</li>
+							<li>HVT_APerennialGene</li>
+							<li>HVT_ASageGene</li>
+							<li>HVT_ASiphonerGene</li>
+							<li>HVT_ATitanGene</li>
+							<li>HVT_AUndyingGene</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	
+</Patch>

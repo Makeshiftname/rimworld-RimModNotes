@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>NilchEi Personality Traits (Continued)</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Motivated and Staid obviously make no sense-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Motivated"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Motivated"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Staid</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Motivated"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Staid</li>
+						</value>
+					</match>
+				</li>
+				<!--Tranquil exclusive w/ Tsundere, Competitive, Repressive, and Vehement. Considered making Repressive and Hysteric conflict, but it's funnier if you CAN find an individual w both traits-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Tsundere"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Tsundere"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Tranquil</li>
+								<li>HVT_Tranquil0</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Tsundere"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+							<li>HVT_Tranquil0</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Competitive"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Competitive"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Tranquil</li>
+								<li>HVT_Tranquil0</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Competitive"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+							<li>HVT_Tranquil0</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Repressive"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Repressive"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Tranquil</li>
+								<li>HVT_Tranquil0</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Repressive"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+							<li>HVT_Tranquil0</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Vehement"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Vehement"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Tranquil</li>
+								<li>HVT_Tranquil0</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Vehement"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+							<li>HVT_Tranquil0</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod"><!--Anarchists conflict w/ Determinist bc of the whole "title is natural right" thing-->
+					<mods>
+						<li>Royalty</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--Blanks don't jive with ideoligions about stuff they can't experience-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="Determinist"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="Determinist"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>HVT_Anarchist</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="Determinist"]/conflictingTraits</xpath>
+									<value>
+										<li>HVT_Anarchist</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

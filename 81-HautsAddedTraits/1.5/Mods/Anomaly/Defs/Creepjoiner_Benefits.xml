@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <CreepJoinerBenefitDef>
+    <defName>HVT_Evolved</defName>
+    <label>evolved</label>
+    <letterExtra>{PAWN_nameDef} is abnormally strong and resistant to damage. Any harm {PAWN_pronoun} experiences fades away at an unnatural rate, and {PAWN_pronoun} seems to believe {PAWN_pronoun} might even be able to come back from death.</letterExtra>
+    <traits>
+      <HVT_Everliving/>
+      <SpeedOffset>2</SpeedOffset>
+      <HVT_Strong>1</HVT_Strong>
+      <Tough/>
+    </traits>
+  </CreepJoinerBenefitDef>
+	  <TraitDef>
+		<defName>HVT_Everliving</defName>
+		<commonality>0</commonality>
+		<degreeDatas>
+		  <li>
+			<label>everliving</label>
+			<description>{PAWN_nameDef} regenerates from any injury due to some unknown mechanism. Even if {PAWN_pronoun} dies, there is a chance {PAWN_pronoun} will come back to life shortly thereafter, so long as {PAWN_possessive} body is intact.</description>
+			<statOffsets>
+			  <ImmunityGainSpeed>1</ImmunityGainSpeed>
+			  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.50</P42_AllergicSensitivity>
+			  <Hauts_HemogenContentFactor MayRequire="Ludeon.RimWorld.Biotech">0.5</Hauts_HemogenContentFactor>
+			</statOffsets>
+			<statFactors>
+			  <LifespanFactor>2</LifespanFactor>
+			  <CancerRate MayRequire="Ludeon.RimWorld.Biotech">0</CancerRate>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_EverlivingRegen</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+        </modExtensions>
+	  </TraitDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase">
+		<defName>HVT_EverlivingRegen</defName>
+		<label>everliving</label>
+		<description>Bodily regeneration, which might even be potent enough to revive this individual up to 24 hours after death.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<stages>
+		  <li>
+			<!--<becomeVisible>false</becomeVisible>-->
+			<regeneration>10</regeneration>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HautsTraits.HediffCompProperties_FastHealPermanentWounds" />
+		  <li Class="HautsFramework.HediffCompProperties_DelayedResurrection">
+			<rareTickDelay>1~240</rareTickDelay><!--rare ticks only occur once every 250 ticks. therefore this is 0.1h to 1d-->
+			<onDeathMessage>HVT_EverlivingMightRez</onDeathMessage>
+			<onRezMessage>HVT_EverlivingRez</onRezMessage>
+			<shouldTranslateOnDeath>true</shouldTranslateOnDeath>
+			<shouldTranslateOnRez>true</shouldTranslateOnRez>
+			<shouldSendMessage>true</shouldSendMessage>
+			<chance>0.25</chance>
+		  </li>
+		  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+			<forcingTraits>
+				<li>HVT_Everliving</li>
+			</forcingTraits>
+		  </li>
+		</comps>
+	  </HediffDef>
+  <CreepJoinerBenefitDef>
+    <defName>HVT_Jaeger</defName>
+    <label>jaeger</label>
+    <letterExtra>{PAWN_nameDef} is a hunter of immense skill, primarily specializing in the destruction of unnatural entities. {PAWN_possessive} senses allow {PAWN_objective} to find the weakest points on any target.</letterExtra>
+    <skills>
+      <Shooting>17~20</Shooting>
+      <Melee>17~20</Melee>
+    </skills>
+    <traits>
+      <HVT_Vanquisher/>
+    </traits>
+  </CreepJoinerBenefitDef>
+	  <TraitDef>
+		<defName>HVT_Vanquisher</defName>
+		<commonality>0</commonality>
+		<degreeDatas>
+		  <li>
+			<label>vanquisher</label>
+			<description>{PAWN_nameDef} has an uncanny sixth sense for weak spots, allowing {PAWN_objective} to take down buildings, strike through armor, and hobble unnatural entities with ease.</description>
+			<statOffsets>
+			  <MeleeHitChance>4</MeleeHitChance>
+			  <ShootingAccuracyPawn>4</ShootingAccuracyPawn>
+			  <Hauts_BreachDamageFactor>1</Hauts_BreachDamageFactor>
+			  <Hauts_MeleeArmorPenetration>0.6</Hauts_MeleeArmorPenetration>
+			  <Hauts_RangedArmorPenetration>0.6</Hauts_RangedArmorPenetration>
+			  <Hauts_EntityDamageFactor>0.6</Hauts_EntityDamageFactor>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+	  </TraitDef>
+  
+</Defs>

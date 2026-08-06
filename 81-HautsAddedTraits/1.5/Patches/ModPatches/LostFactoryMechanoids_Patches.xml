@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationFindMod">
+			<mods>
+				<li>Ideology</li>
+			</mods>
+			<match Class="PatchOperationFindMod">
+				<mods>
+					<li>Lost Factory Mechanoids</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<operations>
+						<!--mechaphile/phobe obviously-->
+						<li Class="PatchOperationConditional">
+							<xpath>/Defs/MemeDef[defName="LFM_Mechanization"]/agreeableTraits</xpath>
+							<nomatch Class="PatchOperationAdd">
+								<xpath>/Defs/MemeDef[defName="LFM_Mechanization"]</xpath>
+								<value>
+									<agreeableTraits>
+										<li>HVT_Mechaphile</li>
+									</agreeableTraits>
+								</value>
+							</nomatch>
+							<match Class="PatchOperationAdd">
+								<xpath>/Defs/MemeDef[defName="LFM_Mechanization"]/agreeableTraits</xpath>
+								<value>
+									<li>HVT_Mechaphile</li>
+								</value>
+							</match>
+						</li>
+						<li Class="PatchOperationConditional">
+							<xpath>/Defs/MemeDef[defName="LFM_Mechanization"]/disagreeableTraits</xpath>
+							<nomatch Class="PatchOperationAdd">
+								<xpath>/Defs/MemeDef[defName="LFM_Mechanization"]</xpath>
+								<value>
+									<disagreeableTraits>
+										<li>HVT_Mechaphobe</li>
+									</disagreeableTraits>
+								</value>
+							</nomatch>
+							<match Class="PatchOperationAdd">
+								<xpath>/Defs/MemeDef[defName="LFM_Mechanization"]/disagreeableTraits</xpath>
+								<value>
+									<li>HVT_Mechaphobe</li>
+								</value>
+							</match>
+						</li>
+					</operations>
+				</match>
+			</match>
+		</match>
+	</Operation>
+</Patch>

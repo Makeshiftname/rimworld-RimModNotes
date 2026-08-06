@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Misc Traits</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--potentiality would be wasted on someone effectively level capped at 10, so ew/ drudge-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="MiscTraits_Potentiality"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="MiscTraits_Potentiality"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Drudge</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="MiscTraits_Potentiality"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Drudge</li>
+						</value>
+					</match>
+				</li>
+				<!--you can't Forget someone w these traits-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="MiscTraits_Visage"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="MiscTraits_Visage"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Forgettable</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="MiscTraits_Visage"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Forgettable</li>
+						</value>
+					</match>
+				</li>
+				<!--Hedonists vs Pleasureless-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="HVT_Hedonist"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="HVT_Hedonist"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>MiscTraits_Pleasureless</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="HVT_Hedonist"]/conflictingTraits</xpath>
+						<value>
+							<li>MiscTraits_Pleasureless</li>
+						</value>
+					</match>
+				</li>
+				<!--redundant-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="HVT_Outdoorsy"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="HVT_Outdoorsy"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>MiscTraits_ColdApathy</li>
+								<li>MiscTraits_HotApathy</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="HVT_Outdoorsy"]/conflictingTraits</xpath>
+						<value>
+							<li>MiscTraits_ColdApathy</li>
+							<li>MiscTraits_HotApathy</li>
+						</value>
+					</match>
+				</li>
+				<!--too similar-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="HVT_Rambunctious"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="HVT_Rambunctious"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>MiscTraits_Stroller</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="HVT_Rambunctious"]/conflictingTraits</xpath>
+						<value>
+							<li>MiscTraits_Stroller</li>
+						</value>
+					</match>
+				</li>
+				<!--Staid ew joy and inspiration related traits-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="HVT_Staid"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="HVT_Staid"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>MiscTraits_HighMind</li>
+								<li>MiscTraits_Responsible</li>
+								<li>MiscTraits_Pleasureless</li>
+								<li>MiscTraits_Transcendent</li>
+								<li>MiscTraits_Uninspired</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="HVT_Staid"]/conflictingTraits</xpath>
+						<value>
+							<li>MiscTraits_HighMind</li>
+							<li>MiscTraits_Responsible</li>
+							<li>MiscTraits_Pleasureless</li>
+							<li>MiscTraits_Transcendent</li>
+							<li>MiscTraits_Uninspired</li>
+						</value>
+					</match>
+				</li>
+				<!--Tranquil ew stress- or mb-based traits-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="HVT_Tranquil"]/conflictingTraits</xpath>
+					<value>
+						<li>MiscTraits_TigerWater</li>
+						<li>MiscTraits_ShootingAccuracy</li>
+						<li>MiscTraits_Insulter</li>
+						<li>MiscTraits_Stroller</li>
+						<li>MiscTraits_Twisted</li>
+					</value>
+				</li>
+				<!--meat hater vs non meat haters-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="MiscTraits_MeatParosmia"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_MetabolicFreak</li>
+						<li MayRequire="Ludeon.RimWorld.Odyssey">HVT_Pescatarian</li>
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Ideology</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--doubtful and stubborn don't make sense together-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="MiscTraits_Stubborn"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="MiscTraits_Stubborn"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>HVT_Doubtful</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="MiscTraits_Stubborn"]/conflictingTraits</xpath>
+									<value>
+										<li>HVT_Doubtful</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--blank usually negates inversion-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="MiscTraits_PsychicInversion"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="MiscTraits_PsychicInversion"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>HVT_PsychicallyBlank</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="MiscTraits_PsychicInversion"]/conflictingTraits</xpath>
+									<value>
+										<li>HVT_PsychicallyBlank</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationAddModExtension">
+								<xpath>/Defs/ThoughtDef[defName="HVT_CanarySong" or defName="HVT_TCuckoo" or defName="HVT_WhaleheadTerror" or defName="HVT_PtarmiganBright" or defName="HVT_SwanBondThought"]</xpath>
+								<value>
+									<li Class="HautsFramework.ModifyingTraits">
+										<multiplierTraits>
+										  <li>
+											<key>MiscTraits_PsychicInversion</key>
+											<value>-1</value>
+										  </li>
+										</multiplierTraits>
+									</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<!--My policy is that I try to avoid trait names in other mods, as I don't want players to reach mistaken conclusions or be confused on panning over a pawn's infocard before they are forced to mouseover the traits for their tooltips
+					(there is one exception, in that Sniper is also the name of a trait in another mod, but as they're both related to being good at long-ranged combat I think that's fine). However, if a mod's release postdates the public release of HAT,
+					I will not avoid you. How could I? I am not precognitive. I will instead rename you.-->
+				<li Class="PatchOperationReplace"> 
+					<xpath>/Defs/TraitDef[defName="MiscTraits_Twisted"]/degreeDatas/li/label</xpath>
+					<value>
+						<label>spiraling</label>		
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

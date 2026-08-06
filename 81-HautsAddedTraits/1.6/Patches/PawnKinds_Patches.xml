@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Royalty</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Biotech</li><!--need psy sens to be mechanitor, so.-->
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/PawnKindDef[@ParentName="MechanitorBase"]/disallowedTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/PawnKindDef[@ParentName="MechanitorBase"]</xpath>
+									<value>
+										<disallowedTraits>
+											<li>HVT_PsychicallyBlank</li>
+										</disallowedTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/PawnKindDef[@ParentName="MechanitorBase"]/disallowedTraits</xpath>
+									<value>
+										<li>HVT_PsychicallyBlank</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Anomaly</li><!--apparently most cultists need psysens, presumably to do rituals, so.-->
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/PawnKindDef[defName="Horaxian_Underthrall" or defName="Horaxian_Highthrall"]/disallowedTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/PawnKindDef[defName="Horaxian_Underthrall" or defName="Horaxian_Highthrall"]</xpath>
+									<value>
+										<disallowedTraits>
+											<li>HVT_PsychicallyBlank</li>
+										</disallowedTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/PawnKindDef[defName="Horaxian_Underthrall" or defName="Horaxian_Highthrall"]/disallowedTraits</xpath>
+									<value>
+										<li>HVT_PsychicallyBlank</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

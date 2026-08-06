@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+		  <li>Pathfinding Framework</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffCranchiid"]</xpath>
+					<value>
+					  <li Class="PathfindingFramework.MovementExtension">
+						<movementDef>PF_Movement_Amphibious</movementDef>
+					  </li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffOrca"]</xpath>
+					<value>
+					  <li Class="PathfindingFramework.MovementExtension">
+						<movementDef>PF_Movement_Amphibious</movementDef>
+					  </li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffOrca0"]</xpath>
+					<value>
+					  <li Class="PathfindingFramework.MovementExtension">
+						<movementDef>PF_Movement_Amphibious</movementDef>
+					  </li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

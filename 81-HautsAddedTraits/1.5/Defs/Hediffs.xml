@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--makes asocials not do social recreation-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_AsocialDontHangOut</defName>
+    <label>asociality</label>
+    <description>Prevents those with the "Asocial" trait from engaging in social recreation types.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_BoredomAdjustment">
+		<boredoms>
+			<li><key>Social</key><value>-99999</value></li>
+		</boredoms>
+		<ticks>250</ticks>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Asocial</li>
+		</forcingTraits>
+	  </li>
+	</comps>
+  </HediffDef>
+  
+  <!--champion-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_ChampionPower</defName>
+    <label>The power of friendship</label>
+    <description>Work speed, learning speed, pain resistance, and mental break threshold per 30 positive relations. Effect caps out at 300 positive relations.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <stages>
+      <li>
+        <label>x0</label>
+		<becomeVisible>false</becomeVisible>
+      </li>
+      <li>
+        <minSeverity>30</minSeverity>
+        <label>x1</label>
+        <statOffsets>
+		  <PainShockThreshold>0.06</PainShockThreshold>
+		  <WorkSpeedGlobal>0.03</WorkSpeedGlobal>
+		  <GlobalLearningFactor>0.03</GlobalLearningFactor>
+        </statOffsets>
+        <statFactors>
+		  <MentalBreakThreshold>0.94</MentalBreakThreshold>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>60</minSeverity>
+        <label>x2</label>
+        <statOffsets>
+		  <PainShockThreshold>0.12</PainShockThreshold>
+		  <WorkSpeedGlobal>0.06</WorkSpeedGlobal>
+		  <GlobalLearningFactor>0.06</GlobalLearningFactor>
+        </statOffsets>
+        <statFactors>
+		  <MentalBreakThreshold>0.88</MentalBreakThreshold>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>90</minSeverity>
+        <label>x3</label>
+        <statOffsets>
+		  <PainShockThreshold>0.18</PainShockThreshold>
+		  <WorkSpeedGlobal>0.09</WorkSpeedGlobal>
+		  <GlobalLearningFactor>0.09</GlobalLearningFactor>
+        </statOffsets>
+        <statFactors>
+		  <MentalBreakThreshold>0.82</MentalBreakThreshold>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>120</minSeverity>
+        <label>x4</label>
+        <statOffsets>
+		  <PainShockThreshold>0.24</PainShockThreshold>
+		  <WorkSpeedGlobal>0.12</WorkSpeedGlobal>
+		  <GlobalLearningFactor>0.12</GlobalLearningFactor>
+        </statOffsets>
+        <statFactors>
+		  <MentalBreakThreshold>0.76</MentalBreakThreshold>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>150</minSeverity>
+        <label>x5</label>
+        <statOffsets>
+		  <PainShockThreshold>0.3</PainShockThreshold>
+		  <WorkSpeedGlobal>0.15</WorkSpeedGlobal>
+		  <GlobalLearningFactor>0.15</GlobalLearningFactor>
+        </statOffsets>
+        <statFactors>
+		  <MentalBreakThreshold>0.7</MentalBreakThreshold>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>180</minSeverity>
+        <label>x6</label>
+        <statOffsets>
+		  <PainShockThreshold>0.36</PainShockThreshold>
+		  <WorkSpeedGlobal>0.18</WorkSpeedGlobal>
+		  <GlobalLearningFactor>0.18</GlobalLearningFactor>
+        </statOffsets>
+        <statFactors>
+		  <MentalBreakThreshold>0.64</MentalBreakThreshold>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>210</minSeverity>
+        <label>x7</label>
+        <statOffsets>
+		  <PainShockThreshold>0.42</PainShockThreshold>
+		  <WorkSpeedGlobal>0.21</WorkSpeedGlobal>
+		  <GlobalLearningFactor>0.21</GlobalLearningFactor>
+        </statOffsets>
+        <statFactors>
+		  <MentalBreakThreshold>0.58</MentalBreakThreshold>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>240</minSeverity>
+        <label>x8</label>
+        <statOffsets>
+		  <PainShockThreshold>0.48</PainShockThreshold>
+		  <WorkSpeedGlobal>0.24</WorkSpeedGlobal>
+		  <GlobalLearningFactor>0.24</GlobalLearningFactor>
+        </statOffsets>
+        <statFactors>
+		  <MentalBreakThreshold>0.52</MentalBreakThreshold>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>270</minSeverity>
+        <label>x9</label>
+        <statOffsets>
+		  <PainShockThreshold>0.54</PainShockThreshold>
+		  <WorkSpeedGlobal>0.27</WorkSpeedGlobal>
+		  <GlobalLearningFactor>0.27</GlobalLearningFactor>
+        </statOffsets>
+        <statFactors>
+		  <MentalBreakThreshold>0.46</MentalBreakThreshold>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>300</minSeverity>
+        <label>maxed out</label>
+        <statOffsets>
+		  <PainShockThreshold>0.72</PainShockThreshold>
+		  <WorkSpeedGlobal>0.36</WorkSpeedGlobal>
+		  <GlobalLearningFactor>0.36</GlobalLearningFactor>
+        </statOffsets>
+        <statFactors>
+		  <MentalBreakThreshold>0.28</MentalBreakThreshold>
+        </statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SeverityDeterminesVisibility">
+		<invisibleWithin>0~30</invisibleWithin>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_RelationDependentSeverity">
+		<countNegativeRelations>false</countNegativeRelations>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Champion</li>
+		</forcingTraits>
+	  </li>
+    </comps>
+  </HediffDef>
+  
+  <!--drudge and corresponding gene-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_DrudgeLimiter</defName>
+    <label>drudge skill level limiter</label>
+    <description>Every hour, the 'Drudge' trait lowers any skills above 10. Shooting, Melee, and Social are exempt. Ignores aptitudes from Biotech genes.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>2500</ticks>
+		<minLevel>11</minLevel>
+		<skillAdjustment>-2000</skillAdjustment>
+		<affectsAptitudes>false</affectsAptitudes>
+		<affectedSkills>
+			<li>Construction</li>
+			<li>Mining</li>
+			<li>Cooking</li>
+			<li>Plants</li>
+			<li>Animals</li>
+			<li>Crafting</li>
+			<li>Artistic</li>
+			<li>Medicine</li>
+			<li>Intellectual</li>
+		</affectedSkills>
+		<nullifyingTraits><li MayRequire="Ludeon.RimWorld.Anomaly">PerfectMemory</li></nullifyingTraits>
+		<statMultiplier MayRequire="EBSG.Framework">EBSG_SkillLossRate</statMultiplier>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Drudge</li>
+		</forcingTraits>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_DrudgeGeneLimiter</defName>
+    <label>simple task hyperspecialization</label>
+    <description>Every hour, the 'simple task hyperspecialization' gene lowers any skills above 10. Shooting, Melee, and Social are exempt. Unlike the trait, this takes aptitudes into account.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SkillAdjustment">
+		<ticks>2500</ticks>
+		<minLevel>11</minLevel>
+		<skillAdjustment>-2000</skillAdjustment>
+		<affectsAptitudes>true</affectsAptitudes>
+		<affectedSkills>
+			<li>Construction</li>
+			<li>Mining</li>
+			<li>Cooking</li>
+			<li>Plants</li>
+			<li>Animals</li>
+			<li>Crafting</li>
+			<li>Artistic</li>
+			<li>Medicine</li>
+			<li>Intellectual</li>
+		</affectedSkills>
+		<nullifyingTraits><li MayRequire="Ludeon.RimWorld.Anomaly">PerfectMemory</li></nullifyingTraits>
+		<statMultiplier MayRequire="EBSG.Framework">EBSG_SkillLossRate</statMultiplier>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingGenes>
+			<li>HVT_DrudgeGene</li>
+		</forcingGenes>
+	  </li>
+    </comps>
+  </HediffDef>
+  
+  <!--hysteric-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_Hysterical0</defName>
+    <label>hysterical (at ease)</label>
+    <description>When someone with the 'Hysteric' trait is below their mental break threshold, those nearby feel worse as well.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <initialSeverity>6.0</initialSeverity>
+    <maxSeverity>6.0</maxSeverity>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_BreakRiskSeverity">
+		<activeDuringMentalStates>true</activeDuringMentalStates>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ChangeBelowSeverity">
+		<atOrBelowThisSeverity>3</atOrBelowThisSeverity>
+		<alternativeHediff>HVT_Hysterical1</alternativeHediff>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Hysteric</li>
+		</forcingTraits>
+		<alternativeHediffs>
+			<li>HVT_Hysterical1</li>
+		</alternativeHediffs>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_Hysterical1</defName>
+    <label>hysterical panic</label>
+    <description>When someone with the 'Hysteric' trait is at risk of a mood-induced mental break, those nearby feel worse as well.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0, 0.76)</defaultLabelColor>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+    <maxSeverity>6.0</maxSeverity>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_BreakRiskSeverity">
+		<activeDuringMentalStates>true</activeDuringMentalStates>
+	  </li>
+      <li Class="HautsFramework.HediffCompProperties_AuraThought">
+        <range>6</range>
+        <thoughts>
+		  <li>HVT_ContagiousHysteria</li>
+		  <li>HVT_SadistSawHysteric</li>
+		</thoughts>
+		<color>0,0,0.3,0.38</color>
+		<affectsSelf>false</affectsSelf>
+		<affectsAllies>true</affectsAllies>
+		<affectsHostiles>true</affectsHostiles>
+		<disappearsWhileDowned>false</disappearsWhileDowned>
+		<mote>Hauts_DefaultAuraGraphic</mote>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_ChangeAboveSeverity">
+		<aboveThisSeverity>3</aboveThisSeverity>
+		<alternativeHediff>HVT_Hysterical0</alternativeHediff>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Hysteric</li>
+		</forcingTraits>
+		<alternativeHediffs>
+			<li>HVT_Hysterical0</li>
+		</alternativeHediffs>
+	  </li>
+    </comps>
+  </HediffDef>
+  
+  <!--mariner-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_ILoveWater</defName>
+    <label>mariner</label>
+    <description>Those with the 'Mariner' trait move faster in water.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+	<minSeverity>0.001</minSeverity>
+	<initialSeverity>0.001</initialSeverity>
+    <stages>
+      <li>
+	    <becomeVisible>false</becomeVisible>
+	  </li>
+	  <li>
+		<label>in water</label>
+		<minSeverity>0.3</minSeverity>
+		<statFactors>
+		  <MoveSpeed>2.4</MoveSpeed>
+        </statFactors>
+	    <becomeVisible>false</becomeVisible>
+      </li>
+      <li>
+	    <becomeVisible>false</becomeVisible>
+		<minSeverity>10</minSeverity>
+	  </li>
+      <li>
+	    <becomeVisible>false</becomeVisible>
+		<statFactors>
+		  <MoveSpeed>1.05</MoveSpeed>
+        </statFactors>
+		<minSeverity>11</minSeverity>
+	  </li>
+      <li>
+	    <becomeVisible>false</becomeVisible>
+		<statFactors>
+		  <MoveSpeed>1.1</MoveSpeed>
+        </statFactors>
+		<minSeverity>12</minSeverity>
+	  </li>
+      <li>
+	    <becomeVisible>false</becomeVisible>
+		<statFactors>
+		  <MoveSpeed>1.2</MoveSpeed>
+        </statFactors>
+		<minSeverity>13</minSeverity>
+	  </li>
+      <li>
+	    <becomeVisible>false</becomeVisible>
+		<statFactors>
+		  <MoveSpeed>1.5</MoveSpeed>
+        </statFactors>
+		<minSeverity>14</minSeverity>
+	  </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_BoredomAdjustment" MayRequire="Dubwise.DubsBadHygiene">
+		<boredoms>
+			<li><key>Hydrotherapy</key><value>99999</value></li>
+		</boredoms>
+		<ticks>250</ticks>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Mariner</li>
+		</forcingTraits>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_WaterImmersionSeverity">
+		<rainCountsFor>0</rainCountsFor>
+		<baseSeverityCaravan>10</baseSeverityCaravan>
+		<severityPerCaravanRiverSize>
+		  <points>
+			<li>0, 0</li>
+			<li>4, 1</li>
+			<li>6, 2</li>
+			<li>14, 3</li>
+			<li>30, 4</li>
+		  </points>
+		</severityPerCaravanRiverSize>
+	  </li>
+	</comps>
+  </HediffDef>
+  
+  <!--makes metafreaks not eat chocolate-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_MetaFreak</defName>
+    <label>food does not spark joy</label>
+    <description>Prevents those with the "Metabolic Freak" trait from using food for recreation.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_BoredomAdjustment">
+		<boredoms>
+			<li><key>Gluttonous</key><value>-99999</value></li>
+		</boredoms>
+		<ticks>250</ticks>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_MetabolicFreak</li>
+		</forcingTraits>
+	  </li>
+	</comps>
+  </HediffDef>
+  
+  <!--repressed rage-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_RRUnleashed</defName>
+    <label>repressed rage</label>
+    <description>The 'Repressed Rage' trait grants melee accuracy and damage, move speed, damage reduction, and psychic dullness while social fighting, berserk, or in a murderous or sadistic rage. It also grants a lower amount of these stats while at or below one's mental break threshold.</description>
+    <hediffClass>HautsTraits.Hediff_HulkSmash</hediffClass><!--causes the "berserk on damage taken" effects. replace with HediffWithComps if you don't like that-->
+    <defaultLabelColor>(0.8, 0.18, 0)</defaultLabelColor>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>10.001</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>0.001</minSeverity>
+        <label>surfacing</label>
+        <statOffsets>
+          <MoveSpeed>0.15</MoveSpeed>
+          <MeleeHitChance>3</MeleeHitChance>
+		  <MeleeDamageFactor>0.6</MeleeDamageFactor>
+        </statOffsets>
+		<statFactors>
+          <IncomingDamageFactor>0.8</IncomingDamageFactor>
+		  <PsychicSensitivity>0.9</PsychicSensitivity>
+        </statFactors>
+	  </li>
+	  <li>
+        <minSeverity>3.001</minSeverity>
+        <label>inactive</label>
+      </li>
+	  <li>
+        <minSeverity>9.5</minSeverity>
+        <label>unleashed</label>
+        <statOffsets>
+          <MoveSpeed>0.3</MoveSpeed>
+          <MeleeHitChance>6</MeleeHitChance>
+		  <MeleeDamageFactor>2</MeleeDamageFactor>
+        </statOffsets>
+		<statFactors>
+          <IncomingDamageFactor>0.4</IncomingDamageFactor>
+		  <PsychicSensitivity>0.3</PsychicSensitivity>
+        </statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_BreakRiskSeverity">
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_SeverityDeterminesVisibility">
+		<invisibleWithin>3.001~9.5</invisibleWithin>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_RepressedRage</li>
+		</forcingTraits>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_SeverityDuringSpecificMentalStates">
+		<severityInState>10</severityInState>
+		<anyMentalState>false</anyMentalState>
+		<mentalStates>
+			<li>Berserk</li>
+			<li>MurderousRage</li>
+			<li>SadisticRage</li>
+			<li>SocialFighting</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">BerserkTrance</li>
+		</mentalStates>
+	  </li>
+    </comps>
+  </HediffDef>
+  
+  <!--staid inspiration immunity used to be handled by a patch, but Anomaly enabled hediffs to block inspirations and this makes it easier to reference for mod compatibilities-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_StaidBlocker</defName>
+    <label>staid</label>
+    <description>Prevents those with the "Staid" trait from having inspirations</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+        <blocksInspirations>true</blocksInspirations>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Staid</li>
+		</forcingTraits>
+	  </li>
+	</comps>
+  </HediffDef>
+  
+  <!--turns the Tranquil0 trait into Tranquil.-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_TranquilWorkaround</defName>
+    <label>tranquil workaround</label>
+    <description>Sometimes, trade caravans will fail to spawn because its guards are supposed to be capable of violence but one of them gets assigned the Tranquil trait. To get around this, pawns can only be given a variant of the Tranquil trait that doesn't disable violence. However, it creates this health condition, which will replace that trait with the actual violence-disabling Tranquil trait as soon as this pawn is 'exposed' to the flow of time.</description>
+	<hediffClass>HautsTraits.Hediff_TYNAN</hediffClass>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Tranquil0</li>
+		</forcingTraits>
+	  </li>
+	</comps>
+  </HediffDef>
+  
+  <!--viciousness buff-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_ViciousStrike</defName>
+    <label>viciousness unleashed</label>
+    <description>Increased attack speed, accuracy, damage, and armor penetration.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.53, 0.53, 0.7)</defaultLabelColor>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeleeHitChance>5</MeleeHitChance>
+          <ShootingAccuracyPawn>5</ShootingAccuracyPawn>
+		  <MoveSpeed>0.2</MoveSpeed>
+        </statOffsets>
+		<statFactors>
+          <AimingDelayFactor>0.5</AimingDelayFactor>
+		  <MeleeCooldownFactor>0.5</MeleeCooldownFactor>
+		  <VEF_RangeAttackDamageFactor>1.45</VEF_RangeAttackDamageFactor>
+		  <MeleeDamageFactor>1.45</MeleeDamageFactor>
+		  <Hauts_MeleeArmorPenetration>1.33</Hauts_MeleeArmorPenetration>
+		  <Hauts_RangedArmorPenetration>1.33</Hauts_RangedArmorPenetration>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>2500~2540</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	  <li Class="HautsFramework.HediffCompProperties_MoteConditional">
+		<mote>HVT_Viciousness</mote>
+		<scale>1</scale>
+	  </li>
+    </comps>
+  </HediffDef>
+  
+  <!--entitled/prideful-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_Entitlement</defName>
+    <label>entitled expectations met</label>
+    <description>In good times, surrounded by luxury and wealth, those with the Entitled trait don't feel like working all that hard.</description>
+	<hediffClass>HautsTraits.Hediff_Pride</hediffClass>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>3.0</maxSeverity>
+    <stages>
+	  <li>
+        <minSeverity>0.001</minSeverity>
+        <label>inactive</label>
+		<becomeVisible>false</becomeVisible>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <statOffsets>
+          <WorkSpeedGlobal>-0.25</WorkSpeedGlobal>
+		  <GlobalLearningFactor>-0.5</GlobalLearningFactor>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SeverityDeterminesVisibility">
+		<invisibleWithin>0.001~1</invisibleWithin>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Prideful</li>
+		</forcingTraits>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_Pride</defName>
+    <label>prideful expectations met</label>
+    <description>Motivated by tangible evidence of having "made it", those with the Prideful trait will work harder.</description>
+	<hediffClass>HautsTraits.Hediff_Pride</hediffClass>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>3.0</maxSeverity>
+    <stages>
+	  <li>
+        <minSeverity>0.001</minSeverity>
+        <label>inactive</label>
+		<becomeVisible>false</becomeVisible>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <statOffsets>
+          <WorkSpeedGlobal>0.25</WorkSpeedGlobal>
+		  <GlobalLearningFactor>0.5</GlobalLearningFactor>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SeverityDeterminesVisibility">
+		<invisibleWithin>0.001~1</invisibleWithin>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Prideful</li>
+		</forcingTraits>
+	  </li>
+    </comps>
+  </HediffDef>
+  <!--sense traits-->
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_ImperceptiveSenses</defName>
+    <label>imperceptive senselessness</label>
+    <description>Imperceptives are less adept at perceiving their surroundings.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <stages>
+      <li>
+		<capMods>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>-0.1</offset>
+          </li>
+          <li>
+            <capacity>Hearing</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Imperceptive</li>
+		</forcingTraits>
+	  </li>
+	</comps>
+  </HediffDef>
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_Perceptive1</defName>
+    <label>keen senses</label>
+    <description>Caused by the 'Keen Senses' trait.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <stages>
+      <li>
+		<capMods>
+          <li>
+            <capacity>Sight</capacity>
+            <postFactor>1.12</postFactor>
+          </li>
+          <li>
+            <capacity>Hearing</capacity>
+            <postFactor>1.12</postFactor>
+          </li>
+        </capMods>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Perceptive</li>
+		</forcingTraits>
+	  </li>
+	</comps>
+  </HediffDef>
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_Perceptive2</defName>
+    <label>powerful senses</label>
+    <description>Caused by the 'Powerful Senses' trait.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <stages>
+      <li>
+		<capMods>
+          <li>
+            <capacity>Sight</capacity>
+            <postFactor>1.24</postFactor>
+          </li>
+          <li>
+            <capacity>Hearing</capacity>
+            <postFactor>1.24</postFactor>
+          </li>
+        </capMods>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Perceptive</li>
+		</forcingTraits>
+	  </li>
+	</comps>
+  </HediffDef>
+  <!--misc. mechanics-->
+  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_DoubleGrowthMoments</defName>
+    <label>double growth moments</label>
+    <description>This pawn's next growth moment will trigger twice.</description>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName="HVT_TraitHediffBase">
+    <defName>HVT_BurgleCooldown</defName>
+    <label>recently burgled</label>
+    <description>Reduced success chance for future burglaries involving this character.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.8, 0.18, 0.0)</defaultLabelColor>
+    <initialSeverity>8.0</initialSeverity>
+    <maxSeverity>8.0</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>0.001</minSeverity>
+        <label>halved success chance</label>
+      </li>
+      <li>
+        <minSeverity>6.001</minSeverity>
+        <label>automatic failure</label>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+	</comps>
+  </HediffDef>
+  <!--intolerant-->
+  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_IntolerantConverted</defName>
+    <label>recent ideoligious change (inactive)</label>
+    <description>Due to the "Intolerant" trait, this character will enter a state of mental instability on being converted to a new ideoligion.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.976, 0.436, 0.428)</defaultLabelColor>
+	<minSeverity>0.001</minSeverity>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_IdeoCertaintySeverity">
+		<changesToThisOnApostasy>HVT_IntolerantConverted0</changesToThisOnApostasy>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Intolerant</li>
+		</forcingTraits>
+		<alternativeHediffs>
+			<li>HVT_IntolerantConverted0</li>
+		</alternativeHediffs>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName="HVT_TraitHediffBase"><!--note: invisibility only works with Anomaly or Royalty-->
+    <defName>HVT_SkulkerSurpriseStealth</defName>
+    <label>exemplary stealth</label>
+    <description>"Invisibility" which prematurely wears off on attacking or casting an ability.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <initialSeverity>4</initialSeverity>
+    <maxSeverity>4</maxSeverity>
+    <stages>
+      <li>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Invisibility">
+        <visibleToPlayer>true</visibleToPlayer>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_ChangeSeverityOnVerbUse">
+		<setSeverity>0.0</setSeverity>
+	  </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-24</severityPerDay>
+      </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_IntolerantConverted0</defName>
+    <label>recent ideoligious conversion</label>
+    <description>A state of mental instability brought on by the "Intolerant" trait and recently being converted to a new ideoligion.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.651, 0.291, 0.285)</defaultLabelColor>
+    <initialSeverity>11.0</initialSeverity>
+    <maxSeverity>11.0</maxSeverity>
+    <stages>
+	  <li>
+        <minSeverity>0.001</minSeverity>
+        <statOffsets>
+          <MentalBreakThreshold>0.25</MentalBreakThreshold>
+        </statOffsets>
+	  </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_ChangeBelowSeverity">
+		<atOrBelowThisSeverity>1.0</atOrBelowThisSeverity>
+		<alternativeHediff>HVT_IntolerantConverted</alternativeHediff>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Intolerant</li>
+		</forcingTraits>
+		<alternativeHediffs>
+			<li>HVT_IntolerantConverted</li>
+		</alternativeHediffs>
+	  </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+	</comps>
+  </HediffDef>
+  <!--conformist-->
+  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_ConformistResetEffect</defName>
+    <label>conformist</label>
+    <description>The "Conformist" trait causes this character to periodically reset to their faction's majority ideoligion.</description>
+    <hediffClass>HautsTraits.Hediff_Conform</hediffClass>
+    <defaultLabelColor>(0.976, 0.436, 0.428)</defaultLabelColor>
+    <stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Conformist</li>
+		</forcingTraits>
+	  </li>
+    </comps>
+  </HediffDef>
+  <!--persecution complex-->
+  <HediffDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_PerCompBuff</defName>
+    <label>persecution complex</label>
+    <description>The "Persecution Complex" trait grants a buff to work speed and mental break threshold while in the ideoligious minority.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.976, 0.436, 0.428)</defaultLabelColor>
+    <initialSeverity>0.001</initialSeverity>
+    <stages>
+	  <li>
+        <minSeverity>0.001</minSeverity>
+        <label>inactive</label>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <statOffsets>
+          <WorkSpeedGlobal>0.40</WorkSpeedGlobal>
+		  <MentalBreakThreshold>-0.25</MentalBreakThreshold>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_SeverityDeterminesVisibility">
+		<invisibleWithin>0.001~1</invisibleWithin>
+	  </li>
+	  <li Class="HautsTraits.HediffCompProperties_IdeoMajoritySeverity">
+		<severityWhileInMajority>0.001</severityWhileInMajority>
+		<severityWhileInMinority>1</severityWhileInMinority>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_PersecutionComplex</li>
+		</forcingTraits>
+	  </li>
+    </comps>
+  </HediffDef>
+  <!--rad thinker-->
+  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_RadThinkerBuff</defName>
+    <label>radical fervor</label>
+    <description>The "Radical Thinker" trait grants a massive buff to several ideoligion-related stats after having invented a new ideoligion. This character will remain in this state until converted to a different ideoligion.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.976, 0.436, 0.428)</defaultLabelColor>
+    <stages>
+      <li>
+		<statFactors>
+          <CertaintyLossFactor>0.25</CertaintyLossFactor>
+		  <SocialIdeoSpreadFrequencyFactor>50</SocialIdeoSpreadFrequencyFactor>
+		  <ConversionPower>7</ConversionPower>
+		  <Hauts_IdeoAbilityDurationSelf>3</Hauts_IdeoAbilityDurationSelf>
+        </statFactors>
+	  </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_IdeoCertaintySeverity">
+		<removeOnApostasy>true</removeOnApostasy>
+	  </li>
+	</comps>
+  </HediffDef>
+  <!--when you believe... in things, that you don't understand, then you sufferererer!... Superstition, ain't the wayayay. AOW!-->
+  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_Superstition</defName>
+    <label>superstitious</label>
+    <description>The "Superstitious" trait grants random moodlets at random times.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+	  </li>
+    </stages>
+    <comps>
+      <li Class="HautsFramework.HediffCompProperties_GiveThoughtsRandomly">
+        <mtbDays>4.5</mtbDays>
+		<thoughtDefs>
+          <li>HVT_SuperstitionGrandMal</li>
+          <li>HVT_SuperstitionLilMal</li>
+          <li>HVT_SuperstitionUp</li>
+          <li>HVT_SuperstitionWayUp</li>
+        </thoughtDefs>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Superstitious</li>
+		</forcingTraits>
+	  </li>
+    </comps>
+  </HediffDef>
+  <!--mechaphobe scramble debuff-->
+  <HediffDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_ScrambleMech</defName>
+    <label>scrambling signal</label>
+    <description>This mechanoid is stunned and takes increased damage.</description>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.8, 0, 0)</defaultLabelColor>
+    <stages>
+      <li>
+		<statFactors>
+          <IncomingDamageFactor>1.2</IncomingDamageFactor>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <showRemainingTime>True</showRemainingTime>
+      </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	  <li Class="HautsFramework.HediffCompProperties_MoteConditional">
+		<mote>Mote_MechUncontrolled</mote>
+		<scale>1</scale>
+	  </li>
+    </comps>
+  </HediffDef>
+  
+  <!--corruptible-->
+  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVT_CorruptionTracker</defName>
+    <label>void corruption</label>
+    <description>Those with the Corruptible trait gain psychic sensitivity and worsened mood as the anomalous activity level increases.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+    <minSeverity>0.001</minSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>5.0</maxSeverity>
+    <stages>
+	  <li>
+        <label>inactive</label>
+		<becomeVisible>false</becomeVisible>
+      </li>
+	  <li>
+        <minSeverity>1</minSeverity>
+        <label>activity level 1</label>
+        <statOffsets>
+          <PsychicSensitivity>0.3</PsychicSensitivity>
+        </statOffsets>
+		<becomeVisible>false</becomeVisible>
+      </li>
+	  <li>
+        <minSeverity>2</minSeverity>
+        <label>activity level 2</label>
+        <statOffsets>
+          <PsychicSensitivity>0.6</PsychicSensitivity>
+        </statOffsets>
+		<becomeVisible>false</becomeVisible>
+      </li>
+	  <li>
+        <minSeverity>3</minSeverity>
+        <label>activity level 3</label>
+        <statOffsets>
+          <PsychicSensitivity>0.9</PsychicSensitivity>
+        </statOffsets>
+		<becomeVisible>false</becomeVisible>
+      </li>
+	  <li>
+        <minSeverity>4</minSeverity>
+        <label>activity level 4</label>
+        <statOffsets>
+          <PsychicSensitivity>1.2</PsychicSensitivity>
+        </statOffsets>
+		<becomeVisible>false</becomeVisible>
+      </li>
+	  <li>
+        <minSeverity>5</minSeverity>
+        <label>void embraced</label>
+        <statOffsets>
+          <PsychicSensitivity>0.6</PsychicSensitivity>
+        </statOffsets>
+		<becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_AnomalousActivitySeverity">
+		<severityAtEachLevel>
+			<li><key>1</key><value>1</value></li>
+			<li><key>2</key><value>2</value></li>
+			<li><key>3</key><value>3</value></li>
+			<li><key>4</key><value>4</value></li>
+			<li><key>5</key><value>5</value></li>
+		</severityAtEachLevel>
+		<defaultSeverity>0.001</defaultSeverity>
+	  </li>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Corruptible</li>
+		</forcingTraits>
+	  </li>
+    </comps>
+  </HediffDef>
+  
+  <!--heh... a pretzel is just ordinary bread to someone like me...-->
+  <HediffDef ParentName="HVT_TraitHediffBase" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVT_TwistedHumanApathy</defName>
+    <label>twisted</label>
+    <description>Those with the "Twisted" trait find it harder to care about others, for better or for worse.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+    <stages>
+      <li>
+		<becomeVisible>false</becomeVisible>
+        <opinionOfOthersFactor>0.5</opinionOfOthersFactor>
+      </li>
+    </stages>
+	<comps>
+	  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+		<forcingTraits>
+			<li>HVT_Twisted</li>
+		</forcingTraits>
+	  </li>
+	</comps>
+  </HediffDef>
+  
+</Defs>

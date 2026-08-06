@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch><!--I don't bother doing this for traits that aren't from either the base game or Hauts' Added Traits. That's a little too much.
+				Oh, uh, what does this do? This sets the amount of charges a Personality Neuroformatter needs to grant certain traits; any trait that doesn't have a tag like the ones being added below
+				has the charge cost based on its commonality instead.-->
+	
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Nudist"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>1</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Psychopath"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>3</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Cannibal"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>2</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Masochist"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>1</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Gay"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>5</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Bisexual"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>5</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Asexual"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>5</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="AnnoyingVoice"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>1</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="CreepyBreathing"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>1</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Nimble"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>2</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="FastLearner"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>4</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Undergrounder"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>3</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Transhumanist"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>3</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="DislikesMen"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>1</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="DislikesWomen"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>1</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="GreatMemory"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>8</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Tough"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>5</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="TorturedArtist"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>1</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="QuickSleeper"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts><li><key>0</key><value>2</value></li></chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Neurotic"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>1</key><value>2</value></li>
+					<li><key>2</key><value>4</value></li>
+				</chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="SpeedOffset"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>-1</key><value>1</value></li>
+					<li><key>1</key><value>3</value></li>
+					<li><key>2</key><value>5</value></li>
+				</chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="NaturalMood"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>2</key><value>5</value></li>
+					<li><key>1</key><value>3</value></li>
+					<li><key>-1</key><value>1</value></li>
+					<li><key>-2</key><value>1</value></li>
+				</chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Nerves"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>2</key><value>5</value></li>
+					<li><key>1</key><value>3</value></li>
+					<li><key>-1</key><value>1</value></li>
+					<li><key>-2</key><value>1</value></li>
+				</chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Neurotic"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>1</key><value>2</value></li>
+					<li><key>2</key><value>4</value></li>
+				</chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Industriousness"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>2</key><value>5</value></li>
+					<li><key>1</key><value>3</value></li>
+					<li><key>-1</key><value>1</value></li>
+					<li><key>-2</key><value>1</value></li>
+				</chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="PsychicSensitivity"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>2</key><value>5</value></li>
+					<li><key>1</key><value>3</value></li>
+					<li><key>-1</key><value>2</value></li>
+					<li><key>-2</key><value>4</value></li>
+				</chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="ShootingAccuracy"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>1</key><value>2</value></li>
+					<li><key>-1</key><value>4</value></li>
+				</chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Beauty"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>2</key><value>4</value></li>
+					<li><key>1</key><value>2</value></li>
+					<li><key>-1</key><value>1</value></li>
+					<li><key>-2</key><value>1</value></li>
+				</chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TraitDef[defName="Immunity"]</xpath>
+		<value>
+			<li Class="HautsTraits.SpecificPNFChargeCost">
+				<chargeCosts>
+					<li><key>1</key><value>5</value></li>
+					<li><key>-1</key><value>1</value></li>
+				</chargeCosts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationAddModExtension">
+			<xpath>/Defs/TraitDef[defName="Recluse"]</xpath>
+			<value>
+				<li Class="HautsTraits.SpecificPNFChargeCost">
+					<chargeCosts><li><key>0</key><value>1</value></li></chargeCosts>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

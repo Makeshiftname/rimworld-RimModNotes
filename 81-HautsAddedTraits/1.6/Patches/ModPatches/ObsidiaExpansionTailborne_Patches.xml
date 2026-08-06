@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Obsidia Expansion - Tailborne Xenotype</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="OE_Tailborne_NoNeedBeauty"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Aestheticist</key>
+								<value>2.5</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="OE_Tailborne_ExtraNeedBeauty"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Aestheticist</key>
+								<value>2.5</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="OE_Tailborne_NoNeedComfort"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Perceptive</key>
+								<value>1.35</value>
+							  </li>
+							</multiplierTraits>
+							<multiplierGenes>
+							  <li>
+								<key>HVT_KeenSensesGene</key>
+								<value>1.35</value>
+							  </li>
+							  <li>
+								<key>HVT_PowerfulSensesGene</key>
+								<value>1.35</value>
+							  </li>
+							</multiplierGenes>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="OE_Tailborne_ExtraNeedComfort"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Perceptive</key>
+								<value>1.35</value>
+							  </li>
+							</multiplierTraits>
+							<multiplierGenes>
+							  <li>
+								<key>HVT_KeenSensesGene</key>
+								<value>1.35</value>
+							  </li>
+							  <li>
+								<key>HVT_PowerfulSensesGene</key>
+								<value>1.35</value>
+							  </li>
+							</multiplierGenes>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+		  <li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations><!--I don't recall EXACTLY why this is necessary, but it has something to do with sidestepping a complication w/ shifting what bdays growth moments happen on via the mod settings-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="Human"]/race/lifeStageAges/li[def="HumanlikePreTeenager"]/minAge</xpath>
+					<value>
+						<minAge>8.99</minAge>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd"><!--duh-->
+					<xpath>Defs/PawnKindDef[@Name="MechanitorBase"]/disallowedTraits</xpath>
+					<value>
+						<li>HVT_Mechaphobe</li>
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li><!--makes Undying and its corresponding gene stack appropriately-->
+					</mods>
+					<match Class="PatchOperationConditional">
+						<xpath>/Defs/HediffDef[defName="HVT_Settra"]/comps/li[@Class="HautsTraitsRoyalty.HediffCompProperties_ManaBarrier"]/contributingGenes</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>/Defs/HediffDef[defName="HVT_Settra"]/comps/li[@Class="HautsTraitsRoyalty.HediffCompProperties_ManaBarrier"]</xpath>
+							<value>
+								<contributingGenes>
+									<li><key>HVT_AUndyingGene</key><value>3.5</value></li>
+								</contributingGenes>
+							</value>
+						</nomatch>
+						<match Class="PatchOperationAdd">
+							<xpath>/Defs/HediffDef[defName="HVT_Settra"]/comps/li[@Class="HautsTraitsRoyalty.HediffCompProperties_ManaBarrier"]/contributingGenes</xpath>
+							<value>
+								<li><key>HVT_AUndyingGene</key><value>3.5</value></li>
+							</value>
+						</match>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional"><!--buy his book.-->
+		<xpath>/Defs/BackstoryDef[defName="GameDeveloper95"]/forcedTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/BackstoryDef[defName="GameDeveloper95"]</xpath>
+			<value>
+				<forcedTraits>
+					<HVT_Test>0</HVT_Test>
+				</forcedTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/BackstoryDef[defName="GameDeveloper95"]/forcedTraits</xpath>
+			<value>
+				<HVT_Test>0</HVT_Test>
+			</value>
+		</match>
+	</Operation>
+</Patch>

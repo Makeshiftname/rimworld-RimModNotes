@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>YM_ManiacTraits</li>
+			<li>YM_ManiacTraits2.0</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Drudge ew DataSup and Lazy Genius-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="LazyGenius"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="LazyGenius"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Drudge</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="LazyGenius"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Drudge</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="DataSupremacist"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="DataSupremacist"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Drudge</li>
+								<li>HVT_Graver</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="DataSupremacist"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Drudge</li>
+							<li>HVT_Graver</li>
+						</value>
+					</match>
+				</li>
+				<!--Data and Power Sups dislike corpses, so Graver ew/ them-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="PowerSupremacist"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="PowerSupremacist"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Graver</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="PowerSupremacist"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Graver</li>
+						</value>
+					</match>
+				</li>
+				<!--Silent Expert ew/ Tranquil and Conversationalist-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="SilentExpert"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="SilentExpert"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Conversationalist</li>
+								<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Proclaimer</li>
+								<li>HVT_Tranquil</li>
+								<li>HVT_Tranquil0</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="SilentExpert"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Conversationalist</li>
+							<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Proclaimer</li>
+							<li>HVT_Tranquil</li>
+							<li>HVT_Tranquil0</li>
+						</value>
+					</match>
+				</li>
+				<!--Tranquil ew/ Genocide Machine-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="GenocideMachine"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="GenocideMachine"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Tranquil</li>
+								<li>HVT_Tranquil0</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="GenocideMachine"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+							<li>HVT_Tranquil0</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

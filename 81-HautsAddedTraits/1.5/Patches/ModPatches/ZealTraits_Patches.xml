@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch><!--	Zeal Traits is a solid mod - like 'Traits - Corpse Handling', it does what it sets out to do with minimal fuss. There's just one problem, which is the 'ideoligion thought multiplier'
+	stat the mod author added in at some point. As the author points out in a stickied discussion thread, one has to patch in every single ideoligious thought into Zeal Traits in order for the
+	multiplier to work on it. Ergo, this patch alters those traits by replacing their ideoligion thought multipliers with my own more robust ideo mood and opinion factors.-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Zeal Traits</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Ideo impact traits exclusive w/ zeal traits.-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Zeal"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Zeal"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Faithful</li>
+								<li>HVT_Doubtful</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Zeal"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Faithful</li>
+							<li>HVT_Doubtful</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

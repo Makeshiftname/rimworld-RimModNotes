@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch><!--Shearwaters shouldn't be able to manifest these 'weathers'-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Anomaly</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/WeatherDef[@ParentName="UnnaturalDarknessBase"]</xpath>
+					<value>
+						<li Class="HautsTraitsRoyalty.NotStormable" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/WeatherDef[defName="Underground"]</xpath>
+					<value>
+						<li Class="HautsTraitsRoyalty.NotStormable" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/WeatherDef[@ParentName="Underground"]</xpath>
+					<value>
+						<li Class="HautsTraitsRoyalty.NotStormable" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/WeatherDef[defName="BloodRain"]</xpath>
+					<value>
+						<li Class="HautsTraitsRoyalty.StormCreateCondition">
+						   <conditionDef>BloodRain</conditionDef>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Alpha Biomes</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/WeatherDef[defName="AB_ForsakenNight"]</xpath>
+					<value>
+						<li Class="HautsTraitsRoyalty.NotStormable" />
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>[LYN] Add-On for Vanilla Traits Expanded</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Staid does not understand aesthetics, so is exclusive w Architect-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="LCK_Architect"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="LCK_Architect"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Staid</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="LCK_Architect"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Staid</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

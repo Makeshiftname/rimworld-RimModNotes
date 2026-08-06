@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch><!--The traits that do 9 trillion things (tier 3 and up) don't get exclusivities w/ my traits, because they do so much that no single other trait is going to accidentally shut them down.-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>RimTraits - Medieval Talents</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Staid exclusive w/ artsy stuff, in this case, Artist-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="RT_TalentArtist"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Staid</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

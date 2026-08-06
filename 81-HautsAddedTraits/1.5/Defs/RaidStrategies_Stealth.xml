@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <RaidStrategyDef Name="HVT_Burglary">
+    <defName>HVT_Burglary</defName>
+    <workerClass>HautsTraits.RaidStrategyWorker_Burglary</workerClass>
+    <selectionWeightPerPointsCurve>
+      <points>
+        <li>(0, 0.12)</li>
+      </points>
+    </selectionWeightPerPointsCurve>
+    <pointsFactorCurve>
+      <points>
+        <li>0, 1</li>
+      </points>
+    </pointsFactorCurve>
+    <arriveModes>
+      <li>HVT_SkulkInBaseCluster</li>
+      <li>HVT_SkulkInBaseSplitUp</li>
+    </arriveModes>
+    <letterLabelEnemy>Burglary</letterLabelEnemy>
+    <arrivalTextEnemy>They are here to steal anything they can. Beware - these thieves have figured out your locks, allowing them to open doors! Burglars will try to avoid combat unless attacked or cornered.</arrivalTextEnemy>
+  </RaidStrategyDef>
+  <RaidStrategyDef Name="HVT_Assassination">
+    <defName>HVT_Assassination</defName>
+    <workerClass>HautsTraits.RaidStrategyWorker_Assassinate</workerClass>
+    <selectionWeightPerPointsCurve>
+      <points>
+        <li>(0, 0.08)</li>
+      </points>
+    </selectionWeightPerPointsCurve>
+    <pointsFactorCurve>
+      <points>
+        <li>0, 1</li>
+      </points>
+    </pointsFactorCurve>
+    <arriveModes>
+      <li>HVT_Assassins</li>
+    </arriveModes>
+    <letterLabelEnemy>Assassination attempt</letterLabelEnemy>
+    <arrivalTextEnemy>They intend to carry out an assassination. If successful, they may attempt to either flee or press the attack.\nThese assassins can move freely through your doors, having figured out the locks.</arrivalTextEnemy>
+  </RaidStrategyDef>
+  <RaidStrategyDef Name="HVT_Espionage">
+    <defName>HVT_Espionage</defName>
+    <workerClass>HautsTraits.RaidStrategyWorker_Espionage</workerClass>
+    <selectionWeightPerPointsCurve>
+      <points>
+        <li>(0, 0.12)</li>
+      </points>
+    </selectionWeightPerPointsCurve>
+    <pointsFactorCurve>
+      <points>
+        <li>0, 1</li>
+      </points>
+    </pointsFactorCurve>
+    <arriveModes>
+      <li>HVT_SkulkInBaseCluster</li>
+      <li>HVT_SkulkInBaseSplitUp</li>
+    </arriveModes>
+    <letterLabelEnemy>Espionage</letterLabelEnemy>
+    <arrivalTextEnemy>They have been spying on you! Some may stay behind to fight while others will flee - but every spy that escapes will use the information they've gathered to make the next raid from this faction more powerful.\nThese spies can freely move through your doors, having figured out the locks.</arrivalTextEnemy>
+  </RaidStrategyDef>
+  <RaidStrategyDef Name="HVT_Sabotage">
+    <defName>HVT_Sabotage</defName>
+    <workerClass>HautsTraits.RaidStrategyWorker_Sabotage</workerClass>
+    <selectionWeightPerPointsCurve>
+      <points>
+        <li>(0, 0.08)</li>
+      </points>
+    </selectionWeightPerPointsCurve>
+    <pointsFactorCurve>
+      <points>
+        <li>0, 1</li>
+      </points>
+    </pointsFactorCurve>
+    <arriveModes>
+      <li>HVT_SabotagePAM</li>
+    </arriveModes>
+    <letterLabelEnemy>Sabotage</letterLabelEnemy>
+    <arrivalTextEnemy>They have planted mines around your base, which will go off in 4 to 9 hours. They'll fight for a short time, then attempt to leave before the mines explode.\nThese saboteurs can move freely through your doors, having figured out the locks.</arrivalTextEnemy>
+  </RaidStrategyDef>
+</Defs>

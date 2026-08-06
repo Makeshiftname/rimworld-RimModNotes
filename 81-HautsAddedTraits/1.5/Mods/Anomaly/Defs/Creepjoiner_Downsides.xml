@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <CreepJoinerDownsideDef>
+    <defName>HVT_Compromised</defName>
+    <label>compromised</label>
+    <traits>
+      <HVT_Compromised/>
+    </traits>
+  </CreepJoinerDownsideDef>
+	  <TraitDef>
+		<defName>HVT_Compromised</defName>
+		<commonality>0</commonality>
+		<degreeDatas>
+		  <li>
+			<label>compromised</label>
+			<description>{PAWN_nameDef} underwent psycho-technological reprogramming by an insidious cult. If {PAWN_pronoun} gets too close to a member of the Cult of Horax, there is a chance for {PAWN_possessive} programming to reactivate, causing {PAWN_objective} to instantly join them.</description>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_LongingRustedSeventeenDaybreak</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+        </modExtensions>
+	  </TraitDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase">
+		<defName>HVT_LongingRustedSeventeenDaybreak</defName>
+		<label>psycho-technological programming</label>
+		<description>A form of neural branding practiced only by particularly despicable, misanthropic groups. It can be reactivated simply by presenting the right symbols or sounds in a specific sequence, resulting in a total personality change.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<stages>
+		  <li>
+			<becomeVisible>false</becomeVisible>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HautsTraits.HediffCompProperties_ManchurianCandidacy">
+			<periodicity>180</periodicity>
+			<range>12</range>
+			<chance>0.2</chance>
+			<faction>HoraxCult</faction>
+			<onFactionChangeMessage>HVT_GotCompromised</onFactionChangeMessage>
+		  </li>
+		  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+			<forcingTraits>
+				<li>HVT_Compromised</li>
+			</forcingTraits>
+		  </li>
+		</comps>
+	  </HediffDef>
+  <CreepJoinerDownsideDef>
+    <defName>HVT_Pathogenic</defName>
+    <label>pathogenic</label>
+    <traits>
+      <HVT_Pathogenic/>
+    </traits>
+  </CreepJoinerDownsideDef>
+	  <TraitDef>
+		<defName>HVT_Pathogenic</defName>
+		<commonality>0</commonality>
+		<degreeDatas>
+		  <li>
+			<label>pathogenic</label>
+			<description>{PAWN_nameDef} carries dozens, if not hundreds, of different strains of disease within HIS body. HIS mere presence often leads to disease outbreaks.</description>
+			<statOffsets>
+			  <ImmunityGainSpeed>5</ImmunityGainSpeed>
+			</statOffsets>
+			<statFactors>
+			  <P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_SuperSpreader</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+        </modExtensions>
+	  </TraitDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase">
+		<defName>HVT_SuperSpreader</defName>
+		<label>pathogenic</label>
+		<description>Putrefy, rot, spoil, and fester!</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<stages>
+		  <li>
+			<becomeVisible>false</becomeVisible>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HautsTraits.HediffCompProperties_SuperSpreader">
+			<mtbDays>11</mtbDays>
+		  </li>
+		  <li Class="HautsFramework.HediffCompProperties_ForcedByOtherProperty">
+			<forcingTraits>
+				<li>HVT_Pathogenic</li>
+			</forcingTraits>
+		  </li>
+		</comps>
+	  </HediffDef>
+  
+</Defs>

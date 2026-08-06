@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Alpha Biomes</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--darkness likers fine with forsaken thoughts. tempestophiles not mind bad weather-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AB_ForsakenNight"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AB_ForsakenNight"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Outdoorsy</li>
+								<li>HVT_Skulker</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitNoctule</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AB_ForsakenNight"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Outdoorsy</li>
+							<li>HVT_Skulker</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitNoctule</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AB_ForsakenRain"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AB_ForsakenRain"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Outdoorsy</li>
+								<li>HVT_Skulker</li>
+								<li>HVT_Tempestophile</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitNoctule</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AB_ForsakenRain"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Outdoorsy</li>
+							<li>HVT_Skulker</li>
+							<li>HVT_Tempestophile</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitNoctule</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AB_ForsakenThunderstorm"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AB_ForsakenThunderstorm"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Outdoorsy</li>
+								<li>HVT_Skulker</li>
+								<li>HVT_Tempestophile</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitNoctule</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AB_ForsakenThunderstorm"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Outdoorsy</li>
+							<li>HVT_Skulker</li>
+							<li>HVT_Tempestophile</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitNoctule</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AB_RedFogThought"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AB_RedFogThought"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AB_RedFogThought"]/nullifyingTraits</xpath>
+						<value>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AB_VolcanicAshThought"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AB_VolcanicAshThought"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Outdoorsy</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AB_VolcanicAshThought"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Outdoorsy</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+						</value>
+					</match>
+				</li>
+				<!--Peacock aura immunizes against forsaken night moodlet-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AB_ForsakenNight"]/nullifyingHediffs</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AB_ForsakenNight"]</xpath>
+						<value>
+							<nullifyingHediffs>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_PeacockBuff</li>
+							</nullifyingHediffs>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AB_ForsakenNight"]/nullifyingHediffs</xpath>
+						<value>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_PeacockBuff</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="AB_AcidRainCondition"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileLikedCondition" />
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="AB_VolcanicHeatWave"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileLikedCondition" />
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

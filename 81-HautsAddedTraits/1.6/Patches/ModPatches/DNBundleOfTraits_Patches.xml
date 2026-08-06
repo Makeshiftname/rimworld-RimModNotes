@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>[DN] Bundle Of Traits</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Asocial, Vagabond ew/ Communal-->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/TraitDef[defName="BOT_Communal"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Asocial</li>
+						<li>HVT_Vagabond</li>
+					</value>
+				</li>
+				<!--AZphobe ew/ Animal Whisperer-->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/TraitDef[defName="BOT_AnimalWhisperer"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Agrizoophobe</li>
+					</value>
+				</li>
+				<!--Forgettable ew/ Comedian and Vulgar, since these are rather unforgettable personalities-->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/TraitDef[defName="BOT_Comedian" or defName="BOT_Vulgar"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Forgettable</li>
+					</value>
+				</li>
+				<!--Metafreak and Angler exclusive w/ Dysgeusia and Eclectic Palate-->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/TraitDef[defName="BOT_Dysgeusia" or defName="BOT_Eclectic_Palate" or defName="BOT_SoylentNeed"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_MetabolicFreak</li>
+						<li MayRequire="Ludeon.RimWorld.Odyssey">HVT_Pescatarian</li>
+					</value>
+				</li>
+				<!--PplPlser ew/ Apathetic, Misanthrope, Vulgar-->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/TraitDef[defName="HVT_PeoplePleaser"]/conflictingTraits</xpath>
+					<value>
+						<li>BOT_Apathetic</li>
+						<li>BOT_Misanthrope</li>
+						<li>BOT_Vulgar</li>
+					</value>
+				</li>
+				<!--Skulker exclusive w/ Nyctophobia. While Outdoorsy also nullifies mood penalties for darkness, it ISN'T exclusive w/ Nyctophobia because, well, it's imaginable that someone likes
+						living outdoors but still has an irrational fear of the dark. On the other hand, people who make stealth a personality trait? Decidedly less likely to be scared of the dark, imo.-->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/TraitDef[defName="BOT_Nyctophobia"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Skulker</li>
+					</value>
+				</li>
+				<!--Vicious and Pacifist exclusive because duh. Sniper too, and Tranquil, on account of Tranquils straight up don't even DO violence so they'd be redundant.-->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/TraitDef[defName="BOT_Pacifist"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Sniper</li>
+						<li>HVT_Tranquil</li>
+						<li>HVT_Vicious</li>
+						<li>HVT_WeaponArtist</li>
+					</value>
+				</li>
+				<!--Tranquil, as usual, exclusive w/ combat traits, but also w/ Composed (as is Hysteric)-->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/TraitDef[defName="BOT_GunCrazy"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Tranquil</li>
+						<li>HVT_Tranquil0</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/TraitDef[defName="BOT_Composed"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Hysteric</li>
+						<li>HVT_Tranquil</li>
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Biotech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--Tranquil also ew/ Pressure Cooker-->
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/TraitDef[defName="BOT_PressureCooker"]/conflictingTraits</xpath>
+								<value>
+									<li>HVT_Tranquil</li>
+								</value>
+							</li>
+							<!--Caretaker ew/ Hates Children; Misopedist ew/ Hates Children AND Family Oriented-->
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/TraitDef[defName="BOT_ChildHate"]/conflictingTraits</xpath>
+								<value>
+									<li>HVT_Caretaker</li>
+									<li>HVT_Misopedist</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/TraitDef[defName="BOT_FamilyOriented"]/conflictingTraits</xpath>
+								<value>
+									<li>HVT_Misopedist</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<!--It was a conscious decision on my part to make Vicious not exclusive w/ Pacifist. I think that would be very funny.-->
+			</operations>
+		</match>
+	</Operation>
+</Patch>

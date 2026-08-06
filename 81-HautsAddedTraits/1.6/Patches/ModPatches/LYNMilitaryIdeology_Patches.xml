@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>[LYN] Military Ideology</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--and when it came my time to serve/I knew better dead then Red/but when I got to the old draft board, buddy/this is what I said... sarge,-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="LYN_MilitaryMeme"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="LYN_MilitaryMeme"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Tranquil</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="LYN_MilitaryMeme"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Fallout Traits</li>
+			<li>Fallout Traits Continued</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Sniper exclusive w/ Iron Fist-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="FT_IronFist"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Sniper</li>
+						<li>HVT_Tranquil</li>
+						<li>HVT_Tranquil0</li>
+					</value>
+				</li>
+				<!--Drudge ew/ Intellectual-based traits and Idiot Savant-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="FT_Intelligence" or defName="FT_Scientific" or defName="FT_IdiotSavant"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Drudge</li>
+					</value>
+				</li>
+				<!--Staid, as usual, exclusive w/ art traits: in this case, Artisan and Perfectionist.-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="FT_Artisan" or defName="FT_Perfectionist"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Staid</li>
+					</value>
+				</li>
+				<!--Tranquil, as usual, exclusive w/ mental break and violence-centered traits-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="FT_AimOffset" or defName="FT_GunNut"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Tranquil</li>
+						<li>HVT_Tranquil0</li>
+					</value>
+				</li>
+				<!--Visionary ew/ Stupid-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="FT_Stupid"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Visionary</li>
+					</value>
+				</li>
+				<!--Mostly for naming's sake, Imperceptive ew/ Perceptive and Very Perceptive-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="FT_Perception"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Imperceptive</li>
+					</value>
+				</li>
+				<!--All senses traits ew/ Oblivious-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="FT_Oblivious"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Imperceptive</li>
+						<li>HVT_Perceptive</li>
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Carry Capacity Fixed (Continued)</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--Tranquil ew/ traits mostly or entirely about violence-->
+							<li Class="PatchOperationAdd">
+								<xpath>/Defs/TraitDef[defName="FT_Bandolier"]/conflictingTraits</xpath>
+								<value>
+									<li>HVT_Tranquil</li>
+									<li>HVT_Tranquil0</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

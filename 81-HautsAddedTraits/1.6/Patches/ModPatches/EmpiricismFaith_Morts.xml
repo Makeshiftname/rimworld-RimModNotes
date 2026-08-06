@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Empiricism and Faith - Mort's Ideologies: Memes and Precepts</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--a LOT of ideology traits like Faith; Doubtful dislikes-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="MI_Faith"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_Faith"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Faithful</li>
+								<li>HVT_PersecutionComplex</li>
+								<li>HVT_Proclaimer</li>
+								<li>HVT_Superstitious</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_Faith"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Faithful</li>
+							<li>HVT_PersecutionComplex</li>
+							<li>HVT_Proclaimer</li>
+							<li>HVT_Superstitious</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="MI_Faith"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_Faith"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Doubtful</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_Faith"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Doubtful</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Way Better Romance</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--The lovesick could NEVER be philanderers.-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="Philanderer"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Lovesick</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

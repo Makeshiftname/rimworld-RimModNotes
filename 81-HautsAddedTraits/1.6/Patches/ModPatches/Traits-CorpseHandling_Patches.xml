@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Traits - Corpse Handling</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Graver exclusive with these traits cause it's them but with more bells and whistles, essentially.-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="DC_Desensitized" or defName="DC_TotallyDesensitized"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Graver</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

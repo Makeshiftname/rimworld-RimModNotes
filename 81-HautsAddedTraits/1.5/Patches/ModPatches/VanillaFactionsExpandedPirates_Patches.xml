@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Factions Expanded - Pirates</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Ideology</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--Champion, Conversationalist, and Vicious love being Pirates; Tranquil would NEVER download a pizza-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VFEP_PirateMeme"]/agreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VFEP_PirateMeme"]</xpath>
+									<value>
+										<agreeableTraits>
+											<li>HVT_Champion</li>
+											<li>HVT_Conversationalist</li>
+											<li>HVT_Vicious</li>
+										</agreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VFEP_PirateMeme"]/agreeableTraits</xpath>
+									<value>
+										<li>HVT_Champion</li>
+										<li>HVT_Conversationalist</li>
+										<li>HVT_Vicious</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="VFEP_PirateMeme"]/disagreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VFEP_PirateMeme"]</xpath>
+									<value>
+										<disagreeableTraits>
+											<li>HVT_Tranquil</li>
+										</disagreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="VFEP_PirateMeme"]/disagreeableTraits</xpath>
+									<value>
+										<li>HVT_Tranquil</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch><!--...-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Factions Expanded - Classical</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--despite not having a royalty tracker, the Republics are unmistakably institutions the Anarchist trait should hate-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/FactionDef[defName="VFEC_WesternRepublic"]</xpath>
+					<value>
+						<li Class="HautsTraits.AnarchistHatedFaction" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/FactionDef[defName="VFEC_CentralRepublic"]</xpath>
+					<value>
+						<li Class="HautsTraits.AnarchistHatedFaction" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/FactionDef[defName="VFEC_EasternRepublic"]</xpath>
+					<value>
+						<li Class="HautsTraits.AnarchistHatedFaction" />
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

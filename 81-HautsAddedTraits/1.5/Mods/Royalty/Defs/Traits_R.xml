@@ -1,0 +1,3466 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--Royalty traits! before we get into the psycasting stuff... let's do a "nobility" spectrum-->
+	<TraitDef>
+		<defName>HVT_Anarchist</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>anarchist</label>
+			<description>{PAWN_nameDef} dislikes social pecking orders. {PAWN_pronoun} hates those who hold leadership positions, and disapproves of alliance with imperial institutions.\n\nIf imprisoned, {PAWN_pronoun} will be uncooperative with {PAWN_possessive} captors.</description>
+			<statOffsets>
+			  <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">-0.08</SuppressionPower>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<prisonerResolveFactor>
+					<li>
+						<key>0</key><value>1.4</value>
+					</li>
+				</prisonerResolveFactor>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>1</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Servile</li><li MayRequire="Ludeon.RimWorld.Ideology">HVT_Liberator</li><li MayRequire="Ludeon.RimWorld.Ideology">HVT_Subjugator</li></conflictingTraits>
+	</TraitDef>
+	<TraitDef>
+		<defName>HVT_Servile</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>servile</label>
+			<description>{PAWN_nameDef} wants to be led by others, and dislikes holding authority {PAWN_objective}self.\n\nIf imprisoned, {PAWN_pronoun} will be quite cooperative with {PAWN_possessive} captors.</description>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<prisonerResolveFactor>
+					<li>
+						<key>0</key><value>0.6</value>
+					</li>
+				</prisonerResolveFactor>
+            </li>
+			<li Class="HautsTraits.SpecificPNFChargeCost"><chargeCosts><li><key>0</key><value>2</value></li></chargeCosts></li>
+        </modExtensions>
+		<conflictingTraits><li>HVT_Anarchist</li></conflictingTraits>
+	</TraitDef>
+	<!--and let's also do a single non-spectrum trait, the Blank-->
+	<TraitDef>
+		<defName>HVT_PsychicallyBlank</defName>
+		<commonality>0.1</commonality>
+		<degreeDatas>
+		  <li>
+			<label>psychic blank</label>
+			<description>{PAWN_nameDef} dampens nearby psychic phenomena and is immensely resistant to direct psychic interference.</description>
+			<statFactors>
+			  <PsychicSensitivity>0.2</PsychicSensitivity>
+			</statFactors>
+			<statOffsets>
+			  <PsychicSensitivity>-1.25</PsychicSensitivity>
+			  <ActivitySuppressionRate MayRequire="Ludeon.RimWorld.Anomaly">0.02</ActivitySuppressionRate>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_PsychicBlankAura</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+        </modExtensions>
+		<conflictingTraits><li>PsychicSensitivity</li><li MayRequire="Ludeon.RimWorld.Anomaly">HVT_Corruptible</li><li MayRequire="Ludeon.RimWorld.Anomaly">HVT_Haunted</li></conflictingTraits>
+	</TraitDef>
+	<!--surprise! Latent Psychic is actually six traits in a trenchcoat; each one has a predetermined type of awakening event-->
+	<TraitDef>
+		<defName>HVT_LatentPsychic</defName>
+		<commonality>0.6</commonality>
+		<degreeDatas>
+		  <li>
+			<label>latent psychic</label>
+			<description>[PAWN_nameDef] has an innate connection to the archotechs. This connection might awaken if [PAWN_pronoun] experiences something sufficiently grand or terrible, permanently transforming [PAWN_objective] into a powerful psycaster.</description>
+			<degree>1</degree><!--mastery-->
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.3</PsychicSensitivity>
+			  <RoyalFavorValue>2</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		  <li>
+			<label>latent psychic</label>
+			<description>[PAWN_nameDef] has an innate connection to the archotechs. This connection might awaken if [PAWN_pronoun] experiences something sufficiently grand or terrible, permanently transforming [PAWN_objective] into a powerful psycaster.</description>
+			<degree>2</degree><!--misery-->
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.3</PsychicSensitivity>
+			  <RoyalFavorValue>2</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		  <li>
+			<label>latent psychic</label>
+			<description>[PAWN_nameDef] has an innate connection to the archotechs. This connection might awaken if [PAWN_pronoun] experiences something sufficiently grand or terrible, permanently transforming [PAWN_objective] into a powerful psycaster.</description>
+			<degree>3</degree><!--love-->
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.3</PsychicSensitivity>
+			  <RoyalFavorValue>2</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		  <li>
+			<label>latent psychic</label>
+			<description>[PAWN_nameDef] has an innate connection to the archotechs. This connection might awaken if [PAWN_pronoun] experiences something sufficiently grand or terrible, permanently transforming [PAWN_objective] into a powerful psycaster.</description>
+			<degree>4</degree><!--loss-->
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.3</PsychicSensitivity>
+			  <RoyalFavorValue>2</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		  <li>
+			<label>latent psychic</label>
+			<description>[PAWN_nameDef] has an innate connection to the archotechs. This connection might awaken if [PAWN_pronoun] experiences something sufficiently grand or terrible, permanently transforming [PAWN_objective] into a powerful psycaster.</description>
+			<degree>5</degree><!--life-->
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.3</PsychicSensitivity>
+			  <RoyalFavorValue>2</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		  <li>
+			<label>latent psychic</label>
+			<description>[PAWN_nameDef] has an innate connection to the archotechs. This connection might awaken if [PAWN_pronoun] experiences something sufficiently grand or terrible, permanently transforming [PAWN_objective] into a powerful psycaster.</description>
+			<degree>6</degree><!--death-->
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.3</PsychicSensitivity>
+			  <RoyalFavorValue>2</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <!--<li Class="HautsFramework.ExciseTraitExemption"/>-->
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>1</key><value><li>HVT_LatentPsyHediff</li></value>
+					</li>
+					<li>
+						<key>2</key><value><li>HVT_LatentPsyHediff0</li></value>
+					</li>
+					<li>
+						<key>3</key><value><li>HVT_LatentPsyHediffN</li></value>
+					</li>
+					<li>
+						<key>4</key><value><li>HVT_LatentPsyHediff0</li></value>
+					</li>
+					<li>
+						<key>5</key><value><li>HVT_LatentPsyHediffNull</li></value>
+					</li>
+					<li>
+						<key>6</key><value><li>HVT_LatentPsyHediffOmega</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+			<li Class="HautsTraits.PersoneuroformatterScrambler" />
+			<li Class="HautsTraitsRoyalty.RemovedOnAwakening">
+			  <awakenChance>0</awakenChance>
+			</li>
+        </modExtensions>
+	</TraitDef>
+	
+	<!--awakened traits. the Deluge and Perennial function differently w/ Vanilla Psycasts Expanded, see the patch-->
+  <TraitDef Name="HVT_AwakenedTrait" Abstract="True">
+		<commonality>0</commonality>
+		<conflictingTraits><li>HVT_LatentPsychic</li></conflictingTraits>
+		<canBeSuppressed>false</canBeSuppressed>
+  </TraitDef>
+	<TraitDef ParentName="HVT_AwakenedTrait">
+		<defName>HVT_AwakenedAugur</defName>
+		<degreeDatas>
+		  <li>
+			<label>awakened augur</label>
+			<description>{PAWN_nameDef} is a powerful psycaster with exceptional sensitivity to perturbations in the psychic field.</description>
+			<marketValueFactorOffset>1.5</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.9</PsychicSensitivity>
+			  <RoyalFavorValue>4</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+			<statFactors>
+			  <PsychicSensitivity>2</PsychicSensitivity>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_WokeAugur</descKey><descKeyFantasy>HVT_WokeAugurFantasy</descKeyFantasy><category>awakening</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_AwakenedTrait">
+		<defName>HVT_AwakenedChanshi</defName>
+		<degreeDatas>
+		  <li>
+			<label>awakened chanshi</label>
+			<description>{PAWN_nameDef} can use any meditation type. {PAWN_pronoun} gains psyfocus faster from meditating, and meditating takes care of {PAWN_possessive} basic needs.</description>
+			<marketValueFactorOffset>1.5</marketValueFactorOffset>
+			<statOffsets>
+			  <PsychicSensitivity>0.6</PsychicSensitivity>
+			  <RoyalFavorValue>4</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+			<statFactors>
+			  <MeditationFocusGain>1.1</MeditationFocusGain>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_PsychicChanshi</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_WokeChanshi</descKey><descKeyFantasy>HVT_WokeChanshiFantasy</descKeyFantasy><category>awakening</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_AwakenedTrait">
+		<defName>HVT_AwakenedDeluge</defName>
+		<degreeDatas>
+		  <li>
+			<label>awakened deluge</label>
+			<description>{PAWN_nameDef} is capable of using nearly any 1st-level psycast without expending psyfocus, so long as {PAWN_pronoun} has enough psyfocus to cast it in the first place.</description>
+			<marketValueFactorOffset>1.5</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.6</PsychicSensitivity>
+			  <RoyalFavorValue>4</RoyalFavorValue>
+			  <Hauts_TierOnePsycastCostOffset>-0.3</Hauts_TierOnePsycastCostOffset>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_WokeDeluge</descKey><descKeyFantasy>HVT_WokeDelugeFantasy</descKeyFantasy><category>awakening</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_AwakenedTrait">
+		<defName>HVT_AwakenedErudite</defName>
+		<degreeDatas>
+		  <li>
+			<label>awakened erudite</label>
+			<description>{PAWN_nameDef} is an exceptionally versatile psycaster with a wide array of abilities. {PAWN_pronoun} may also develop up to two more transcendences than other awakened psychics.</description>
+			<marketValueFactorOffset>1.5</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.6</PsychicSensitivity>
+			  <RoyalFavorValue>4</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.2</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_WokeErudite</descKey><descKeyFantasy>HVT_WokeEruditeFantasy</descKeyFantasy><category>awakening</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_AwakenedTrait">
+		<defName>HVT_AwakenedIncarnate</defName>
+		<degreeDatas>
+		  <li>
+			<label>awakened incarnate</label>
+			<description>{PAWN_nameDef} grows physically and mentally stronger with every psycast {PAWN_pronoun} learns.</description>
+			<marketValueFactorOffset>1.5</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.6</PsychicSensitivity>
+			  <RoyalFavorValue>4</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_PsychicIncarnate</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_WokeIncarnate</descKey><descKeyFantasy>HVT_WokeIncarnateFantasy</descKeyFantasy><category>awakening</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_AwakenedTrait">
+		<defName>HVT_AwakenedLuminary</defName>
+		<degreeDatas>
+		  <li>
+			<label>awakened luminary</label>
+			<description>{PAWN_nameDef} exudes an aura that empowers psycasting.</description>
+			<marketValueFactorOffset>1.5</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.6</PsychicSensitivity>
+			  <RoyalFavorValue>4</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_LuminaryAura</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_WokeLuminary</descKey><descKeyFantasy>HVT_WokeLuminaryFantasy</descKeyFantasy><category>awakening</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_AwakenedTrait">
+		<defName>HVT_AwakenedMantraist</defName>
+		<degreeDatas>
+		  <li>
+			<label>awakened mantraist</label>
+			<description>{PAWN_nameDef} is a powerful psycaster, capable of passively generating psyfocus.</description>
+			<marketValueFactorOffset>1.5</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li>Minimal</li><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.6</PsychicSensitivity>
+			  <RoyalFavorValue>4</RoyalFavorValue>
+			  <Hauts_PsyfocusRegenRate>0.2</Hauts_PsyfocusRegenRate>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_WokeMantraist</descKey><descKeyFantasy>HVT_WokeMantraistFantasy</descKeyFantasy><category>awakening</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_AwakenedTrait">
+		<defName>HVT_AwakenedPerennial</defName>
+		<degreeDatas>
+		  <li>
+			<label>awakened perennial</label>
+			<description>Once a day, {PAWN_nameDef} can draw upon a confluence of power within the psychic field, greatly enhancing {PAWN_possessive} psycasting for an hour. Outside of this period, {PAWN_pronoun} finds psycasting requires more psyfocus.</description>
+			<marketValueFactorOffset>1.5</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.6</PsychicSensitivity>
+			  <RoyalFavorValue>4</RoyalFavorValue>
+			  <Hauts_PsycastFocusRefund>-0.1</Hauts_PsycastFocusRefund>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedAbilities>
+					<li>
+						<key>0</key><value><li>HVT_ArchicSyzygy</li></value>
+					</li>
+				</grantedAbilities>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_WokePerennial</descKey><descKeyFantasy>HVT_WokePerennialFantasy</descKeyFantasy><category>awakening</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_AwakenedTrait">
+		<defName>HVT_AwakenedSage</defName>
+		<degreeDatas>
+		  <li>
+			<label>awakened sage</label>
+			<description>{PAWN_nameDef} is a powerful psycaster with a vastly improved neural heat capacity and an exceptionally disciplined mind.</description>
+			<marketValueFactorOffset>1.5</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.6</PsychicSensitivity>
+			  <RoyalFavorValue>4</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+			<statFactors>
+			  <PsychicEntropyMax>3</PsychicEntropyMax>
+			  <MentalBreakThreshold>0.75</MentalBreakThreshold>
+			  <PainShockThreshold>1.5</PainShockThreshold>
+			  <VAEI_SanityLossMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0</VAEI_SanityLossMultiplier>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_WokeSage</descKey><descKeyFantasy>HVT_WokeSageFantasy</descKeyFantasy><category>awakening</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_AwakenedTrait">
+		<defName>HVT_AwakenedSiphoner</defName>
+		<degreeDatas>
+		  <li>
+			<label>awakened siphoner</label>
+			<description>{PAWN_nameDef} draws psyfocus from consuming food.</description>
+			<marketValueFactorOffset>1.5</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.6</PsychicSensitivity>
+			  <RoyalFavorValue>4</RoyalFavorValue>
+			  <Hauts_PsyfocusFromFood>0.05</Hauts_PsyfocusFromFood>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_SiphonerEating</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_WokeSiphoner</descKey><descKeyFantasy>HVT_WokeSiphonerFantasy</descKeyFantasy><category>awakening</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_AwakenedTrait">
+		<defName>HVT_AwakenedTitan</defName>
+		<degreeDatas>
+		  <li>
+			<label>awakened titan</label>
+			<description>{PAWN_nameDef} reinforces {PAWN_possessive} body with accumulated psyfocus, improving {PAWN_possessive} capabilities and defenses.</description>
+			<marketValueFactorOffset>1.5</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.6</PsychicSensitivity>
+			  <RoyalFavorValue>4</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_PsychicTitan</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_WokeTitan</descKey><descKeyFantasy>HVT_WokeTitanFantasy</descKeyFantasy><category>awakening</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_AwakenedTrait">
+		<defName>HVT_AwakenedUndying</defName>
+		<degreeDatas>
+		  <li>
+			<label>awakened undying</label>
+			<description>Instead of harming {PAWN_objective}, damage taken by {PAWN_nameDef} depletes {PAWN_possessive} psyfocus (at a ratio of 4.5 damage to 1% psyfocus).</description>
+			<marketValueFactorOffset>1.5</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <PsychicSensitivity>0.6</PsychicSensitivity>
+			  <RoyalFavorValue>4</RoyalFavorValue>
+			  <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.1</StudyEfficiency>
+			  <Hauts_ApparelWearRateFactor>-0.3</Hauts_ApparelWearRateFactor>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_Settra</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_WokeUndying</descKey><descKeyFantasy>HVT_WokeUndyingFantasy</descKeyFantasy><category>awakening</category></li>
+        </modExtensions>
+	</TraitDef>
+	
+	<!--all the transcendences, alphabetically-->
+  <TraitDef Name="HVT_TransTrait" Abstract="True">
+		<commonality>0</commonality>
+		<canBeSuppressed>false</canBeSuppressed>
+  </TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitAlbatross</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic albatross</label>
+			<description>{PAWN_nameDef} hovers, negating movement penalties from the terrain, and {PAWN_pronoun} also gains armor based on the current wind level. While meditating, {PAWN_pronoun} causes the wind to howl.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.5</P42_AllergicSensitivity>
+			  <Hauts_SpewRangeFactor MayRequire="Ludeon.RimWorld.Biotech">0.5</Hauts_SpewRangeFactor>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffAlbatross</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransAlbatross</descKey><descKeyFantasy>HVT_TransAlbatrossFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitAnaconda</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic anaconda</label>
+			<description>{PAWN_nameDef} grows in size and strength over time. This has no upper limit, and increases {PAWN_possessive} strength, speed, and (up to a point) damage resistance; however, it also makes {PAWN_possessive} easier to hit and worse at avoiding traps.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffAnaconda</li><li>HVT_THediffAnaconda2</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransAnaconda</descKey><descKeyFantasy>HVT_TransAnacondaFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitAnimalume</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic animalume</label>
+			<description>Every 1000% psyfocus {PAWN_nameDef} spends summons an anima tree somewhere nearby. If {PAWN_pronoun} dies, {PAWN_pronoun} will instantly respawn at a nearby anima tree, killing the tree.</description>
+			<allowedMeditationFocusTypes><li>Natural</li></allowedMeditationFocusTypes>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <RBSF_NatureConnection MayRequire="Rooboid.Faun">0.35</RBSF_NatureConnection>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffAnimalume</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransAnimalume</descKey><descKeyFantasy>HVT_TransAnimalumeFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitApocriton</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic apocriton</label>
+			<description>{PAWN_nameDef} can exert a form of mind control on mechanoids. When {PAWN_pronoun} affects mechanoids with a psycast, they may become allied with {PAWN_objective} for up to an hour. The heavier the mech, the less likely this is to work.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <MechControlGroups MayRequire="Ludeon.RimWorld.Biotech">1</MechControlGroups>
+			</statOffsets>
+			<statFactors>
+			  <MechBandwidth MayRequire="Ludeon.RimWorld.Biotech">1.25</MechBandwidth>
+			  <Hauts_MechCommandRange MayRequire="Ludeon.RimWorld.Biotech">1.2</Hauts_MechCommandRange>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffApocriton</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransApocriton</descKey><descKeyFantasy>HVT_TransApocritonFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitArcturan</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic arcturan</label>
+			<description>{PAWN_nameDef} warps nearby electromagnetic currents. {PAWN_pronoun} inflicts EMPs via attacks and psycasts, is immune to EMPs {PAWN_objective}self, and has improved sight. This control over electric currents even extends to {PAWN_possessive} own organs, protecting {PAWN_objective} against heart attacks and some forms of coma.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <PawnBeauty>1</PawnBeauty>
+			  <Hauts_MechEnergyUsage MayRequire="Ludeon.RimWorld.Biotech">-0.25</Hauts_MechEnergyUsage>
+			  <Radiation MayRequire="Dubwise.Rimatomics">-0.35</Radiation>
+			  <VEF_EnergyShieldEnergyMaxFactor>0.35</VEF_EnergyShieldEnergyMaxFactor>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffArcturan</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransArcturan</descKey><descKeyFantasy>HVT_TransArcturanFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--B-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitBeaver</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic beaver</label>
+			<description>Aided by a psychic sense, {PAWN_nameDef} can easily visualize how to assemble or break down objects in {PAWN_possessive} immediate vicinity. {PAWN_possessive} psychic sensitivity increases up the rate at which {PAWN_pronoun} works with plants and buildings, and affects how much damage {PAWN_pronoun} does to buildings.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Constructing</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffBeaver</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransBeaver</descKey><descKeyFantasy>HVT_TransBeaver</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitBellbird</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic bellbird</label>
+			<description>Word psycasts used by {PAWN_nameDef} cost +7.5% psyfocus, but affect all nearby valid targets. The radius of this effect is equal to twice {PAWN_possessive} psylink level.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <Hauts_SpewRangeFactor MayRequire="Ludeon.RimWorld.Biotech">0.5</Hauts_SpewRangeFactor>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffBNC</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransBellbird</descKey><descKeyFantasy>HVT_TransBellbirdFantasy</descKeyFantasy><category>transcendence</category></li>
+			<li Class="HautsTraitsRoyalty.GrantWordPsycast" />
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitBluejay</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic bluejay</label>
+			<description>{PAWN_nameDef} is surrounded by a protective immaterial presence, which attacks nearby foes and attempts to divert incoming blows.</description><!--so it's the same type of stand as star platinum-->
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <ArmorRating_Blunt>0.18</ArmorRating_Blunt>
+			  <ArmorRating_Sharp>0.18</ArmorRating_Sharp>
+			  <ArmorRating_Heat>0.18</ArmorRating_Heat>
+			</statOffsets>
+			<statFactors>
+			  <VEF_MassCarryCapacity>2</VEF_MassCarryCapacity>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffBluejay</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransBluejay</descKey><descKeyFantasy>HVT_TransBluejayFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitBouldermit</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic bouldermit</label>
+			<description>{PAWN_nameDef} generates rock chunks with each psycast (and sometimes also makes more valuable metallic resources). On using a psycast of the highest level, there is a 10% chance a meteorite will fall somewhere nearby.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransBouldermit</descKey><descKeyFantasy>HVT_TransBouldermitFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitBowerbird</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic bowerbird</label>
+			<description>{PAWN_nameDef} emits a healing skipshield while meditating. The healing applies to everything in its radius, not just {PAWN_possessive} allies.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffBowerbird</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransBowerbird</descKey><descKeyFantasy>HVT_TransBowerbirdFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitBudgerigar</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic budgie</label>
+			<description>{PAWN_nameDef} has a far-reaching psychic influence that gradually improves relations with other factions.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <LanguageLearningAbility MayRequire="DimonSever000.FactionLanguages">0.5</LanguageLearningAbility>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffBudgerigar</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransBudgie</descKey><descKeyFantasy>HVT_TransBudgieFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--C-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitCanary</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic canary</label>
+			<description>Word psycasts used by {PAWN_nameDef} have a profound influence on the target, breaking unwavering loyalty, reducing resistance, and altering mood and certainty.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffBNC</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransCanary</descKey><descKeyFantasy>HVT_TransCanaryFantasy</descKeyFantasy><category>transcendence</category></li>
+			<li Class="HautsTraitsRoyalty.GrantWordPsycast" />
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitCassowary</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic cassowary</label>
+			<description>{PAWN_nameDef} deals 2.2x damage with persona weapons, further increased by {PAWN_possessive} own psychic sensitivity.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <MeleeHitChance>5</MeleeHitChance>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransCassowary</descKey><descKeyFantasy>HVT_TransCassowaryFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitCockatiel</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic cockatiel</label>
+			<description>{PAWN_nameDef} is a font of genius. {PAWN_pronoun} passively contributes to research at a rate scaling with {PAWN_possessive} psychic sensitivity; if no research is currently underway, {PAWN_pronoun} instead gradually increases in skill and psyfocus.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <ReadingSpeed>0.15</ReadingSpeed>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Intellectual</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffCockatiel</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransCockatiel</descKey><descKeyFantasy>HVT_TransCockatielFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitCockroach</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic cockroach</label>
+			<description>{PAWN_nameDef} regenerates from wounds, even permanent ones, unnaturally fast. {PAWN_pronoun} can even come back from death, taking somewhere between 3-15 days.</description>
+			<statOffsets>
+				<InjuryHealingFactor>99</InjuryHealingFactor>
+				<P42_AllergicSensitivity MayRequire="phil42.allergies">-0.5</P42_AllergicSensitivity>
+			</statOffsets>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffCockroach</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransCockroach</descKey><descKeyFantasy>HVT_TransCockroach</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitCranchiid</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic cranchiid</label>
+			<description>While in water, {PAWN_nameDef} moves faster and heals rapidly.</description>
+			<allowedMeditationFocusTypes><li MayRequire="Arquebus.StagzMerfolk">Stagz_Water</li></allowedMeditationFocusTypes>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statFactors>
+			  <ThirstRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0.75</ThirstRateMultiplier>
+			  <HygieneRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0.75</HygieneRateMultiplier>
+			  <BladderRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0.75</BladderRateMultiplier>
+			  <SwimSpeed MayRequire="pyrce.swimming.modkit">3</SwimSpeed>
+			  <Flammability>0</Flammability>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffCranchiid</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransCranchiid</descKey><descKeyFantasy>HVT_TransCranchiidFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitCrane</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic crane</label>
+			<description>{PAWN_nameDef} moves with unearthly grace. {PAWN_pronoun} can walk with surety in the most treacherous bog, and evade even the fastest blows with ease.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffCrane</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransCrane</descKey><descKeyFantasy>HVT_TransCraneFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitCuckoo</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic cuckoo</label>
+			<description>{PAWN_nameDef} psychically influences others to love {PAWN_objective} more than almost anything else in existence.</description>
+			<socialFightChanceFactor>0</socialFightChanceFactor>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li MayRequire="VanillaExpanded.VPsycastsE">VPE_Group</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <ArrestSuccessChance>0.08</ArrestSuccessChance>
+			  <NegotiationAbility>0.08</NegotiationAbility>
+			  <SocialImpact>0.03</SocialImpact>
+			  <TradePriceImprovement>0.02</TradePriceImprovement>
+			  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.09</ConversionPower>
+			  <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">0.03</SuppressionPower>
+			  <ActivitySuppressionRate MayRequire="Ludeon.RimWorld.Anomaly">0.02</ActivitySuppressionRate>
+			  <LanguageLearningAbility MayRequire="DimonSever000.FactionLanguages">0.5</LanguageLearningAbility>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransCuckoo</descKey><descKeyFantasy>HVT_TransCuckooFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--D-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitDeimatic</defName>
+		<degreeDatas>
+		  <li>
+			<label>deimatic psychic</label>
+			<description>{PAWN_nameDef} repels vectors of harm on an abstract, indirect level. {PAWN_possessive} mere existence has a 50% chance to prevent many kinds of bad events from happening.\n\nHas no effect on events that occur as part of quests.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransDeimatic</descKey><descKeyFantasy>HVT_TransDeimatic</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitDiabolus</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic diabolus</label>
+			<description>{PAWN_nameDef} is all but immune to high temperatures. In close-range combat, {PAWN_pronoun} repeatedly unleashes flame novas, and {PAWN_possessive} psycasts drench hostile entities and structures in chemfuel.</description>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+			<statOffsets>
+			  <ComfyTemperatureMax>1000</ComfyTemperatureMax>
+			  <ArmorRating_Heat>10</ArmorRating_Heat>
+			</statOffsets>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffDiabolus</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransDiabolus</descKey><descKeyFantasy>HVT_TransDiabolusFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitDove</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic dove</label>
+			<description>{PAWN_nameDef} emits a continuous psychic soothe. {PAWN_possessive} psycasts remove mental breaks from anyone affected.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<theOnlyAllowedMentalBreaks>
+			  <li>Catatonic</li>
+			  <li>Wander_Psychotic</li>
+			  <li>Wander_Sad</li>
+			  <li>Wander_OwnRoom</li>
+			</theOnlyAllowedMentalBreaks>
+			<statOffsets><ActivitySuppressionRate MayRequire="Ludeon.RimWorld.Anomaly">0.06</ActivitySuppressionRate></statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraitsRoyalty.BloodRainImmune" />
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffDove</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransDove</descKey><descKeyFantasy>HVT_TransDoveFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitDulotic</defName>
+		<degreeDatas>
+		  <li>
+			<label>dulotic psychic</label>
+			<description>Anyone whom {PAWN_nameDef} kills is shortly thereafter raised in {PAWN_possessive} service. This second life only lasts for three days; psychically deaf individuals, as well as those who are already under this effect, cannot be raised in this way.</description>
+			<allowedMeditationFocusTypes><li>Morbid</li></allowedMeditationFocusTypes>
+			<statOffsets>
+			  <Hauts_MeleeArmorPenetration>0.2</Hauts_MeleeArmorPenetration>
+			  <Hauts_RangedArmorPenetration>0.2</Hauts_RangedArmorPenetration>
+			  <Hauts_PsyfocusGainOnKill>0.01</Hauts_PsyfocusGainOnKill>
+			</statOffsets>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransDulotic</descKey><descKeyFantasy>HVT_TransDuloticFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--E-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitEchinoid</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic echinoid</label>
+			<description>{PAWN_nameDef} radiates an aura of pain, and is unable to feel it {PAWN_objective}self. Foes who stay within the aura for too long also begin to lose consciousness.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffEchinoid</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransEchinoid</descKey><descKeyFantasy>HVT_TransEchinoidFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitEiderduck</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic eiderduck</label>
+			<description>{PAWN_nameDef} regulates ambient temperature, enabling {PAWN_possessive} allies to survive extreme heat or cold, and protecting them from fire.</description>
+			<statOffsets>
+			  <ComfyTemperatureMin>-25</ComfyTemperatureMin>
+			  <ComfyTemperatureMax>25</ComfyTemperatureMax>
+			  <ArmorRating_Heat>0.10</ArmorRating_Heat>
+			</statOffsets>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			  <Radiation MayRequire="Dubwise.Rimatomics">0.2</Radiation>
+			</statFactors>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffEiderduck</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransEiderduck</descKey><descKeyFantasy>HVT_TransEiderduckFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitElectrophorus</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic electrophorus</label>
+			<description>{PAWN_nameDef} emanates electrical disturbances, charging nearby batteries, calling lightning on nearby foes with each psycast, and sending EMPs through anything {PAWN_pronoun} hits in melee.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffElectrophorus</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransElectrophorus</descKey><descKeyFantasy>HVT_TransElectrophorusFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitAptenodytes</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic emperor penguin</label>
+			<description>Whenever {PAWN_nameDef} undergoes an event that would awaken a latent psychic, a man in black appears. If {PAWN_pronoun} fulfills a condition that would awaken a latent psychic, there is a persistent but very small chance for men in black to appear nearby.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <LanguageLearningAbility MayRequire="DimonSever000.FactionLanguages">0.25</LanguageLearningAbility>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffAptenodytes</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransAptenodytes</descKey><descKeyFantasy>HVT_TransAptenodytesFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitEvergreen</defName>
+		<degreeDatas>
+		  <li>
+			<label>evergreen psychic</label>
+			<description>{PAWN_nameDef} ages so slowly as to be immortal. This effect also prevents {PAWN_objective} from developing cancer or geriatric diseases, and it reduces {PAWN_possessive} reliance on food and rest.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statFactors>
+			  <LifespanFactor>100000</LifespanFactor>
+			  <Hauts_ApparelWearRateFactor>0</Hauts_ApparelWearRateFactor>
+			  <P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity>
+			</statFactors>
+			<statOffsets>
+			  <RestRateMultiplier>3</RestRateMultiplier>
+			  <Hauts_MechEnergyUsage MayRequire="Ludeon.RimWorld.Biotech">-0.3</Hauts_MechEnergyUsage>
+			</statOffsets>
+			<hungerRateFactor>0.25</hungerRateFactor>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransEvergreen</descKey><descKeyFantasy>HVT_TransEvergreenFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--F-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitFirefly</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic firefly</label>
+			<description>{PAWN_nameDef} generates unique solar pinholes with each psycast - the light they emit debilitates foes that get too close. {PAWN_pronoun} can also see just fine in the dark, and is sustained by an exotic process akin to photosynthesis, greatly slowing {PAWN_possessive} hunger so long as {PAWN_pronoun} is in bright light.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffFPsight2</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+			<li Class="HautsFramework.UnaffectedByDarkness" />
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransFirefly</descKey><descKeyFantasy>HVT_TransFireflyFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	  <ThingDef ParentName="EtherealThingBase">
+			<defName>HVT_FireflyLight</defName>
+			<label>solar pinhole (transcendent firefly)</label>
+			<thingClass>ThingWithComps</thingClass>
+			<tickerType>Normal</tickerType>
+			<drawerType>RealtimeOnly</drawerType>
+			<drawOffscreen>true</drawOffscreen>
+			<seeThroughFog>true</seeThroughFog>
+			<category>PsychicEmitter</category>
+			<altitudeLayer>MoteOverheadLow</altitudeLayer>
+			<graphicData>
+			  <graphicClass>Graphic_Single</graphicClass>
+			  <texPath>Things/Mote/SolarPinhole</texPath>
+			  <shaderType>MoteGlowDistorted</shaderType>
+			  <color>(255, 255, 200)</color>
+			  <drawSize>2</drawSize>
+			  <shaderParameters>
+				<_DistortionTex>/Other/Ripples</_DistortionTex>
+				<_distortionIntensity>0.05</_distortionIntensity>
+				<_DistortionScale>0.4</_DistortionScale>
+				<_distortionScrollSpeed>(0.07, 0.07, 0.0)</_distortionScrollSpeed>
+			  </shaderParameters>
+			</graphicData>
+			<comps>
+			  <li Class="CompProperties_Glower"><glowRadius>15</glowRadius><glowColor>(225,225,198,0)</glowColor></li>
+			  <li Class="CompProperties_HeatPusher"><compClass>CompHeatPusherPowered</compClass><heatPerSecond>10</heatPerSecond><heatPushMaxTemperature>20</heatPushMaxTemperature></li>
+			  <li Class="CompProperties_DestroyAfterDelay"><delayTicks>300000</delayTicks></li>
+			  <li Class="HautsFramework.CompProperties_AuraEmitterHediff">
+				<hediffs>
+					<li>HVT_FireflyFlash</li>
+				</hediffs>
+				<range>4</range>
+				<affectNeutrals>false</affectNeutrals>
+				<affectOwnFaction>false</affectOwnFaction>
+				<requiredStat>PsychicSensitivity</requiredStat>
+				<color>(1.0,1.0,0.78,0.35)</color>
+			  </li>
+			</comps>
+		</ThingDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitFirehawk</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic firehawk</label>
+			<description>{PAWN_nameDef} is favored by the flame. {PAWN_pronoun} is all but immune to high temperatures. While meditating, {PAWN_pronoun} emanates heat. {PAWN_possessive} psycasts can set nearby foes ablaze and inflict heatstroke on the victims; when {PAWN_pronoun} strikes, {PAWN_possessive} victims are scalded.</description>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+			<statOffsets>
+			  <ComfyTemperatureMax>1000</ComfyTemperatureMax>
+			  <ArmorRating_Heat>10</ArmorRating_Heat>
+			</statOffsets>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<allowedMeditationFocusTypes><li>Flame</li></allowedMeditationFocusTypes>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffFirehawk</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransFirehawk</descKey><descKeyFantasy>HVT_TransFirehawkFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitFlamingo</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic flamingo</label>
+			<description>{PAWN_nameDef} is immune to fire, poison, and most environmental phenomena.</description>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			  <P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity>
+			  <Radiation MayRequire="Dubwise.Rimatomics">0</Radiation>
+			</statFactors>
+			<statOffsets><!--yes, I know you get 100% toxic resistance at a value of 1. This is to make it so effects that would induce toxic susceptibility have to chew through an extreme amount of "overcapped" resistance.-->
+			  <ToxicResistance>100</ToxicResistance>
+			  <ToxicEnvironmentResistance>100</ToxicEnvironmentResistance>
+			  <ComfyTemperatureMin>-2000</ComfyTemperatureMin>
+			  <ComfyTemperatureMax>2000</ComfyTemperatureMax>
+			  <ArmorRating_Heat>1</ArmorRating_Heat>
+			  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">100</Mashed_Ashlands_AshResistance>
+			</statOffsets>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffFlamingo</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransFlamingo</descKey><descKeyFantasy>HVT_TransFlamingo</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitFodiator</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic fodiator</label>
+			<description>{PAWN_nameDef} can induce sudden and unnatural movements in {PAWN_possessive} body, making {PAWN_objective} faster and better at dodging, allowing {PAWN_objective} to travel much farther with jump abilities, and even allowing {PAWN_objective} to leap great distances under {PAWN_possessive} own power.</description>
+			<statFactors>
+			  <MeleeDodgeChance>1.5</MeleeDodgeChance>
+			</statFactors>
+			<statOffsets>
+			  <Hauts_JumpRangeFactor>1</Hauts_JumpRangeFactor>
+			  <Hauts_SpewRangeFactor MayRequire="Ludeon.RimWorld.Biotech">0.5</Hauts_SpewRangeFactor>
+			</statOffsets>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedAbilities>
+					<li>
+						<key>0</key><value><li>HVT_FodiatorLeap</li></value>
+					</li>
+				</grantedAbilities>
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffFMH</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransFodiator</descKey><descKeyFantasy>HVT_TransFodiatorFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitFossil</defName>
+		<degreeDatas>
+		  <li>
+			<label>fossilized psychic</label>
+			<description>{PAWN_nameDef} has had {PAWN_possessive} entire body replaced and augmented by a cyber-organic, archite-empowered material. {PAWN_pronoun} no longer bleeds, surgeries cannot fail on {PAWN_objective}, and {PAWN_possessive} bodily functions are greatly enhanced.\n\n{PAWN_possessive} psychic potential has been stymied as a result of this change; {PAWN_pronoun} can no longer gain new transcendences.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffFossilized</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransFossil</descKey><descKeyFantasy>HVT_TransFossilFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitFulmar</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic fulmar</label>
+			<description>{PAWN_nameDef} can infrequently generate and fire arcing explosive projectiles over extreme distances.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statFactors>
+			  <MortarMissRadiusFactor>0.5</MortarMissRadiusFactor>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags>
+		  <li>Violent</li>
+		</requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffFulmar</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransFulmar</descKey><descKeyFantasy>HVT_TransFulmarFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--G-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitGlowworm</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic glowworm</label>
+			<description>{PAWN_nameDef} causes ruptures in the fabric of space whenever {PAWN_pronoun} uses a skip psycast, damaging everything that isn't an ally between and around the target points. If {PAWN_pronoun} chooses for a skip psycast's start and end points to be the same (or uses a skip psycast with a random destination), the the effect occurs only once, around the initial point, but its radius increases to that of {PAWN_possessive} psylink level.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransGlowworm</descKey><descKeyFantasy>HVT_TransGlowwormFantasy</descKeyFantasy><category>transcendence</category></li>
+			<li Class="HautsTraitsRoyalty.GrantSkipPsycast" />
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitGnat</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic gnat</label>
+			<description>{PAWN_nameDef} is immune to the harmful effects of most gases. {PAWN_pronoun} turns invisible while surrounded by gas, and {PAWN_possessive} psycasts skip particulate into affected foes' eyes.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <ToxicResistance>0.25</ToxicResistance>
+			  <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+			  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.5</P42_AllergicSensitivity>
+			  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">1</Mashed_Ashlands_AshResistance>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffGnat0</li></value>
+					</li>
+				</grantedHediffs>
+				<otherHediffsToRemoveOnRemoval>
+					<li>
+						<key>0</key><value><li>HVT_THediffGnat</li></value>
+					</li>
+				</otherHediffsToRemoveOnRemoval>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransGnat</descKey><descKeyFantasy>HVT_TransGnatFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitGoldfinch</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic goldfinch</label>
+			<description>Once a day, every day, {PAWN_nameDef} regenerates towards a state of perfect health, becomes immune to the next instance of damage taken, and experiences a brief burst of euphoria. Even {PAWN_possessive} worn apparel and wielded weapons are partially repaired each time this occurs.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffGoldfinch</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransGoldfinch</descKey><descKeyFantasy>HVT_TransGoldfinchFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--H-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitHaast</defName>
+		<degreeDatas>
+		  <li>
+			<label>haastian psychic</label>
+			<description>{PAWN_nameDef} is a giant among psycasters, boasting massively expanded psychic sensitivity.</description>
+			<statFactors>
+			  <PsychicSensitivity>3</PsychicSensitivity>
+			</statFactors>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransHaast</descKey><descKeyFantasy>HVT_TransHaastFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitHarbinger</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic harbinger</label>
+			<description>{PAWN_nameDef} can eat corpses to gain some of their skill experience, as well as potentially heal {PAWN_objective}self of an injury or ailment. The chance to heal scales with the corpse's body size. Moreover, {PAWN_pronoun} defers incoming damage to nearby corpses.</description>
+			<allowedMeditationFocusTypes><li>Morbid</li></allowedMeditationFocusTypes>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <Hauts_EntityDamageFactor MayRequire="Ludeon.RimWorld.Anomaly">0.5</Hauts_EntityDamageFactor>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffHarbinger</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransHarby</descKey><descKeyFantasy>HVT_TransHarbyFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitHeron</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic heron</label>
+			<description>{PAWN_nameDef} moves faster, and has doubled range with skip psycasts.</description>
+			<statOffsets>
+			  <Hauts_SkipcastRangeFactor>1</Hauts_SkipcastRangeFactor>
+			</statOffsets>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffFMH2</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransHeron</descKey><descKeyFantasy>HVT_TransHeronFantasy</descKeyFantasy><category>transcendence</category></li>
+			<li Class="HautsTraitsRoyalty.GrantSkipPsycast" />
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitHoneybee</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic honeybee</label>
+			<description>{PAWN_nameDef} produces food as a byproduct of psycasting. This ability seems to work on a small but constant level within {PAWN_possessive} own body, helping sustain {PAWN_objective}.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffHoneybee</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransHoneybee</descKey><descKeyFantasy>HVT_TransHoneybeeFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitHornet</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic hornet</label>
+			<description>{PAWN_nameDef} can emit neural heat in the form of blasts of explosive energy, even while {PAWN_pronoun} is performing other tasks. This attack's range scales with {PAWN_possessive} psychic sensitivity.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags>
+		  <li>Violent</li>
+		</requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffHornet</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransHornet</descKey><descKeyFantasy>HVT_TransHornetFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitHummingbird</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic hummingbird</label>
+			<description>{PAWN_nameDef} becomes invisible if {PAWN_pronoun} hasn't attacked or cast an ability recently.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statFactors>
+			  <Hauts_PersonalCaravanVisibilityFactor>0</Hauts_PersonalCaravanVisibilityFactor>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffHummingbird0</li></value>
+					</li>
+				</grantedHediffs>
+				<otherHediffsToRemoveOnRemoval>
+					<li>
+						<key>0</key><value><li>HVT_THediffHummingbird</li></value>
+					</li>
+				</otherHediffsToRemoveOnRemoval>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransHummingbird</descKey><descKeyFantasy>HVT_TransHummingbirdFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--I-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitIndigo</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic indigo bunting</label>
+			<description>{PAWN_nameDef} has enhanced eyesight. {PAWN_pronoun} never gets bored of watching the stars, and using the telescope for long enough can cause a good event to occur.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffIndigo</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransIndigo</descKey><descKeyFantasy>HVT_TransIndigoFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitIvy</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic ivy</label>
+			<description>{PAWN_nameDef} accelerates the growth of nearby plants and causes them to entangle nearby foes.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <RBSF_NatureConnection MayRequire="Rooboid.Faun">0.35</RBSF_NatureConnection>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffIvy</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransIvy</descKey><descKeyFantasy>HVT_TransIvyFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--J-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitJackdaw</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic jackdaw</label>
+			<description>As {PAWN_nameDef} meditates, {PAWN_pronoun} gets closer to creating a random good event.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffJackdaw</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransJackdaw</descKey><descKeyFantasy>HVT_TransJackdawFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--K-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitKea</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic kea</label>
+			<description>{PAWN_nameDef} gains experience in each skill when psycasting or meditating.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffKea</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransKea</descKey><descKeyFantasy>HVT_TransKeaFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitKingfisher</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic kingfisher</label>
+			<description>{PAWN_nameDef} has impeccable accuracy - {PAWN_pronoun} nearly always hits {PAWN_possessive} intended target, and can find the weakest spot in virtually any armor.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <Hauts_MeleeArmorPenetration>1.5</Hauts_MeleeArmorPenetration>
+			  <Hauts_RangedArmorPenetration>1.5</Hauts_RangedArmorPenetration>
+			</statOffsets>
+			<statFactors>
+			  <MeleeHitChance>100</MeleeHitChance>
+			  <ShootingAccuracyPawn>100</ShootingAccuracyPawn>
+			  <ShootingAccuracyFactor_Touch>100</ShootingAccuracyFactor_Touch>
+			  <ShootingAccuracyFactor_Short>100</ShootingAccuracyFactor_Short>
+			  <ShootingAccuracyFactor_Medium>100</ShootingAccuracyFactor_Medium>
+			  <ShootingAccuracyFactor_Long>100</ShootingAccuracyFactor_Long>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffKingfisher</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransKingfisher</descKey><descKeyFantasy>HVT_TransKingfisherFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitKnapweed</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic knapweed</label>
+			<description>{PAWN_nameDef} drains the life from nearby plants to replenish {PAWN_possessive} own vitality, and {PAWN_pronoun} siphons psyfocus over time from nearby hostile psycasters.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <PlantWorkSpeed>0.5</PlantWorkSpeed>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>PlantWork</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffKnapweed</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransKnapweed</descKey><descKeyFantasy>HVT_TransKnapweedFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--L-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitLadybug</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic ladybug</label>
+			<description>{PAWN_nameDef} inflicts heightened regeneration, toughness, and disease resistance on nearby allies.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffLadybug</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransLadybug</descKey><descKeyFantasy>HVT_TransLadybugFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitLeghorn</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic leghorn</label>
+			<description>{PAWN_nameDef} periodically skips high-quality meals to {PAWN_possessive} own location. While meditating, {PAWN_possessive} meditation focus gain rate speeds up this process.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffLeghorn</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransLeghorn</descKey><descKeyFantasy>HVT_TransLeghornFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitLocust</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic locust</label>
+			<description>Every 24 hours, {PAWN_nameDef} manifests random allies - the higher {PAWN_possessive} psychic sensitivity, the more allies are created. They're fragile and will disappear after 24 hours, but they're more psychically sensitive, and they don't need to eat or sleep.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <Hauts_MaxDryadFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</Hauts_MaxDryadFactor>
+			  <LanguageLearningAbility MayRequire="DimonSever000.FactionLanguages">0.25</LanguageLearningAbility>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffLocust</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransLocust</descKey><descKeyFantasy>HVT_TransLocustFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+		<TraitDef ParentName="HVT_TransTrait">
+			<defName>HVT_LocustClone</defName>
+			<degreeDatas>
+			  <li>
+				<label>psychic locustspawn</label>
+				<description>{PAWN_nameDef} is a temporary manifestation and will soon disappear.</description>
+				<marketValueFactorOffset>0</marketValueFactorOffset>
+				<statOffsets>
+				  <PsychicSensitivity>0.5</PsychicSensitivity>
+				</statOffsets>
+				<statFactors>
+				  <IncomingDamageFactor>1.5</IncomingDamageFactor>
+				  <MentalBreakThreshold>0.75</MentalBreakThreshold>
+				  <RestFallRateFactor>0</RestFallRateFactor>
+				  <ThirstRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0</ThirstRateMultiplier>
+				  <HygieneRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0</HygieneRateMultiplier>
+				  <BladderRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0</BladderRateMultiplier>
+				</statFactors>
+				<hungerRateFactor>0</hungerRateFactor>
+			  </li>
+			</degreeDatas>
+			<modExtensions>
+				<li Class="HautsFramework.ExciseTraitExempt" />
+				<li Class="HautsFramework.TraitGrantedStuff">
+					<grantedHediffs>
+						<li>
+							<key>0</key><value><li>HVT_LocustTimedLife</li></value>
+						</li>
+					</grantedHediffs>
+					<hediffsToBrain>false</hediffsToBrain>
+				</li>
+			</modExtensions>
+		</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitLovebug</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic lovebug</label>
+			<description>{PAWN_nameDef} manifests a duplicate of {PAWN_objective}self. If it dies, {PAWN_pronoun} will recreate it after a delay, sped up by expending psyfocus or meditating. Artificial body parts cannot be removed from the duplicate.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffLovebug</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransLovebug</descKey><descKeyFantasy>HVT_TransLovebug</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+		<TraitDef ParentName="HVT_TransTrait">
+			<defName>HVT_LovebugDoppel</defName>
+			<degreeDatas>
+			  <li>
+				<label>psychic doppelganger</label>
+				<description>{PAWN_nameDef} is a doppelganger of another entity. If slain, {PAWN_pronoun} will disappear and later respawn from the original.\n\nIt is not possible to remove any artificial body parts {PAWN_pronoun} may have.</description>
+				<statFactors>
+				  <MentalBreakThreshold>0.5</MentalBreakThreshold>
+				  <RestFallRateFactor>0.5</RestFallRateFactor>
+				</statFactors>
+				<hungerRateFactor>0.5</hungerRateFactor>
+			  </li>
+			</degreeDatas>
+			<modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_TranscendentHediff</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+				<li Class="HautsFramework.CannotRemoveBionicsFrom" />
+			</modExtensions>
+		</TraitDef>
+	<!--M-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitMagpie</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic magpie</label>
+			<description>{PAWN_nameDef} manifests additional rewards when a quest is completed.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffMagpie</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransMagpie</descKey><descKeyFantasy>HVT_TransMagpieFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitMayfly</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic mayfly</label>
+			<description>{PAWN_nameDef} is subject to a bizarre temporal distortion, which enables {PAWN_objective} to sleep and meditate faster. It also makes {PAWN_possessive} ability cooldowns recover three times as fast.</description>
+			<statOffsets>
+			  <RestRateMultiplier>2</RestRateMultiplier>
+			  <Hauts_BoredomDropPerDay>0.05</Hauts_BoredomDropPerDay>
+			</statOffsets>
+			<statFactors>
+			  <MeditationFocusGain>1.5</MeditationFocusGain>
+			  <DeathrestEffectivenessFactor MayRequire="Ludeon.RimWorld.Biotech,lts.I">1.5</DeathrestEffectivenessFactor>
+			</statFactors>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key>
+						<value>
+							<li>HVT_THediffMayfly</li>
+						</value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransMayfly</descKey><descKeyFantasy>HVT_TransMayflyFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitMeerkat</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic meerkat</label>
+			<description>{PAWN_nameDef} has an incredibly powerful mind, and {PAWN_pronoun} emits a cerebral effect that stimulates learning and improves psychic sensitivity.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <Hauts_InstructiveAbility MayRequire="Ludeon.RimWorld.Biotech">1</Hauts_InstructiveAbility>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffMeerkat</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransMeerkat</descKey><descKeyFantasy>HVT_TransMeerkatFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitMite</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic mite</label>
+			<description>{PAWN_nameDef} shrinks after spending enough time meditating. In this state, {PAWN_pronoun} is invisible to the naked eye and can move through ordinarily impassable obstacles. {PAWN_pronoun} returns to normal size on attacking or casting an ability.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffMite0</li></value>
+					</li>
+				</grantedHediffs>
+				<otherHediffsToRemoveOnRemoval>
+					<li>
+						<key>0</key><value><li>HVT_THediffMite</li></value>
+					</li>
+				</otherHediffsToRemoveOnRemoval>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransMite</descKey><descKeyFantasy>HVT_TransMiteFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitMosquito</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic mosquito</label>
+			<description>{PAWN_nameDef} removes blood from anyone affected by {PAWN_possessive} psycasts, restoring {PAWN_possessive} own body and hemogen based on the amount of blood removed. This effect cannot kill directly, as it will never bring a victim's blood loss above 50%.\n\nAdditionally, {PAWN_pronoun} cannot lose blood from open injuries.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraitsRoyalty.BloodRainImmune" />
+			<li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffMosquito</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransMosquito</descKey><descKeyFantasy>HVT_TransMosquitoFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitMusang</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic musang</label>
+			<description>{PAWN_nameDef} gains psyfocus from the act of eating, and ingesting enough nutrition may produce a random serum.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <Hauts_PsyfocusFromFood>0.01</Hauts_PsyfocusFromFood>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffMusang</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransMusang</descKey><descKeyFantasy>HVT_TransMusangFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitMynah</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic hill mynah</label>
+			<description>{PAWN_nameDef} gains experience by psychically copying the skills of nearby higher-leveled individuals. {PAWN_pronoun} may also rarely learn psycasts from other psycasters by conversing with them.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffMynah</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransMynah</descKey><descKeyFantasy>HVT_TransMynahFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--N-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitNightingale</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic nightingale</label>
+			<description>{PAWN_nameDef} is a better speaker and regains all but the last 10% of psyfocus spent on Word psycasts.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Social</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffBNC</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransNightingale</descKey><descKeyFantasy>HVT_TransNightingaleFantasy</descKeyFantasy><category>transcendence</category></li>
+			<li Class="HautsTraitsRoyalty.GrantWordPsycast" />
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitNoctule</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic noctule</label>
+			<description>{PAWN_nameDef} becomes more physically and psychically powerful while in the dark, but wilts in the light. Becoming inspired or entering a mental break will always coincide with an eclipse.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffNoctule</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+			<li Class="HautsFramework.UnaffectedByDarkness" />
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransNoctule</descKey><descKeyFantasy>HVT_TransNoctuleFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitNotothen</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic notothen</label>
+			<description>{PAWN_nameDef} gains armor and neural heat recovery rate as it gets colder.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+			<statOffsets>
+			  <ComfyTemperatureMin>-1000</ComfyTemperatureMin>
+			  <ArmorRating_Heat>10</ArmorRating_Heat>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffNotothen</li><li>HVT_THediffNotothen2</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransNotothen</descKey><descKeyFantasy>HVT_TransNotothenFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--O-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitOilbird</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic oilbird</label>
+			<description>Whenever {PAWN_nameDef} psycasts, it creates a zone at the target's position in which {PAWN_possessive} cognition and psychic sensitivity are enhanced. Only one such zone may exist at any time.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffOilbird</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransOilbird</descKey><descKeyFantasy>HVT_TransOilbirdFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitOrbWeaver</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic orb weaver</label>
+			<description>Whenever {PAWN_nameDef} psycasts, nearby plants grow faster, and nearby non-hostile buildings are repaired. The effect scales with {PAWN_possessive} psychic sensitivity.\n\nPsycasting will also heal one random injury from a nearby random pawn; the heal's strength scales with the recipient's psychic sensitivity.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransOrbWeaver</descKey><descKeyFantasy>HVT_TransOrbWeaverFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitOrca</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic orca</label>
+			<description>While in water, {PAWN_nameDef} moves faster and is protected from damage. Blasts of water emit from the location of {PAWN_possessive} psycasts.</description>
+			<allowedMeditationFocusTypes><li MayRequire="Arquebus.StagzMerfolk">Stagz_Water</li></allowedMeditationFocusTypes>
+			<statFactors>
+			  <ThirstRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0.75</ThirstRateMultiplier>
+			  <HygieneRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0.75</HygieneRateMultiplier>
+			  <BladderRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0.75</BladderRateMultiplier>
+			  <SwimSpeed MayRequire="pyrce.swimming.modkit">3</SwimSpeed>
+			  <Flammability>0</Flammability>
+			</statFactors>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Firefighting</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsTraitsRoyalty.BloodRainImmune" />
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffOrca0</li></value>
+					</li>
+				</grantedHediffs>
+				<otherHediffsToRemoveOnRemoval>
+					<li>
+						<key>0</key><value><li>HVT_THediffOrca</li></value>
+					</li>
+				</otherHediffsToRemoveOnRemoval>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransOrca</descKey><descKeyFantasy>HVT_TransOrcaFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitOsprey</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic osprey</label>
+			<description>{PAWN_nameDef} exudes a protective presence, flatly reducing the damage nearby allies take and slowing their fatigue.</description>
+			<hungerRateFactor>0.6</hungerRateFactor>
+			<statFactors>
+			  <PainShockThreshold>0.6</PainShockThreshold>
+			  <RestFallRateFactor>0.6</RestFallRateFactor>
+			</statFactors>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Caring</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffOsprey</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransOsprey</descKey><descKeyFantasy>HVT_TransOspreyFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitOxpecker</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic oxpecker</label>
+			<description>{PAWN_nameDef} intermittently psychically tames a random animal. This effect can occur over long distances, and its frequency is based on {PAWN_possessive} psychic sensitivity.\n\nWhen {PAWN_pronoun} affects an animal with a psycast, its health is either boosted (if non-hostile) or impaired (if hostile).</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <Hauts_MaxDryadFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</Hauts_MaxDryadFactor>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Animals</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffOxpecker</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransOxpecker</descKey><descKeyFantasy>HVT_TransOxpeckerFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--P-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitPeacock</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic peacock</label>
+			<description>{PAWN_nameDef} exudes an aura which improves the vision of allies near {PAWN_objective} and makes everything it touches look gorgeous.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffPeacock</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransPeacock</descKey><descKeyFantasy>HVT_TransPeacockFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitPelican</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic pelican</label>
+			<description>{PAWN_nameDef} can see, attack, and cast abilities from much further away.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <VEF_VerbRangeFactor>1</VEF_VerbRangeFactor>
+			</statOffsets>
+			<statFactors>
+			  <Hauts_MechCommandRange MayRequire="Ludeon.RimWorld.Biotech">1.2</Hauts_MechCommandRange>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffFPsight</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransPelican</descKey><descKeyFantasy>HVT_TransPelicanFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitPeregrine</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic peregrine</label>
+			<description>{PAWN_nameDef} has a 40% chance to stun anyone {PAWN_pronoun} damages or affects with a psycast. The duration scales with the victim's psychic sensitivity.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statFactors>
+				<MeleeDamageFactor>1.1</MeleeDamageFactor>
+				<VEF_RangeAttackDamageFactor>1.1</VEF_RangeAttackDamageFactor>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffPeregrine</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransPeregrine</descKey><descKeyFantasy>HVT_TransPeregrineFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitPipistrelle</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic pipistrelle</label>
+			<description>{PAWN_nameDef} receives detailed extrasensory impressions of {PAWN_possessive} surroundings. This new mode of perception increases dramatically in potency during meditation or psycasting.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffBat</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransBat</descKey><descKeyFantasy>HVT_TransBatFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitPitohui</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic pitohui</label>
+			<description>{PAWN_nameDef} is immune to most forms of toxicity, which includes chemical overdoses, addictions, and dependencies; food poisoning; and, to a meager extent, disease. {PAWN_pronoun} can cure someone of any such afflictions (except a genetic chemical dependency) by affecting them with a psycast.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <ToxicResistance>2000</ToxicResistance>
+			  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">0.5</Mashed_Ashlands_AshResistance>
+			</statOffsets>
+			<statFactors>
+			  <P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity>
+			  <Radiation MayRequire="Dubwise.Rimatomics">0</Radiation>
+			  <Hauts_RecyclingSpeed MayRequire="VanillaExpanded.Recycling">1.5</Hauts_RecyclingSpeed>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraitsRoyalty.BloodRainImmune" />
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffPitohui</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransPitohui</descKey><descKeyFantasy>HVT_TransPitohuiFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitPolux</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic polux</label>
+			<description>{PAWN_nameDef} is heavily resistant to disease and toxins. While meditating, {PAWN_pronoun} reshapes the surrounding terrain, drying, fertilizing, and unpolluting it.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <ToxicResistance>5</ToxicResistance>
+			  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">5</Mashed_Ashlands_AshResistance>
+			</statOffsets>
+			<statFactors>
+			  <P42_AllergicSensitivity MayRequire="phil42.allergies">0</P42_AllergicSensitivity>
+			  <Radiation MayRequire="Dubwise.Rimatomics">0</Radiation>
+			  <HygieneRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0.2</HygieneRateMultiplier>
+			  <BladderRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0.2</BladderRateMultiplier>
+			  <Hauts_RecyclingSpeed MayRequire="VanillaExpanded.Recycling">1.5</Hauts_RecyclingSpeed>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffPolux</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransPolux</descKey><descKeyFantasy>HVT_TransPoluxFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitPoorwill</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic poorwill</label>
+			<description>{PAWN_nameDef} can survive for long periods of time without air, food, water, rest, or fun, and {PAWN_pronoun} emits an effect that partially alleviates these needs in others as well.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<hungerRateFactor>0.05</hungerRateFactor>
+			<statFactors>
+			  <JoyFallRateFactor>0.05</JoyFallRateFactor>
+			  <RestFallRateFactor>0.05</RestFallRateFactor>
+			  <ThirstRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0.05</ThirstRateMultiplier>
+			  <HygieneRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0.05</HygieneRateMultiplier>
+			  <BladderRateMultiplier MayRequire="Dubwise.DubsBadHygiene">0.05</BladderRateMultiplier>
+			</statFactors>
+			<statOffsets>
+			  <Hauts_MechEnergyUsage MayRequire="Ludeon.RimWorld.Biotech">-0.5</Hauts_MechEnergyUsage>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffPoorwill</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransPoorwill</descKey><descKeyFantasy>HVT_TransPoorwillFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitPtarmigan</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic ptarmigan</label>
+			<description>When {PAWN_nameDef} is happy, those near {PAWN_objective} gain a variety of benefits; when {PAWN_pronoun} is sad, nearby foes are demoralized and aggravated.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffPtarmigan</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransPtar</descKey><descKeyFantasy>HVT_TransPtarFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--Q-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitQuahog</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic quahog</label>
+			<description>{PAWN_nameDef} constructively shapes inanimate material around {PAWN_objective}self. {PAWN_possessive} worn and wielded equipment is repaired over time. There is a small chance, while meditating, for part of {PAWN_possessive} gear to improve in quality, or for the spontaneous creation of a high-quality book or sculpture.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Artistic</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffQuahog</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransQuahog</descKey><descKeyFantasy>HVT_TransQuahogFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitQuelea</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic quelea</label>
+			<description>{PAWN_nameDef} is surrounded by a field of selectively weakened gravity, allowing {PAWN_objective} and nearby allies to hover (allowing them to ignore terrain movement penalties), and preventing them from triggering traps.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffQuelea</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransQuelea</descKey><descKeyFantasy>HVT_TransQueleaFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitQuokka</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic quokka</label>
+			<description>{PAWN_nameDef} broadcasts a psychic serenity detectable by animals, improving {PAWN_possessive} interactions with them, preventing them from harming {PAWN_objective}, and even causing {PAWN_possessive} psycasts to cure affected animals' scaria.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <Hauts_MaxDryadFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</Hauts_MaxDryadFactor>
+			</statOffsets>
+			<statFactors>
+			  <TameAnimalChance>2</TameAnimalChance>
+			  <TrainAnimalChance>5</TrainAnimalChance>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Animals</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffQuokka</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransQuokka</descKey><descKeyFantasy>HVT_TransQuokkaFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--R-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitRaven</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic raven</label>
+			<description>{PAWN_nameDef} sometimes receives extrasensory visions of distant places and the near future, which {PAWN_pronoun} leverages to reveal good events afterward.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<randomMentalState>Wander_Psychotic</randomMentalState>
+			<randomMentalStateMtbDaysMoodCurve><points><li>(0, 30)</li></points></randomMentalStateMtbDaysMoodCurve>
+			<statOffsets>
+			  <LanguageLearningAbility MayRequire="DimonSever000.FactionLanguages">1</LanguageLearningAbility>
+			</statOffsets>
+			<statFactors>
+			  <EL_ArcheologySpeed MayRequire="ellit.Archeology">1.1</EL_ArcheologySpeed>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffRaven</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransRaven</descKey><descKeyFantasy>HVT_TransRavenFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitRobin</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic robin</label>
+			<description>{PAWN_nameDef} moves faster and has an esoteric sense that randomly points {PAWN_objective} toward objects of interest in the wilderness. This sense is useful for finding treasure while traveling in a moving caravan.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <ForagedNutritionPerDay>1</ForagedNutritionPerDay>
+			</statOffsets>
+			<statFactors>
+			  <VEF_MassCarryCapacity>100</VEF_MassCarryCapacity>
+			  <EL_ArcheologySpeed MayRequire="ellit.Archeology">1.1</EL_ArcheologySpeed>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffFMH3</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransRobin</descKey><descKeyFantasy>HVT_TransRobinFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitRook</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic rook</label>
+			<description>{PAWN_nameDef} derives more usable material from plants, animals, and mining.</description>
+			<statOffsets>
+			  <RBSF_NatureConnection MayRequire="Rooboid.Faun">0.35</RBSF_NatureConnection>
+			</statOffsets>
+			<statFactors>
+			  <ButcheryFleshEfficiency>2</ButcheryFleshEfficiency>
+			  <ButcheryMechanoidEfficiency>2</ButcheryMechanoidEfficiency>
+			  <EL_ArcheologySpeed MayRequire="ellit.Archeology">1.1</EL_ArcheologySpeed>
+			</statFactors>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>ManualSkilled</li><li>Commoner</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransRook</descKey><descKeyFantasy>HVT_TransRookFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--S-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitScarab</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic scarab</label>
+			<description>{PAWN_nameDef} is surrounded by a barrier which transforms incoming damage into neural heat. If {PAWN_pronoun} overloads {PAWN_possessive} neural heat limit, the barrier will vanish for a day, though it can be regenerated far faster via meditation.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <VEF_EnergyShieldEnergyMaxFactor>0.35</VEF_EnergyShieldEnergyMaxFactor>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffScarab</li></value>
+					</li>
+				</grantedHediffs>
+				<otherHediffsToRemoveOnRemoval>
+					<li>
+						<key>0</key><value><li>HVT_THediffScarab0</li></value>
+					</li>
+				</otherHediffsToRemoveOnRemoval>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransScarab</descKey><descKeyFantasy>HVT_TransScarabFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitScarlet</defName>
+		<degreeDatas>
+		  <li>
+			<label>scarlet psychic</label>
+			<description>{PAWN_nameDef} produces luciferium by psycasting.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.5</P42_AllergicSensitivity>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffScarlet</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransScarlet</descKey><descKeyFantasy>HVT_TransScarletFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitScrubJay</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic scrub jay</label>
+			<description>{PAWN_nameDef} has a vast "extradimensional" storage achieved through the use of a personal skipgate system. When {PAWN_pronoun} meditates, random items may be added to this storage.</description>
+			<statFactors>
+			  <CarryingCapacity>100</CarryingCapacity>
+			  <VEF_MassCarryCapacity>100</VEF_MassCarryCapacity>
+			</statFactors>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffScrubJay</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransScrubJay</descKey><descKeyFantasy>HVT_TransScrubJayFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitSeaIce</defName>
+		<degreeDatas>
+		  <li>
+			<label>sea ice psychic</label>
+			<description>{PAWN_nameDef} is favored by the cold. {PAWN_pronoun} is all but immune to cold temperatures. While meditating, {PAWN_pronoun} saps heat from the environment. {PAWN_possessive} very presence chills {PAWN_possessive} foes; when {PAWN_pronoun} strikes, {PAWN_possessive} victims suffer from hypothermia.</description>
+			<statFactors>
+			  <Flammability>0</Flammability>
+			</statFactors>
+			<statOffsets>
+			  <ComfyTemperatureMin>-1000</ComfyTemperatureMin>
+			  <ArmorRating_Heat>10</ArmorRating_Heat>
+			</statOffsets>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffSeaIce</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransSeaIce</descKey><descKeyFantasy>HVT_TransSeaIceFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitShearwater</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic shearwater</label>
+			<description>{PAWN_nameDef} can manipulate the weather. {PAWN_pronoun} also hovers, allowing {PAWN_objective} to ignore the pathing costs of terrain.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.5</P42_AllergicSensitivity>
+			  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">2</Mashed_Ashlands_AshResistance>
+			  <Hauts_SpewRangeFactor MayRequire="Ludeon.RimWorld.Biotech">0.5</Hauts_SpewRangeFactor>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraitsRoyalty.BloodRainImmune" />
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffShearwater</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransShearwater</descKey><descKeyFantasy>HVT_TransShearwaterFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitShrike</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic shrike</label>
+			<description>{PAWN_nameDef} has a chance to cause good events to occur on killing another person. {PAWN_pronoun} also gains psyfocus from killing other beings.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <Hauts_MeleeArmorPenetration>0.2</Hauts_MeleeArmorPenetration>
+			  <Hauts_RangedArmorPenetration>0.2</Hauts_RangedArmorPenetration>
+			  <Hauts_PsyfocusGainOnKill>0.01</Hauts_PsyfocusGainOnKill>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransShrike</descKey><descKeyFantasy>HVT_TransShrikeFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitSpelopede</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic spelopede</label>
+			<description>{PAWN_nameDef} summons an insect hive every time {PAWN_pronoun} spends 20% psyfocus, and {PAWN_possessive} presence pacifies all but the largest insectoids. A pacified insectoid behaves like a wild animal, though it doesn't wander very far, and even if it was originally protecting a hive it will no longer take care of it.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffSpelopede</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransSpelopede</descKey><descKeyFantasy>HVT_TransSpelopedeFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitStoat</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic stoat</label>
+			<description>{PAWN_nameDef} has a 75% chance to avoid damage. Even when {PAWN_pronoun} is struck, the blow glances.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statFactors>
+			  <IncomingDamageFactor>0.4</IncomingDamageFactor>
+			  <PawnTrapSpringChance>0</PawnTrapSpringChance>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffStoat</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransStoat</descKey><descKeyFantasy>HVT_TransStoatFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitStork</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic stork</label>
+			<description>Every 1000% psyfocus {PAWN_nameDef} spends causes another entity to appear somewhere nearby. This new entity is allied with {PAWN_objective} and comes from a similar background.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <LanguageLearningAbility MayRequire="DimonSever000.FactionLanguages">0.25</LanguageLearningAbility>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffStork</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransStork</descKey><descKeyFantasy>HVT_TransStorkFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitStrix</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic strix</label>
+			<description>{PAWN_nameDef} has a chance to inflict madness upon foes {PAWN_pronoun} affects with psycasts. More psychically sensitive victims are more vulnerable, but psylink levels reduce susceptibility to the effect.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <PsychicRitualQualityOffset MayRequire="Ludeon.RimWorld.Anomaly">0.2</PsychicRitualQualityOffset>
+			</statOffsets>
+			<statFactors>
+			  <VAEI_SanityMultiplier MayRequire="VanillaExpanded.VAnomalyEInsanity">0.25</VAEI_SanityMultiplier>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraitsRoyalty.BloodRainImmune" />
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffStrix</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransStrix</descKey><descKeyFantasy>HVT_TransStrixFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitSwan</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic swan</label>
+			<description>{PAWN_nameDef} is physically, mentally, and psychically empowered by being in a romantic relationship (or unconditionally, if aromantic). {PAWN_possessive} romantic partners and bonded animals receive a physical and mood buff too.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffSwan</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransSwan</descKey><descKeyFantasy>HVT_TransSwanFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitSwift</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic swift</label>
+			<description>While {PAWN_nameDef} has no neural heat, {PAWN_possessive} movement speed is vastly increased.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffSwift</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransSwift</descKey><descKeyFantasy>HVT_TransSwiftFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--T-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitTanager</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic tanager</label>
+			<description>{PAWN_nameDef} gains various physical qualities based on {PAWN_possessive} artistic skill.</description>
+			<allowedMeditationFocusTypes><li>Artistic</li></allowedMeditationFocusTypes>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Artistic</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffTanager</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransTanager</descKey><descKeyFantasy>HVT_TransTanagerFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitTermite</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic termite</label>
+			<description>{PAWN_nameDef} deals high damage to buildings and mines much faster. Additionally, enemy buildings near the locus of {PAWN_possessive} psycasts take high damage; higher-level psycasts result in a wider radius.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <Hauts_BreachDamageFactor>1</Hauts_BreachDamageFactor>
+			  <MiningSpeed>1</MiningSpeed>
+			  <DeepDrillingSpeed>1</DeepDrillingSpeed>
+			</statOffsets>
+			<statFactors>
+			  <PawnTrapSpringChance>0</PawnTrapSpringChance>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Mining</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransTermite</descKey><descKeyFantasy>HVT_TransTermiteFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitTern</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic arctic tern</label>
+			<description>While on a caravan, {PAWN_nameDef} covers impossible distances in mere moments.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statFactors>
+			  <EL_ArcheologySpeed MayRequire="ellit.Archeology">1.1</EL_ArcheologySpeed>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffFMH</li><li>HVT_THediffTern</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransTern</descKey><descKeyFantasy>HVT_TransTernFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitThrumbo</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic thrumbo</label>
+			<description>{PAWN_nameDef} augments {PAWN_possessive} melee attacks with skipgates that excise material from the victim, dealing bonus damage that ignores armor and most forms of damage resistance.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <MeleeHitChance>5</MeleeHitChance>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffThrumbo</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransThrumbo</descKey><descKeyFantasy>HVT_TransThrumboFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitTMN</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic touch-me-not</label>
+			<description>{PAWN_nameDef} turns invisible, phases through obstacles, and moves faster for a short while after being hit (even if the hit did no damage).</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffTMN</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransTMN</descKey><descKeyFantasy>HVT_TransTMNFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitToxbuzzard</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic toxbuzzard</label>
+			<description>{PAWN_nameDef} makes nearby foes more vulnerable to caustic or toxic agents. When harmed, {PAWN_pronoun} poisons nearby enemies, with a small chance to inflict acid burn.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <ToxicResistance>2000</ToxicResistance>
+			  <P42_AllergicSensitivity MayRequire="phil42.allergies">-0.5</P42_AllergicSensitivity>
+			  <Mashed_Ashlands_AshResistance MayRequire="SirMashedPotato.Ashlands">0.25</Mashed_Ashlands_AshResistance>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffToxbuzzard</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransToxbuzzard</descKey><descKeyFantasy>HVT_TransToxbuzzardFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--U-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitUhu</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic uhu</label>
+			<description>{PAWN_nameDef} grows in size over time, making {PAWN_objective} more physically powerful. Spending psyfocus reverses this transformation to some extent.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffUhu</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransUhu</descKey><descKeyFantasy>HVT_TransUhuFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--V-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitVulture</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic vulture</label>
+			<description>Random corpses appear near {PAWN_nameDef} as {PAWN_pronoun} spends psyfocus.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffVulture</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransVulture</descKey><descKeyFantasy>HVT_TransVultureFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--W-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitWarbler</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic sedge warbler</label>
+			<description>{PAWN_nameDef} benefits from weaker versions of multiple inspirations at once. Those affected by {PAWN_possessive} psycasts may become inspired as well.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <ShootingAccuracyPawn>4</ShootingAccuracyPawn><!--half of shoot frenzy-->
+			  <TradePriceImprovement>0.09</TradePriceImprovement><!--half of inspired recruitment-->
+			</statOffsets>
+			<statFactors>
+			  <WorkSpeedGlobal>1.4</WorkSpeedGlobal><!--yeah, that's only HALF of Work Frenzy. amazing.-->
+			  <MedicalSurgerySuccessChance>1.5</MedicalSurgerySuccessChance><!--half of inspired surgery-->
+			  <NegotiationAbility>2</NegotiationAbility><!--a questionable amount of inspired recruitment. It can't be on all the time, that'd be ridiculous beyond even a transcendence.-->
+			  <TameAnimalChance>2</TameAnimalChance><!--a questionable amount of inspired taming. It can't be auto-success all the time, that'd be ridiculous beyond even a transcendence.-->
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffWarbler</li></value><!--this is where half of go frenzy comes in. That covers everything except inspired creativity, which is handled in the C#: 0.5x chance for +1 quality level. Can't make awful quality items-->
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransWarbler</descKey><descKeyFantasy>HVT_TransWarblerFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitWQ</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic war queen</label>
+			<description>{PAWN_nameDef} periodically skips psychically tamed animals of a specific type to {PAWN_possessive} location. This effect occurs faster while meditating. New animals won't be summoned if doing so would cause the sum body size of all current ones to exceed twice {PAWN_possessive} psylink level.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <Hauts_MaxDryadFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</Hauts_MaxDryadFactor>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffWQ</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransWQ</descKey><descKeyFantasy>HVT_TransWQFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitWeaverbird</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic weaverbird</label>
+			<description>{PAWN_nameDef} has supernatural craftsmanship. {PAWN_possessive} creations are a quality level higher and there is a 50% chance that any item with quality that {PAWN_pronoun} creates is duplicated.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statFactors>
+			  <FoodPoisonChance>0</FoodPoisonChance>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Crafting</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransWeaverbird</descKey><descKeyFantasy>HVT_TransWeaverbird</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitWhalehead</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic whalehead</label>
+			<description>A walking portent of death, {PAWN_nameDef} terrifies foes in a vast radius, and those closer to {PAWN_objective} may even be struck by an uncontrollable urge to flee. {PAWN_pronoun} is also nearly immune to stress.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statOffsets>
+			  <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">0.35</SuppressionPower>
+			</statOffsets>
+			<statFactors>
+				<MentalBreakThreshold>0</MentalBreakThreshold>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffWhalehead</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransWhalehead</descKey><descKeyFantasy>HVT_TransWhaleheadFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitWoodpecker</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic woodpecker</label>
+			<description>{PAWN_nameDef} can pass through solid obstacles while {PAWN_possessive} psyfocus is greater than 35%.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffWoodpecker</li></value>
+					</li>
+				</grantedHediffs>
+				<otherHediffsToRemoveOnRemoval>
+					<li>
+						<key>0</key><value><li>HVT_THediffWoodpecker0</li></value>
+					</li>
+				</otherHediffsToRemoveOnRemoval>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransWoodpecker</descKey><descKeyFantasy>HVT_TransWoodpeckerFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--X-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitXerigium</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic xerigium</label>
+			<description>{PAWN_nameDef} is supernaturally gifted at healing. {PAWN_pronoun} heals anyone {PAWN_pronoun} tends to and always succeeds at surgery. {PAWN_pronoun} also somehow acquires herbal medicine after spending 10% psyfocus or meditating for long enough.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Caring</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffXerigium</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransXerigium</descKey><descKeyFantasy>HVT_TransXerigiumFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--Y-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitYellowjacket</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic yellowjacket</label>
+			<description>{PAWN_nameDef} can focus to generate bolts of energy which spring towards a targeted foe.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffYellowjacket</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransYellowjacket</descKey><descKeyFantasy>HVT_TransYellowjacketFantasy</descKeyFantasy><category>transcendence</category></li>
+        </modExtensions>
+	</TraitDef>
+	<!--Mythic-->
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitDragon</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic dragon</label>
+			<description>When another psycaster or latent psychic dies nearby, {PAWN_nameDef} partakes of their dissipating psychic thalergy and accumulates a 'hoard' of energy. This energy strengthens {PAWN_possessive} psycasting and health, while also shielding {PAWN_objective} from harm. However, the energy lessens whenever it prevents damage. More powerful psycasters grant more energy.\n\n{PAWN_pronoun} also cannot be directly affected by {PAWN_possessive} enemies' psycasts.</description>
+			<marketValueFactorOffset>3.5</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransDragon</descKey><descKeyFantasy>HVT_TransDragonFantasy</descKeyFantasy><category>mythic</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitEgregore</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic egregore</label>
+			<description>{PAWN_nameDef} is more thought than flesh. {PAWN_possessive} physical and mental attributes are greatly amplified by {PAWN_possessive} psychic sensitivity, and {PAWN_possessive} psychic potency is further boosted by the total psylink level of all nearby psycasters.</description>
+			<marketValueFactorOffset>3.5</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffEgregore</li><li>HVT_THediffEgregore2</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransEgregore</descKey><descKeyFantasy>HVT_TransEgregoreFantasy</descKeyFantasy><category>mythic</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitErinys</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic erinys</label>
+			<description>{PAWN_nameDef} can strip the psychic sensitivity from others. A second application of this ability kills the victim, extracting some of their psylinks. Awakened psychics cannot be killed by this ability.</description>
+			<marketValueFactorOffset>3.5</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags>
+		  <li>Violent</li>
+		</requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedAbilities>
+					<li>
+						<key>0</key><value><li>HVT_ErinysAbility</li></value>
+					</li>
+				</grantedAbilities>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransErinys</descKey><descKeyFantasy>HVT_TransErinysFantasy</descKeyFantasy><category>mythic</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitHarpy</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic harpy</label>
+			<description>Ordinary food does little for {PAWN_nameDef}, but eating a psycaster will fully sate {PAWN_objective} for a long while as well as possibly grant a psylink level. On eating the corpse of a fellow awakened or transcendent psychic, {PAWN_pronoun} will assimilate all of their awakenings and up to one of their transcendences.</description>
+			<marketValueFactorOffset>3.5</marketValueFactorOffset>
+			<hungerRateFactor>1.5</hungerRateFactor>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_HarpysHunger</li></value>
+					</li>
+				</grantedHediffs>
+				<hediffsToBrain>false</hediffsToBrain>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransHarpy</descKey><descKeyFantasy>HVT_TransHarpyFantasy</descKeyFantasy><category>mythic</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitLeviathan</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic leviathan</label>
+			<description>{PAWN_nameDef} gains increasing potency as a psycaster the longer {PAWN_pronoun} lives, develops a new awakening every six years, and gradually develops further transcendent powers over the course of {PAWN_possessive} lifetime.</description>
+			<marketValueFactorOffset>2.75</marketValueFactorOffset>
+			<statFactors>
+			  <LifespanFactor>100</LifespanFactor>
+			</statFactors>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_ThalassicGrandeur</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransLeviathan</descKey><descKeyFantasy>HVT_TransLeviathanFantasy</descKeyFantasy><category>mythic</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitPhoenix</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic phoenix</label>
+			<description>{PAWN_nameDef} can bring the dead back to life, though each beneficiary must spend at least 24 hours alive before this power can be used on them again. If {PAWN_pronoun} dies, {PAWN_pronoun} will automatically cast it on {PAWN_objective}self.</description>
+			<marketValueFactorOffset>3.5</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedAbilities>
+					<li>
+						<key>0</key><value><li>HVT_PhoenixAbility</li></value>
+					</li>
+				</grantedAbilities>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransPhoenix</descKey><descKeyFantasy>HVT_TransPhoenixFantasy</descKeyFantasy><category>mythic</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitSeraph</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic seraph</label>
+			<description>Allies near {PAWN_nameDef} are invulnerable to direct harm, but almost totally unable to deal direct damage. {PAWN_pronoun} experiences a less pronounced version of the effects, and can be harmed. On death, {PAWN_pronoun} will pass this ability on to another of the same faction.</description>
+			<statFactors>
+			  <IncomingDamageFactor>0.1</IncomingDamageFactor>
+			  <MeleeDamageFactor>0.5</MeleeDamageFactor>
+			  <VEF_RangeAttackDamageFactor>0.5</VEF_RangeAttackDamageFactor>
+			</statFactors>
+			<marketValueFactorOffset>3.5</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffSeraph</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransSeraph</descKey><descKeyFantasy>HVT_TransSeraphFantasy</descKeyFantasy><category>mythic</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitSiren</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic siren</label>
+			<description>{PAWN_nameDef} can assert permanent mental control over others. The cooldown scales with the victim's market value.</description>
+			<marketValueFactorOffset>3.5</marketValueFactorOffset>
+			<statOffsets>
+			  <LanguageLearningAbility MayRequire="DimonSever000.FactionLanguages">1</LanguageLearningAbility>
+			</statOffsets>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedAbilities>
+					<li>
+						<key>0</key><value><li>HVT_SirenAbility</li></value>
+					</li>
+				</grantedAbilities>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransSiren</descKey><descKeyFantasy>HVT_TransSiren</descKeyFantasy><category>mythic</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitSphinx</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic sphinx</label>
+			<description>{PAWN_nameDef} can grant psylink levels to others. This power always succeeds on non-psycasters, but is likelier to fail the more psylink levels the target has. A target who fails three times dies.</description>
+			<marketValueFactorOffset>3.5</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedAbilities>
+					<li>
+						<key>0</key><value><li>HVT_SphinxAbility</li></value>
+					</li>
+				</grantedAbilities>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransSphinx</descKey><descKeyFantasy>HVT_TransSphinxFantasy</descKeyFantasy><category>mythic</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitThunderbird</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic thunderbird</label>
+			<description>{PAWN_nameDef} can start others on the path to psychic awakening, induce awakening in a latent psychic, or even grant a second awakening to another.</description>
+			<marketValueFactorOffset>3.5</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedAbilities>
+					<li>
+						<key>0</key><value><li>HVT_ThunderbirdAbility</li></value>
+					</li>
+				</grantedAbilities>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransThunderbird</descKey><descKeyFantasy>HVT_TransThunderbirdFantasy</descKeyFantasy><category>mythic</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitWraith</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic wraith</label>
+			<description>When {PAWN_nameDef} is slain, {PAWN_pronoun} will transfer {PAWN_possessive} consciousness into someone else, replacing their mind with {PAWN_possessive} own. For 24 hours afterward, {PAWN_pronoun} will be invulnerable to anything other than persona weapons, but will not be able to transfer to a new body.</description>
+			<marketValueFactorOffset>3.5</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedHediffs>
+					<li>
+						<key>0</key><value><li>HVT_THediffWraith</li><li>HVT_Wraithform</li></value>
+					</li>
+				</grantedHediffs>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransWraith</descKey><descKeyFantasy>HVT_TransWraithFantasy</descKeyFantasy><category>mythic</category></li>
+        </modExtensions>
+	</TraitDef>
+	<TraitDef ParentName="HVT_TransTrait">
+		<defName>HVT_TTraitZiz</defName>
+		<degreeDatas>
+		  <li>
+			<label>psychic ziz</label>
+			<description>{PAWN_nameDef} can call down destructive pillars of pulverizing force. {PAWN_pronoun} accumulates the energy to do so passively, but can speed this process up by meditating. {PAWN_pronoun} may also manifest an even more destructive effect, potent enough to obliterate cities, but this requires many days of meditation to charge.</description>
+			<marketValueFactorOffset>3.5</marketValueFactorOffset>
+		  </li>
+		</degreeDatas>
+		<requiredWorkTags><li>Violent</li></requiredWorkTags>
+        <modExtensions>
+            <li Class="HautsFramework.TraitGrantedStuff">
+				<grantedAbilities>
+					<li>
+						<key>0</key>
+						<value>
+							<li>HVT_ZizAbility</li>
+							<li>HVT_ZizAbility2</li>
+						</value>
+					</li>
+				</grantedAbilities>
+            </li>
+            <li Class="HautsTraits.SuperPsychicTrait"><descKey>HVT_TransZiz</descKey><descKeyFantasy>HVT_TransZizFantasy</descKeyFantasy><category>mythic</category></li>
+        </modExtensions>
+	</TraitDef>
+</Defs>

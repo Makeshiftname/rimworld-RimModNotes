@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch><!--here's the 'game conditions' that Tempestophiles and Catastrophists like-->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/GameConditionDef[defName="Aurora"]</xpath>
+		<value>
+			<li Class="HautsTraits.TempestophileLikedCondition" />
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/GameConditionDef[defName="ColdSnap"]</xpath>
+		<value>
+			<li Class="HautsTraits.TempestophileLikedCondition" />
+			<li Class="HautsTraits.CatastrophistLikedCondition" />
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/GameConditionDef[defName="Eclipse"]</xpath>
+		<value>
+			<li Class="HautsTraits.TempestophileLikedCondition" />
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/GameConditionDef[defName="Flashstorm"]</xpath>
+		<value>
+			<li Class="HautsTraits.TempestophileLikedCondition" />
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/GameConditionDef[defName="HeatWave"]</xpath>
+		<value>
+			<li Class="HautsTraits.TempestophileLikedCondition" />
+			<li Class="HautsTraits.CatastrophistLikedCondition" />
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/GameConditionDef[defName="SolarFlare"]</xpath>
+		<value>
+			<li Class="HautsTraits.TempestophileLikedCondition" />
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/GameConditionDef[defName="ToxicFallout"]</xpath>
+		<value>
+			<li Class="HautsTraits.TempestophileLikedCondition" />
+			<li Class="HautsTraits.CatastrophistLikedCondition" />
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/GameConditionDef[defName="VolcanicWinter"]</xpath>
+		<value>
+			<li Class="HautsTraits.TempestophileLikedCondition" />
+			<li Class="HautsTraits.CatastrophistLikedCondition" />
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationAddModExtension">
+			<xpath>/Defs/GameConditionDef[defName="NoxiousHaze"]</xpath>
+			<value>
+				<li Class="HautsTraits.TempestophileLikedCondition" />
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Royalty</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="SunBlocker"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="GiantSmokeCloud"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="ToxicSpewer"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Anomaly</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="DeathPall"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="UnnaturalDarkness"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="BloodRain"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

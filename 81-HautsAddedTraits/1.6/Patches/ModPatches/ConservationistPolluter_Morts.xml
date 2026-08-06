@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Conservationist and Polluter - Mort's Ideologies: Memes and Precepts</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Outdoorsies and Envies both pro-conservation-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="MI_Environmentalist"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_Environmentalist"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Outdoorsy</li>
+								<li MayRequire="Ludeon.RimWorld.Biotech">HVT_Environmentalist</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_Environmentalist"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Outdoorsy</li>
+							<li MayRequire="Ludeon.RimWorld.Biotech">HVT_Environmentalist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Biotech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--Envies anti-pollution-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/MemeDef[defName="MI_Industrialist"]/disagreeableTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="MI_Industrialist"]</xpath>
+									<value>
+										<disagreeableTraits>
+											<li>HVT_Environmentalist</li>
+										</disagreeableTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/MemeDef[defName="MI_Industrialist"]/disagreeableTraits</xpath>
+									<value>
+										<li>HVT_Environmentalist</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

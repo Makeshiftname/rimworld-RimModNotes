@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Traits Expanded</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="VTE_AnimalLover"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="VTE_AnimalLover"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Agrizoophobe</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="VTE_AnimalLover"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Agrizoophobe</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="VTE_WorldWeary"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="VTE_WorldWeary"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Champion</li>
+								<li>HVT_Conversationalist</li>
+								<li>HVT_PeoplePleaser</li>
+								<li>HVT_Reveller</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="VTE_WorldWeary"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Champion</li>
+							<li>HVT_Conversationalist</li>
+							<li>HVT_PeoplePleaser</li>
+							<li>HVT_Reveller</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="VTE_Desensitized"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="VTE_Desensitized"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_PeoplePleaser</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="VTE_Desensitized"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_PeoplePleaser</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="VTE_RefinedPalate"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_MetabolicFreak</li>
+						<li>HVT_Humble</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="VTE_Snob"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Humble</li>
+						<li>HVT_Staid</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="VTE_Squeamish"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_RepressedRage</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="VTE_Anxious"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Reveller</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="VTE_Slob"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Skulker</li>
+					</value>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="VTE_CouchPotato"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="VTE_CouchPotato"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Staid</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="VTE_CouchPotato"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Staid</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="VTE_FunLoving"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="VTE_FunLoving"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Staid</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="VTE_FunLoving"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Staid</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="VTE_HeavySleeper"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="VTE_HeavySleeper"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Imperceptive</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="VTE_HeavySleeper"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Imperceptive</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Ideology</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="VTE_Rebel"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="VTE_Rebel"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>HVT_Conformist</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="VTE_Rebel"]/conflictingTraits</xpath>
+									<value>
+										<li>HVT_Conformist</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Biotech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>/Defs/TraitDef[defName="VTE_Dunce"]/conflictingTraits</xpath>
+								<value>
+									<li>HVT_Mentor</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>/Defs/TraitDef[defName="VTE_Rebel"]/conflictingTraits</xpath>
+								<value>
+									<li>HVT_Servile</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>/Defs/TraitDef[defName="VTE_Snob"]/conflictingTraits</xpath>
+								<value>
+									<li>HVT_Anarchist</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

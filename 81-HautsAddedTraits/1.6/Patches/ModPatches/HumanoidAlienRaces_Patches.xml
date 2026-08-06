@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Humanoid Alien Races</li>
+		</mods>
+		<match Class="PatchOperationFindMod">
+			<mods>
+				<li>Biotech</li>
+			</mods>
+			<match Class="PatchOperationSequence">
+				<operations>
+					<!--gene purism conflicts with xenophobia, xenophilia-->
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/TraitDef[defName="HAR_Xenophobia"]/conflictingTraits</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>/Defs/TraitDef[defName="HAR_Xenophobia"]</xpath>
+							<value>
+								<conflictingTraits>
+									<li>HVT_GenePurist</li>
+								</conflictingTraits>
+							</value>
+						</nomatch>
+						<match Class="PatchOperationAdd">
+							<xpath>/Defs/TraitDef[defName="HAR_Xenophobia"]/conflictingTraits</xpath>
+							<value>
+								<li>HVT_GenePurist</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationFindMod">
+						<mods>
+							<li>Ideology</li>
+						</mods>
+						<match Class="PatchOperationSequence">
+							<operations>
+								<!--Gene Purists like Xenophobia and definitely not Xenophilia-->
+								<li Class="PatchOperationConditional">
+									<xpath>/Defs/MemeDef[defName="HAR_Xenophobia"]/agreeableTraits</xpath>
+									<nomatch Class="PatchOperationAdd">
+										<xpath>/Defs/MemeDef[defName="HAR_Xenophobia"]</xpath>
+										<value>
+											<agreeableTraits>
+												<li>HVT_GenePurist</li>
+											</agreeableTraits>
+										</value>
+									</nomatch>
+									<match Class="PatchOperationAdd">
+										<xpath>/Defs/MemeDef[defName="HAR_Xenophobia"]/agreeableTraits</xpath>
+										<value>
+											<li>HVT_GenePurist</li>
+										</value>
+									</match>
+								</li>
+								<li Class="PatchOperationConditional">
+									<xpath>/Defs/MemeDef[defName="HAR_Xenophilia"]/disagreeableTraits</xpath>
+									<nomatch Class="PatchOperationAdd">
+										<xpath>/Defs/MemeDef[defName="HAR_Xenophilia"]</xpath>
+										<value>
+											<disagreeableTraits>
+												<li>HVT_GenePurist</li>
+											</disagreeableTraits>
+										</value>
+									</nomatch>
+									<match Class="PatchOperationAdd">
+										<xpath>/Defs/MemeDef[defName="HAR_Xenophilia"]/disagreeableTraits</xpath>
+										<value>
+											<li>HVT_GenePurist</li>
+										</value>
+									</match>
+								</li>
+								<li Class="PatchOperationFindMod">
+									<mods>
+										<li>Anomaly</li>
+									</mods>
+									<match Class="PatchOperationSequence">
+										<operations>
+											<!--Monster Lovers are the reverse-->
+											<li Class="PatchOperationConditional">
+												<xpath>/Defs/MemeDef[defName="HAR_Xenophobia"]/disagreeableTraits</xpath>
+												<nomatch Class="PatchOperationAdd">
+													<xpath>/Defs/MemeDef[defName="HAR_Xenophobia"]</xpath>
+													<value>
+														<disagreeableTraits>
+															<li>HVT_MonsterLover</li>
+														</disagreeableTraits>
+													</value>
+												</nomatch>
+												<match Class="PatchOperationAdd">
+													<xpath>/Defs/MemeDef[defName="HAR_Xenophobia"]/disagreeableTraits</xpath>
+													<value>
+														<li>HVT_MonsterLover</li>
+													</value>
+												</match>
+											</li>
+											<li Class="PatchOperationConditional">
+												<xpath>/Defs/MemeDef[defName="HAR_Xenophilia"]/agreeableTraits</xpath>
+												<nomatch Class="PatchOperationAdd">
+													<xpath>/Defs/MemeDef[defName="HAR_Xenophilia"]</xpath>
+													<value>
+														<agreeableTraits>
+															<li>HVT_MonsterLover</li>
+														</agreeableTraits>
+													</value>
+												</nomatch>
+												<match Class="PatchOperationAdd">
+													<xpath>/Defs/MemeDef[defName="HAR_Xenophilia"]/agreeableTraits</xpath>
+													<value>
+														<li>HVT_MonsterLover</li>
+													</value>
+												</match>
+											</li>
+										</operations>
+									</match>
+								</li>
+							</operations>
+						</match>
+					</li>
+				</operations>
+			</match>
+		</match>
+	</Operation>
+</Patch>

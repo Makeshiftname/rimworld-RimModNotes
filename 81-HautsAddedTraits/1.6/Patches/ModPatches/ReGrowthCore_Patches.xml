@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>ReGrowth: Core</li>
+			<li>ReGrowth 2: Core</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Outdoorsies and the condition-immunity transcendence are unbothered by wet and sand. Anakin could never-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="RG_Wet"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="RG_Wet"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Mariner</li>
+								<li>HVT_Outdoorsy</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="RG_Wet"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Mariner</li>
+							<li>HVT_Outdoorsy</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="RG_ExtremelyWet"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="RG_ExtremelyWet"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Mariner</li>
+								<li>HVT_Outdoorsy</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="RG_ExtremelyWet"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Mariner</li>
+							<li>HVT_Outdoorsy</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="RG_Sandy"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="RG_Sandy"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Outdoorsy</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitGnat</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="RG_Sandy"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Outdoorsy</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitGnat</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>ReGrowth 2: Core</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Mariner loves bathing-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="RG_BathingMarsh"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Mariner</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="RG_BathingWater"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Mariner</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="RG_BathingOcean"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Mariner</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="RG_HotSpringBathing"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Mariner</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

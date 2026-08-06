@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Trauma and Integrity</li>
+		</mods>
+		<match  Class="PatchOperationAdd">
+			<xpath>/Defs/TraumaAndIntegrity.TraumaticTraitsDef[defName="TI_TraumaticTraits"]/traits</xpath>
+			<value>
+				<li>HVT_Asocial</li>
+				<li>HVT_Curmudgeon</li>
+				<li>HVT_Hedonist</li>
+				<li>HVT_Hysteric</li>
+				<li>HVT_Judgemental</li>
+				<li>HVT_Lovesick</li>
+				<li>HVT_Rambunctious</li>
+				<li>HVT_RepressedRage</li>
+				<li>HVT_Sadist</li>
+				<li>HVT_Staid</li>
+				<li>HVT_Vagabond</li>
+				<li>HVT_Vicious</li>
+				<li>HVT_ChronicNightmares</li>
+				<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Superstitious</li>
+				<li MayRequire="Ludeon.RimWorld.Anomaly">HVT_Catastrophist</li>
+				<li MayRequire="Ludeon.RimWorld.Anomaly">HVT_Twisted</li>
+			</value>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Slaughtering Meme</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--daydreamer, skulker love memes I mean mimes-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="SM_slaughtering"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="SM_slaughtering"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Graver</li>
+								<li>HVT_Vicious</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="SM_slaughtering"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Graver</li>
+							<li>HVT_Vicious</li>
+						</value>
+					</match>
+				</li>
+				<!--staid lacks the imagination to grok miming-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="SM_slaughtering"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="SM_slaughtering"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Tranquil</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="SM_slaughtering"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

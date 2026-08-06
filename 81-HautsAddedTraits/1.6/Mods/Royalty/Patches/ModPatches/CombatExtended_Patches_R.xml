@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Combat Extended</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Incarnate. Melee damage factor is removed in favor of giving it melee crit and parry chances, distinguishing it from the brute power of the Titan.
+					Armor adjustment is extrapolated from the curve of armor adjustment done to royalty's armor glands, FSF ABE's synthetic skin gland, and Integrated Implants' subdermal armor:
+					SHARP: 0.35->2, 0.52->3.5, 0.7->8; 0.8->9.6 (II); 1->9 (FSF ABE) . hm ok let's swap those last two
+					BLUNT: 0.1->1.5, 0.2->3.25, 0.3->7.5; 0.3->8.5 (II); 0.5->20 (FSF ABE)
+					HEAT: never seems to be changed
+					ELECTRIC: 0.5 (FSF ABE)
+					Let's evaluate on these curves an incarnate that has 29 psycasts (all the ones in the base game), e.g. 29*.015 = 43.5%, then work backward from there
+					and then after I did that I decided to ditch it in favor of the same weapon-based vibes assessment I did with Titan-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicIncarnate"]/stages/li/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>0.12</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicIncarnate"]/stages/li/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>0.16</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicIncarnate"]/stages/li/statOffsets/MeleeDamageFactor</xpath>
+				</li>
+				<!--incarnate corresponding gene will just be slightly weaker by a rough estimate, as usual-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicIncarnate2"]/stages/li/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>0.09</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicIncarnate2"]/stages/li/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>0.12</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicIncarnate2"]/stages/li/statOffsets/MeleeDamageFactor</xpath>
+				</li>
+				<!--Titan armor, vibes based (looked at knife, ikwa, axe, spear, monosword; punch, warhammer, zeushammer). Melee damage factor is ALMOST halved (biotech strength genes had that happen to them)-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicTitan"]/stages/li[minSeverity="0.002"]/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicTitan"]/stages/li[minSeverity="0.002"]/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>3.25</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicTitan"]/stages/li[minSeverity="0.002"]/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.15</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicTitan"]/stages/li[minSeverity="0.002"]/statFactors/IncomingDamageFactor</xpath>
+					<value>
+						<IncomingDamageFactor>0.95</IncomingDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicTitan"]/stages/li[minSeverity="0.25"]/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>3.65</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicTitan"]/stages/li[minSeverity="0.25"]/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>10</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicTitan"]/stages/li[minSeverity="0.25"]/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.3</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicTitan"]/stages/li[minSeverity="0.25"]/statFactors/IncomingDamageFactor</xpath>
+					<value>
+						<IncomingDamageFactor>0.9</IncomingDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicTitan"]/stages/li[minSeverity="0.5"]/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>6.75</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicTitan"]/stages/li[minSeverity="0.5"]/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>28</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicTitan"]/stages/li[minSeverity="0.5"]/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.45</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_PsychicTitan"]/stages/li[minSeverity="0.5"]/statFactors/IncomingDamageFactor</xpath>
+					<value>
+						<IncomingDamageFactor>0.85</IncomingDamageFactor>
+					</value>
+				</li>
+				<!--titan corresponding gene is proportionally weaker-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_TitanpowerGene"]/stages/li[minSeverity="0.002"]/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_TitanpowerGene"]/stages/li[minSeverity="0.002"]/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>2.44</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_TitanpowerGene"]/stages/li[minSeverity="0.002"]/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.1</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_TitanpowerGene"]/stages/li[minSeverity="0.25"]/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>2.74</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_TitanpowerGene"]/stages/li[minSeverity="0.25"]/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>7.5</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_TitanpowerGene"]/stages/li[minSeverity="0.25"]/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.2</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_TitanpowerGene"]/stages/li[minSeverity="0.5"]/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>5.06</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_TitanpowerGene"]/stages/li[minSeverity="0.5"]/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>21</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_TitanpowerGene"]/stages/li[minSeverity="0.5"]/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.3</MeleeDamageFactor>
+					</value>
+				</li>
+				<!--transcendence time
+					albatross-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAlbatross"]/stages/li[minSeverity="0.2"]/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAlbatross"]/stages/li[minSeverity="0.2"]/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>1.25</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAlbatross"]/stages/li[minSeverity="0.4"]/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>1</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAlbatross"]/stages/li[minSeverity="0.4"]/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>2.5</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAlbatross"]/stages/li[minSeverity="0.6"]/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>2</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAlbatross"]/stages/li[minSeverity="0.6"]/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>6</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAlbatross"]/stages/li[minSeverity="0.8"]/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>4</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAlbatross"]/stages/li[minSeverity="0.8"]/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>15</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAlbatross"]/stages/li[minSeverity="1"]/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>6</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAlbatross"]/stages/li[minSeverity="1"]/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>35</ArmorRating_Blunt>
+					</value>
+				</li>
+				<!--anaconda-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAnaconda"]/stages/li/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.1</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAnaconda"]/stages/li/statOffsets/MeleeDodgeChance</xpath>
+					<value>
+						<MeleeDodgeChance>-0.01</MeleeDodgeChance>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAnaconda2"]/stages/li/statFactors/IncomingDamageFactor</xpath>
+					<value>
+						<IncomingDamageFactor>0.995</IncomingDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffAnaconda2"]/maxSeverity</xpath>
+					<value>
+						<maxSeverity>100</maxSeverity>
+					</value>
+				</li>
+				<!--arcturan-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffArcturan"]/comps/li[@Class="HautsTraitsRoyalty.HediffCompProperties_AndItsMyOwnHeart"]/extraDamages/li[def="EMP"]/amount</xpath>
+					<value>
+						<amount>24</amount>
+					</value>
+				</li>
+				<!--bluejay-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_TTraitBluejay"]/degreeDatas/li/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>0.55</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_TTraitBluejay"]/degreeDatas/li/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>3.1</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffBluejay"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+					<value>
+						<verbs>
+							<li Class="CombatExtended.VerbPropertiesCE">
+								<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+								<label>psychic attack rush</label>
+								<hasStandardCommand>false</hasStandardCommand>
+								<defaultProjectile>PsychicBluejayProjectile_CE</defaultProjectile>
+								<warmupTime>0.2</warmupTime>
+								<range>6</range>
+								<burstShotCount>2</burstShotCount>
+								<ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+								<muzzleFlashScale>0.1</muzzleFlashScale>
+							  <commandIcon>UI/Abilities/Neuroquake</commandIcon>
+							</li>
+						</verbs>
+					</value>
+				</li>
+				<!--Diabolus-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffDiabolus"]/comps/li[@Class="HautsTraitsRoyalty.HediffCompProperties_KaboomBaby"]/explosionType</xpath>
+					<value>
+						<explosionType>PrometheumFlame</explosionType>
+					</value>
+				</li>
+				<!--Electrophorus-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffElectrophorus"]/comps/li[@Class="HautsFramework.HediffCompProperties_ExtraDamageOnHit"]/extraDamages/li[def="EMP"]/amount</xpath>
+					<value>
+						<amount>30</amount>
+					</value>
+				</li>
+				<!--Fodiator-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVT_FodiatorLeap"]/verbProperties/range</xpath>
+					<value>
+						<range>7</range>
+					</value>
+				</li>
+				<!--Fulmar-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffFulmar"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs/li/minRange</xpath>
+					<value>
+						<minRange>32</minRange>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffFulmar"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs/li/range</xpath>
+					<value>
+						<range>700</range>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffFulmar"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs/li/warmupTime</xpath>
+					<value>
+						<warmupTime>20</warmupTime>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffFulmar"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs/li/defaultProjectile</xpath>
+					<value>
+						<defaultProjectile>HVT_PsychicFulmarProjectile_CE</defaultProjectile>
+					</value>
+				</li>
+				<!--Hornet-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffHornet"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+					<value>
+						<verbs>
+							<li Class="CombatExtended.VerbPropertiesCE">
+								<verbClass>HautsTraits_CombatExtended.Verb_Shoot_NeuralHeatAmmo_CE</verbClass>
+								<label>psychic blast</label>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HVT_PsychicHornetProjectile_CE</defaultProjectile>
+								<warmupTime>1</warmupTime>
+								<range>14</range>
+								<burstShotCount>1</burstShotCount>
+								<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+								<muzzleFlashScale>2</muzzleFlashScale>
+								<soundCast>Shot_ChargeRifle</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+							  <commandIcon>PsychicTraits/Attacks/HVT_PkSting</commandIcon>
+							</li>
+						</verbs>
+					</value>
+				</li>
+				<!--Kingfisher-->
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/TraitDef[defName="HVT_TTraitKingfisher"]/degreeDatas/li/statOffsets/Hauts_MeleeArmorPenetration</xpath>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/TraitDef[defName="HVT_TTraitKingfisher"]/degreeDatas/li/statOffsets/Hauts_RangedArmorPenetration</xpath>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="HVT_TTraitKingfisher"]/degreeDatas/li/statFactors</xpath>
+					<value>
+						<Hauts_MeleeArmorPenetration>5</Hauts_MeleeArmorPenetration>
+						<Hauts_RangedArmorPenetration>5</Hauts_RangedArmorPenetration>
+					</value>
+				</li>
+				<!--Ladybug-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_LadybugBuff"]/stages/li/totalBleedFactor</xpath>
+					<value>
+						<totalBleedFactor>0.1</totalBleedFactor>
+					</value>
+				</li>
+				<!--Locust(spawn)-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_LocustClone"]/degreeDatas/li/statFactors/IncomingDamageFactor</xpath>
+					<value>
+						<IncomingDamageFactor>1.16</IncomingDamageFactor>
+					</value>
+				</li>
+				<!--Notothen-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffNotothen"]/stages/li/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffNotothen"]/stages/li/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>0.13</ArmorRating_Blunt>
+					</value>
+				</li>
+				<!--Orca-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffOrca"]/stages/li/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>5</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffOrca"]/stages/li/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>20</ArmorRating_Blunt>
+					</value>
+				</li>
+				<!--Osprey-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_OspreyBuff"]/comps/li[@Class="HautsFramework.HediffCompProperties_DamageNegation"]/damageAdded</xpath>
+					<value>
+						<damageAdded>-7</damageAdded>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_OspreyBuff"]/description</xpath>
+					<value>
+						<description>The presence of a nearby transcendent osprey protects this character from harm and fatigue. Incoming damage is reduced by 7.</description>
+					</value>
+				</li>
+				<!--Oxpecker-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_OxpeckBless"]/stages/li/totalBleedFactor</xpath>
+					<value>
+						<totalBleedFactor>0.1</totalBleedFactor>
+					</value>
+				</li>
+				<!--Quelea
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/HediffDef[defName="HVT_QueleaFlock"]/stages/li/statFactors/CarryingCapacity</xpath>
+				</li>-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_QueleaFlock"]/stages/li/statFactors/VEF_MassCarryCapacity</xpath>
+					<value>
+						<CarryWeight>1.1</CarryWeight>
+						<CarryBulk>1.1</CarryBulk>
+					</value>
+				</li>
+				<!--Robin-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_TTraitRobin"]/degreeDatas/li/statFactors/VEF_MassCarryCapacity</xpath>
+					<value>
+						<CarryWeight>100</CarryWeight>
+						<CarryBulk>100</CarryBulk>
+					</value>
+				</li>
+				<!--Scrub Jay-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_TTraitScrubJay"]/degreeDatas/li/statFactors/VEF_MassCarryCapacity</xpath>
+					<value>
+						<CarryWeight>150</CarryWeight>
+						<CarryBulk>150</CarryBulk>
+					</value>
+				</li>
+				<!--Sedge Warbler: half of CE's take on Shooting Frenzy-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_TTraitWarbler"]/degreeDatas/li/statOffsets/ShootingAccuracyPawn</xpath>
+					<value>
+						<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
+						<AimingAccuracy>0.1</AimingAccuracy>
+					</value>
+				</li>
+				<!--Stoat-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_TTraitStoat"]/degreeDatas/li/statFactors/IncomingDamageFactor</xpath>
+					<value>
+						<IncomingDamageFactor>0.6</IncomingDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffStoat"]/stages/li/damageFactors/Hauts_SkipFrag</xpath>
+					<value>
+						<Hauts_SkipFrag>0.6</Hauts_SkipFrag>
+					</value>
+				</li>
+				<!--Swan-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffSwan"]/stages/li[minSeverity="1"]/statFactors/IncomingDamageFactor</xpath>
+					<value>
+						<IncomingDamageFactor>0.5</IncomingDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_SwanBuff"]/stages/li/statFactors/IncomingDamageFactor</xpath>
+					<value>
+						<IncomingDamageFactor>0.8</IncomingDamageFactor>
+					</value>
+				</li>
+				<!--Tanager-->
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li/statOffsets/MeleeDamageFactor</xpath>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="1"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>13</CarryWeight>
+						<MeleeDamageFactor>0.05</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="2"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>26</CarryWeight>
+						<MeleeDamageFactor>0.1</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="3"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>39</CarryWeight>
+						<MeleeDamageFactor>0.15</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="4"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>52</CarryWeight>
+						<MeleeDamageFactor>0.2</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="5"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>65</CarryWeight>
+						<MeleeDamageFactor>0.25</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="6"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>78</CarryWeight>
+						<MeleeDamageFactor>0.3</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="7"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>91</CarryWeight>
+						<MeleeDamageFactor>0.35</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="8"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>104</CarryWeight>
+						<MeleeDamageFactor>0.4</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="9"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>117</CarryWeight>
+						<MeleeDamageFactor>0.45</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="10"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>130</CarryWeight>
+						<MeleeDamageFactor>0.5</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="11"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>143</CarryWeight>
+						<MeleeDamageFactor>0.55</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="12"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>156</CarryWeight>
+						<MeleeDamageFactor>0.6</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="13"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>169</CarryWeight>
+						<MeleeDamageFactor>0.65</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="14"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>182</CarryWeight>
+						<MeleeDamageFactor>0.7</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="15"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>195</CarryWeight>
+						<MeleeDamageFactor>0.75</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="16"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>208</CarryWeight>
+						<MeleeDamageFactor>0.8</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="17"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>221</CarryWeight>
+						<MeleeDamageFactor>0.85</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="18"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>234</CarryWeight>
+						<MeleeDamageFactor>0.9</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="19"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>247</CarryWeight>
+						<MeleeDamageFactor>0.95</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffTanager"]/stages/li[minSeverity="20"]/statOffsets</xpath>
+					<value>
+						<CarryWeight>260</CarryWeight>
+						<MeleeDamageFactor>1</MeleeDamageFactor>
+					</value>
+				</li>
+				<!--Thrumbo-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_TTraitThrumbo"]/degreeDatas/li/statOffsets/Hauts_MeleeArmorPenetration</xpath>
+					<value>
+						<Hauts_MeleeArmorPenetration>999.99</Hauts_MeleeArmorPenetration>
+					</value>
+				</li>
+				<!--Uhu. Remember, each 1x stack is 2 hours-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffUhu"]/stages/li/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.1</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffUhu"]/stages/li/statFactors/IncomingDamageFactor</xpath>
+					<value>
+						<IncomingDamageFactor>0.97</IncomingDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffUhu"]/stages/li/statOffsets/MeleeDodgeChance</xpath>
+					<value>
+						<MeleeDodgeChance>-0.01</MeleeDodgeChance>
+					</value>
+				</li>
+				<!--Woodpecker-->
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffWoodpecker"]/stages/li/statOffsets/Hauts_MeleeArmorPenetration</xpath>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffWoodpecker"]/stages/li/statFactors</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVT_THediffWoodpecker"]/stages/li</xpath>
+						<value>
+							<statFactors>
+								<Hauts_MeleeArmorPenetration>15</Hauts_MeleeArmorPenetration>
+							</statFactors>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVT_THediffWoodpecker"]/stages/li/statFactors</xpath>
+						<value>
+							<Hauts_MeleeArmorPenetration>15</Hauts_MeleeArmorPenetration>
+						</value>
+					</match>
+				</li>
+				<!--Yellowjacket-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffYellowjacket"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+					<value>
+						<verbs>
+							<li Class="CombatExtended.VerbPropertiesCE">
+								<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+								<label>psychic barb</label>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HVT_PsychicYellowjacketProjectile_CE</defaultProjectile>
+								<warmupTime>1</warmupTime>
+								<range>50</range>
+								<burstShotCount>1</burstShotCount>
+								<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+								<muzzleFlashScale>2</muzzleFlashScale>
+								<soundCast>Shot_ChargeRifle</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+							  <commandIcon>PsychicTraits/Attacks/HVT_PkSting</commandIcon>
+							</li>
+						</verbs>
+					</value>
+				</li>
+				<!--Egregore-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffEgregore"]/stages/li/statOffsets/ArmorRating_Sharp</xpath>
+					<value>
+						<ArmorRating_Sharp>1</ArmorRating_Sharp>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffEgregore"]/stages/li/statOffsets/ArmorRating_Blunt</xpath>
+					<value>
+						<ArmorRating_Blunt>1</ArmorRating_Blunt>
+					</value>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffEgregore"]/stages/li/statOffsets/CarryingCapacity</xpath>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffEgregore"]/stages/li/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.5</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffEgregore"]/stages/li/statOffsets/VEF_RangeAttackDamageFactor</xpath>
+					<value>
+						<VEF_RangeAttackDamageFactor>0.5</VEF_RangeAttackDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffEgregore"]/stages/li/statOffsets/Hauts_MeleeArmorPenetration</xpath>
+					<value>
+						<Hauts_MeleeArmorPenetration>0.04</Hauts_MeleeArmorPenetration>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_THediffEgregore"]/stages/li/statOffsets/Hauts_RangedArmorPenetration</xpath>
+					<value>
+						<Hauts_RangedArmorPenetration>0.04</Hauts_RangedArmorPenetration>
+					</value>
+				</li>
+				<!--Erinys-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVT_ErinysAbility"]/verbProperties/range</xpath>
+					<value>
+						<range>70</range>
+					</value>
+				</li>
+				<!--Siren-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVT_SirenAbility"]/verbProperties/range</xpath>
+					<value>
+						<range>35</range>
+					</value>
+				</li>
+				<!--Ziz-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/AbilityDef[defName="HVT_ZizAbility"]/verbProperties/range</xpath>
+					<value>
+						<range>70</range>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_ZizBuff"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+					<value>
+						<verbs>
+							<li Class="CombatExtended.VerbPropertiesCE">
+								<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+								<label>erasure blast</label>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HVT_ZizBlastProjectile_CE</defaultProjectile>
+								<warmupTime>0.2</warmupTime>
+								<range>40</range>
+								<burstShotCount>4</burstShotCount>
+								<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+								<muzzleFlashScale>2</muzzleFlashScale>
+							  <commandIcon>PsychicTraits/Attacks/HVT_PkSting</commandIcon>
+							</li>
+						</verbs>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

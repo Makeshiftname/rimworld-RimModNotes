@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--HVT-exclusive path: Mindbender.-->
+	<VanillaPsycastsExpanded.PsycasterPathDef>
+        <defName>HVT_Mindbender</defName>
+        <label>mindbender</label>
+        <description>Mindbender psycasts alter the building blocks of consciousness, allowing one to create, remove, emulate, and transfer traits.</description>
+        <background>VPE/HVT_Path_Mindbender</background>
+        <altBackground>VPE/HVT_Path_Mindbender</altBackground>
+        <tab>Added Traits Psycasts</tab>
+        <tooltip>Mindbenders hone their telepathic gifts, to the point that they can dig into the most basic, foundational elements of a person's consciousness and temporarily... or permanently... alter their personalities.</tooltip>
+    </VanillaPsycastsExpanded.PsycasterPathDef>
+	
+	<!--Mindbender has two 1st-level psycasts: Word of Ennui, and Word of Verve.
+	Word of Ennui inflicts an 'apathy'-themed trait on a target for 5 days, duration scaled by their psychic sensitivity.-->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+		<defName>HVT_WordOfEnnui</defName>
+		<label>word of ennui</label>
+		<description>Speak to the target while psychically suppressing specific parts of their behavioral reward pathways, temporarily imparting the effects of a concern-nullifying trait of the target's choice. The duration of this effect scales with the target's psychic sensitivity. Can’t restore a suppressed trait.</description>
+		<iconPath>VPE/HVT_WordOfEnnui</iconPath>
+		<castTime>120</castTime>
+		<targetMode>Humanlike</targetMode>
+		<durationTime>2500</durationTime>
+		<showUndrafted>true</showUndrafted>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>HVT_Mindbender</path>
+				<level>1</level>
+				<order>1</order>
+				<psyfocusCost>0.21</psyfocusCost>
+				<entropyGain>0</entropyGain>
+				<psychic>true</psychic>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+				<fleckDef>WordOfApply</fleckDef>
+				<sound>Psycast_WordOf_Effect</sound>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+				<hediff>HVT_WordOfEnnuiSelf</hediff>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_WordOfEnnuiSelf</defName>
+    <label>choose ennui trait</label>
+    <description>Choose a concern-nullifying trait to temporarily gain. Duration scales with psychic sensitivity. Can't restore a suppressed trait.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVT_WordOfEnnuiSelf</li>
+        </abilityDefs>
+      </li>
+    </comps>
+  </HediffDef>
+  <AbilityDef>
+    <defName>HVT_WordOfEnnuiSelf</defName>
+    <label>choose ennui trait</label>
+    <description>Choose a concern-nullifying trait to temporarily gain. Duration scales with psychic sensitivity. Can't restore a suppressed trait.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <hotKey>Misc12</hotKey>
+	<iconPath>VPE/HVT_WordOfEnnui</iconPath>
+	<cooldownTicksRange>0</cooldownTicksRange>
+    <statBases>
+      <Ability_Duration>5000</Ability_Duration>
+      <Ability_EffectRadius>0</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0</warmupTime>
+	  <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "HautsFramework.CompProperties_AbilityGiveHediffFromMenu">
+        <compClass>HautsFramework.CompAbilityEffect_GiveHediffFromMenu</compClass>
+        <hediffs>
+			<li>HVT_Asceticism</li>
+			<li>HVT_Asociality</li>
+			<li>HVT_Psychopathy</li>
+			<li>HVT_Staidness</li>
+			<li>HVT_Teetotality</li>
+		</hediffs>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyApplyToSelf>True</onlyApplyToSelf>
+        <!--<replaceExisting>true</replaceExisting>-->
+      </li>
+	  <li Class = "CompProperties_AbilityRemoveHediff">
+        <compClass>CompAbilityEffect_RemoveHediff</compClass>
+		<hediffDef>HVT_WordOfEnnuiSelf</hediffDef>
+		<applyToSelf>true</applyToSelf>
+	  </li>
+    </comps>
+  </AbilityDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_Asceticism</defName>
+    <label>psychically-induced asceticism</label>
+    <description>Inflicts the Ascetic trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>Ascetic</traitDef>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_Asociality</defName>
+    <label>psychically-induced asociality</label>
+    <description>Inflicts the Asocial trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>HVT_Asocial</traitDef>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_Psychopathy</defName>
+    <label>psychically-induced psychopathy</label>
+    <description>Inflicts the Psychopath trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>Psychopath</traitDef>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_Staidness</defName>
+    <label>psychically-induced staidness</label>
+    <description>Inflicts the Staid trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>HVT_Staid</traitDef>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_Teetotality</defName>
+    <label>psychically-induced teetotalism</label>
+    <description>Inflicts the Teetotaler trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>DrugDesire</traitDef>
+		<traitDegree>-1</traitDegree>
+	  </li>
+    </comps>
+  </HediffDef>
+  
+  <!--Word of Verve inflicts a 'nice'-themed trait on a target for 5 days, duration scaled by their psychic sensitivity.-->
+  <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+		<defName>HVT_WordOfVerve</defName>
+		<label>word of verve</label>
+		<description>Speak to the target while psychically stimulating their love for life, temporarily imparting the effects of a positive personality trait of the target's choice. The duration of this effect scales with the target's psychic sensitivity. Can’t restore a suppressed trait.</description>
+		<iconPath>VPE/HVT_WordOfVerve</iconPath>
+		<castTime>120</castTime>
+		<targetMode>Humanlike</targetMode>
+		<durationTime>2500</durationTime>
+		<showUndrafted>true</showUndrafted>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>HVT_Mindbender</path>
+				<level>1</level>
+				<order>5</order>
+				<psyfocusCost>0.21</psyfocusCost>
+				<entropyGain>0</entropyGain>
+				<psychic>true</psychic>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+				<fleckDef>WordOfApply</fleckDef>
+				<sound>Psycast_WordOf_Effect</sound>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+				<hediff>HVT_WordOfVerveSelf</hediff>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_WordOfVerveSelf</defName>
+    <label>choose verve trait</label>
+    <description>Choose a positive personality trait to temporarily gain. Duration scales with psychic sensitivity. Can't restore a suppressed trait.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVT_WordOfVerveSelf</li>
+        </abilityDefs>
+      </li>
+    </comps>
+  </HediffDef>
+  <AbilityDef>
+    <defName>HVT_WordOfVerveSelf</defName>
+    <label>choose verve trait</label>
+    <description>Choose a positive personality trait to temporarily gain. Duration scales with psychic sensitivity. Can't restore a suppressed trait.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <hotKey>Misc12</hotKey>
+	<iconPath>VPE/HVT_WordOfVerve</iconPath>
+	<cooldownTicksRange>0</cooldownTicksRange>
+    <statBases>
+      <Ability_Duration>5000</Ability_Duration>
+      <Ability_EffectRadius>0</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0</warmupTime>
+	  <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "HautsFramework.CompProperties_AbilityGiveHediffFromMenu">
+        <compClass>HautsFramework.CompAbilityEffect_GiveHediffFromMenu</compClass>
+        <hediffs>
+			<li>HVT_Charisma</li>
+			<li>HVT_HumilityHed</li>
+			<li>HVT_Kindness</li>
+			<li>HVT_Sanguinity</li>
+			<li>HVT_Winsomeness</li>
+		</hediffs>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyApplyToSelf>True</onlyApplyToSelf>
+        <!--<replaceExisting>true</replaceExisting>-->
+      </li>
+	  <li Class = "CompProperties_AbilityRemoveHediff">
+        <compClass>CompAbilityEffect_RemoveHediff</compClass>
+		<hediffDef>HVT_WordOfVerveSelf</hediffDef>
+		<applyToSelf>true</applyToSelf>
+	  </li>
+    </comps>
+  </AbilityDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_Charisma</defName>
+    <label>psychically-induced charisma</label>
+    <description>Inflicts the Conversationalist trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>HVT_Conversationalist</traitDef>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_HumilityHed</defName>
+    <label>psychically-induced humility</label>
+    <description>Inflicts the Humble trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>HVT_Humble</traitDef>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_Kindness</defName>
+    <label>psychically-induced kindness</label>
+    <description>Inflicts the Kind trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>Kind</traitDef>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_Sanguinity</defName>
+    <label>psychically-induced sanguinity</label>
+    <description>Inflicts the Sanguine trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>NaturalMood</traitDef>
+		<traitDegree>2</traitDegree>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_Winsomeness</defName>
+    <label>psychically-induced winsomeness</label>
+    <description>Inflicts the Winsome trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>HVT_Winsome</traitDef>
+	  </li>
+    </comps>
+  </HediffDef>
+	
+  <!--There's two second-level mindbender psycasts: Excise Trait and Joyzone.-->
+	<!--Excise trait removes a random non-sexuality, non-psychic-trait-tree trait from the target. Combines nicely with the neuroformatter to let you 'craft' trait sets.
+		If you've got Biotech, before using Excise Trait, you can add a trait via the Mindbender 1st-level psycasts to temporarily suppress a conflicting trait you want to protect from excision.-->
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+		<defName>HVT_ExciseTrait</defName>
+		<label>excise trait</label>
+		<description>Remove a random non-suppressed trait from the target.\n\nConsidered a hostile action. Will not remove sexuality traits, Latent Psychic, awakenings, or transcendences.</description>
+		<iconPath>VPE/HVT_ExciseTrait</iconPath>
+		<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+		<drawAimPie>false</drawAimPie>
+		<warmupMote>VPE_Mote_CastPsycast</warmupMote>
+		<warmupSound>VPE_PsycastCastingEffect</warmupSound>
+		<cooldownTime>600</cooldownTime>
+		<castTime>300</castTime>
+		<goodwillImpact>-15</goodwillImpact>
+		<castSound>VPE_MindWipe_Cast</castSound>
+		<showUndrafted>true</showUndrafted>
+		<needsTicking>true</needsTicking>
+		<modExtensions>
+		  <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+			<path>HVT_Mindbender</path>
+			<level>2</level>
+			<order>2</order>
+			<psyfocusCost>0.8</psyfocusCost>
+			<entropyGain>0</entropyGain>
+            <psychic>true</psychic>
+			<prerequisites>
+			  <li>HVT_WordOfEnnui</li>
+			  <li>HVT_WordOfVerve</li>
+			</prerequisites>
+		  </li>
+		  <li Class="Hauts_VPE.AbilityExtension_ExciseTrait"></li>
+		  <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+			<effecterDef>Skip_Exit</effecterDef>
+			<maintainForTicks>60</maintainForTicks>
+			<scale>0.42</scale>
+		  </li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+  <!--Joyzone creates a large area in which pawns essentially some of the benefits of the Joy Addict trait. The skill learning boost works out to granting skill xp at 1.4x the rate a job would,
+	and it stacks multiplicatively with Joy Addict for some wacky high skill gain.-->
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>HVT_Joyzone</defName>
+		<label>joyzone</label>
+		<description>Create a distortion in the psychic field localized to the target area, eroding the boredom of anyone inside it while vastly increasing their ability to learn from recreation.</description>
+		<iconPath>VPE/HVT_Joyzone</iconPath>
+		<abilityClass>VFECore.Abilities.Ability_Spawn</abilityClass>
+		<needsTicking>true</needsTicking>
+		<castTime>120</castTime>
+		<castSound>PsychicSoothePulserCast</castSound>
+		<showUndrafted>true</showUndrafted>
+		<targetMode>Location</targetMode>
+		<range>5</range>
+		<radius>6.2</radius>
+		<durationTime>60000</durationTime>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>HVT_Mindbender</path>
+				<level>2</level>
+				<order>4</order>
+				<psyfocusCost>0.4</psyfocusCost>
+				<entropyGain>0</entropyGain>
+				<prerequisites>
+				  <li>HVT_WordOfEnnui</li>
+				  <li>HVT_WordOfVerve</li>
+				</prerequisites>
+			</li>
+		    <li Class="VFECore.Abilities.AbilityExtension_Spawn">
+				<thing>HVT_JoyzoneActual</thing>
+		    </li>
+		</modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>HVT_JoyzoneActual</defName>
+        <label>joyzone center</label>
+        <thingClass>ThingWithComps</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <drawOffscreen>true</drawOffscreen>
+        <seeThroughFog>false</seeThroughFog>
+		<graphicData>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <texPath>Things/Mote/PsycastCast</texPath>
+		  <shaderType>MoteGlowDistorted</shaderType>
+		  <color>(0.82745,1.0,0.52157)</color>
+		  <drawSize>1</drawSize>
+		  <shaderParameters>
+			<_DistortionTex>/Other/Ripples</_DistortionTex>
+			<_distortionIntensity>0.05</_distortionIntensity>
+			<_DistortionScale>0.4</_DistortionScale>
+			<_distortionScrollSpeed>(0.07, 0.07, 0.0)</_distortionScrollSpeed>
+		  </shaderParameters>
+		</graphicData>
+		<comps>
+		  <li Class="CompProperties_DestroyAfterDelay">
+			<delayTicks>60000</delayTicks>
+		  </li>
+		  <li Class="HautsFramework.CompProperties_AuraEmitterHediff">
+			<hediffs>
+				<li>HVT_JoyzoneBuff</li>
+			</hediffs>
+			<range>6.2</range>
+			<affectEnemies>false</affectEnemies>
+			<affectNeutrals>true</affectNeutrals>
+			<affectOwnFaction>true</affectOwnFaction>
+			<requiredStat>PsychicSensitivity</requiredStat>
+			<color>(0.82745,1.0,0.52157,0.4)</color>
+		  </li>
+		</comps>
+    </ThingDef>
+  <HediffDef>
+    <defName>HVT_JoyzoneBuff</defName>
+    <label>joyzone</label>
+    <description>Those in a joyzone learn more from recreation and are slow to tire of it.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.82745,1.0,0.52157)</defaultLabelColor>
+    <initialSeverity>0.1</initialSeverity>
+    <maxSeverity>0.1</maxSeverity>
+    <stages>
+      <li>
+	    <statFactors>
+			<Hauts_SkillGainFromRecreation>7.5</Hauts_SkillGainFromRecreation>
+		</statFactors>
+		<statOffsets>
+			<Hauts_BoredomDropPerDay>0.2</Hauts_BoredomDropPerDay>
+		</statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-24</severityPerDay>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_MoteConditional">
+		<mote>HVT_JoyzoneStandPower</mote>
+		<scale>1</scale>
+	  </li>
+	  <li Class="HediffCompProperties_Effecter">
+		<stateEffecter>VPE_SparksWhite</stateEffecter>
+	  </li>
+    </comps>
+  </HediffDef>
+	<ThingDef ParentName="MoteGlowDistorted">
+		<defName>HVT_JoyzoneStandPower</defName>
+		<thingClass>MoteAttached</thingClass>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<mote>
+			<fadeInTime>3.15</fadeInTime>
+			<fadeOutTime>1.05</fadeOutTime>
+			<solidTime>4.25</solidTime>
+			<needsMaintenance>true</needsMaintenance>
+		</mote>
+		<graphicData>
+		  <graphicClass>Graphic_PawnBodySilhouette</graphicClass>
+		  <color>(0.82745,1.0,0.52157,0.56)</color>
+		  <shaderType>MoteGlowDistorted</shaderType>
+		  <texPath>Things/Mote/SparkThrown</texPath>
+		  <shaderParameters>
+			<_distortionIntensity>0.6</_distortionIntensity>
+			<_brightnessMultiplier>0.9</_brightnessMultiplier>
+		  </shaderParameters>
+		  <drawSize>1.6</drawSize>
+		</graphicData>
+	</ThingDef>
+	
+	<!--there are 2 level-3 Mindbender psycasts: Viciousness and Word of Genius.
+	Viciousness inflicts a buff identical to that granted by the Vicious trait, except its duration is psychic-sensitivity scaling.-->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>HVT_Viciousness</defName>
+      <label>viciousness</label>
+      <description>Stimulate a phenomenal talent for violence in the target, increasing their attack speed, accuracy, armor penetration, and damage for a duration scaling with the target’s psychic sensitivity.</description>
+      <iconPath>Genes/HVT_Vicious</iconPath>
+	  <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+	  <!--<abilityClass>HautsFramework.Ability_AiBuffACombatant</abilityClass>
+	  <needsTicking>true</needsTicking>needs to be true for the ability class to work-->
+	  <castTime>15</castTime>
+	  <range>28</range>
+	  <durationTime>3600</durationTime>
+	  <showUndrafted>true</showUndrafted>
+	  <targetMode>Pawn</targetMode>
+	  <targetCount>1</targetCount>
+	  <chance>0.8</chance>
+	  <isPositive>true</isPositive><!--ostensibly empowers the AI to cast it on allies-->
+	  <targetingParameters>
+		<canTargetHumans>True</canTargetHumans>
+	  	<canTargetSelf>True</canTargetSelf>
+	  	<canTargetAnimals>True</canTargetAnimals>
+	  </targetingParameters>
+	  <fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>HVT_Mindbender</path>
+          <level>3</level>
+          <order>2</order>
+          <psyfocusCost>0.03</psyfocusCost>
+          <entropyGain>15</entropyGain>
+          <psychic>true</psychic>
+          <prerequisites>
+            <li>HVT_ExciseTrait</li>
+          </prerequisites>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<hediff>HVT_ViciousBuff</hediff>
+			<durationMultiplier>PsychicSensitivity</durationMultiplier>
+			<bodyPartToApply>Brain</bodyPartToApply>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_ViciousBuff</defName>
+    <label>psychic viciousness</label>
+    <description>Increased attack speed, accuracy, damage, and armor penetration.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeleeHitChance>5</MeleeHitChance>
+          <ShootingAccuracyPawn>5</ShootingAccuracyPawn>
+		  <MoveSpeed>0.2</MoveSpeed>
+        </statOffsets>
+		<statFactors>
+          <AimingDelayFactor>0.5</AimingDelayFactor>
+		  <MeleeCooldownFactor>0.5</MeleeCooldownFactor>
+		  <VEF_RangeAttackDamageFactor>1.45</VEF_RangeAttackDamageFactor>
+		  <MeleeDamageFactor>1.45</MeleeDamageFactor>
+		  <Hauts_MeleeArmorPenetration>1.33</Hauts_MeleeArmorPenetration>
+		  <Hauts_RangedArmorPenetration>1.33</Hauts_RangedArmorPenetration>
+		</statFactors>
+      </li>
+    </stages>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_MoteConditional">
+		<mote>HVT_Viciousness</mote>
+		<scale>1</scale>
+	  </li>
+    </comps>
+  </HediffDef>
+  
+  <!--Word of Genius inflicts a production-enhancing trait for 5 days, scaled by victim's psychic sensitivity.-->
+  <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+		<defName>HVT_WordOfGenius</defName>
+		<label>word of genius</label>
+		<description>Speak to the target while stimulating their abilities to process and synthesize information, temporarily imparting the effects of a skill- or productivity-boosting personality trait of the caster's choice. The duration of this effect scales with the target's psychic sensitivity. Can’t restore a suppressed trait.</description>
+		<iconPath>VPE/HVT_WordOfGenius</iconPath>
+		<castTime>120</castTime>
+		<targetMode>Humanlike</targetMode>
+		<durationTime>2500</durationTime>
+		<showUndrafted>true</showUndrafted>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>HVT_Mindbender</path>
+				<level>3</level>
+				<order>4</order>
+				<psyfocusCost>0.4</psyfocusCost>
+				<entropyGain>0</entropyGain>
+				<psychic>true</psychic>
+			    <prerequisites>
+				  <li>HVT_Joyzone</li>
+			    </prerequisites>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+				<fleckDef>WordOfApply</fleckDef>
+				<sound>Psycast_WordOf_Effect</sound>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+				<hediff>HVT_WordOfGeniusSelf</hediff>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef><HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_WordOfGeniusSelf</defName>
+    <label>choose genius trait</label>
+    <description>Choose a skill- or productivity-boosting trait to temporarily gain. Duration scales with psychic sensitivity. Can't restore a suppressed trait.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>HVT_WordOfGeniusSelf</li>
+        </abilityDefs>
+      </li>
+    </comps>
+  </HediffDef>
+  <AbilityDef>
+    <defName>HVT_WordOfGeniusSelf</defName>
+    <label>choose genius trait</label>
+    <description>Choose a skill- or productivity-boosting trait to temporarily gain. Duration scales with psychic sensitivity. Can't restore a suppressed trait.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <hotKey>Misc12</hotKey>
+	<iconPath>VPE/HVT_WordOfGenius</iconPath>
+	<cooldownTicksRange>0</cooldownTicksRange>
+    <statBases>
+      <Ability_Duration>5000</Ability_Duration>
+      <Ability_EffectRadius>0</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0</warmupTime>
+	  <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "HautsFramework.CompProperties_AbilityGiveHediffFromMenu">
+        <compClass>HautsFramework.CompAbilityEffect_GiveHediffFromMenu</compClass>
+        <hediffs>
+			<li>HVT_Drudgery</li>
+			<li>HVT_GreatMemorization</li>
+			<li>HVT_Smartness</li>
+			<li>HVT_ArtisticTorture</li>
+			<li>HVT_Neuroticism</li>
+		</hediffs>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyApplyToSelf>True</onlyApplyToSelf>
+        <!--<replaceExisting>true</replaceExisting>-->
+      </li>
+	  <li Class = "CompProperties_AbilityRemoveHediff">
+        <compClass>CompAbilityEffect_RemoveHediff</compClass>
+		<hediffDef>HVT_WordOfGeniusSelf</hediffDef>
+		<applyToSelf>true</applyToSelf>
+	  </li>
+    </comps>
+  </AbilityDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_Drudgery</defName>
+    <label>psychically-induced drudgery</label>
+    <description>Inflicts the Drudge trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>HVT_Drudge</traitDef>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_GreatMemorization</defName>
+    <label>psychically-induced great memorization</label>
+    <description>Inflicts the Great Memory trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>GreatMemory</traitDef>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_Smartness</defName>
+    <label>psychically-induced smartness</label>
+    <description>Inflicts the Too Smart trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>TooSmart</traitDef>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_ArtisticTorture</defName>
+    <label>psychically-induced artistic torture</label>
+    <description>Inflicts the Tortured Artist trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>TorturedArtist</traitDef>
+	  </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_Neuroticism</defName>
+    <label>psychically-induced neuroticism</label>
+    <description>Inflicts the Very Neurotic trait. The duration scales with psychic sensitivity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <comps>
+	  <li Class="HautsFramework.HediffCompProperties_GiveTrait">
+		<traitDef>Neurotic</traitDef>
+		<traitDegree>2</traitDegree>
+	  </li>
+    </comps>
+  </HediffDef>
+	
+  <!--There are three level 4 psycasts, Move Unseen, Wimpzone, and Muscular Innervation. 
+  Move Unseen grants the target pawn invisibility. However, this invisibility wears off prematurely on attack or cast.-->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>HVT_MoveUnseen</defName>
+      <label>move unseen</label>
+      <description>Enhance the stealth capabilities the target, preventing them from being noticed by hostiles unless they attack or use abilities. The duration scales with the target’s psychic sensitivity.</description>
+      <iconPath>VPE/HVT_GroupSnoop</iconPath>
+      <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+	  <castTime>120</castTime>
+	  <durationTime>7500</durationTime>
+	  <range>20</range>
+	  <chance>0</chance>
+	  <targetMode>Pawn</targetMode>
+	  <isPositive>true</isPositive>
+	  <fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+	  <targetingParameters>
+		<canTargetHumans>True</canTargetHumans>
+	  	<canTargetSelf>True</canTargetSelf>
+	  	<canTargetAnimals>True</canTargetAnimals>
+	  	<canTargetMechs>True</canTargetMechs>
+	  </targetingParameters>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>HVT_Mindbender</path>
+          <level>4</level>
+          <order>1</order>
+          <psyfocusCost>0.14</psyfocusCost>
+          <entropyGain>40</entropyGain>
+          <psychic>true</psychic>
+          <prerequisites>
+			  <li>HVT_Viciousness</li>
+			  <li>HVT_WordOfGenius</li>
+          </prerequisites>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<hediff>HVT_SnoopingAroundISee</hediff>
+			<durationMultiplier>PsychicSensitivity</durationMultiplier>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_SnoopingAroundISee</defName>
+    <label>psychic stealth</label>
+    <description>Invisibility which prematurely wears off on attacking or casting an ability.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <stages>
+      <li>
+		<statFactors>
+          <Hauts_PersonalCaravanVisibilityFactor>0.1</Hauts_PersonalCaravanVisibilityFactor>
+        </statFactors>
+	  </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Invisibility">
+        <visibleToPlayer>true</visibleToPlayer>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_ChangeSeverityOnVerbUse">
+		<setSeverity>0.0</setSeverity>
+	  </li>
+    </comps>
+  </HediffDef>
+  
+  <!--Wimpzone creates a large area in which biological pawns get the effects of the Wimp trait. Mechs get negative EMP resistance... this is an Anomaly/Biotech stat, though, so this doesn't apply if you don't
+	have Biotech.-->
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>HVT_Wimpzone</defName>
+		<label>wimpzone</label>
+		<description>Create a distortion in the psychic field localized to the target area. Beings inside the field are more sensitive to pain, and mechanoids become more vulnerable to EMPs.</description>
+		<iconPath>VPE/HVT_Wimpzone</iconPath>
+		<abilityClass>VFECore.Abilities.Ability_Spawn</abilityClass>
+		<needsTicking>true</needsTicking>
+		<castTime>120</castTime>
+		<castSound>PsychicAnimalPulserCast</castSound>
+		<showUndrafted>true</showUndrafted>
+		<targetMode>Location</targetMode>
+		<range>5</range>
+		<radius>4.6</radius>
+		<durationTime>10000</durationTime>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>HVT_Mindbender</path>
+				<level>4</level>
+				<order>3</order>
+				<psyfocusCost>0.4</psyfocusCost>
+				<entropyGain>15</entropyGain>
+			    <prerequisites>
+				  <li>HVT_Viciousness</li>
+				  <li>HVT_WordOfGenius</li>
+			    </prerequisites>
+			</li>
+		    <li Class="VFECore.Abilities.AbilityExtension_Spawn">
+				<thing>HVT_WimpzoneActual</thing>
+		    </li>
+		</modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>HVT_WimpzoneActual</defName>
+        <label>wimpzone center</label>
+        <thingClass>ThingWithComps</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <drawOffscreen>true</drawOffscreen>
+        <seeThroughFog>false</seeThroughFog>
+		<graphicData>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <texPath>Things/Mote/PsycastCast</texPath>
+		  <shaderType>MoteGlowDistorted</shaderType>
+		  <color>(1.0,0.65098,0.62353)</color>
+		  <drawSize>1</drawSize>
+		  <shaderParameters>
+			<_DistortionTex>/Other/Ripples</_DistortionTex>
+			<_distortionIntensity>0.05</_distortionIntensity>
+			<_DistortionScale>0.4</_DistortionScale>
+			<_distortionScrollSpeed>(0.07, 0.07, 0.0)</_distortionScrollSpeed>
+		  </shaderParameters>
+		</graphicData>
+		<comps>
+		  <li Class="CompProperties_DestroyAfterDelay">
+			<delayTicks>60000</delayTicks>
+		  </li>
+		  <li Class="HautsFramework.CompProperties_AuraEmitterHediff">
+			<hediffs>
+				<li>HVT_WimpzoneBuff</li>
+			</hediffs>
+			<range>4.6</range>
+			<affectEnemies>true</affectEnemies>
+			<affectNeutrals>true</affectNeutrals>
+			<affectOwnFaction>true</affectOwnFaction>
+			<requiredStat>PsychicSensitivity</requiredStat>
+			<color>(1.0,0.65098,0.62353,0.4)</color>
+		  </li>
+		</comps>
+    </ThingDef>
+  <HediffDef>
+    <defName>HVT_WimpzoneBuff</defName>
+    <label>wimpzone</label>
+    <description>Those in a wimpzone are much more sensitive to pain. Affected mechanoids may also be more vulnerable to EMPs.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(1.0,0.65098,0.62353)</defaultLabelColor>
+    <initialSeverity>0.1</initialSeverity>
+    <maxSeverity>0.1</maxSeverity>
+    <stages>
+      <li>
+        <statOffsets>
+          <PainShockThreshold>-0.50</PainShockThreshold>
+          <EMPResistance MayRequireAnyOf="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Anomaly">-0.3</EMPResistance>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-24</severityPerDay>
+      </li>
+	  <li Class="HautsFramework.HediffCompProperties_MoteConditional">
+		<mote>HVT_WimpzoneStandPower</mote>
+		<scale>1</scale>
+	  </li>
+	  <li Class="HediffCompProperties_Effecter">
+		<stateEffecter>VPE_SparksRed</stateEffecter>
+	  </li>
+    </comps>
+  </HediffDef>
+	<ThingDef ParentName="MoteGlowDistorted">
+		<defName>HVT_WimpzoneStandPower</defName>
+		<thingClass>MoteAttached</thingClass>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<mote>
+			<fadeInTime>3.15</fadeInTime>
+			<fadeOutTime>1.05</fadeOutTime>
+			<solidTime>4.25</solidTime>
+			<needsMaintenance>true</needsMaintenance>
+		</mote>
+		<graphicData>
+		  <graphicClass>Graphic_PawnBodySilhouette</graphicClass>
+		  <color>(1.0,0.65098,0.62353,0.56)</color>
+		  <shaderType>MoteGlowDistorted</shaderType>
+		  <texPath>Things/Mote/SparkThrown</texPath>
+		  <shaderParameters>
+			<_distortionIntensity>0.6</_distortionIntensity>
+			<_brightnessMultiplier>0.9</_brightnessMultiplier>
+		  </shaderParameters>
+		  <drawSize>1.6</drawSize>
+		</graphicData>
+	</ThingDef>
+	
+	<!--Muscular Innervation grants buffs identical to the effects of the Mighty trait to any pawns in the target area at time of cast.
+		Most of the effects last for 4 hours, but the carry cap boost lasts for 24h so it's decent to cast on caravans.-->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>HVT_MuscularInnervation</defName>
+      <label>muscular innervation</label>
+      <description>Protect and stimulate the muscles of anyone near the target point with psychic energy. Those affected gain higher melee damage for a duration scaling with their psychic sensitivity, as well as higher carrying capacity for a longer duration.</description>
+      <iconPath>Genes/HVT_Mighty</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Ability_BerserkPulse</abilityClass>
+	  <castTime>60</castTime>
+	  <durationTime>10000</durationTime>
+	  <range>15</range>
+	  <radius>2.9</radius>
+	  <targetMode>Location</targetMode>
+	  <hasAoE>true</hasAoE>
+      <targetingParametersForAoE>
+		<canTargetSelf>True</canTargetSelf>
+        <canTargetHumans>True</canTargetHumans>
+        <canTargetMechs>True</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetingParametersForAoE>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>HVT_Mindbender</path>
+          <level>4</level>
+          <order>5</order>
+          <psyfocusCost>0.7</psyfocusCost>
+          <entropyGain>30</entropyGain>
+          <psychic>true</psychic>
+          <prerequisites>
+			  <li>HVT_Viciousness</li>
+			  <li>HVT_WordOfGenius</li>
+          </prerequisites>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<hediff>HVT_MuscularInnervationBuff</hediff>
+			<durationMultiplier>PsychicSensitivity</durationMultiplier>
+			<bodyPartToApply>Brain</bodyPartToApply>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_MuscularInnervationBuff</defName>
+    <label>muscle innervation (damage)</label>
+    <description>Increased melee damage and mining speed.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <stages>
+      <li>
+		<statFactors>
+		  <MiningSpeed>1.3</MiningSpeed>
+		</statFactors>
+		<statOffsets>
+		  <MeleeDamageFactor>0.6</MeleeDamageFactor>
+		</statOffsets>
+      </li>
+    </stages>
+	<comps>
+      <li Class="HautsFramework.HediffCompProperties_GiveScalingDurationHediff">
+        <hediffDef>HVT_MuscularInnervationCarryBuff</hediffDef>
+		<skipIfAlreadyExists>false</skipIfAlreadyExists>
+		<durationScalar>6</durationScalar>
+      </li>
+	</comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>HVT_MuscularInnervationCarryBuff</defName>
+    <label>muscle innervation (carrying capacity)</label>
+    <description>Increased carrying capacity.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+    <stages>
+      <li>
+		<statFactors>
+		  <VEF_MassCarryCapacity>1.8</VEF_MassCarryCapacity>
+		</statFactors>
+		<statOffsets>
+		  <SwimSpeed MayRequire="pyrce.swimming.modkit">0.1</SwimSpeed>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!--Mindbender has one level-5 ability, Tabula Rasa. Revives a corpse, converting it to your faction and ideo, but randomizing its name, and wiping its backgrounds, skills, and traits. It gains increased learning speed for a caster's
+	psysens-scaling duration, and develops a new trait with an MTB of 2 days, until it hits the max amount of traits as determined by HVT's mod settings. Thus you could keep casting Excise Trait until you get an acceptable set of traits.
+	The level 5 ability used to be "Personaclone", which replaces the traits of one target with those of another target. Awakenings and transcendences were unaffected.
+	Then I saw the Vanilla Expanded patreon post about the Puppeteer path and decided it was too similar to what they were doing.-->
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+    <defName>HVT_TabulaRasa</defName>
+    <label>tabula rasa</label>
+    <description>Infuse a dead body with psychic energy, bringing it back to life but wiping its personality. It will convert to the caster's faction, but lose its traits, skills, and backstory. Its learning speed is vastly increased for a duration based on the caster's psychic sensitivity, and it will develop new traits roughly every 2 days until it reaches the maximum number of traits.\n\nBeware; if the caster dies, anyone they've raised who does not yet have all their traits will perish as well.</description>
+    <iconPath>VPE/HVT_TabulaRasa</iconPath>
+	<abilityClass>Hauts_VPE.Ability_TabulaRasa</abilityClass>
+	<castTime>600</castTime>
+	<cooldownTime>60000</cooldownTime>
+	<needsTicking>true</needsTicking>
+	<reserveTargets>true</reserveTargets>
+	<targetingParameters>
+		<canTargetLocations>False</canTargetLocations>
+		<canTargetSelf>False</canTargetSelf>
+		<canTargetAnimals>False</canTargetAnimals>
+		<canTargetPawns>False</canTargetPawns>
+		<canTargetHumans>False</canTargetHumans>
+		<canTargetItems>true</canTargetItems>
+		<thingCategory>Item</thingCategory>
+		<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+	</targetingParameters>
+	<castSound>VPE_Resurrect_Cast</castSound>
+	<showUndrafted>true</showUndrafted>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>HVT_Mindbender</path>
+        <level>5</level>
+        <order>3</order>
+        <psyfocusCost>0.9</psyfocusCost>
+        <entropyGain>222</entropyGain>
+        <prerequisites>
+          <li>HVT_MoveUnseen</li>
+          <li>HVT_Wimpzone</li>
+          <li>HVT_MuscularInnervation</li>
+        </prerequisites>
+        <showCastBubble>false</showCastBubble>
+        <psychic>true</psychic>
+      </li>
+	  <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+		<effecterDef>Skip_Exit</effecterDef>
+		<maintainForTicks>60</maintainForTicks>
+	  </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+	  <BackstoryDef>
+		<defName>HVT_TabulaRasaChild</defName>
+		<title>wiped away</title>
+		<titleShort>blank slate</titleShort>
+		<baseDesc>Due to the Tabula Rasa psycast, [PAWN_nameDef] no longer recalls [PAWN_possessive] past.</baseDesc>
+		<slot>Childhood</slot>
+		<spawnCategories><li>None</li></spawnCategories>
+	  </BackstoryDef>
+	  <BackstoryDef>
+		<defName>HVT_TabulaRasaAdult</defName>
+		<title>wiped away</title>
+		<titleShort>blank slate</titleShort>
+		<baseDesc>Due to the Tabula Rasa psycast, [PAWN_nameDef] no longer recalls [PAWN_possessive] past.</baseDesc>
+		<slot>Adulthood</slot>
+		<spawnCategories><li>None</li></spawnCategories>
+	  </BackstoryDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase">
+		<defName>HVT_Dominicus</defName>
+		<label>lifegiver</label>
+		<description>The life of this character is intertwined with the lives of those raised by this character's use of Tabula Rasa. Should this character die, all other linked pawns will die as well.</description>
+		<hediffClass>Hauts_VPE.Hediff_Catarina</hediffClass>
+		<defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+		<stages>
+		  <li>
+			<becomeVisible>false</becomeVisible>
+		  </li>
+		</stages>
+	  </HediffDef>
+	  <HediffDef ParentName = "PsycastHediffBase">
+		<defName>HVT_TabulaRasaAcumen</defName>
+		<label>learning boost</label>
+		<description>A bonus to learning speed granted by the Tabula Rasa psycast.</description>
+		<isBad>false</isBad>
+		<everCurableByItem>false</everCurableByItem>
+		<defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+		<stages>
+		  <li>
+			<statFactors>
+			  <GlobalLearningFactor>3.3</GlobalLearningFactor>
+			</statFactors>
+		  </li>
+		</stages>
+	  </HediffDef>
+	  <HediffDef ParentName="HVT_TraitHediffBase">
+		<defName>HVT_TabulaRasaTraitGiver</defName>
+		<label>tabula rasa (trait giver)</label>
+		<description>This character intermittently gains traits roughly every 2 days. Stops once the max amount of traits has been reached (set in Hauts' Added Traits mod settings).</description>
+		<hediffClass>Hauts_VPE.Hediff_TraitGiver</hediffClass>
+		<defaultLabelColor>(0.0, 0.82, 0.82)</defaultLabelColor>
+		<stages>
+		  <li>
+			<becomeVisible>false</becomeVisible>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	  </HediffDef>
+</Defs>

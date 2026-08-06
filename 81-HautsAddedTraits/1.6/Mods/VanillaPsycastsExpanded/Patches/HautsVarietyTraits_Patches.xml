@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!--Latent psychics slightly more common. awakenings can randomly spawn-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/TraitDef[defName="HVT_LatentPsychic"]/commonality</xpath>
+		<value>
+			<commonality>0.85</commonality>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/TraitDef[defName="HVT_LatentPsychic"]/modExtensions/li[@Class="HautsTraitsRoyalty.RemovedOnAwakening"]/awakenChance</xpath>
+		<value>
+			<awakenChance>0.12</awakenChance>
+		</value>
+	</Operation>
+	<!--Mastery-type LPs awaken at level 20, not level 4-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/HediffDef[defName="HVT_LatentPsyHediff"]/comps/li[@Class="HautsTraitsRoyalty.HediffCompProperties_LPMastery"]/psylinkLevel</xpath>
+		<value>
+			<psylinkLevel>20</psylinkLevel>
+		</value>
+	</Operation>
+	<!-- Originally, Deluge and Perennial were exclusive to VPE; this is because without that mod, it's impossible to change the psyfocus cost of a psycast (without altering the psycast's definition, that is).
+		I ended up liking their designs enough to try 'backporting' them as much as possible into only requiring Royalty, but they're a little awkward. If you have VPE installed, they regain their original, more elegant design:
+		Deluges have slightly less 1st-level psycast cost offset; however, in VPE, this stat is not a "refund" but rather truly reduces the upfront cost of 1st-level psycasts, so.-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraitDef[defName="HVT_AwakenedDeluge"]/degreeDatas/li/statOffsets/Hauts_TierOnePsycastCostOffset</xpath>
+		<value>
+			<Hauts_TierOnePsycastCostOffset>-0.25</Hauts_TierOnePsycastCostOffset>
+		</value>
+	</Operation>
+	<!--Perennials use cost factor instead of refund-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/HediffDef[defName="HVT_SyzygyBuff"]/stages/li/statFactors</xpath>
+		<value>
+			<VPE_PsyfocusCostFactor>0.4</VPE_PsyfocusCostFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/HediffDef[defName="HVT_SyzygyBuff"]/stages/li/statOffsets</xpath>
+	</Operation>
+	<!--transes that would normally grant word or skip psycasts don't do so, since 1) you can acquire psycasts of your choice w VPE and 2) these DMEs grant vanilla psycasts-->
+	<Operation Class="PatchOperationRemove">
+		<xpath>/Defs/TraitDef/modExtensions/li[@Class="HautsTraitsRoyalty.GrantWordPsycast"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>/Defs/TraitDef/modExtensions/li[@Class="HautsTraitsRoyalty.GrantSkipPsycast"]</xpath>
+	</Operation>
+	<!--Bellbirds gain Group Link for free-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/TraitDef[defName="HVT_TTraitBellbird"]/modExtensions/li[@Class="HautsFramework.TraitGrantedStuff"]/grantedVEFAbilities</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/TraitDef[defName="HVT_TTraitBellbird"]/modExtensions/li[@Class="HautsFramework.TraitGrantedStuff"]</xpath>
+			<value>
+				<grantedVEFAbilities>
+					<li>
+						<key>0</key><value><li>VPE_GroupLink</li></value>
+					</li>
+				</grantedVEFAbilities>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraitDef[defName="HVT_TTraitBellbird"]/modExtensions/li[@Class="HautsFramework.TraitGrantedStuff"]/grantedVEFAbilities</xpath>
+			<value>
+				<li>
+					<key>0</key><value><li>VPE_GroupLink</li></value>
+				</li>
+			</value>
+		</match>
+	</Operation>
+	<!--the corresponding genes for these awakenings get adjusted along the same lines.-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/GeneDef[defName="HVT_ADelugeGene"]/statOffsets/Hauts_TierOnePsycastCostOffset</xpath>
+					<value>
+						<Hauts_TierOnePsycastCostOffset>-0.2</Hauts_TierOnePsycastCostOffset>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<!--VPE Neurophage-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>VPE - Neurophage</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_Neurophage_Neurophagy_Ability_STNL" or defName="VPE_Neurophage_PsychicTakeover_STNL" or defName="VPE_Neurophage_NeuralString_STNL"]/modExtensions</xpath>
+			<value>
+				<li Class="Hauts_VPE.AbilityExtension_CantTargetWoke" />
+			</value>
+		</match>
+	</Operation>
+	<!--VPE Puppeteer-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Psycasts Expanded - Puppeteer</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/VEF.Abilities.AbilityDef[defName="VPEP_Puppet"]/modExtensions</xpath>
+			<value>
+				<li Class="Hauts_VPE.AbilityExtension_CantTargetWoke" />
+			</value>
+		</match>
+	</Operation>
+	<!--fantasy renamings-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>RPG Adventure Flavour Pack</li>
+			<li>RPG Adventure Flavour Pack - Fork</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VanillaPsycastsExpanded.PsycasterPathDef[defName = "HVT_Mindbender"]/label</xpath>
+					<value>
+						<label>soulshaper</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VanillaPsycastsExpanded.PsycasterPathDef[defName = "HVT_Mindbender"]/description</xpath>
+					<value>
+						<description>Soulshaper spells alter the very nature of personhood, allowing one to create, remove, and transfer traits.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VanillaPsycastsExpanded.PsycasterPathDef[defName = "HVT_Mindbender"]/tooltip</xpath>
+					<value>
+						<tooltip>Soulshapers ensorcel others to temporarily... or permanently... alter their personalities.</tooltip>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VEF.Abilities.AbilityDef[defName = "HVT_WordOfEnnui"]/description</xpath>
+					<value>
+						<description>Speak mystic words to the target which instill apathy, temporarily imparting the effects of a concern-nullifying trait of the caster's choice (Ascetic, Asocial, Psychopath, Staid, or Teetotaler). The duration of this effect scales with the target's magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Asceticism"]/label</xpath>
+					<value>
+						<label>geas of aesceticism</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Asceticism"]/description</xpath>
+					<value>
+						<description>Inflicts the Ascetic trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Asociality"]/label</xpath>
+					<value>
+						<label>geas of asociality</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Asociality"]/description</xpath>
+					<value>
+						<description>Inflicts the Asocial trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Psychopathy"]/label</xpath>
+					<value>
+						<label>geas of psychopathy</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Psychopathy"]/description</xpath>
+					<value>
+						<description>Inflicts the Psychopath trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Staidness"]/label</xpath>
+					<value>
+						<label>geas of staidness</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Staidness"]/description</xpath>
+					<value>
+						<description>Inflicts the Staid trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Teetotality"]/label</xpath>
+					<value>
+						<label>geas of the teetotaler</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Teetotality"]/description</xpath>
+					<value>
+						<description>Inflicts the Teetotaler trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VEF.Abilities.AbilityDef[defName = "HVT_Joyzone"]/description</xpath>
+					<value>
+						<description>Lay an enchantment over the target area, preventing people inside it from getting bored and increasing their ability to learn from recreation.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VEF.Abilities.AbilityDef[defName = "HVT_WordOfVerve"]/description</xpath>
+					<value>
+						<description>Speak mystic words to the target which encourage a passion for life, temporarily imparting the effects of a positive personality trait of the caster's choice (Conversationalist, Humble, Kind, Sanguine, or Winsome). The duration of this effect scales with the target's magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Charisma"]/label</xpath>
+					<value>
+						<label>geas of chattiness</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Charisma"]/description</xpath>
+					<value>
+						<description>Inflicts the Conversationalist trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_HumilityHed"]/label</xpath>
+					<value>
+						<label>geas of humility</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_HumilityHed"]/description</xpath>
+					<value>
+						<description>Inflicts the Humble trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Kindness"]/label</xpath>
+					<value>
+						<label>geas of kindness</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Kindness"]/description</xpath>
+					<value>
+						<description>Inflicts the Kind trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Sanguinity"]/label</xpath>
+					<value>
+						<label>geas of sanguinity</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Sanguinity"]/description</xpath>
+					<value>
+						<description>Inflicts the Sanguine trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Winsomeness"]/label</xpath>
+					<value>
+						<label>geas of winsomeness</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Winsomeness"]/description</xpath>
+					<value>
+						<description>Inflicts the Winsome trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VEF.Abilities.AbilityDef[defName = "HVT_ExciseTrait"]/description</xpath>
+					<value>
+						<description>Remove a random trait from the target.\n\nConsidered a hostile action. Will not remove sexuality traits, Latent Sorcery, awakenings, or transcendences.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VEF.Abilities.AbilityDef[defName = "HVT_Viciousness"]/description</xpath>
+					<value>
+						<description>Stimulate a phenomenal talent for violence in the target, increasing their attack speed, accuracy, armor penetration, and damage for a duration scaling with the target’s magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_ViciousBuff"]/label</xpath>
+					<value>
+						<label>viciousness ensorcelment</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VEF.Abilities.AbilityDef[defName = "HVT_WordOfGenius"]/description</xpath>
+					<value>
+						<description>Speak mystic words to the target which greatly enhance one's talents, temporarily imparting the effects of a skill- or productivity-boosting trait (Drudge, Great Memory, Too Smart, Tortured Artist, or Very Neurotic). The duration of this effect scales with the target’s magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Drudgery"]/label</xpath>
+					<value>
+						<label>geas of the drudge</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Drudgery"]/description</xpath>
+					<value>
+						<description>Inflicts the Drudge trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_GreatMemorization"]/label</xpath>
+					<value>
+						<label>geas of great memory</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_GreatMemorization"]/description</xpath>
+					<value>
+						<description>Inflicts the Great Memory trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Smartness"]/label</xpath>
+					<value>
+						<label>geas of vast intellect</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Smartness"]/description</xpath>
+					<value>
+						<description>Inflicts the Too Smart trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_ArtisticTorture"]/label</xpath>
+					<value>
+						<label>geas of artistic torture</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_ArtisticTorture"]/description</xpath>
+					<value>
+						<description>Inflicts the Tortured Artist trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Neuroticism"]/label</xpath>
+					<value>
+						<label>geas of neuroticism</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_Neuroticism"]/description</xpath>
+					<value>
+						<description>Inflicts the Very Neurotic trait. The duration scales with magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VEF.Abilities.AbilityDef[defName = "HVT_MoveUnseen"]/description</xpath>
+					<value>
+						<description>Enhance the stealth capabilities the target, preventing them from being noticed by hostiles unless they attack or use abilities. The duration scales with the target’s magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_SnoopingAroundISee"]/label</xpath>
+					<value>
+						<label>magic stealth</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VEF.Abilities.AbilityDef[defName = "HVT_Wimpzone"]/description</xpath>
+					<value>
+						<description>Lay an enchantment over the target area. Beings inside the field are more sensitive to pain, and mechanoids become more vulnerable to EMPs.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VEF.Abilities.AbilityDef[defName = "HVT_MuscularInnervation"]/label</xpath>
+					<value>
+						<label>enchantment of might</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VEF.Abilities.AbilityDef[defName = "HVT_MuscularInnervation"]/description</xpath>
+					<value>
+						<description>Empower anyone near the target point with great strength. Those affected gain higher melee damage and carry capacity for a duration scaling with their magic sensitivity.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/HediffDef[defName = "HVT_MuscularInnervationBuff"]/label</xpath>
+					<value>
+						<label>might enchantment</label>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/VEF.Abilities.AbilityDef[defName = "HVT_TabulaRasa"]/description</xpath>
+					<value>
+						<description>Weave spiritual strands into the target corpse, bringing it back to life with a totally new soul. It will be of the caster's faction, but it starts without any traits, skills, or backstory. Its learning speed is vastly increased for a duration based on the caster's magic sensitivity, and it will develop new traits roughly every 2 days until it reaches the maximum number of traits.\n\nBeware: should the caster die, all created souls who have not yet attained all their traits will perish as well.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/BackstoryDef[defName = "HVT_TabulaRasaChild"]/titleShort</xpath>
+					<value>
+						<titleShort>newsoul</titleShort>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/BackstoryDef[defName = "HVT_TabulaRasaChild"]/baseDesc</xpath>
+					<value>
+						<baseDesc>[PAWN_nameDef] is a new soul woven into a dead body, created by the Tabula Rasa spell. [PAWN_pronoun] recalls no defining past.</baseDesc>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/BackstoryDef[defName = "HVT_TabulaRasaAdult"]/titleShort</xpath>
+					<value>
+						<titleShort>newsoul</titleShort>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/BackstoryDef[defName = "HVT_TabulaRasaAdult"]/baseDesc</xpath>
+					<value>
+						<baseDesc>[PAWN_nameDef] is a new soul woven into a dead body, created by the Tabula Rasa spell. [PAWN_pronoun] recalls no defining past.</baseDesc>
+					</value>
+				</li>
+			</operations>
+		</match>
+		<!--Bellbird is ultimately easier to handle this way. Also, because I don't want to make ten jillion Harmony patches for every skip psycast that uses a bespoke derivative of VEF.Abilities.Ability, I just accept that Glowworm works different w/ VPE. Not weaker, just... different.-->
+		<nomatch Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/TraitDef[defName = "HVT_TTraitBellbird"]/degreeDatas/li/description</xpath>
+					<value>
+						<description>{PAWN_nameDef} has enhanced oratory abilities, and can use Group Link at will. If {PAWN_pronoun} casts a Word psycast without the benefit of Group Link, {PAWN_pronoun} regains 10% psyfocus.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/TraitDef[defName = "HVT_TTraitGlowworm"]/degreeDatas/li/description</xpath>
+					<value>
+						<description>{PAWN_nameDef} causes ruptures in the fabric of space whenever {PAWN_pronoun} uses a skip psycast, damaging everything around the endpoint. The radius improves with {PAWN_possessive} psylink level, up to level 6.</description>
+					</value>
+				</li>
+			</operations>
+		</nomatch>
+	</Operation>
+</Patch>

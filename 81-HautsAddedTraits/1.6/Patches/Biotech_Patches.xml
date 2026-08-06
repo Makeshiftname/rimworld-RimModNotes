@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+		  <li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations><!--this allows growth moments to happen at age 9 when mod settings are configured to do so, since the game avoids handing out growth moments to pawns at the minimum age of their current lifestage-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="Human"]/race/lifeStageAges/li[def="HumanlikePreTeenager"]/minAge</xpath>
+					<value>
+						<minAge>8.99</minAge>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd"><!--duh-->
+					<xpath>Defs/PawnKindDef[@Name="MechanitorBase"]/disallowedTraits</xpath>
+					<value>
+						<li>HVT_Mechaphobe</li>
+					</value>
+				</li>
+				<!--its kind of like the opposite of what these traits want so.-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/GeneDef[defName="CaveDweller"]/suppressedTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/GeneDef[defName="CaveDweller"]</xpath>
+						<value>
+							<suppressedTraits>
+								<li><def>HVT_Outdoorsy</def></li>
+								<li><def>HVT_Tempestophile</def></li>
+							</suppressedTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/GeneDef[defName="CaveDweller"]/suppressedTraits</xpath>
+						<value>
+							<li><def>HVT_Outdoorsy</def></li>
+							<li><def>HVT_Tempestophile</def></li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/GeneDef[defName="UVSensitivity_Mild" or defName="UVSensitivity_Intense"]/suppressedTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/GeneDef[defName="UVSensitivity_Mild" or defName="UVSensitivity_Intense"]</xpath>
+						<value>
+							<suppressedTraits>
+								<li><def>HVT_Sunbather</def></li>
+							</suppressedTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/GeneDef[defName="UVSensitivity_Mild" or defName="UVSensitivity_Intense"]/suppressedTraits</xpath>
+						<value>
+							<li><def>HVT_Sunbather</def></li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li><!--makes Undying and its corresponding gene stack appropriately-->
+					</mods>
+					<match Class="PatchOperationConditional">
+						<xpath>/Defs/HediffDef[defName="HVT_Settra"]/comps/li[@Class="HautsTraitsRoyalty.HediffCompProperties_ManaBarrier"]/contributingGenes</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>/Defs/HediffDef[defName="HVT_Settra"]/comps/li[@Class="HautsTraitsRoyalty.HediffCompProperties_ManaBarrier"]</xpath>
+							<value>
+								<contributingGenes>
+									<li><key>HVT_AUndyingGene</key><value>3.5</value></li>
+								</contributingGenes>
+							</value>
+						</nomatch>
+						<match Class="PatchOperationAdd">
+							<xpath>/Defs/HediffDef[defName="HVT_Settra"]/comps/li[@Class="HautsTraitsRoyalty.HediffCompProperties_ManaBarrier"]/contributingGenes</xpath>
+							<value>
+								<li><key>HVT_AUndyingGene</key><value>3.5</value></li>
+							</value>
+						</match>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional"><!--buy his book.-->
+		<xpath>/Defs/BackstoryDef[defName="GameDeveloper95"]/forcedTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/BackstoryDef[defName="GameDeveloper95"]</xpath>
+			<value>
+				<forcedTraits>
+					<HVT_Test>0</HVT_Test>
+				</forcedTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/BackstoryDef[defName="GameDeveloper95"]/forcedTraits</xpath>
+			<value>
+				<HVT_Test>0</HVT_Test>
+			</value>
+		</match>
+	</Operation>
+</Patch>

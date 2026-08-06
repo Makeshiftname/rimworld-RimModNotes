@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Leo - Events</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="LE_AtmosphericHallucinogen"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="LE_DimensionalJitter"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="LE_DrySpell"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="LE_EmberFallout"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileLikedCondition" />
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="LE_FeralNeurotoxin"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="LE_GravityHigh"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="LE_MechaniteCloud"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileLikedCondition" />
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="LE_PsychicAggression"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="LE_SubatomicTurbulence"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Leo - Events</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAddModExtension">
+								<xpath>/Defs/GameConditionDef[defName="LE_ForceWeather_Blizzard"]</xpath>
+								<value>
+									<li Class="HautsTraits.CatastrophistLikedCondition" />
+								</value>
+							</li>
+							<li Class="PatchOperationAddModExtension">
+								<xpath>/Defs/GameConditionDef[defName="LE_ForceWeather_TorrentialRain"]</xpath>
+								<value>
+									<li Class="HautsTraits.CatastrophistLikedCondition" />
+								</value>
+							</li>
+							<li Class="PatchOperationAddModExtension">
+								<xpath>/Defs/GameConditionDef[defName="LE_ForceWeather_ToxRain"]</xpath>
+								<value>
+									<li Class="HautsTraits.CatastrophistLikedCondition" />
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Nikolai's Ideology: Gender Works</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Aestheticist is handled by a mod-native patch
+				Hedonist, Lech, Lovesick, Vain like Aphroditic, if pretty much all for different reasons-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="NikolaisIdeology_Aphroditic"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="NikolaisIdeology_Aphroditic"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Hedonist</li>
+								<li>HVT_Lech</li>
+								<li>HVT_Lovesick</li>
+								<li>HVT_Vain</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="NikolaisIdeology_Aphroditic"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Hedonist</li>
+							<li>HVT_Lech</li>
+							<li>HVT_Lovesick</li>
+							<li>HVT_Vain</li>
+						</value>
+					</match>
+				</li>
+				<!--turkler said Asocial and Bookworm aren't much for intimacy and/or sexytimes, so they not in w Aphroditic-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="NikolaisIdeology_Aphroditic"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="NikolaisIdeology_Aphroditic"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Asocial</li>
+								<li>HVT_Bookworm</li>
+								<li MayRequire="Ludeon.RimWorld.Anomaly">HVT_Twisted</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="NikolaisIdeology_Aphroditic"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Asocial</li>
+							<li>HVT_Bookworm</li>
+							<li MayRequire="Ludeon.RimWorld.Anomaly">HVT_Twisted</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

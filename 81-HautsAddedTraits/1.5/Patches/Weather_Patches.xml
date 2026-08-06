@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch><!--here's the 'game conditions' that Tempestophiles and Catastrophists like-->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/WeatherDef[defName="Clear"]</xpath>
+		<value>
+			<li Class="HautsTraits.TempestophileDisLikedCondition" />
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Anomaly</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/WeatherDef[defName="Underground"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileDisLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/WeatherDef[@ParentName="Underground"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileDisLikedCondition" />
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

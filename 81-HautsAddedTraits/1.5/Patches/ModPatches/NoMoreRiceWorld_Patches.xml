@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>No more RiceWorld</li>
+		</mods>
+		<match Class="PatchOperationConditional"><!--Metabolic Freaks immune to food variety. they still need good nutrition tho-->
+			<xpath>/Defs/ThoughtDef[defName="NeedFoodVariety"]/nullifyingTraits</xpath>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/ThoughtDef[defName="NeedFoodVariety"]</xpath>
+				<value>
+					<nullifyingTraits>
+						<li>HVT_MetabolicFreak</li>
+					</nullifyingTraits>
+				</value>
+			</nomatch>
+			<match Class="PatchOperationAdd">
+				<xpath>/Defs/ThoughtDef[defName="NeedFoodVariety"]/nullifyingTraits</xpath>
+				<value>
+					<li>HVT_MetabolicFreak</li>
+				</value>
+			</match>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,1628 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!--aestheticist vs environment-->
+  <ThoughtDef>
+    <defName>HVT_NeedBeautyAestheticist</defName>
+    <workerClass>ThoughtWorker_NeedBeauty</workerClass>
+    <requiredTraits>
+      <li>HVT_Aestheticist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>nightmarish environment</label>
+        <description>This place is repulsive beyond description. I wish I could be anywhere else.</description>
+        <baseMoodEffect>-40</baseMoodEffect>
+      </li>
+      <li>
+        <label>hideous environment</label>
+        <description>This place is so unbearably grotesque. I wish I didn't have to look at this any more.</description>
+        <baseMoodEffect>-25</baseMoodEffect>
+      </li>
+      <li>
+        <label>ugly environment</label>
+        <description>This place is really ugly. I wish I didn't have to look at all this.</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+      <li>
+        <label>beautiful environment</label>
+        <description>I really like this place. It's beautiful.</description>
+        <baseMoodEffect>12</baseMoodEffect>
+      </li>
+      <li>
+        <label>gorgeous environment</label>
+        <description>This place is so beautiful. It lifts me up and makes me love life.</description>
+        <baseMoodEffect>25</baseMoodEffect>
+      </li>
+      <li>
+        <label>paradisic environment</label>
+        <description>This beauty of this place is rapturous. I wish I'd never have to leave.</description>
+        <baseMoodEffect>40</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--aestheticist vs individual-->
+  <ThoughtDef>
+    <defName>HVT_DisfiguredAestheticist</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>ThoughtWorker_Disfigured</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Aestheticist</li>
+    </requiredTraits>
+    <nullifyingTraits>
+      <li>Kind</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>disfigured</label>
+        <baseOpinionOffset>-22</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_PrettyAestheticist</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>ThoughtWorker_Pretty</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Aestheticist</li>
+    </requiredTraits>
+    <nullifyingTraits>
+      <li>Kind</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>physically appealing</label>
+        <baseOpinionOffset>30</baseOpinionOffset>
+      </li>
+      <li>
+        <label>physically stunning</label>
+        <baseOpinionOffset>60</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_UglyAestheticist</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>ThoughtWorker_Ugly</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Aestheticist</li>
+    </requiredTraits>
+    <nullifyingTraits>
+      <li>Kind</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>physically unsightly</label>
+        <baseOpinionOffset>-30</baseOpinionOffset>
+      </li>
+      <li>
+        <label>physically hideous</label>
+        <baseOpinionOffset>-60</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--agrizoophobe is the fear of wild animals-->
+  <ThoughtDef>
+    <defName>HVT_Agrizoophobia</defName>
+    <workerClass>HautsTraits.ThoughtWorker_Agrizoophobia</workerClass>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>afraid of wild animals</label>
+        <description>How am I supposed to keep calm when such a savage creature is nearby?!</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--allegiant bonds of loyalty-->
+  <ThoughtDef>
+    <defName>HVT_BondsOfLoyalty</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsFramework.ThoughtWorker_OfSameFaction</workerClass>
+    <requiredTraits>
+      <li>HVT_Allegiant</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>same-faction allegiance</label>
+        <baseOpinionOffset>10</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--bookworm mood from reading-->
+  <ThoughtDef>
+    <defName>HVT_Bibliophilia</defName>
+    <durationDays>0.5</durationDays>
+    <stackLimit>10</stackLimit>
+    <stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Bookworm</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>bookworm read recently</label>
+        <description>Reading is a joy.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--mood from conversing w conversationalist-->
+  <ThoughtDef>
+    <defName>HVT_StimulatingConversation</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>5</stackLimit>
+    <stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+    <nullifyingTraits>
+      <li>HVT_Asocial</li>
+	  <li MayRequire="GWEN.mod1">GWT_SociallyNumb</li>
+	  <li MayRequire="Side1iner.TraitsPlus">S1_AllOutOfFucks</li>
+	  <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_WorldWeary</li>
+    </nullifyingTraits>
+    <nullifyingHediffs>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+    </nullifyingHediffs>
+    <stages>
+      <li>
+        <label>talked with a conversationalist</label>
+        <description>What a stimulating conversation.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--curmudgeon mood lost for social interaction with happy person-->
+  <ThoughtDef>
+    <defName>HVT_CurmudgeonlyMood</defName>
+    <durationDays>0.42</durationDays>
+    <stackLimit>6</stackLimit>
+    <stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+    <nullifyingHediffs>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+    </nullifyingHediffs>
+    <stages>
+      <li>
+        <label>curmudgeon irritated</label>
+        <description>I hate talking with happy people. They're so annoying.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--curmudgeon opinion malus of happy people they interact with-->
+  <ThoughtDef>
+    <defName>HVT_CurmudgeonlyDislike</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <durationDays>2</durationDays>
+    <stages>
+      <li>
+        <label>curmudgeon vs happy</label>
+        <description>I hate talking with happy people. They're so annoying.</description>
+        <baseOpinionOffset>-10</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--gravers LOVE skullspikes-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_SkullspikeGraver</defName>
+    <workerClass>HautsTraits.ThoughtWorker_Skullspike</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Graver</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>skullspikes</label> <!-- 1~3 -->
+        <description>I've been around a few skullspikes recently. They make for great ambiance.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>skullspikes</label> <!-- 4~8 -->
+        <description>I've been around quite a few skullspikes recently. It sends a shiver down my spine - in a good way!</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+      <li>
+        <label>skullspikes</label> <!-- 9+ -->
+        <description>All these skullspikes have made my day!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--and more importantly, they love YOU, random corpse. like platonically tho. from an aesthetic standpoint. probably.-->
+  <ThoughtDef>
+    <defName>HVT_ObservedLayingCorpseGraver</defName>
+    <icon>Things/Mote/ThoughtSymbol/Skull</icon>
+    <showBubble>true</showBubble>
+    <thoughtClass>Thought_MemoryObservation</thoughtClass>
+    <durationDays>0.5</durationDays>
+    <stackedEffectMultiplier>0.95</stackedEffectMultiplier>
+    <stackLimit>5</stackLimit>
+    <stages>
+      <li>
+        <label>observed corpse</label>
+        <description>I got to see a dead body!</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--Hysteric debuff-->
+  <ThoughtDef>
+    <defName>HVT_ContagiousHysteria</defName>
+    <thoughtClass>HautsTraits.Thought_ContagiousHysteria</thoughtClass>
+    <durationDays>0.2</durationDays>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+      <li>HVT_Sadist</li>
+	  <li MayRequire="GWEN.mod1">GWT_SociallyNumb</li>
+	  <li MayRequire="Side1iner.TraitsPlus">S1_AllOutOfFucks</li>
+	  <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Desensitized</li>
+    </nullifyingTraits>
+    <nullifyingHediffs>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+    </nullifyingHediffs>
+    <stages>
+      <li>
+        <label>stressed by a hysteric</label>
+        <description>I got too close to someone having a hysteric fit. It was disturbing.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--lecher and leched-->
+  <ThoughtDef>
+    <defName>HVT_Leched</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_CreptOn</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+	<nullifyingTraits>
+	  <li MayRequire="Side1iner.TraitsPlus">S1_AllOutOfFucks</li>
+	</nullifyingTraits>
+    <stages>
+      <li>
+        <label>lecherously ogling me</label>
+        <baseOpinionOffset>-25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_Leching</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_ManYouCreepin</workerClass>
+    <requiredTraits>
+      <li>HVT_Lech</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>lecherous infatuation</label>
+        <baseOpinionOffset>25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--lovesicks are naturally sad, but get happy as a clam when in a relationship-->
+  <ThoughtDef>
+    <defName>HVT_SickForLove</defName>
+    <workerClass>HautsTraits.ThoughtWorker_SickForLove</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Lovesick</li>
+    </requiredTraits>
+    <nullifyingHediffs>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+    </nullifyingHediffs>
+    <stages>
+      <li>
+        <label>lovesick</label>
+        <description>There's an empty space in my heart. It hurts so much.</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+      <li>
+        <label>missing my lover</label>
+        <description>I wish my love was here with me.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li>
+        <label>love is wonderful</label>
+        <description>I'm no longer alone! I'm on top of the world!</description>
+        <baseMoodEffect>40</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_LovesickInfatuation</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_UrMyEverything</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Lovesick</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>lovesick infatuation</label>
+        <baseOpinionOffset>100</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--the emotional mess that occurs when a Lovesick's relationship is damaged or fails to launch in the first place-->
+  <ThoughtDef>
+    <defName>HVT_LovesickLetdown</defName>
+    <durationDays>3.0</durationDays>
+    <stackLimit>2</stackLimit>
+    <developmentalStageFilter>Adult</developmentalStageFilter>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+      <li>HVT_Sadist</li>
+	  <li MayRequire="Side1iner.TraitsPlus">S1_AllOutOfFucks</li>
+	  <li MayRequire="Goji.TheSimsTraits">ST_NonCommital</li>
+    </nullifyingTraits>
+    <nullifyingHediffs>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+    </nullifyingHediffs>
+    <stages>
+      <li>
+        <label>let a lovesick down</label>
+        <description>I just broke that poor sap's heart over my knee, and it feels awful.</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_RebuffedALovesick</defName>
+    <durationDays>3.0</durationDays>
+    <stackLimit>5</stackLimit>
+    <developmentalStageFilter>Adult</developmentalStageFilter>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+      <li>HVT_Sadist</li>
+	  <li MayRequire="Side1iner.TraitsPlus">S1_AllOutOfFucks</li>
+	  <li MayRequire="Goji.TheSimsTraits">ST_NonCommital</li>
+    </nullifyingTraits>
+    <nullifyingHediffs>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+    </nullifyingHediffs>
+    <stages>
+      <li>
+        <label>rebuffed a lovesick</label>
+        <description>I fended off that weirdo's advances, but the melodrama of it really got to me.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--mariner loves water-->
+  <ThoughtDef>
+    <defName>HVT_MarineLife</defName>
+    <workerClass>HautsTraits.ThoughtWorker_ILoveWater</workerClass>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <requiredTraits>
+      <li>HVT_Mariner</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>mariner is wet</label>
+        <description>I'm soaking wet.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--outdoorsies hate being stuck inside, don't care about temperature that much-->
+  <ThoughtDef>
+    <defName>HVT_OutdoorsyNeedOutdoors</defName>
+    <workerClass>ThoughtWorker_NeedOutdoors</workerClass>
+    <requiredTraits>
+      <li>HVT_Outdoorsy</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>entombed underground</label>
+        <description>I've been underground too long. I feel like the weight of this mountain is crushing me. I need to see the sky and feel the wind.</description>
+        <baseMoodEffect>-27</baseMoodEffect>
+      </li>
+      <li>
+        <label>trapped underground</label>
+        <description>How long have I been underground? I need to get out in the fresh air and spend some time under the sky.</description>
+        <baseMoodEffect>-21</baseMoodEffect>
+      </li>
+      <li>
+        <label>cabin fever</label>
+        <description>I've spent so long indoors I feel like the roof is pressing in. I need to get out and see the sky.</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+      <li>
+        <label>trapped indoors</label>
+        <description>It's been too long since I've seen the sky.</description>
+        <baseMoodEffect>-9</baseMoodEffect>
+      </li>
+      <li>
+        <label>stuck indoors</label>
+        <description>I'd like to go outside and get some fresh air.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_EnvironmentColdOutdoorsy</defName>
+    <workerClass>ThoughtWorker_Cold</workerClass>
+    <requiredTraits>
+      <li>HVT_Outdoorsy</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>chilly</label>
+        <description>I'm cold.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+       <li>
+        <label>cold</label>
+        <description>I'm shivering.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>   
+        <li>
+        <label>numbing cold</label>
+        <description>My teeth are chattering.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>absolutely freezing</label>
+        <description>My toes are numb. I need to get warm.</description>
+        <baseMoodEffect>-9</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_EnvironmentHotOutdoorsy</defName>
+    <workerClass>ThoughtWorker_Hot</workerClass>
+    <requiredTraits>
+      <li>HVT_Outdoorsy</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>sweaty</label>
+        <description>I'm sweating.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+      <li>
+        <label>hot</label>
+        <description>It's really hot out.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>    
+        <li>
+        <label>sweltering hot</label>
+        <description>You could fry an egg on the ground right now.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>blistering hot</label>
+        <description>This place is searing hot, dangerously so.</description>
+        <baseMoodEffect>-9</baseMoodEffect>
+      </li>     
+    </stages>
+  </ThoughtDef>
+  <!--outdoorsies AND vagabonds like forming and being on caravans. is the former abusable? yes, you can just draft them while they're "forming a caravan" and enjoy your +10 mood. but like, why? why would you do that?-->
+  <ThoughtDef>
+    <defName>HVT_InCaravanMood</defName>
+    <workerClass>HautsTraits.ThoughtWorker_InCaravan</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Outdoorsy</li>
+      <li>HVT_Vagabond</li>
+      <li MayRequire="Ludeon.RimWorld.Odyssey">HVT_Globetrotter</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>forming a caravan</label>
+        <description>I can't wait to be out on the road!</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <li><!--keep on driving through the night/to find myself some slice of life/to show me that I'm heading the right way/and I, I/guess you'll have to love me from afar, ah/it's okay, cause all I need's this car-->
+        <label>out on the road</label>
+        <description>Out on the road, but with nowhere to go... out on the road, out on the road I go.</description>
+        <baseMoodEffect>25</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--people pleasers are happy when those they know have a high opinion of them, and are sad in the opposite case-->
+  <ThoughtDef>
+    <defName>HVT_AmICoolYet</defName>
+    <thoughtClass>HautsTraits.Thought_Lovefool</thoughtClass><!--so I cry, and I pray, and I beg-->
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_PeoplePleaser</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>people pleaser</label>
+        <description>Mood from the 'people pleaser' trait, equal to a fifth of the average opinion everyone one knows has of oneself.</description>
+        <baseMoodEffect>0.2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--sadists gain this when someone mentally breaks-->
+  <ThoughtDef>
+    <defName>HVT_SadistSawMentalBreak</defName>
+    <durationDays>8</durationDays>
+    <stackLimit>5</stackLimit>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Sadist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>witnessed mental break</label>
+        <description>Such exquisite suffering...</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>HVT_SadistSawHysteric</defName>
+    <thoughtClass>HautsTraits.Thought_ContagiousHysteria</thoughtClass>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <durationDays>0.2</durationDays>
+    <requiredTraits>
+      <li>HVT_Sadist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>witnessed hysteric fit</label>
+        <description>What hilarity! Hysteria is so delightful to witness.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--the "victims" of sadists don't like them-->
+  <ThoughtDef>
+    <defName>HVT_SadistBad</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <durationDays>15</durationDays>
+    <stages>
+      <li>
+        <label>{0} savored my suffering</label>
+        <description>To make fun of me at my lowest - how callous!</description>
+        <baseOpinionOffset>-30</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--skulkers love being invisible-->
+  <ThoughtDef>
+    <defName>HVT_SkulkerIsInvisible</defName>
+    <workerClass>HautsTraits.ThoughtWorker_HVT_SkulkerIsInvisible</workerClass>
+    <requiredTraits>
+      <li>HVT_Skulker</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>skulker is invisible</label>
+        <description>We move unseen.</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--snipers are sad without ranged weapons-->
+  <ThoughtDef>
+    <defName>HVT_MoodOffsetSniper</defName>
+    <workerClass>HautsTraits.ThoughtWorker_SniperRangedWeapon</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Sniper</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>sniper needs ranged weapon</label>
+        <description>I hate having to get up close and personal. I need a ranged weapon.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--sunbathers like sun-->
+  <ThoughtDef>
+    <defName>HVT_SunSunSun</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>HVT_BaskInTheSun</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>yearning for sunlight</label>
+        <description>I love the feel of the sun on my skin.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+      <li>
+        <label>basking in the sun</label>
+        <description>It's so relaxing to feel the sun on my skin.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--tempestophiles love stormy weather-->
+  <ThoughtDef>
+    <defName>HVT_TempestophileWeather</defName>
+    <thoughtClass>HautsTraits.Thought_TempestWeather</thoughtClass>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <requiredTraits>
+      <li>HVT_Tempestophile</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>tempestophile</label>
+        <description>The 'Tempestophile' trait grants bonus mood while 1) under the open sky and 2) either the weather is not clear, or an exotic-yet-natural meteorological event is occuring.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--textile vs self-->
+  <ThoughtDef>
+    <defName>HVT_TextileIsNaked</defName>
+    <workerClass>HautsTraits.ThoughtWorker_ClothistVsSelf</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Textile</li>
+    </requiredTraits>
+    <nullifyingGenes>
+      <li MayRequire="Ludeon.RimWorld.Biotech">Furskin</li>
+    </nullifyingGenes>
+    <stages>
+      <li>
+        <label>textile naked</label>
+        <description>I'm naked. This is humiliating.</description>
+        <baseMoodEffect>-9</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--textile vs other-->
+  <ThoughtDef>
+    <defName>HVT_TextileVsNaked</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_BroYourGroinOrChestIsUncovered</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Textile</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>textile vs naked</label>
+        <baseOpinionOffset>-10</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--Vain moodlet for 5x personal beauty, +3 per every masterwork apparel worn, +6 per every legendary apparel worn-->
+  <ThoughtDef>
+    <defName>HVT_BeautyMoodletVain</defName>
+    <thoughtClass>HautsTraits.Thought_VanityBeautyAndGreatItems</thoughtClass>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Vain</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>beauty vanity</label>
+        <description>Mood from the 'vain' trait, equal to 5 times one's own beauty score, and further modified by the number of masterwork or legendary items worn.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--Vain moodlet for wearing normal or worse quality-->
+  <ThoughtDef>
+    <defName>HVT_VainApparelQuality</defName>
+    <workerClass>HautsTraits.ThoughtWorker_VainApparelQuality</workerClass>
+    <requiredTraits>
+      <li>HVT_Vain</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>wearing awful apparel</label>
+        <description>Why am I wearing this!? It offends every fiber of my being, and I must discard it as soon as possible.</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+      <li>
+        <label>wearing poor apparel</label>
+        <description>I am wearing dismally plebian apparel. I very much want to discard it right now.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+      <li>
+        <label>wearing normal apparel</label>
+        <description>Others may call its quality "normal", but I'm wearing something that is beneath my standards, and I should discard it.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--vickies lose mood the longer it's been since they unleashed-->
+  <ThoughtDef>
+    <defName>HVT_ViciousSad</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>5</stackLimit>
+    <stackedEffectMultiplier>1</stackedEffectMultiplier>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>viciousness needs release</label>
+        <description>I need to express myself... by hurting something... a lot.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--weapon artists want to have unique weapons-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVT_WAUW</defName>
+    <workerClass>HautsTraits.ThoughtWorker_ButThisOneIsMine</workerClass>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <requiredTraits>
+      <li>HVT_WeaponArtist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>wielding unique weapon</label>
+        <description>I can express my art to its fullest potential with this beautiful weapon.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--winsome stay winning-->
+  <ThoughtDef>
+    <defName>HVT_WinsomeLiked</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_Winsome</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+	  <li MayRequire="GWEN.mod1">GWT_SociallyNumb</li>
+	  <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_WorldWeary</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>winsome</label>
+        <baseOpinionOffset>25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--chronic nightmares before Christmas (2025-12-07)-->
+  <ThoughtDef>
+    <defName>HVT_BadDreams</defName>
+    <durationDays>0.333</durationDays>
+    <stackLimit>10</stackLimit>
+    <stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>chronic nightmares</label>
+        <description>I don't want to fall asleep again. Don't let me go to sleep again!</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--chayula.png-->
+  <ThoughtDef>
+    <defName>HVT_GoodDreams</defName>
+    <durationDays>0.333</durationDays>
+    <stackLimit>20</stackLimit>
+    <stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>vivid dreams</label>
+        <description>I just had a really beautiful dream.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--faithful vs doubtful-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_VsDoubtful</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_FaithVDoubt</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Faithful</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>faithful vs doubtful</label>
+        <baseOpinionOffset>-10</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--intolerants HATE those of diffent ideos; open-mindeds LOVE 'em-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_Intolerance</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_OfOtherIdeo</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Intolerant</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>different ideo</label>
+        <baseOpinionOffset>-25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--subjugators need to either have slaves or a position of authority while not themselves being slaves. Their mood scales per slave-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_CravingSubjugation</defName>
+    <thoughtClass>HautsTraits.Thought_CravingSubjugation</thoughtClass>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <requiredTraits>
+      <li>HVT_Subjugator</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>need for superiority</label>
+        <description>I need to feel above others, either by having slaves or by holding a position of authority. The more slaves, the better.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--libs (and anarchists) dislike it when freedoms are taken away. the more slaves, the worse off they feel-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_CravingLiberation</defName>
+    <thoughtClass>HautsTraits.Thought_CravingLiberation</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_CravingLiberation</workerClass>
+    <requiredTraits>
+      <li>HVT_Liberator</li>
+      <li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+    </requiredTraits>
+    <nullifyingHediffs>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+    </nullifyingHediffs>
+    <stages>
+      <li>
+        <label>the stench of slavery</label>
+        <description>No one should be enslaved.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+      <li>
+        <label>freedom for all</label>
+        <description>It is good that nobody is enslaved or imprisoned.</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--very superstitious, nothin' more to say...-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_SuperstitionGrandMal</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>2</stackLimit>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>Superstitious (horrifying omen)</label>
+        <description>I have witnessed a particularly fell portent. What woe does it portend?</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_SuperstitionLilMal</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>2</stackLimit>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>Superstitious (bad omen)</label>
+        <description>Something wicked this way comes.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_SuperstitionUp</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>2</stackLimit>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>Superstitious (good omen)</label>
+        <description>Something good will happen soon, I'm sure of it.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>HVT_SuperstitionWayUp</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>2</stackLimit>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>Superstitious (wondrous omen)</label>
+        <description>I've seen an amazing sign - everything's coming up aces!</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--gene purists are space racist-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_GenePurism</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_GenePurism</workerClass>
+    <requiredTraits>
+      <li>HVT_GenePurist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>xeno scum</label>
+        <baseOpinionOffset>-25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_XenogenePurism</defName>
+    <durationDays>90</durationDays>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_GenePurist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>xenogenetic abomination</label>
+        <description>My genetic purity was sullied with filth.</description>
+        <baseMoodEffect>-18</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--misopedists dislike children, caretakers like them-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_Misopedy</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_Child</workerClass>
+    <requiredTraits>
+      <li>HVT_Misopedist</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>child</label>
+        <baseOpinionOffset>-25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_KidsAreCool</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_Child</workerClass>
+    <requiredTraits>
+      <li>HVT_Caretaker</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>child</label>
+        <baseOpinionOffset>25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--misopedists dislike being around children, caretakers opposite. however caretakers ALSO need there to be at least 1 child in the colony lest they become nutters-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_Misopedist_MinorsDNI</defName>
+    <thoughtClass>HautsTraits.Thought_Situational_HateChildrenInColony</thoughtClass>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <requiredTraits>
+      <li>HVT_Misopedist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>misopedist</label>
+        <description>Any children is too many.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_Caretaker_ChildrenInColony</defName>
+    <thoughtClass>HautsTraits.Thought_Situational_NeedChildrenInColony</thoughtClass>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <requiredTraits>
+      <li>HVT_Caretaker</li>
+    </requiredTraits>
+    <nullifyingHediffs>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+    </nullifyingHediffs>
+    <stages>
+      <li>
+        <label>caretaker</label>
+        <description>Children are a joy and a gift. The more children, the merrier.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--misopedists are really out here saying shit like "preggo" and think they are cool; caretakers are not weirdos like that-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_Misopregnancy</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_Pregnant</workerClass>
+    <requiredTraits>
+      <li>HVT_Misopedist</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>pregnant</label>
+        <baseOpinionOffset>-20</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_PregnancyIsCool</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_Pregnant</workerClass>
+    <requiredTraits>
+      <li>HVT_Caretaker</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>pregnant</label>
+        <baseOpinionOffset>20</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--on an unrelated note, misopedists dislike being pregnant, and caretakers are cool with it-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_ChildTraitsPregnant</defName>
+    <workerClass>HautsTraits.ThoughtWorker_IsPregnant</workerClass>
+    <nullifyingHediffs>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+    </nullifyingHediffs>
+    <stages>
+      <li>
+        <label>misopedist is pregnant</label>
+        <description>I have got one of the disgusting little things inside me.</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+      <li>
+        <label>caretaker is pregnant</label>
+        <description>I have been entrusted with the greatest responsibility.</description>
+        <baseMoodEffect>12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--mechaphiles/phobes love/hate mechanitors-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_MechaphileVsMechanitor</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_VsMechanitor</workerClass>
+    <requiredTraits>
+      <li>HVT_Mechaphile</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>mechanitor</label>
+        <baseOpinionOffset>25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_MechaphobeVsMechanitor</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_VsMechanitor</workerClass>
+    <requiredTraits>
+      <li>HVT_Mechaphobe</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>mechanitor</label>
+        <baseOpinionOffset>-25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--mechaphiles also love being mechanitors themselves. mechaphobes hate it, but only a little-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_MechaphileIsMechanitor</defName>
+    <workerClass>HautsTraits.ThoughtWorker_IsMechanitor</workerClass>
+    <requiredTraits>
+      <li>HVT_Mechaphile</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>I'm a mechanitor</label>
+        <description>I'm so glad I have the privilege to conduct mechanoids.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_MechaphobeIsMechanitor</defName>
+    <workerClass>HautsTraits.ThoughtWorker_IsMechanitor</workerClass>
+    <requiredTraits>
+      <li>HVT_Mechaphobe</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>I'm a mechanitor</label>
+        <description>No one should have this power. This insidious thing in my brain... no good can come from it.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--and they get a mood effect PER controlled mechanoid-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_Mechaphile_MechsInColony</defName>
+    <thoughtClass>HautsTraits.Thought_Situational_MechsInColony</thoughtClass>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <requiredTraits>
+      <li>HVT_Mechaphile</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>mechaphile</label>
+        <description>It is right for man and machine for coexist. The more mechanoids we have around, the better.</description>
+        <baseMoodEffect>0.5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_Mechaphobe_MechsInColony</defName>
+    <thoughtClass>HautsTraits.Thought_Situational_MechsInColony</thoughtClass>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <requiredTraits>
+      <li>HVT_Mechaphobe</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>mechaphobe</label>
+        <description>The more mechanoids we have around, the more I worry for our safety.</description>
+        <baseMoodEffect>-0.5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--mechaphiles weep when an allied mech dies-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_MechaphileWitnessedMechDeath</defName>
+    <durationDays>6</durationDays>
+    <stackLimit>10</stackLimit>
+    <stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+    <nullifyingHediffs>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+    </nullifyingHediffs>
+    <stages>
+      <li>
+        <label>saw allied mechanoid die</label>
+        <description>Mechs can be rebuilt, but they never come back the same. We lost someone.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--mechaphobes love killing toasters-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_MechaphobeKilledMech</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>50</stackLimit>
+    <requiredTraits>
+      <li>HVT_Mechaphobe</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>killed a mechanoid</label>
+        <description>Frakkin' clankers.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--environmentalists dislike more polluted tiles-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_Environmentalist_HatesPollution</defName>
+    <thoughtClass>HautsTraits.Thought_Situational_PollutionOnTile</thoughtClass>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Environmentalist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>environmentalism</label>
+        <description>Environmentalists are unhappy in more polluted lands, but very happy in unpolluted ones.</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--they also dislike mechanitors, though not as much as the dedicated mechaphobe trait-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_EnvironmentalistVsMechanitor</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_VsMechanitor</workerClass>
+    <requiredTraits>
+      <li>HVT_Environmentalist</li>
+    </requiredTraits>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>polluting mechanitor</label>
+        <baseOpinionOffset>-10</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--and they don't want to BE mechanitors-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_EnvironmentalistIsMechanitor</defName>
+    <workerClass>HautsTraits.ThoughtWorker_IsMechanitor</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Environmentalist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>I'm a mechanitor</label>
+        <description>I don't want this power.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--envy replacement for acidic smog moodlet: they dislike it on a conceptual level, so it's fine that we make a unique replacement rather than use a C# multiplier patch-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_EnviNoxiousHaze</defName>
+    <validWhileDespawned>true</validWhileDespawned>
+    <workerClass>HautsTraits.ThoughtWorker_NoxiousHazeUndefeatable</workerClass>
+    <requiredTraits>
+      <li>HVT_Environmentalist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>environmentalist vs smog</label>
+        <description>This world is hurting.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--catastroph into Anomalous activity, planetkillers, and terrible climate-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVT_CatastropheVoid</defName>
+    <validWhileDespawned>true</validWhileDespawned>
+    <workerClass>HautsTraits.ThoughtWorker_AnomalyActivityLevel</workerClass>
+    <requiredTraits>
+      <li>HVT_Catastrophist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>unnatural catastrophe</label>
+        <description>The void will break this world under the weight of an endless black sky. It makes me shiver with anticipation.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVT_CatastrophePlanetkiller</defName>
+    <validWhileDespawned>true</validWhileDespawned>
+    <thoughtClass>HautsTraits.Thought_Planetkiller</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_Planetkiller</workerClass>
+    <requiredTraits>
+      <li>HVT_Catastrophist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>planetkiller catastrophe</label>
+        <description>A planetkiller is on its way. It will be here soon - and oh, when it arrives, everything will be unmade in glorious fire.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVT_CatastropheClimate</defName>
+    <validWhileDespawned>true</validWhileDespawned>
+    <thoughtClass>HautsTraits.Thought_CatastrophicClimate</thoughtClass>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <requiredTraits>
+      <li>HVT_Catastrophist</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>climate catastrophe</label>
+        <description>The 'catastrophist' trait grants bonus mood while 1) under the open sky and 2) there is a destructive climatological event occuring, such as a volcanic winter or toxic fallout.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVT_MindCorruption</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>HVT_CorruptionTracker</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>uncorrupted</label>
+        <description>The void? Huh?</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+      <li>
+        <label>minor corruption</label>
+        <description>It stirs. Something unspeakable looms in the edges of my perceptions.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <label>moderate corruption</label>
+        <description>Maddened murmurings reach me even now... from the depths of darkness, something beckons...</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+      <li>
+        <label>major corruption</label>
+        <description>There is nowhere to hide. There never was. Sightless, its gaze pierces all places and moments. Sleepless, its dreams run manifest. Formless, yet I can feel it all about me-!</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+      <li>
+        <label>utter corruption</label>
+        <description>I understand now! The binding force of the universe is hatred! It runs thick, hot, lightless; braiding and twining madly in the space-beneath-space. This cosmos, with its stars and its lives and its hope and happiness and laughter - it is all some sick, malformed joke!</description>
+        <baseMoodEffect>-20</baseMoodEffect>
+      </li>
+      <li>
+        <label>lingering corruption</label>
+        <description>The harsh cacophany of the void has dimmed, but it was not banished from this world. It lingers at the edges of my thoughts still.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--sensation of being haunted-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVT_HauntingPresence</defName>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Haunted</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>haunted</label>
+        <description>It is always out there, lurking. I feel its attention upon me like a physical thing, slick and oily and choking.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--monster hunters never work a day in their lives; but mosnter lovers wish to meet up irl-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVT_MonsterHunterWorld</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>10</stackLimit>
+    <requiredTraits>
+      <li>HVT_MonsterHunter</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>killed an unnatural entity</label>
+        <description>I am what the night fears.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVT_MelanieMartinez</defName>
+    <validWhileDespawned>true</validWhileDespawned>
+    <workerClass>HautsTraits.ThoughtWorker_AnomalyInactive</workerClass>
+    <stages>
+      <li>
+        <label>safe from monsters</label>
+        <description>Our world is safe from the void - or, at least, as safe as anyone can be from that realm of nightmare.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>monster love unattainable</label>
+        <description>open the void open the void open the void open the void open the void</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--monster lovers have a mod option to like diff xenotypes/species-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVT_PseudoMonsterLove</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_PseudoMonsterLove</workerClass>
+    <requiredTraits>
+      <li>HVT_MonsterLover</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>monstrous appearance</label>
+        <baseOpinionOffset>25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--twisted vs others-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVT_TwistedInhumanity</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HautsTraits.ThoughtWorker_ThourtInhumanized</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Twisted</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>disappointingly human</label>
+        <baseOpinionOffset>-25</baseOpinionOffset>
+      </li>
+      <li>
+        <label>inhumanized</label>
+        <baseOpinionOffset>25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--twisted wants to be inhuman-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>HVT_TwistedYearning</defName>
+    <workerClass>HautsTraits.ThoughtWorker_TwistedYearning</workerClass>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <requiredTraits>
+      <li>HVT_Twisted</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>twisted yearning</label>
+        <description>I am shackled by my humanity. Something glorious waits on the other side...</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--earthborne hates orbit; skybound loves it-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVT_IHateSpace</defName>
+    <workerClass>HautsTraits.ThoughtWorker_NotInKansasAnymore</workerClass>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <requiredTraits>
+      <li>HVT_Earthborne</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>earthborne in space</label>
+        <description>This is too high up. I miss the solid ground...</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVT_ILoveSpace</defName>
+    <workerClass>HautsTraits.ThoughtWorker_NotInKansasAnymore</workerClass>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <requiredTraits>
+      <li>HVT_Skybound</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>skybound in space</label>
+        <description>Can we get much higher? ... Maybe, but this is pretty good.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--earthborne hates transporter/gravship travel; skybound loves-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVT_IHateFlying</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>3</stackLimit>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Earthborne</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>earthborne forced to fly</label>
+        <description>I hate flying! I never want to leave the ground ever again.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVT_ILoveFlying</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>3</stackLimit>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Skybound</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>skybound got to fly</label>
+        <description>What a rush! What a thrill! Let's do it again!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--angler mood from fishing-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVT_FishinsReelyFun</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>5</stackLimit>
+    <stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Angler</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>angler fished recently</label>
+        <description>Fishing is a joy.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--angler can't stand fishless maps-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVT_WhereHaveTheFishGone</defName>
+    <workerClass>HautsTraits.ThoughtWorker_AnglerYearning</workerClass>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <requiredTraits>
+      <li>HVT_Angler</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>no fish nearby</label>
+        <description>How am I gonna fish... WITHOUT FISH!?</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--pescatarians love fish-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVT_TheSnackThatSmilesBack</defName>
+    <durationDays>0.8</durationDays>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>HVT_Pescatarian</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>pescatarian ate fish</label>
+        <description>Fish are food, not friends. And what tasty food they are!</description>
+        <baseMoodEffect>9</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!--globetrotters gain mood per witnessed biome or landmark-->
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>HVT_GlobetrotterMood</defName>
+    <workerClass>HautsTraits.ThoughtWorker_GlobetrotHediff</workerClass>
+    <hediff>HVT_GlobetrotterTracker</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>globetrotter</label>
+        <description>The "Globetrotter" trait grants +0.5 mood per unique biome or landmark feature witnessed.</description>
+        <baseMoodEffect>0.5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+</Defs>

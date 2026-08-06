@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+		  <li>VSIE - Rational Trait Development</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/VSIERationalTraitDevelopment.TraitPoolDef[defName = "VSIE_TraitChangePawnResurrected"]/traits</xpath>
+					<value>
+						<HVT_Aestheticist>0</HVT_Aestheticist>
+						<HVT_Agrizoophobe>0</HVT_Agrizoophobe>
+						<HVT_Allegiant>0</HVT_Allegiant>
+						<HVT_Asocial>0</HVT_Asocial>
+						<HVT_Bookworm>0</HVT_Bookworm>
+						<HVT_Champion>0</HVT_Champion>
+						<HVT_Conversationalist>0</HVT_Conversationalist>
+						<HVT_Daydreamer>0</HVT_Daydreamer>
+						<HVT_Drudge>0</HVT_Drudge>
+						<HVT_Graver>0</HVT_Graver>
+						<HVT_Hale>0</HVT_Hale>
+						<HVT_Hedonist>0</HVT_Hedonist>
+						<HVT_Hotfoot>0</HVT_Hotfoot>
+						<HVT_Hysteric>0</HVT_Hysteric>
+						<HVT_Judgemental>0</HVT_Judgemental>
+						<HVT_Lech>0</HVT_Lech>
+						<HVT_Lovesick>0</HVT_Lovesick>
+						<HVT_Mariner>0</HVT_Mariner>
+						<HVT_MetabolicFreak>0</HVT_MetabolicFreak>
+						<HVT_Outdoorsy>0</HVT_Outdoorsy>
+						<HVT_PeoplePleaser>0</HVT_PeoplePleaser>
+						<HVT_RepressedRage>0</HVT_RepressedRage>
+						<HVT_Reveller>0</HVT_Reveller>
+						<HVT_Sadist>0</HVT_Sadist>
+						<HVT_Skulker>0</HVT_Skulker>
+						<HVT_Sniper>0</HVT_Sniper>
+						<HVT_Staid>0</HVT_Staid>
+						<HVT_Tempestophile>0</HVT_Tempestophile>
+						<HVT_Textile>0</HVT_Textile>
+						<HVT_Tranquil>0</HVT_Tranquil>
+						<HVT_Vagabond>0</HVT_Vagabond>
+						<HVT_Vain>0</HVT_Vain>
+						<HVT_Vicious>0</HVT_Vicious>
+						<HVT_Visionary>0</HVT_Visionary>
+						<HVT_Imperceptive>0</HVT_Imperceptive>
+						<HVT_Perceptive>1</HVT_Perceptive>
+						<HVT_Perceptive>2</HVT_Perceptive>
+						<HVT_Strong>1</HVT_Strong>
+						<HVT_Strong>2</HVT_Strong>
+						<HVT_Humble>0</HVT_Humble>
+						<HVT_Prideful>1</HVT_Prideful>
+						<HVT_Prideful>2</HVT_Prideful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">-2</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">-1</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">1</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">2</HVT_Faithful>
+						<HVT_Doubtful MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Doubtful>
+						<HVT_Intolerant MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Intolerant>
+						<HVT_Tolerant MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Tolerant>
+						<HVT_Subjugator MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Subjugator>
+						<HVT_Liberator MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Liberator>
+						<HVT_Conformist MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Conformist>
+						<HVT_Guru MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Guru>
+						<HVT_PersecutionComplex MayRequire="Ludeon.RimWorld.Ideology">0</HVT_PersecutionComplex>
+						<HVT_Proclaimer MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Proclaimer>
+						<HVT_RadicalThinker MayRequire="Ludeon.RimWorld.Ideology">0</HVT_RadicalThinker>
+						<HVT_Superstitious MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Superstitious>
+						<HVT_Caretaker MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Caretaker>
+						<HVT_Misopedist MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Misopedist>
+						<HVT_Mechaphile MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Mechaphile>
+						<HVT_Mechaphobe MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Mechaphobe>
+						<HVT_Environmentalist MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Environmentalist>
+						<HVT_GenePurist MayRequire="Ludeon.RimWorld.Biotech">0</HVT_GenePurist>
+						<HVT_Mentor MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Mentor>
+						<HVT_Anarchist MayRequire="Ludeon.RimWorld.Royalty">0</HVT_Anarchist>
+						<HVT_Servile MayRequire="Ludeon.RimWorld.Royalty">0</HVT_Servile>
+						<HVT_LatentPsychic MayRequire="Ludeon.RimWorld.Royalty">1</HVT_LatentPsychic>
+						<HVT_LatentPsychic MayRequire="Ludeon.RimWorld.Royalty">2</HVT_LatentPsychic>
+						<HVT_LatentPsychic MayRequire="Ludeon.RimWorld.Royalty">3</HVT_LatentPsychic>
+						<HVT_LatentPsychic MayRequire="Ludeon.RimWorld.Royalty">4</HVT_LatentPsychic>
+						<HVT_LatentPsychic MayRequire="Ludeon.RimWorld.Royalty">5</HVT_LatentPsychic>
+						<HVT_LatentPsychic MayRequire="Ludeon.RimWorld.Royalty">6</HVT_LatentPsychic>
+						<HVT_Catastrophist MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Catastrophist>
+						<HVT_Corruptible MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Corruptible>
+						<HVT_Haunted MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Haunted>
+						<HVT_MonsterHunter MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_MonsterHunter>
+						<HVT_MonsterLover MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_MonsterLover>
+						<HVT_Twisted MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Twisted>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/VSIERationalTraitDevelopment.TraitPoolDef[defName = "VSIE_TraitChangePawnHasCatatonicBreakdown"]/traits</xpath>
+					<value>
+						<HVT_Allegiant>0</HVT_Allegiant>
+						<HVT_Asocial>0</HVT_Asocial>
+						<HVT_Daydreamer>0</HVT_Daydreamer>
+						<HVT_Drudge>0</HVT_Drudge>
+						<HVT_Graver>0</HVT_Graver>
+						<HVT_Hedonist>0</HVT_Hedonist>
+						<HVT_Hysteric>0</HVT_Hysteric>
+						<HVT_Judgemental>0</HVT_Judgemental>
+						<HVT_Lech>0</HVT_Lech>
+						<HVT_Lovesick>0</HVT_Lovesick>
+						<HVT_Mariner>0</HVT_Mariner>
+						<HVT_Tempestophile>0</HVT_Tempestophile>
+						<HVT_Tranquil>0</HVT_Tranquil>
+						<HVT_Vain>0</HVT_Vain>
+						<HVT_Visionary>0</HVT_Visionary>
+						<HVT_Imperceptive>0</HVT_Imperceptive>
+						<HVT_Intolerant MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Intolerant>
+						<HVT_RadicalThinker MayRequire="Ludeon.RimWorld.Ideology">0</HVT_RadicalThinker>
+						<HVT_Superstitious MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Superstitious>
+						<HVT_Anarchist MayRequire="Ludeon.RimWorld.Royalty">0</HVT_Anarchist>
+						<HVT_Catastrophist MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Catastrophist>
+						<HVT_Corruptible MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Corruptible>
+						<HVT_Haunted MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Haunted>
+						<HVT_Twisted MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Twisted>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/VSIERationalTraitDevelopment.TraitPoolDef[defName = "VSIE_TraitChangeFamilyMemberDied"]/traits</xpath>
+					<value>
+						<HVT_Allegiant>0</HVT_Allegiant>
+						<HVT_Asocial>0</HVT_Asocial>
+						<HVT_Champion>0</HVT_Champion>
+						<HVT_Conversationalist>0</HVT_Conversationalist>
+						<HVT_Daydreamer>0</HVT_Daydreamer>
+						<HVT_Graver>0</HVT_Graver>
+						<HVT_Hale>0</HVT_Hale>
+						<HVT_Hedonist>0</HVT_Hedonist>
+						<HVT_Hotfoot>0</HVT_Hotfoot>
+						<HVT_Hysteric>0</HVT_Hysteric>
+						<HVT_Judgemental>0</HVT_Judgemental>
+						<HVT_Lovesick>0</HVT_Lovesick>
+						<HVT_PeoplePleaser>0</HVT_PeoplePleaser>
+						<HVT_RepressedRage>0</HVT_RepressedRage>
+						<HVT_Reveller>0</HVT_Reveller>
+						<HVT_Sadist>0</HVT_Sadist>
+						<HVT_Skulker>0</HVT_Skulker>
+						<HVT_Staid>0</HVT_Staid>
+						<HVT_Tranquil>0</HVT_Tranquil>
+						<HVT_Vagabond>0</HVT_Vagabond>
+						<HVT_Vicious>0</HVT_Vicious>
+						<HVT_Imperceptive>0</HVT_Imperceptive>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">-2</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">-1</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">1</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">2</HVT_Faithful>
+						<HVT_Doubtful MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Doubtful>
+						<HVT_Intolerant MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Intolerant>
+						<HVT_Tolerant MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Tolerant>
+						<HVT_Guru MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Guru>
+						<HVT_RadicalThinker MayRequire="Ludeon.RimWorld.Ideology">0</HVT_RadicalThinker>
+						<HVT_Superstitious MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Superstitious>
+						<HVT_Caretaker MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Caretaker>
+						<HVT_Misopedist MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Misopedist>
+						<HVT_Catastrophist MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Catastrophist>
+						<HVT_Corruptible MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Corruptible>
+						<HVT_Haunted MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Haunted>
+						<HVT_MonsterHunter MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_MonsterHunter>
+						<HVT_Twisted MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Twisted>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/VSIERationalTraitDevelopment.TraitPoolDef[defName = "VSIE_CatarhisAfterMentalBreak"]/traits</xpath>
+					<value>
+						<HVT_Champion>0</HVT_Champion>
+						<HVT_Hale>0</HVT_Hale>
+						<HVT_Outdoorsy>0</HVT_Outdoorsy>
+						<HVT_Tempestophile>0</HVT_Tempestophile>
+						<HVT_Vicious>0</HVT_Vicious>
+						<HVT_Visionary>0</HVT_Visionary>
+						<HVT_Allegiant>0</HVT_Allegiant>
+						<HVT_Perceptive>1</HVT_Perceptive>
+						<HVT_Perceptive>2</HVT_Perceptive>
+						<HVT_Strong>1</HVT_Strong>
+						<HVT_Strong>2</HVT_Strong>
+						<HVT_Humble>0</HVT_Humble>
+						<HVT_Prideful>1</HVT_Prideful>
+						<HVT_Prideful>2</HVT_Prideful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">-2</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">-1</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">1</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">2</HVT_Faithful>
+						<HVT_Doubtful MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Doubtful>
+						<HVT_Tolerant MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Tolerant>
+						<HVT_Guru MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Guru>
+						<HVT_Proclaimer MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Proclaimer>
+						<HVT_RadicalThinker MayRequire="Ludeon.RimWorld.Ideology">0</HVT_RadicalThinker>
+						<HVT_Caretaker MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Caretaker>
+						<HVT_Mentor MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Mentor>
+						<HVT_Catastrophist MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Catastrophist>
+						<HVT_Twisted MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Twisted>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/VSIERationalTraitDevelopment.TraitPoolDef[defName = "VSIE_RecoveredAfterDeadlyDisease"]/traits</xpath>
+					<value>
+						<HVT_Agrizoophobe>0</HVT_Agrizoophobe>
+						<HVT_Asocial>0</HVT_Asocial>
+						<HVT_Bookworm>0</HVT_Bookworm>
+						<HVT_Daydreamer>0</HVT_Daydreamer>
+						<HVT_Graver>0</HVT_Graver>
+						<HVT_Hotfoot>0</HVT_Hotfoot>
+						<HVT_Mariner>0</HVT_Mariner>
+						<HVT_Textile>0</HVT_Textile>
+						<HVT_Imperceptive>0</HVT_Imperceptive>
+						<HVT_Perceptive>1</HVT_Perceptive>
+						<HVT_Perceptive>2</HVT_Perceptive>
+						<HVT_Humble>0</HVT_Humble>
+						<HVT_Prideful>1</HVT_Prideful>
+						<HVT_Prideful>2</HVT_Prideful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">-2</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">-1</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">1</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">2</HVT_Faithful>
+						<HVT_Doubtful MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Doubtful>
+						<HVT_PersecutionComplex MayRequire="Ludeon.RimWorld.Ideology">0</HVT_PersecutionComplex>
+						<HVT_Proclaimer MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Proclaimer>
+						<HVT_RadicalThinker MayRequire="Ludeon.RimWorld.Ideology">0</HVT_RadicalThinker>
+						<HVT_Superstitious MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Superstitious>
+						<HVT_Caretaker MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Caretaker>
+						<HVT_Misopedist MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Misopedist>
+						<HVT_GenePurist MayRequire="Ludeon.RimWorld.Biotech">0</HVT_GenePurist>
+						<HVT_Mentor MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Mentor>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/VSIERationalTraitDevelopment.TraitPoolDef[defName = "VSIE_BirthdayEvent"]/traits</xpath>
+					<value>
+						<HVT_Aestheticist>0</HVT_Aestheticist>
+						<HVT_Allegiant>0</HVT_Allegiant>
+						<HVT_Asocial>0</HVT_Asocial>
+						<HVT_Bookworm>0</HVT_Bookworm>
+						<HVT_Champion>0</HVT_Champion>
+						<HVT_Conversationalist>0</HVT_Conversationalist>
+						<HVT_Daydreamer>0</HVT_Daydreamer>
+						<HVT_Hedonist>0</HVT_Hedonist>
+						<HVT_Hotfoot>0</HVT_Hotfoot>
+						<HVT_Judgemental>0</HVT_Judgemental>
+						<HVT_Lech>0</HVT_Lech>
+						<HVT_Mariner>0</HVT_Mariner>
+						<HVT_Outdoorsy>0</HVT_Outdoorsy>
+						<HVT_PeoplePleaser>0</HVT_PeoplePleaser>
+						<HVT_Reveller>0</HVT_Reveller>
+						<HVT_Skulker>0</HVT_Skulker>
+						<HVT_Sniper>0</HVT_Sniper>
+						<HVT_Tempestophile>0</HVT_Tempestophile>
+						<HVT_Textile>0</HVT_Textile>
+						<HVT_Vagabond>0</HVT_Vagabond>
+						<HVT_Vicious>0</HVT_Vicious>
+						<HVT_Prideful>1</HVT_Prideful>
+						<HVT_Prideful>2</HVT_Prideful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">-2</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">-1</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">1</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">2</HVT_Faithful>
+						<HVT_Doubtful MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Doubtful>
+						<HVT_Intolerant MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Intolerant>
+						<HVT_Tolerant MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Tolerant>
+						<HVT_Conformist MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Conformist>
+						<HVT_Guru MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Guru>
+						<HVT_Proclaimer MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Proclaimer>
+						<HVT_RadicalThinker MayRequire="Ludeon.RimWorld.Ideology">0</HVT_RadicalThinker>
+						<HVT_Caretaker MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Caretaker>
+						<HVT_Misopedist MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Misopedist>
+						<HVT_Mechaphile MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Mechaphile>
+						<HVT_Mechaphobe MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Mechaphobe>
+						<HVT_Environmentalist MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Environmentalist>
+						<HVT_GenePurist MayRequire="Ludeon.RimWorld.Biotech">0</HVT_GenePurist>
+						<HVT_Mentor MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Mentor>
+						<HVT_Anarchist MayRequire="Ludeon.RimWorld.Royalty">0</HVT_Anarchist>
+						<HVT_Servile MayRequire="Ludeon.RimWorld.Royalty">0</HVT_Servile>
+						<HVT_Catastrophist MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Catastrophist>
+						<HVT_MonsterHunter MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_MonsterHunter>
+						<HVT_MonsterLover MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_MonsterLover>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/VSIERationalTraitDevelopment.TraitPoolDef[defName = "VSIE_BestowingCeremony"]/traits</xpath>
+					<value>
+						<HVT_Aestheticist>0</HVT_Aestheticist>
+						<HVT_Allegiant>0</HVT_Allegiant>
+						<HVT_Asocial>0</HVT_Asocial>
+						<HVT_Bookworm>0</HVT_Bookworm>
+						<HVT_Champion>0</HVT_Champion>
+						<HVT_Conversationalist>0</HVT_Conversationalist>
+						<HVT_Daydreamer>0</HVT_Daydreamer>
+						<HVT_Hedonist>0</HVT_Hedonist>
+						<HVT_Hotfoot>0</HVT_Hotfoot>
+						<HVT_Judgemental>0</HVT_Judgemental>
+						<HVT_Lech>0</HVT_Lech>
+						<HVT_Lovesick>0</HVT_Lovesick>
+						<HVT_Mariner>0</HVT_Mariner>
+						<HVT_Outdoorsy>0</HVT_Outdoorsy>
+						<HVT_PeoplePleaser>0</HVT_PeoplePleaser>
+						<HVT_Reveller>0</HVT_Reveller>
+						<HVT_Sadist>0</HVT_Sadist>
+						<HVT_Textile>0</HVT_Textile>
+						<HVT_Vain>0</HVT_Vain>
+						<HVT_Vicious>0</HVT_Vicious>
+						<HVT_Visionary>0</HVT_Visionary>
+						<HVT_Humble>0</HVT_Humble>
+						<HVT_Prideful>1</HVT_Prideful>
+						<HVT_Prideful>2</HVT_Prideful>
+						<HVT_Guru MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Guru>
+						<HVT_Proclaimer MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Proclaimer>
+						<HVT_RadicalThinker MayRequire="Ludeon.RimWorld.Ideology">0</HVT_RadicalThinker>
+						<HVT_Caretaker MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Caretaker>
+						<HVT_Mechaphile MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Mechaphile>
+						<HVT_Mechaphobe MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Mechaphobe>
+						<HVT_Mentor MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Mentor>
+						<HVT_LatentPsychic MayRequire="Ludeon.RimWorld.Royalty">1</HVT_LatentPsychic>
+						<HVT_LatentPsychic MayRequire="Ludeon.RimWorld.Royalty">2</HVT_LatentPsychic>
+						<HVT_LatentPsychic MayRequire="Ludeon.RimWorld.Royalty">3</HVT_LatentPsychic>
+						<HVT_LatentPsychic MayRequire="Ludeon.RimWorld.Royalty">4</HVT_LatentPsychic>
+						<HVT_LatentPsychic MayRequire="Ludeon.RimWorld.Royalty">5</HVT_LatentPsychic>
+						<HVT_LatentPsychic MayRequire="Ludeon.RimWorld.Royalty">6</HVT_LatentPsychic>
+						<HVT_Catastrophist MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Catastrophist>
+						<HVT_MonsterHunter MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_MonsterHunter>
+						<HVT_MonsterLover MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_MonsterLover>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/VSIERationalTraitDevelopment.TraitPoolDef[defName = "VSIE_ToughtRaidEvent"]/traits</xpath>
+					<value>
+						<HVT_Aestheticist>0</HVT_Aestheticist>
+						<HVT_Allegiant>0</HVT_Allegiant>
+						<HVT_Asocial>0</HVT_Asocial>
+						<HVT_Graver>0</HVT_Graver>
+						<HVT_Hale>0</HVT_Hale>
+						<HVT_Hotfoot>0</HVT_Hotfoot>
+						<HVT_Judgemental>0</HVT_Judgemental>
+						<HVT_Lech>0</HVT_Lech>
+						<HVT_Lovesick>0</HVT_Lovesick>
+						<HVT_Mariner>0</HVT_Mariner>
+						<HVT_PeoplePleaser>0</HVT_PeoplePleaser>
+						<HVT_RepressedRage>0</HVT_RepressedRage>
+						<HVT_Reveller>0</HVT_Reveller>
+						<HVT_Sadist>0</HVT_Sadist>
+						<HVT_Skulker>0</HVT_Skulker>
+						<HVT_Sniper>0</HVT_Sniper>
+						<HVT_Staid>0</HVT_Staid>
+						<HVT_Textile>0</HVT_Textile>
+						<HVT_Tranquil>0</HVT_Tranquil>
+						<HVT_Vagabond>0</HVT_Vagabond>
+						<HVT_Vicious>0</HVT_Vicious>
+						<HVT_Imperceptive>0</HVT_Imperceptive>
+						<HVT_Perceptive>1</HVT_Perceptive>
+						<HVT_Perceptive>2</HVT_Perceptive>
+						<HVT_Strong>1</HVT_Strong>
+						<HVT_Strong>2</HVT_Strong>
+						<HVT_Prideful>1</HVT_Prideful>
+						<HVT_Prideful>2</HVT_Prideful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">-2</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">-1</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">1</HVT_Faithful>
+						<HVT_Faithful MayRequire="Ludeon.RimWorld.Ideology">2</HVT_Faithful>
+						<HVT_Doubtful MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Doubtful>
+						<HVT_Subjugator MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Subjugator>
+						<HVT_Liberator MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Liberator>
+						<HVT_PersecutionComplex MayRequire="Ludeon.RimWorld.Ideology">0</HVT_PersecutionComplex>
+						<HVT_Superstitious MayRequire="Ludeon.RimWorld.Ideology">0</HVT_Superstitious>
+						<HVT_Caretaker MayRequire="Ludeon.RimWorld.Biotech">0</HVT_Caretaker>
+						<HVT_Catastrophist MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Catastrophist>
+						<HVT_Corruptible MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Corruptible>
+						<HVT_Haunted MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Haunted>
+						<HVT_MonsterHunter MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_MonsterHunter>
+						<HVT_MonsterLover MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_MonsterLover>
+						<HVT_Twisted MayRequire="Ludeon.RimWorld.Anomaly">0</HVT_Twisted>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

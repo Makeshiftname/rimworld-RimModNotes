@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--more hediffs gained from psychic bonding when specific traits are involved-->
+	<HediffDef ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondClothier</defName>
+		<label>Psychic bond (Clothier)</label>
+		<description>Both psychically-bonded individuals benefit from reduced wear and tear of worn apparel.</description>
+		<stages>
+			<li>
+				<statFactors>
+					<Hauts_ApparelWearRateFactor>0.8</Hauts_ApparelWearRateFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondSocialite</defName>
+		<label>Psychic bond (Socialite)</label>
+		<description>Both psychically-bonded individuals benefit from increased social impact.</description>
+		<stages>
+			<li>
+				<statFactors>
+					<SocialImpact>1.05</SocialImpact>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondHedonist</defName>
+		<label>Psychic bond (Joyful)</label>
+		<description>Both psychically-bonded individuals benefit from increased boredom drop rate and skill gain from recreation.</description>
+		<stages>
+			<li>
+				<statFactors>
+					<Hauts_SkillGainFromRecreation>1.5</Hauts_SkillGainFromRecreation>
+				</statFactors>
+				<statOffsets>
+					<Hauts_BoredomDropPerDay>0.02</Hauts_BoredomDropPerDay>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondSneak</defName>
+		<label>Psychic bond (Sneak)</label>
+		<description>Both psychically-bonded individuals benefit from increased pilfering stealth.</description>
+		<stages>
+			<li>
+				<statOffsets>
+				  <Hauts_PilferingStealth>0.15</Hauts_PilferingStealth>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondMariner</defName>
+		<label>Psychic bond (Aquatic)</label>
+		<description>Both psychically-bonded individuals benefit from increased speed in water.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<stages>
+		  <li>
+		  </li>
+		  <li>
+			<label>in water</label>
+			<minSeverity>0.3</minSeverity>
+			<statFactors>
+			  <MoveSpeed>1.1</MoveSpeed>
+			</statFactors>
+		  </li>
+		</stages>
+		<comps>
+		  <li Class="HautsFramework.HediffCompProperties_WaterImmersionSeverity">
+			<rainCountsFor>0</rainCountsFor>
+		  </li>
+		</comps>
+	</HediffDef>
+	<HediffDef ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondMF</defName>
+		<label>Psychic bond (Abstemious)</label>
+		<description>Both psychically-bonded individuals benefit from reduced hunger.</description>
+		<stages>
+			<li>
+				<hungerRateFactor>0.9</hungerRateFactor>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondOutdoorsy</defName>
+		<label>Psychic bond (Forager)</label>
+		<description>Both psychically-bonded individuals benefit from increased foraging speed.</description>
+		<stages>
+			<li>
+				<statOffsets>
+					<ForagedNutritionPerDay>1.2</ForagedNutritionPerDay>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondSkulker</defName>
+		<label>Psychic bond (Skulker)</label>
+		<description>Both psychically-bonded individuals benefit from reduced filthiness and caravan visibility.</description>
+		<stages>
+			<li>
+				<statFactors>
+				  <Hauts_PersonalCaravanVisibilityFactor>0.9</Hauts_PersonalCaravanVisibilityFactor>
+				  <FilthRate>0.75</FilthRate>
+				</statFactors>
+				<statOffsets>
+				  <Hauts_CaravanVisibilityOffset>-0.1</Hauts_CaravanVisibilityOffset>
+				  <Hauts_TrackSize>-0.25</Hauts_TrackSize>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondSenses</defName>
+		<label>Psychic bond (Sentry)</label>
+		<description>Both psychically-bonded individuals benefit from increased sight and hearing.</description>
+		<stages>
+			<li>
+				<capMods>
+				  <li>
+					<capacity>Sight</capacity>
+					<offset>0.04</offset>
+				  </li>
+				  <li>
+					<capacity>Hearing</capacity>
+					<offset>0.04</offset>
+				  </li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondStrength</defName>
+		<label>Psychic bond (Strong)</label>
+		<description>Both psychically-bonded individuals benefit from increased melee damage and carrying capacity.</description>
+		<stages>
+			<li>
+				<statOffsets>
+					<MeleeDamageFactor>0.2</MeleeDamageFactor>
+					<VEF_MassCarryCapacity>20</VEF_MassCarryCapacity>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef MayRequire="Ludeon.RimWorld.Ideology" ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondIdeoImpact</defName>
+		<label>Psychic bond (Believer)</label>
+		<description>Both psychically-bonded individuals benefit from increased susceptibility to ideoligious thoughts and abilities.</description>
+		<stages>
+			<li>
+				<statOffsets>
+					<Hauts_IdeoAbilityDurationSelf>0.25</Hauts_IdeoAbilityDurationSelf>
+					<Hauts_IdeoThoughtFactor>0.25</Hauts_IdeoThoughtFactor>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondMechaphile</defName>
+		<label>Psychic bond (Mechanic)</label>
+		<description>Both psychically-bonded individuals benefit from increased mechanoid gestation and repair speed.</description>
+		<stages>
+			<li>
+				<statFactors>
+					<MechFormingSpeed>1.1</MechFormingSpeed>
+					<MechRepairSpeed>1.1</MechRepairSpeed>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef MayRequire="Ludeon.RimWorld.Anomaly" ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondVoidFascination</defName>
+		<label>Psychic bond (Voidtouched)</label>
+		<description>Both psychically-bonded individuals benefit from increased anomalous study efficiency.</description>
+		<stages>
+			<li>
+				<statOffsets>
+					<StudyEfficiency>0.1</StudyEfficiency>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef MayRequire="Ludeon.RimWorld.Anomaly" ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondVoidHunter</defName>
+		<label>Psychic bond (Slayer)</label>
+		<description>Both psychically-bonded individuals benefit from increased damage against unnatural entities.</description>
+		<stages>
+			<li>
+				<statOffsets>
+					<Hauts_EntityDamageFactor>0.12</Hauts_EntityDamageFactor>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef MayRequire="Ludeon.RimWorld.Anomaly" ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondTwisted</defName>
+		<label>Psychic bond (Twisted)</label>
+		<description>Both psychically-bonded individuals have weaker opinions of others.</description>
+		<stages>
+			<li>
+				<opinionOfOthersFactor>0.5</opinionOfOthersFactor>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef MayRequire="Ludeon.RimWorld.Ideology" ParentName="VRE_BondHediff_Base">
+		<defName>HVT_PsychicBondSuperstitious</defName>
+		<label>Psychic bond (Ritualistic)</label>
+		<description>Both psychically-bonded individuals benefit from increased psychic ritual quality offset.</description>
+		<stages>
+			<li>
+				<statOffsets>
+					<PsychicRitualQualityOffset MayRequire="Ludeon.RimWorld.Anomaly">0.04</PsychicRitualQualityOffset>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

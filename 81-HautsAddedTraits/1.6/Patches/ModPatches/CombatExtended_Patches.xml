@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Combat Extended</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Bookworm. Per CE's patch of base game traits, + or -5 shooting accuracy translates into 1.33x or 0.75x shooting accuracy, respectively. this implies that Bookworm should lose 0.05. Brawler's melee hit chance was untouched, so Bookworm's should be untouched too? Since ranged is apparently way more important
+					than melee in CE, we will be a lil more punitive here too and toss in a free aiming accuracy nerf-->
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/TraitDef[defName="HVT_Bookworm"]/degreeDatas/li/statOffsets/ShootingAccuracyPawn</xpath>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="HVT_Bookworm"]/degreeDatas/li/statFactors</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="HVT_Bookworm"]/degreeDatas/li</xpath>
+						<value>
+							<statFactors>
+								<ShootingAccuracyPawn>0.95</ShootingAccuracyPawn>
+								<AimingAccuracy>0.95</AimingAccuracy>
+							</statFactors>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="HVT_Bookworm"]/degreeDatas/li/statFactors</xpath>
+						<value>
+							<ShootingAccuracyPawn>0.95</ShootingAccuracyPawn>
+							<AimingAccuracy>0.95</AimingAccuracy>
+						</value>
+					</match>
+				</li>
+				<!--Hale. Tough is nerfed to only be two thirds as strong, so that applies here too-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_Hale"]/degreeDatas/li/statFactors/IncomingDamageFactor</xpath>
+					<value>
+						<IncomingDamageFactor>0.9</IncomingDamageFactor>
+					</value>
+				</li>
+				<!--Hotfoot removes mass carry capacity because they just *like* carrying less, they're not actually physically weaker. Therefore it gets a bulk malus but not a weight one. VEF Mass Carry Capacity remains, as it's the only form of abstraction we have for carrying stuff on a caravan-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_Hotfoot"]/degreeDatas/li/statFactors/CarryingCapacity</xpath>
+					<value>
+						<CarryBulk>0.65</CarryBulk>
+					</value>
+				</li>
+				<!--Repressed Rage. see Hale for incoming damage factor, strength traits for melee damage factor-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_RRUnleashed"]/stages/li[minSeverity="0.001"]/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.3</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_RRUnleashed"]/stages/li[minSeverity="0.001"]/statFactors/IncomingDamageFactor</xpath>
+					<value>
+						<IncomingDamageFactor>0.87</IncomingDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_RRUnleashed"]/stages/li[minSeverity="9.5"]/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>1</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_RRUnleashed"]/stages/li[minSeverity="9.5"]/statFactors/IncomingDamageFactor</xpath>
+					<value>
+						<IncomingDamageFactor>0.60</IncomingDamageFactor>
+					</value>
+				</li>
+				<!--Viciousness. Aiming delay factor nerfed since Trigger-happy's ADF was halved in magnitude; melee attack speed reduced as well. Shooting accuracy, see Bookworm. Attack damage magnitudes reduced almost in line with Biotech gene nerfs, even though I'm aware they didn't nerf that one Warlord psycast in VPE that
+					makes the caster do double damage. My own armor penetration stats should probably be generally tuned down, given how important armor pen is in CE compared to vanilla-->
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/HediffDef[defName="HVT_ViciousStrike"]/stages/li/statOffsets/ShootingAccuracyPawn</xpath>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/HediffDef[defName="HVT_ViciousStrike"]/stages/li/statFactors</xpath>
+					<value>
+						<ShootingAccuracyPawn>1.33</ShootingAccuracyPawn>
+						<AimingAccuracy>1.25</AimingAccuracy>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_ViciousStrike"]/stages/li/statFactors/AimingDelayFactor</xpath>
+					<value>
+						<AimingDelayFactor>0.75</AimingDelayFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_ViciousStrike"]/stages/li/statFactors/MeleeCooldownFactor</xpath>
+					<value>
+						<MeleeCooldownFactor>0.75</MeleeCooldownFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_ViciousStrike"]/stages/li/statFactors/VEF_RangeAttackDamageFactor</xpath>
+					<value>
+						<VEF_RangeAttackDamageFactor>1.25</VEF_RangeAttackDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_ViciousStrike"]/stages/li/statFactors/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>1.25</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_ViciousStrike"]/stages/li/statFactors/Hauts_MeleeArmorPenetration</xpath>
+					<value>
+						<Hauts_MeleeArmorPenetration>1.15</Hauts_MeleeArmorPenetration>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_ViciousStrike"]/stages/li/statFactors/Hauts_RangedArmorPenetration</xpath>
+					<value>
+						<Hauts_RangedArmorPenetration>1.15</Hauts_RangedArmorPenetration>
+					</value>
+				</li>
+				<!--Weapon Artist. See citations elsewhere, but the magnitudes are reduced here; I don't want to nerf WArtist as much as other things since its buffs are already incremental-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_WeaponArt_Melee"]/stages/li[minSeverity="0.001"]/statOffsets/MeleeCooldownFactor</xpath>
+					<value>
+						<MeleeCooldownFactor>-0.1</MeleeCooldownFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_WeaponArt_Melee"]/stages/li[minSeverity="1"]/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.12</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/HediffDef[defName="HVT_WeaponArt_Ranged"]/stages/li/statOffsets/ShootingAccuracyPawn</xpath>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/HediffDef[defName="HVT_WeaponArt_Ranged"]/stages/li/statFactors</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVT_WeaponArt_Ranged"]/stages/li</xpath>
+						<value>
+							<statFactors>
+								<ShootingAccuracyPawn>1.2</ShootingAccuracyPawn>
+								<AimingAccuracy>1.15</AimingAccuracy>
+							</statFactors>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="HVT_WeaponArt_Ranged"]/stages/li/statFactors</xpath>
+						<value>
+							<ShootingAccuracyPawn>1.2</ShootingAccuracyPawn>
+							<AimingAccuracy>1.15</AimingAccuracy>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_WeaponArt_Ranged"]/stages/li/statOffsets/RangedCooldownFactor</xpath>
+					<value>
+						<RangedCooldownFactor>-0.06</RangedCooldownFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_WeaponArt_RangedLight"]/stages/li/statOffsets/RangedCooldownFactor</xpath>
+					<value>
+						<RangedCooldownFactor>-0.09</RangedCooldownFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName="HVT_WeaponArt_ShortShots"]/stages/li/statOffsets/AimingDelayFactor</xpath>
+					<value>
+						<AimingDelayFactor>-0.09</AimingDelayFactor>
+					</value>
+				</li>
+				<!--Strength traits. Melee damage factor of Biotech's strength genes was reduced in magnitude by 0.5x in both directions, so it should work like that for these too-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_Strong"]/degreeDatas/li[degree="1"]/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.3</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_Strong"]/degreeDatas/li[degree="2"]/statOffsets/MeleeDamageFactor</xpath>
+					<value>
+						<MeleeDamageFactor>0.6</MeleeDamageFactor>
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Biotech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--close to the same range scaling that non-VPE Stun received-->
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/AbilityDef[defName="HVT_MechaphobeScramble"]/verbProperties/range</xpath>
+								<value>
+									<range>40</range>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/AbilityDef[defName="HVT_MechaphobeScramble2"]/verbProperties/range</xpath>
+								<value>
+									<range>40</range>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Anomaly</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--only creepjoiner trait that needs adjustment is vanquisher-->
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/TraitDef[defName="HVT_Vanquisher"]/degreeDatas/li/statOffsets/ShootingAccuracyPawn</xpath>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="HVT_Vanquisher"]/degreeDatas/li/statFactors</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="HVT_Vanquisher"]/degreeDatas/li</xpath>
+									<value>
+										<statFactors>
+											<ShootingAccuracyPawn>1.25</ShootingAccuracyPawn>
+											<AimingAccuracy>1.35</AimingAccuracy>
+										</statFactors>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="HVT_Vanquisher"]/degreeDatas/li/statFactors</xpath>
+									<value>
+										<ShootingAccuracyPawn>1.25</ShootingAccuracyPawn>
+										<AimingAccuracy>1.35</AimingAccuracy>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				
+				<!--starting possessions-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/TraitDef[defName="HVT_Vicious"]/degreeDatas/li/possessions/Pila</xpath>
+					<value>
+						<Pila>3</Pila>
+					</value>
+				</li>
+				
+				<!--skulkers set you up the bomb-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="Hauts_SabotageIED_HighExplosive"]/comps/li[@Class="HautsTraits.CompProperties_SabExp"]</xpath>
+					<value>
+						<li Class="HautsTraits.CompProperties_SabExp">
+							<explosiveDamageType>Bomb</explosiveDamageType>
+							<damageAmountBase>270</damageAmountBase>
+							<explosiveRadius>4.5</explosiveRadius>
+							<startWickOnDamageTaken>
+								<li>Bullet</li>
+								<li>Arrow</li>
+								<li>ArrowHighVelocity</li>
+							</startWickOnDamageTaken>
+							<wickTicks>
+								<min>5</min>
+								<max>30</max>
+							</wickTicks>
+							<preExplosionSpawnSingleThingDef>Filth_BlastMark</preExplosionSpawnSingleThingDef>
+						</li>
+						<li Class="CombatExtended.CompProperties_Fragments">
+							<fragments>
+								<Fragment_Large>16</Fragment_Large>
+								<Fragment_Small>100</Fragment_Small>
+							</fragments>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

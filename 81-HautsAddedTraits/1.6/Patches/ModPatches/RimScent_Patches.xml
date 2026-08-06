@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>RimScent</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Imperceptive ew/ all scent traits-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="HVT_Imperceptive"]/conflictingTraits</xpath>
+					<value>
+						<li>RimScent_Anosmic</li>
+						<li>RimScent_KeenNose</li>
+						<li>RimScent_Dysosmic</li>
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Biotech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+						<!--imperceptive gene suppresses aforementioned traits-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/GeneDef[defName="HVT_ImperceptiveGene"]/suppressedTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/GeneDef[defName="HVT_ImperceptiveGene"]</xpath>
+									<value>
+										<suppressedTraits>
+											<li><def>RimScent_Anosmic</def></li>
+											<li><def>RimScent_KeenNose</def></li>
+											<li><def>RimScent_Dysosmic</def></li>
+										</suppressedTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/GeneDef[defName="HVT_ImperceptiveGene"]/suppressedTraits</xpath>
+									<value>
+										<li><def>RimScent_Anosmic</def></li>
+										<li><def>RimScent_KeenNose</def></li>
+										<li><def>RimScent_Dysosmic</def></li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

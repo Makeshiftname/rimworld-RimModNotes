@@ -1,0 +1,3452 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	
+	<!--These patches prevent Aestheticists and Staids from having normal reactions to beauty-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="NeedBeauty"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="NeedBeauty"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Aestheticist</li>
+					<li>HVT_Staid</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="NeedBeauty"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Aestheticist</li>
+				<li>HVT_Staid</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="Disfigured"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="Disfigured"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Aestheticist</li>
+					<li>HVT_Staid</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="Disfigured"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Aestheticist</li>
+				<li>HVT_Staid</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd"> 
+		<xpath>/Defs/ThoughtDef[defName="Pretty"]/nullifyingTraits</xpath>
+		<value>
+			<li>HVT_Aestheticist</li>
+			<li>HVT_Staid</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd"> 
+		<xpath>/Defs/ThoughtDef[defName="Ugly"]/nullifyingTraits</xpath>
+		<value>
+			<li>HVT_Aestheticist</li>
+			<li>HVT_Staid</li>
+		</value>
+	</Operation>
+	
+	<!--Asocials don't care abt trash talk-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="Slighted"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="Slighted"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Asocial</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="Slighted"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Asocial</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="Insulted"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="Insulted"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Asocial</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="Insulted"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Asocial</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="InsultedMood"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="InsultedMood"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Asocial</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="InsultedMood"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Asocial</li>
+			</value>
+		</match>
+	</Operation>
+	<!--Asocial also fine w not having tongue-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="MissingTongue"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="MissingTongue"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Asocial</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="MissingTongue"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Asocial</li>
+			</value>
+		</match>
+	</Operation>
+	<!--Asocials don't like gatherings-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="AttendedConcert"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="AttendedConcert"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Asocial</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="AttendedConcert"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Asocial</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="AttendedParty"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="AttendedParty"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Asocial</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="AttendedParty"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Asocial</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="AttendedWedding"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="AttendedWedding"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Asocial</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="AttendedWedding"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Asocial</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="HeldConcert"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="HeldConcert"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Asocial</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="HeldConcert"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Asocial</li>
+			</value>
+		</match>
+	</Operation>
+	
+	<!--"Dead men are generous men." Taruk of the Gravers-->
+	<Operation Class="PatchOperationAdd"> 
+		<xpath>/Defs/ThoughtDef[defName="DeadMansApparel"]/nullifyingTraits</xpath>
+		<value>
+			<li>HVT_Graver</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">HVT_Twisted</li>
+		</value>
+	</Operation>
+	<!--seeing corpses is not an issue for Gravers either. quite the opposite in fact.-->
+	<Operation Class="PatchOperationAdd"> 
+		<xpath>/Defs/ThoughtDef[defName="ObservedLayingCorpse"]/nullifyingTraits</xpath>
+		<value>
+			<li>HVT_Graver</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">HVT_Twisted</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd"> 
+		<xpath>/Defs/ThoughtDef[defName="ObservedLayingRottingCorpse"]/nullifyingTraits</xpath>
+		<value>
+			<li>HVT_Graver</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">HVT_Twisted</li>
+		</value>
+	</Operation>
+	
+	<!--Hedonists react more extremely to cur recreation level-->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="NeedJoy"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Hedonist</key>
+					<value>1.25</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	
+	<!--Lovesicks are very susceptible to various partner-related thoughts-->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="WantToSleepWithSpouseOrLover"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyHusbandLost"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyWifeLost"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyFianceLost"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyFianceeLost"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyLoverLost"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyHusbandDied"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyWifeDied"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyFianceDied"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyFianceeDied"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyLoverDied"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="CheatedOnMeMood"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="RebuffedMyRomanceAttemptMood"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="BrokeUpWithMeMood"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="DivorcedMeMood"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="RejectedMyProposalMood"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="SoldMyLovedOne"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="GotMarried"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>10</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="SoldMyLovedOne"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="KilledMyLover"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="KilledMyFiance"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="KilledMySpouse"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	
+	<!--Outdoorsies don't mind indoors bullcrud; also, Metabolic Freaks can eat without table, and Skulkers don't care about the dark-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="NeedOutdoors"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="NeedOutdoors"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Outdoorsy</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="NeedOutdoors"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Outdoorsy</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="NeedIndoors"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="NeedIndoors"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Outdoorsy</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="NeedIndoors"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Outdoorsy</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="AteWithoutTable"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="AteWithoutTable"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Outdoorsy</li>
+					<li>HVT_MetabolicFreak</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="AteWithoutTable"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Outdoorsy</li>
+				<li>HVT_MetabolicFreak</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="EnvironmentDark"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="EnvironmentDark"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Outdoorsy</li>
+					<li>HVT_Skulker</li>
+					<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitNoctule</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="EnvironmentDark"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Outdoorsy</li>
+				<li>HVT_Skulker</li>
+				<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitNoctule</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="EnvironmentDark"]/nullifyingHediffs</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="EnvironmentDark"]</xpath>
+			<value>
+				<nullifyingHediffs>
+					<li MayRequire="Ludeon.RimWorld.Royalty">HVT_PeacockBuff</li>
+				</nullifyingHediffs>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="EnvironmentDark"]/nullifyingHediffs</xpath>
+			<value>
+				<li MayRequire="Ludeon.RimWorld.Royalty">HVT_PeacockBuff</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="SleptOutside"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="SleptOutside"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Outdoorsy</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="SleptOutside"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Outdoorsy</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="SleptOnGround"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="SleptOnGround"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Outdoorsy</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="SleptOnGround"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Outdoorsy</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="SoakingWet"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="SoakingWet"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Mariner</li>
+					<li>HVT_Outdoorsy</li>
+					<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+					<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="SoakingWet"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Mariner</li>
+				<li>HVT_Outdoorsy</li>
+				<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitFlamingo</li>
+					<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="EnvironmentCold"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="EnvironmentCold"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Outdoorsy</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="EnvironmentCold"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Outdoorsy</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="EnvironmentHot"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="EnvironmentHot"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Outdoorsy</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="EnvironmentHot"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Outdoorsy</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="SleptInCold"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="SleptInCold"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Outdoorsy</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="SleptInCold"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Outdoorsy</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="SleptInHeat"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="SleptInHeat"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Outdoorsy</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="SleptInHeat"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Outdoorsy</li>
+			</value>
+		</match>
+	</Operation>
+	
+	<!--Revellers like festivities-->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="AttendedConcert"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Reveller</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="AttendedParty"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Reveller</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="AttendedWedding"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Reveller</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="HeldConcert"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Reveller</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	
+	<!--Anti-nudism-->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="ApparelDamaged"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Textile</key>
+					<value>2</value>
+				  </li>
+				  <li>
+					<key>HVT_Vain</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd"> 
+		<xpath>/Defs/ThoughtDef[defName="Naked"]/nullifyingTraits</xpath>
+		<value>
+			<li>HVT_Textile</li>
+		</value>
+	</Operation>
+		
+	<!--Tranquils immune to catharsis, as they technically never let their emotions out in an mb-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="Catharsis"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="Catharsis"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Tranquil</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="Catharsis"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Tranquil</li>
+			</value>
+		</match>
+	</Operation>
+	
+	<!--Vain apparel thoughts-->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="DeadMansApparel"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Vain</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Vain</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	
+	<!--Imperceptives don't care about disturbed sleep, and all sense traits have their own comfort meter-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="SleepDisturbed"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="SleepDisturbed"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Imperceptive</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="SleepDisturbed"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Imperceptive</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="NeedComfort"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="NeedComfort"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_Imperceptive</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="NeedComfort"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_Imperceptive</li>
+			</value>
+		</match>
+	</Operation><Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="NeedComfort"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Perceptive</key>
+					<value>1.35</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	
+	<!--ideology-exclusive-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Ideology</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+			<!--let's start with some non-DLC-dependent traits: Gravers reject your gibbet and skullspike thoughts, and substitute their own-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="ObservedGibbetCage"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ObservedGibbetCage"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Graver</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ObservedGibbetCage"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Graver</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="ObservedSkullspike"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ObservedSkullspike"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Graver</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ObservedSkullspike"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Graver</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThoughtDef[defName="Skullspike_Desired"]/nullifyingTraits</xpath>
+					<value>
+						<li>HVT_Graver</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThoughtDef[defName="Skullspike_Disapproved"]/nullifyingTraits</xpath>
+					<value>
+						<li>HVT_Graver</li>
+					</value>
+				</li>
+			<!--Reveller cares about ritual outcomes more-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[thoughtClass="Thought_AttendedRitual"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Reveller</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+			<!--so the term 'textile' is sourced from a naturalist community. ostensibly. i found the term online while searching for the antonym of nudist. i'd love to pick the brain of an actual naturalist or nudist but i don't know any personally-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Male"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Male"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Male"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Female"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Female"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Female"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Memory"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Memory"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Memory"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Social_Male"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Social_Male"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Social_Male"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Social_Female"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Social_Female"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartCovered_Disapproved_Social_Female"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Male"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Male"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Male"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Female"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Female"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Female"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Memory"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Memory"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Memory"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Social_Male"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Social_Male"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Social_Male"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Social_Female"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Social_Female"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AnyBodyPartButGroinCovered_Disapproved_Social_Female"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="GroinUncovered_Disapproved_Male"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinUncovered_Disapproved_Male"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinUncovered_Disapproved_Male"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="GroinUncovered_Disapproved_Female"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinUncovered_Disapproved_Female"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinUncovered_Disapproved_Female"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="GroinOrChestUncovered_Disapproved_Male"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinOrChestUncovered_Disapproved_Male"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinOrChestUncovered_Disapproved_Male"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="GroinOrChestUncovered_Disapproved_Female"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinOrChestUncovered_Disapproved_Female"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinOrChestUncovered_Disapproved_Female"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="GroinChestOrHairUncovered_Disapproved_Male"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinChestOrHairUncovered_Disapproved_Male"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinChestOrHairUncovered_Disapproved_Male"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="GroinChestOrHairUncovered_Disapproved_Female"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinChestOrHairUncovered_Disapproved_Female"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinChestOrHairUncovered_Disapproved_Female"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="GroinChestHairOrFaceUncovered_Disapproved_Male"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinChestHairOrFaceUncovered_Disapproved_Male"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinChestHairOrFaceUncovered_Disapproved_Male"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="GroinChestHairOrFaceUncovered_Disapproved_Female"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinChestHairOrFaceUncovered_Disapproved_Female"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Textile</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GroinChestHairOrFaceUncovered_Disapproved_Female"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Textile</li>
+						</value>
+					</match>
+				</li>
+			<!--Vain cares more about color wearing and desired changed looks-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="LookChangeDesired"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Vain</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="WearingColor_Favorite"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Vain</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="WearingColor_Ideo"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Vain</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+			<!--it's a different kind of danger/and the bells are ringing out/and I'm calling for my mother/as I pull the pillars down-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="ExpectationsSlave"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ExpectationsSlave"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+								<li>HVT_Liberator</li>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ExpectationsSlave"]/nullifyingTraits</xpath>
+						<value>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							<li>HVT_Liberator</li>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+			<!--Intolerants won't stand for this diversity of thought nonsense-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Approved"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Approved"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Intolerant</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Approved"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Intolerant</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Respected"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Respected"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Intolerant</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Respected"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Intolerant</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Exalted"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Exalted"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Intolerant</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Exalted"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Intolerant</li>
+						</value>
+					</match>
+				</li>
+			<!--Tolerants and Open-Mindeds don't care if they're being led by someone of a different ideo nor if they fail to convert/be converted NOR for normal Diversity of Thought maluses,
+					except for style dominance-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoLeaderResentmentStandard"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoLeaderResentmentStandard"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoLeaderResentmentStandard"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoLeaderResentmentDisapproved"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoLeaderResentmentDisapproved"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoLeaderResentmentDisapproved"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoLeaderResentmentHorrible"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoLeaderResentmentHorrible"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoLeaderResentmentHorrible"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoLeaderResentmentAbhorrent"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoLeaderResentmentAbhorrent"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoLeaderResentmentAbhorrent"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="FailedConvertAbilityInitiator"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="FailedConvertAbilityInitiator"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="FailedConvertAbilityInitiator"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="FailedConvertAbilityRecipient"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="FailedConvertAbilityRecipient"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="FailedConvertAbilityRecipient"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="FailedConvertIdeoAttemptResentment"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="FailedConvertIdeoAttemptResentment"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="FailedConvertIdeoAttemptResentment"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="ChangedIdeo_Know_Abhorrent"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ChangedIdeo_Know_Abhorrent"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ChangedIdeo_Know_Abhorrent"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="ChangedIdeo_Know_Horrible"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ChangedIdeo_Know_Horrible"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ChangedIdeo_Know_Horrible"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="ChangedIdeo_Know_Disapproved"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ChangedIdeo_Know_Disapproved"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ChangedIdeo_Know_Disapproved"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Abhorrent"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Abhorrent"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Abhorrent"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Abhorrent_Uniform"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Abhorrent_Uniform"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Abhorrent_Uniform"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Abhorrent_Social"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Abhorrent_Social"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Abhorrent_Social"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiverity_Abhorrent_AltarSharing"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiverity_Abhorrent_AltarSharing"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiverity_Abhorrent_AltarSharing"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Abhorrent_ParticipatedInOthersRitual"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Abhorrent_ParticipatedInOthersRitual"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Abhorrent_ParticipatedInOthersRitual"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Horrible"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Horrible"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Horrible"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Horrible_Uniform"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Horrible_Uniform"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Horrible_Uniform"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Horrible_Social"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Horrible_Social"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Horrible_Social"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiverity_Horrible_AltarSharing"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiverity_Horrible_AltarSharing"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiverity_Horrible_AltarSharing"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Horrible_ParticipatedInOthersRitual"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Horrible_ParticipatedInOthersRitual"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Horrible_ParticipatedInOthersRitual"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Disapproved"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Disapproved"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Disapproved"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Disapproved_Uniform"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Disapproved_Uniform"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Disapproved_Uniform"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Disapproved_Social"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Disapproved_Social"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Disapproved_Social"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiverity_Disapproved_AltarSharing"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiverity_Disapproved_AltarSharing"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiverity_Disapproved_AltarSharing"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Disapproved_ParticipatedInOthersRitual"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Disapproved_ParticipatedInOthersRitual"]</xpath>
+						<value>
+							<nullifyingTraits><li>HVT_Tolerant</li></nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IdeoDiversity_Disapproved_ParticipatedInOthersRitual"]/nullifyingTraits</xpath>
+						<value><li>HVT_Tolerant</li></value>
+					</match>
+				</li>
+				<!--tolerants also don't mind apostasy after the initial bit (they're still affected by recent apostasy, just... less so)-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IsApostate_Abhorrent_Social"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IsApostate_Abhorrent_Social"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Tolerant</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IsApostate_Abhorrent_Social"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Tolerant</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IsApostate_Horrible_Social"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IsApostate_Horrible_Social"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Tolerant</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IsApostate_Horrible_Social"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Tolerant</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="IsApostate_Disapproved_Social"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IsApostate_Disapproved_Social"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Tolerant</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="IsApostate_Disapproved_Social"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Tolerant</li>
+						</value>
+					</match>
+				</li>
+				
+				<!--Libs can't approve of slavery, even if their ideo wants them to-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="Slavery_Honorable_SlavesInColony"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="Slavery_Honorable_SlavesInColony"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Liberator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="Slavery_Honorable_SlavesInColony"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Liberator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="Slavery_Honorable_NoSlavesInColony"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="Slavery_Honorable_NoSlavesInColony"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Liberator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="Slavery_Honorable_NoSlavesInColony"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Liberator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SoldSlave_Honorable"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Honorable"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Liberator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Honorable"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Liberator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Honorable"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Honorable"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Liberator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Honorable"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Liberator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Honorable"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Honorable"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Liberator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Honorable"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Liberator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Honorable_Mood"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Honorable_Mood"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Liberator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Honorable_Mood"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Liberator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Honorable"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Honorable"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Liberator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Honorable"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Liberator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Honorable_Mood"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Honorable_Mood"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Liberator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Honorable_Mood"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Liberator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<!--Subs say States Rights!-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="Slavery_Abhorrent_SlavesInColony"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="Slavery_Abhorrent_SlavesInColony"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="Slavery_Abhorrent_SlavesInColony"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Abhorrent"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Abhorrent"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Abhorrent"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Abhorrent_Mood"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Abhorrent_Mood"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Abhorrent_Mood"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Abhorrent"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Abhorrent"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Abhorrent"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="Slavery_Horrible_SlavesInColony"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="Slavery_Horrible_SlavesInColony"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="Slavery_Horrible_SlavesInColony"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SoldSlave_Horrible"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Horrible"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Horrible"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Horrible"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Horrible"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Horrible"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Horrible"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Horrible"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Horrible"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Horrible_Mood"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Horrible_Mood"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Horrible_Mood"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Horrible"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Horrible"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Horrible"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Horrible_Mood"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Horrible_Mood"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Horrible_Mood"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="Slavery_Disapproved_SlavesInColony"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="Slavery_Disapproved_SlavesInColony"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="Slavery_Disapproved_SlavesInColony"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SoldSlave_Disapproved"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Disapproved"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Disapproved"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Disapproved"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Disapproved"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Disapproved"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Disapproved"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Disapproved"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Disapproved"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Disapproved_Mood"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Disapproved_Mood"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SoldSlave_Know_Disapproved_Mood"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Disapproved"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Disapproved"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Disapproved"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Disapproved_Mood"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Disapproved_Mood"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Subjugator</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="EnslavedPrisoner_Know_Disapproved_Mood"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+    </Operation>
+	
+			<!--biotech-exclusive-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+			<!--Outdoorsies love the outdoors, even when it doesn't love them back-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="NoxiousHaze"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="NoxiousHaze"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Outdoorsy</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitAlbatross</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitGnat</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitToxbuzzard</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="NoxiousHaze"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Outdoorsy</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitAlbatross</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitGnat</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitShearwater</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitToxbuzzard</li>
+						</value>
+					</match>
+				</li>
+			<!--imperceptive gene nullifies disturbed sleep, and has its own comfort meter-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SleepDisturbed"]/nullifyingGenes</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SleepDisturbed"]</xpath>
+						<value>
+							<nullifyingGenes>
+								<li>HVT_ImperceptiveGene</li>
+							</nullifyingGenes>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SleepDisturbed"]/nullifyingGenes</xpath>
+						<value>
+							<li>HVT_ImperceptiveGene</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="NeedComfort"]/nullifyingGenes</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="NeedComfort"]</xpath>
+						<value>
+							<nullifyingGenes>
+								<li>HVT_ImperceptiveGene</li>
+								<li>HVT_KeenSensesGene</li>
+								<li>HVT_PowerfulSensesGene</li>
+							</nullifyingGenes>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="NeedComfort"]/nullifyingGenes</xpath>
+						<value>
+							<li>HVT_ImperceptiveGene</li>
+							<li>HVT_KeenSensesGene</li>
+							<li>HVT_PowerfulSensesGene</li>
+						</value>
+					</match>
+				</li>
+	
+			<!--stop asking misopedists when they're going to have a baby GOSH-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="GigglingBaby"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<forceNegative>
+							  <li>HVT_Misopedist</li>
+							</forceNegative>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="MyGigglingBaby"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<forceNegative>
+							  <li>HVT_Misopedist</li>
+							</forceNegative>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="ChildInGrowthVat"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>3</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="ChildInGrowthVat"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ChildInGrowthVat"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ChildInGrowthVat"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="PregnancyTerminated"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="PregnancyTerminated"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="PregnancyTerminated"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="PregnancyTerminated"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="EnslavedChild"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Misopedist</key>
+								<value>0.5</value>
+							  </li>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="BabySick"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Misopedist</key>
+								<value>0.5</value>
+							  </li>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="Stillbirth"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Misopedist</key>
+								<value>0.5</value>
+							  </li>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="Miscarried"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Misopedist</key>
+								<value>0.5</value>
+							  </li>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="KilledChild"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Misopedist</key>
+								<value>0.5</value>
+							  </li>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="BreastfedBaby"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BreastfedBaby"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BreastfedBaby"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="FedBaby"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="FedBaby"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="FedBaby"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="GaveLesson"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GaveLesson"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GaveLesson"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="MyChildHappy"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="MyChildHappy"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="MyChildHappy"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="MyChildHappy"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="MyChildrenHappy"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="MyChildrenHappy"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="MyChildrenHappy"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="MyChildrenHappy"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="MyChildSad"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="MyChildSad"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="MyChildSad"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="MyChildSad"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="MyChildrenSad"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="MyChildrenSad"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="MyChildrenSad"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="MyChildrenSad"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="YoungstersHappy"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="YoungstersHappy"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="YoungstersHappy"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="YoungstersHappy"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="YoungstersSad"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="YoungstersSad"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="YoungstersSad"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="YoungstersSad"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="PartnerMiscarried"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="PartnerMiscarried"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="PartnerMiscarried"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="BabyBorn"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BabyBorn"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BabyBorn"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="BabyGiggledSocial"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BabyGiggledSocial"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BabyGiggledSocial"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="PregnancyMood_Up"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="PregnancyMood_Up"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="PregnancyMood_Up"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="PregnancyMood_High"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="PregnancyMood_High"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Misopedist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="PregnancyMood_High"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Misopedist</li>
+						</value>
+					</match>
+				</li>
+				<!--misopedists nullify precept thoughts related to growth vats-->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Ideology</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="GrowthVat_Prohibited_GrowthVatInColony"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="GrowthVat_Prohibited_GrowthVatInColony"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Misopedist</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="GrowthVat_Prohibited_GrowthVatInColony"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Misopedist</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>/Defs/ThoughtDef[defName="GrowthVat_Prohibited_ChildInGrowthVat"]/nullifyingTraits</xpath>
+								<value>
+									<li>HVT_Misopedist</li>
+								</value>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="GrowthVat_Prohibited_ChildNotInGrowthVat"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="GrowthVat_Prohibited_ChildNotInGrowthVat"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Misopedist</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="GrowthVat_Prohibited_ChildNotInGrowthVat"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Misopedist</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<!--mechaphobe VICOTORY-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="DefeatedMechCluster"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Mechaphobe</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<!--environmentalists have their own unique acidic smog thought-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="NoxiousHaze"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="NoxiousHaze"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Environmentalist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="NoxiousHaze"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Environmentalist</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+    </Operation>
+	
+	
+	<!--anomaly-exclusive-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Anomaly</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+			<!--Gravers don't mind if u go ghoul; nor Sadistics-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="BecameGhoul"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BecameGhoul"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Graver</li>
+								<li>HVT_Sadist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BecameGhoul"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Graver</li>
+							<li>HVT_Sadist</li>
+						</value>
+					</match>
+				</li>
+			<!--Gravers not care if it 'smell like death'-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="DeathPall"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="DeathPall"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Graver</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitDulotic</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitHarbinger</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitVulture</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="DeathPall"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Graver</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitDulotic</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitHarbinger</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitVulture</li>
+						</value>
+					</match>
+				</li>
+				<!--Gravers LIKE ghouls-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="GhoulNegative"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<forcePositive>
+							  <li>HVT_Graver</li>
+							</forcePositive>
+						</li>
+					</value>
+				</li>
+				<!--Skulker immune to darkness thoughts-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SwallowedByDarkness"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SwallowedByDarkness"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Skulker</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitNoctule</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SwallowedByDarkness"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Skulker</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitNoctule</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="UnnaturalDarkness"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="UnnaturalDarkness"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Skulker</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitNoctule</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="UnnaturalDarkness"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Skulker</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_TTraitNoctule</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="DarknessLifted"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="DarknessLifted"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Skulker</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="DarknessLifted"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Skulker</li>
+						</value>
+					</match>
+				</li>
+				<!--hentai??-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="FleshTentacle"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="FleshTentacle"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_MonsterLover</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="FleshTentacle"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_MonsterLover</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="FleshWhip"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="FleshWhip"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_MonsterLover</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="FleshWhip"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_MonsterLover</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="MutatedMyArm"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<forcePositive>
+							  <li>HVT_MonsterLover</li>
+							</forcePositive>
+						</li>
+					</value>
+				</li>
+				<!--true monsterlovers WANT to see faces in the shadows... and maybe also make sweet love to them?-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="Voidsight"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="Voidsight"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_MonsterLover</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="Voidsight"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_MonsterLover</li>
+						</value>
+					</match>
+				</li>
+				<!--it's fine if monsterlover is in same room as monster. hm, more than fine even-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="ImprisonedWithEntity"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ImprisonedWithEntity"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_MonsterLover</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ImprisonedWithEntity"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_MonsterLover</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="EntityInRoom"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_MonsterLover</key>
+								<value>0.5</value>
+							  </li>
+							</multiplierTraits>
+							<forcePositive>
+							  <li>HVT_MonsterLover</li>
+							</forcePositive>
+						</li>
+					</value>
+				</li>
+				<!--it's fine if monsterlover wears freaky leathers-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="WearingDreadLeather"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="WearingDreadLeather"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_MonsterHunter</li>
+								<li>HVT_MonsterLover</li>
+								<li>HVT_Twisted</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="WearingDreadLeather"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_MonsterHunter</li>
+							<li>HVT_MonsterLover</li>
+							<li>HVT_Twisted</li>
+						</value>
+					</match>
+				</li>
+				<!--monsterlover not mind ghoulizing-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="BecameGhoul"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BecameGhoul"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_MonsterLover</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BecameGhoul"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_MonsterLover</li>
+						</value>
+					</match>
+				</li>
+				<!--WHY would you CLOSE THE VOID. BRING IT BACK-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="ClosedTheVoid"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ClosedTheVoid"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_MonsterLover</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="ClosedTheVoid"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_MonsterLover</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="VoidClosed"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="VoidClosed"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_MonsterLover</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="VoidClosed"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_MonsterLover</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="ClosedTheVoidOpinion"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<forceNegative>
+							  <li>HVT_MonsterLover</li>
+							</forceNegative>
+						</li>
+					</value>
+				</li>
+				<!--dump truck chimera-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="Chimera"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<forcePositive>
+							  <li>HVT_MonsterLover</li>
+							</forcePositive>
+						</li>
+					</value>
+				</li>
+				<!--twisted meat for a twisted sister-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AteTwistedMeat"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AteTwistedMeat"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Twisted</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AteTwistedMeat"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Twisted</li>
+						</value>
+					</match>
+				</li>
+				<!--human meat for a human sister-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AteHumanlikeMeatDirect"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AteHumanlikeMeatDirect"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Twisted</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AteHumanlikeMeatDirect"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Twisted</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="AteHumanlikeMeatAsIngredient"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AteHumanlikeMeatAsIngredient"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Twisted</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="AteHumanlikeMeatAsIngredient"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Twisted</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="HumanLeatherApparelSad"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="HumanLeatherApparelSad"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Twisted</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="HumanLeatherApparelSad"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Twisted</li>
+						</value>
+					</match>
+				</li>
+				<!--we're not gonna take it, no we ain't gonna take it, we're not gonna take it anymore (HUMANITY BREAK)-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="VoidPleasure"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Twisted</key>
+								<value>1.5</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Ideology</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Abhorrent"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Abhorrent"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Twisted</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Abhorrent"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Twisted</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Know_Abhorrent"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Know_Abhorrent"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Twisted</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Know_Abhorrent"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Twisted</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="HumanLeatherApparel_Abhorrent"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="HumanLeatherApparel_Abhorrent"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Twisted</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="HumanLeatherApparel_Abhorrent"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Twisted</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Horrible"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Horrible"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Twisted</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Horrible"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Twisted</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Know_Horrible"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Know_Horrible"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Twisted</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Know_Horrible"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Twisted</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="HumanLeatherApparel_Horrible"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="HumanLeatherApparel_Horrible"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Twisted</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="HumanLeatherApparel_Horrible"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Twisted</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Disapproved"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Disapproved"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Twisted</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Disapproved"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Twisted</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Know_Disapproved"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Know_Disapproved"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Twisted</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="AteHumanMeat_Know_Disapproved"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Twisted</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/ThoughtDef[defName="HumanLeatherApparel_Disapproved"]/nullifyingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="HumanLeatherApparel_Disapproved"]</xpath>
+									<value>
+										<nullifyingTraits>
+											<li>HVT_Twisted</li>
+										</nullifyingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/ThoughtDef[defName="HumanLeatherApparel_Disapproved"]/nullifyingTraits</xpath>
+									<value>
+										<li>HVT_Twisted</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+    </Operation>
+</Patch>

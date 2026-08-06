@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <AbilityDef>
+    <defName>HVT_ArchicSyzygy</defName>
+    <label>archonic syzygy</label>
+    <description>The caster blooms with a swelling current of psychic energy. For the next hour, psycasting incurs far less neural heat and costs far less psyfocus.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <showGizmoOnWorldView>True</showGizmoOnWorldView>
+	<gizmoClass>HautsFramework.Command_AbilityCanBuffSelfOnCaravan</gizmoClass>
+    <!--<aiCanUse>true</aiCanUse> unnecessary because it has to preempt the psycasting "AI", which works by overriding a pawn's current verb to use and therefore ignores the typical decision chain aiCanUse would be useful for
+		we do a little patching of our own instead in our source code-->
+	<iconPath>PsychicTraits/Genes/HVT_Perennial</iconPath>
+	<cooldownTicksRange>60000</cooldownTicksRange>
+    <statBases>
+      <Ability_Duration>42</Ability_Duration>
+      <Ability_EffectRadius>0</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <verbClass>HautsFramework.Verb_CastAbilityCombatSelfBuff</verbClass>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+	  <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+	  <targetable>false</targetable>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>HVT_SyzygyBuff</hediffDef>
+        <onlyApplyToSelf>True</onlyApplyToSelf>
+        <replaceExisting>true</replaceExisting>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsTraitsRoyalty.CompAbilityEffect_Syzygy</compClass>
+		<forcingTraits>
+			<li>HVT_AwakenedPerennial</li>
+		</forcingTraits>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <AbilityDef>
+    <defName>HVT_FodiatorLeap</defName>
+    <label>psychogravitic leap</label>
+    <description>Alter the coefficient of gravitational force and its direction in a field around the caster's atoms, sending the caster into the air. As the effect wears off, the caster descends to a gentle landing at the target point.</description>
+    <iconPath>PsychicTraits/Abilities/HVT_PkLeap</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <cooldownTicksRange>600</cooldownTicksRange>
+    <hostile>false</hostile>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityJump</verbClass>
+      <label>jump</label>
+      <violent>false</violent>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <warmupTime>0.5</warmupTime>
+      <range>5</range>
+      <requireLineOfSight>true</requireLineOfSight>
+      <soundCast>Psycast_Skip_Exit</soundCast>
+      <soundLanding>JumpPackLand</soundLanding>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <jobDef>CastJump</jobDef>
+    <comps>
+      <li Class="HautsFramework.CompProperties_AbilityAiTargetingDistanceRange">
+        <compClass>HautsFramework.CompAbilityEffect_AiTargetingDistanceRange</compClass>
+		<distanceRange>4.5~99999</distanceRange>
+		<mustBeMelee>true</mustBeMelee>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityAiUsesToRetreat">
+        <compClass>HautsFramework.CompAbilityEffect_AiUsesToRetreat</compClass>
+		<hpThreshold>0.2</hpThreshold>
+		<mustBeRanged>true</mustBeRanged>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_TTraitFodiator</li>
+		</forcingTraits>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>HVT_ErinysAbility</defName>
+    <label>psychic censure</label>
+    <description>The caster erects a dam that cuts the victim off from the psychic field. The dam can only be brought down if the victim spends at least a full day meditating or attains a new psylink level. A second application will kill the victim, but if the victim was a psycaster, the cooldown will be lengthened based on their psylink level (to a max of 1 quadrum). Psycasters killed by this ability drop a random number of their psylinks.\n\nThis ability can't kill awakened psychics. Its cooldown lengthens by an order of magnitude per the victim's psylink level, to a max of 1 quadrum.</description>
+    <iconPath>PsychicTraits/Abilities/HVT_PkCensure</iconPath>
+    <warmupMote>Mote_WarmupWordOf</warmupMote>
+    <warmupSound>Psycast_WordOf_Warmup</warmupSound>
+	<cooldownTicksRange>360~900000</cooldownTicksRange>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>True</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <aiCanUse>true</aiCanUse>
+    <showWhenDrafted>true</showWhenDrafted>
+    <hostile>true</hostile>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>44</range>
+      <warmupTime>1.0</warmupTime>
+      <targetParams>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetMechs>false</canTargetMechs>
+        <onlyTargetColonists>false</onlyTargetColonists>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="HautsTraitsRoyalty.CompProperties_AbilityErinys">
+        <compClass>HautsTraitsRoyalty.CompAbilityEffect_Erinys</compClass>
+		<goodwillImpact>-40</goodwillImpact>
+		<aiUseFrequencyOnMundanes>0.4</aiUseFrequencyOnMundanes>
+		<scanForPawnsOnly>true</scanForPawnsOnly><!--this and the two fields below dictate its AI use. this is true bc otherwise the AI will "scan for targets" by looking at EVERYTHING within 44 cells, which is horrendously nonperformant-->
+		<onlyHostiles>true</onlyHostiles>
+		<periodicity>500</periodicity><!--AI only looks for targets this often (500ticks=5 times an hour)-->
+		<cooldownOnNonPsycasterKill>360</cooldownOnNonPsycasterKill>
+		<baseCooldownOnPsycasterKill>2500</baseCooldownOnPsycasterKill><!--this gets multiplied by the square of the pawn's psylink level. caps at the max of cooldownTicksRange-->
+		<hediffToGrant>HVT_ErinysBuff</hediffToGrant>
+		<severityPerPsylinklevel>0.05</severityPerPsylinklevel>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_TTraitErinys</li>
+		</forcingTraits>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>HVT_PhoenixAbility</defName>
+    <label>psychic resurrection</label>
+    <description>The caster restores the target to life.\n\nAnyone resurrected in this way must spend 24 hours alive before this form of resurrection will work on them again. Any attempt that violates this rule results in the immediate, explosive, and irreversible disintegration of the victim.</description>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <iconPath>PsychicTraits/Abilities/HVT_PkResurrection</iconPath>
+    <warmupMote>Mote_WarmupWordOf</warmupMote>
+    <warmupSound>Psycast_WordOf_Warmup</warmupSound>
+	<cooldownTicksRange>20</cooldownTicksRange>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>True</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <aiCanUse>true</aiCanUse>
+    <showWhenDrafted>true</showWhenDrafted>
+    <hostile>true</hostile>
+    <statBases>
+      <Ability_Duration>3000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>False</drawAimPie>
+      <range>-1</range>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetCorpses>true</canTargetCorpses>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <comps>
+      <li Class="HautsTraitsRoyalty.CompProperties_AbilityResurrectSideEffect">
+        <compClass>HautsTraitsRoyalty.CompAbilityEffect_ResurrectSideEffect</compClass>
+        <hediffDefs><li>HVT_PhoenixPostResurrection</li></hediffDefs>
+		<hediffDefToExplode>HVT_PhoenixPostResurrection</hediffDefToExplode>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_TTraitPhoenix</li>
+		</forcingTraits>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>HVT_SirenAbility</defName>
+    <label>psychic will alignment</label>
+    <description>The caster immediately converts the target to their faction and (if applicable) ideoligion. This ability's cooldown scales with the victim's market value.</description>
+    <iconPath>PsychicTraits/Abilities/HVT_PkAlignment</iconPath>
+    <warmupMote>Mote_WarmupWordOf</warmupMote>
+    <warmupSound>Psycast_WordOf_Warmup</warmupSound>
+	<cooldownTicksRange>300~3600000</cooldownTicksRange>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>True</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <aiCanUse>true</aiCanUse>
+    <showWhenDrafted>true</showWhenDrafted>
+    <hostile>true</hostile>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>14.9</range>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetAnimals>true</canTargetAnimals>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetMechs>true</canTargetMechs>
+        <onlyTargetColonists>false</onlyTargetColonists>
+      </targetParams>
+    </verbProperties>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <comps>
+      <li Class="HautsFramework.CompProperties_AbilityTargetMarketValueSetsCooldown">
+        <compClass>HautsFramework.CompAbilityEffect_TargetMarketValueSetsCooldown</compClass>
+		<minMarketValueToScale>100</minMarketValueToScale>
+		<marketValueScalar>10</marketValueScalar>
+      </li>
+      <li Class="HautsTraitsRoyalty.CompProperties_AbilityMindControl">
+        <compClass>HautsTraitsRoyalty.CompAbilityEffect_MindControl</compClass>
+		<goodwillImpact>-40</goodwillImpact>
+		<setsIdeo>true</setsIdeo>
+		<failsOnAwokens>false</failsOnAwokens>
+		<failsOnTrans>true</failsOnTrans>
+		<aiMinMarketValueToTarget>1000</aiMinMarketValueToTarget>
+		<letterLabel>Mind control: {RECIPIENT_labelShort}</letterLabel>
+        <letterText>Utilizing the powers of a transcendent siren, {INITIATOR_labelShort} aligned {RECIPIENT_labelShort} to {INITIATOR_possessive} cause.</letterText>
+		<scanForPawnsOnly>true</scanForPawnsOnly><!--AI use field, see Erinys ability for notes. If no periodicity is specified it defaults to 250 ticks-->
+		<onlyHostiles>true</onlyHostiles>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_TTraitSiren</li>
+		</forcingTraits>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>HVT_SphinxAbility</defName>
+    <label>psychic riddle</label>
+    <description>The caster knocks the target out for 3 days and grants them a psylink. This always succeeds on non-psycasters, but the higher the target's current psylink level, the lower the chance of success. Three failures will result in destruction of the target's brain.\n\nCan't target downed pawns.</description>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <iconPath>PsychicTraits/Abilities/HVT_PkInstruction</iconPath>
+    <warmupMote>Mote_WarmupWordOf</warmupMote>
+    <warmupSound>Psycast_WordOf_Warmup</warmupSound>
+	<cooldownTicksRange>60</cooldownTicksRange>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>True</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <showWhenDrafted>true</showWhenDrafted>
+    <hostile>true</hostile>
+    <statBases>
+      <Ability_Duration>3000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>False</drawAimPie>
+      <range>-1</range>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetMechs>false</canTargetMechs>
+        <onlyTargetColonists>false</onlyTargetColonists>
+		<neverTargetIncapacitated>true</neverTargetIncapacitated>
+      </targetParams>
+    </verbProperties>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>HVT_ThunderbirdSphinxComa</hediffDef>
+        <onlyBrain>True</onlyBrain>
+        <applicableToMechs>False</applicableToMechs>
+        <canTargetBaby>True</canTargetBaby>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_TTraitSphinx</li>
+		</forcingTraits>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>HVT_ThunderbirdAbility</defName>
+    <label>psychic seeding</label>
+    <description>Knocks the target out for 3 days and has an additional effect depending on the target:\n-Ordinary individuals are transformed into Latent Psychics. This incurs no cooldown.\n-Latent Psychics have a 33% chance to become awakened.\n-Awakened Psychics have a 33% chance to gain a second awakening; this cannot grant someone more than two awakened traits.</description>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
+    <iconPath>PsychicTraits/Abilities/HVT_PkWisdom</iconPath>
+    <warmupMote>Mote_WarmupWordOf</warmupMote>
+    <warmupSound>Psycast_WordOf_Warmup</warmupSound>
+	<cooldownTicksRange>60000</cooldownTicksRange>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>True</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <showWhenDrafted>true</showWhenDrafted>
+    <hostile>true</hostile>
+    <statBases>
+      <Ability_Duration>3000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>False</drawAimPie>
+      <range>-1</range>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetMechs>false</canTargetMechs>
+        <onlyTargetColonists>false</onlyTargetColonists>
+		<neverTargetIncapacitated>true</neverTargetIncapacitated>
+      </targetParams>
+    </verbProperties>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>HVT_ActualThunderbirdComa</hediffDef>
+        <onlyBrain>True</onlyBrain>
+        <applicableToMechs>False</applicableToMechs>
+        <canTargetBaby>True</canTargetBaby>
+      </li>
+	  <li Class="HautsTraitsRoyalty.CompProperties_AbilityPsychicAwakening">
+        <compClass>HautsTraitsRoyalty.CompAbilityEffect_PsychicAwakening</compClass>
+        <maxAwakenings>2</maxAwakenings>
+	  </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_TTraitThunderbird</li>
+		</forcingTraits>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>HVT_ZizAbility</defName>
+    <label>psychic pulverization</label>
+    <description>The caster calls down massive beams of energy that crush everything in the area. Meditating speeds up this ability's cooldown.</description>
+    <iconPath>PsychicTraits/Abilities/HVT_PkPulverization</iconPath>
+    <cooldownTicksRange>360000</cooldownTicksRange>
+	<cooldownPerCharge>true</cooldownPerCharge>
+    <writeCombatLog>True</writeCombatLog>
+	<charges>10</charges>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <showWhenDrafted>true</showWhenDrafted>
+    <aiCanUse>true</aiCanUse><!--do ya feel lucky, punk?-->
+    <hostile>true</hostile>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <statBases>
+      <Ability_EffectRadius>15</Ability_EffectRadius>
+      <Ability_Duration>600</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>57</range>
+      <warmupTime>3.0</warmupTime>
+      <targetParams>
+        <canTargetLocations>True</canTargetLocations>
+        <mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="HautsTraitsRoyalty.CompProperties_PulverizationBeam">
+        <compClass>HautsTraitsRoyalty.CompAbilityEffect_PulverizationBeam</compClass>
+        <durationTicks>600</durationTicks>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>40</clamorRadius>
+      </li>
+	  <li Class="HautsTraitsRoyalty.CompProperties_AbilityTargetForMassDestruction">
+        <compClass>HautsTraitsRoyalty.CompAbilityEffect_TargetForMassDestruction</compClass>
+		<periodicity>2000</periodicity><!--low frequency at 1.25/h, because the AI should only need one cast to kill almost everything it sees-->
+		<scanForPawnsOnly>false</scanForPawnsOnly><!--y'see, it will open fire on anything which puts...-->
+		<netMarketValueToFire>4000</netMarketValueToFire><!--a total of this much enemy turrets, enemy pawns, and the initial target's net market value in jeopardy...-->
+		<pastThisPercentDmgLoosenRestrictions>0.25</pastThisPercentDmgLoosenRestrictions><!--...or if quite damaged, just YOLOs it and opens fire on anything regardless of net market value.-->
+		<friendlyFireConsiderationFactor>0.1</friendlyFireConsiderationFactor><!--market value of non-hostile faction-owned things in jeopardy is multiplied by this much and subtracted from the net market value to fire-->
+		<onlyHostiles>true</onlyHostiles>
+	  </li>
+      <li Class="HautsFramework.CompProperties_AbilityMeditationCooldown">
+        <compClass>HautsFramework.CompAbilityEffect_MeditationCooldown</compClass>
+        <stopsWhileNotMeditating>false</stopsWhileNotMeditating>
+        <bonusTicksWhileMeditating>2</bonusTicksWhileMeditating>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_TTraitZiz</li>
+		</forcingTraits>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>HVT_ZizAbility2</defName>
+    <label>psychic mass destruction</label>
+    <description>The caster destroys everything on a target world tile via mass inversion. One moment, things in the area exist; the next, perfectly symmetrical antimatter-matter reactions wipe those things from existence, leaving no trace behind. Employing this ability will cause relations with all factions to break down. It will also likely cause severe atmospheric disturbances for some time.</description>
+    <iconPath>PsychicTraits/Abilities/HVT_PkWMD</iconPath>
+    <cooldownTicksRange>70</cooldownTicksRange>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <showWhenDrafted>true</showWhenDrafted>
+    <hostile>true</hostile>
+    <targetWorldCell>True</targetWorldCell>
+    <showGizmoOnWorldView>True</showGizmoOnWorldView>
+    <showCastingProgressBar>True</showCastingProgressBar>
+    <warmupStartSound>Psycast_Neuroquake_CastStart</warmupStartSound>
+    <warmupSound>Psycast_Neuroquake_CastLoop</warmupSound>
+    <warmupPreEndSound>Psycast_Neuroquake_CastEnd</warmupPreEndSound>
+    <warmupPreEndSoundSeconds>5</warmupPreEndSoundSeconds>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>12</warmupTime>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="HautsTraitsRoyalty.CompProperties_MassInversion">
+        <compClass>HautsTraitsRoyalty.CompAbilityEffect_MassInversion</compClass>
+		<tilesRadius>30</tilesRadius>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsFramework.CompAbilityEffect_ForcedByOtherProperty</compClass>
+		<forcingTraits>
+			<li>HVT_TTraitZiz</li>
+		</forcingTraits>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <ThingDef ParentName="OrbitalStrikeBase">
+    <defName>HVT_PulverizationBeam</defName>
+    <label>psychic pulverization beam</label>
+    <thingClass>HautsTraitsRoyalty.PulverizationBeam</thingClass>
+    <comps>
+      <li Class="CompProperties_OrbitalBeam">
+        <width>8</width>
+        <color>(229, 255, 215, 242)</color>
+        <sound>OrbitalBeam</sound>
+      </li>
+      <li Class="CompProperties_CameraShaker">
+        <mag>0.03</mag>
+      </li>
+      <li Class="CompProperties_AffectsSky">
+        <skyColors>
+          <sky>(210, 255, 199)</sky>
+          <shadow>(186, 225, 185)</shadow>
+          <overlay>(255, 255, 255)</overlay>
+          <saturation>1.3</saturation>
+        </skyColors>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <!--for genes-->
+  <AbilityDef>
+    <defName>HVT_ArchicSyzygy2</defName>
+    <label>archonic syzygy</label>
+    <description>The caster blooms with a swelling current of psychic energy. For the next hour, psycasting incurs far less neural heat and costs far less psyfocus.</description>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <showGizmoOnWorldView>True</showGizmoOnWorldView>
+	<gizmoClass>HautsFramework.Command_AbilityCanBuffSelfOnCaravan</gizmoClass>
+	<iconPath>PsychicTraits/Genes/HVT_Perennial</iconPath>
+	<cooldownTicksRange>75000</cooldownTicksRange>
+    <statBases>
+      <Ability_Duration>42</Ability_Duration>
+      <Ability_EffectRadius>0</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <verbClass>HautsFramework.Verb_CastAbilityCombatSelfBuff</verbClass>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+	  <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+	  <targetable>false</targetable>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>HVT_SyzygyBuff</hediffDef>
+        <onlyApplyToSelf>True</onlyApplyToSelf>
+        <replaceExisting>true</replaceExisting>
+      </li>
+      <li Class="HautsFramework.CompProperties_AbilityForcedByOtherProperty">
+        <compClass>HautsTraitsRoyalty.CompAbilityEffect_Syzygy</compClass>
+		<forcingGenes MayRequire="Ludeon.RimWorld.Biotech">
+			<li MayRequire="Ludeon.RimWorld.Biotech">HVT_APerennialGene</li>
+		</forcingGenes>
+      </li>
+    </comps>
+  </AbilityDef>
+</Defs>

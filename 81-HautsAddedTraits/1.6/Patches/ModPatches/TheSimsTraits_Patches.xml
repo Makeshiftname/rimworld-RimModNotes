@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>The Sims Traits</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--if your mod has come out after mine and it has traits whose names overlap with mine, they will be renamed. Please do your homework-->
+				<li Class="PatchOperationReplace"> 
+					<xpath>/Defs/TraitDef[defName="ST_Bookworm"]/degreeDatas/li/label</xpath>
+					<value>
+						<label>avid reader</label>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	
+</Patch>

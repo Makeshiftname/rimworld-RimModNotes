@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs MayRequire="Ludeon.RimWorld.Biotech">
+  <GeneCategoryDef>
+    <defName>HautsAATraits</defName>
+    <label>Hauts' Awakened Psychic Traits</label>
+    <displayPriorityInXenotype>23</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <!--archite awakened psychic genes-->
+  <GeneDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_AAugurGene</defName>
+    <label>psychic ultrasensitivity</label>
+    <labelShortAdj>awakened augur</labelShortAdj>
+    <description>Carriers of this gene receive an immense bonus to psychic sensitivity.</description>
+    <iconPath>PsychicTraits/Genes/HVT_Augur</iconPath>
+    <displayCategory>HautsAATraits</displayCategory>
+    <marketValueFactor>2</marketValueFactor>
+    <biostatCpx>3</biostatCpx>
+    <biostatArc>6</biostatArc>
+	<statOffsets>
+		<PsychicSensitivity>0.8</PsychicSensitivity>
+		<RoyalFavorValue>4</RoyalFavorValue>
+	</statOffsets>
+	<statFactors>
+		<PsychicSensitivity>1.75</PsychicSensitivity>
+	</statFactors>
+	<modExtensions>
+		<li Class="HautsTraits.SuperPsychicGene">
+			<category>awakening</category>
+			<correspondingTrait>HVT_AwakenedAugur</correspondingTrait>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_AChanshiGene</defName>
+    <label>meditation metabolism</label>
+    <labelShortAdj>awakened chanshi</labelShortAdj>
+    <description>Carriers of this gene charge archites in their body via psychic energy extracted from meditation. While charging, these archites produce additional psyfocus as a byproduct, and they maintain the carrier's body.</description>
+    <iconPath>PsychicTraits/Genes/HVT_Chanshi</iconPath>
+    <displayCategory>HautsAATraits</displayCategory>
+    <marketValueFactor>2</marketValueFactor>
+    <forcedTraits>
+      <li>
+        <def>HVT_ChanshiGene</def>
+      </li>
+    </forcedTraits>
+    <biostatCpx>5</biostatCpx>
+    <biostatArc>6</biostatArc>
+	<statOffsets>
+		<PsychicSensitivity>0.6</PsychicSensitivity>
+		<RoyalFavorValue>4</RoyalFavorValue>
+	</statOffsets>
+	<statFactors>
+		<MeditationFocusGain>1.05</MeditationFocusGain>
+	</statFactors>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffToWholeBody>HVT_PsychicChanshi</hediffToWholeBody>
+		</li>
+		<li Class="HautsTraits.SuperPsychicGene">
+			<category>awakening</category>
+			<correspondingTrait>HVT_AwakenedChanshi</correspondingTrait>
+		</li>
+	</modExtensions>
+  </GeneDef>
+	<TraitDef MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>HVT_ChanshiGene</defName>
+		<commonality>0</commonality>
+		<degreeDatas>
+		  <li>
+			<label>chanshi gene</label>
+			<description>{PAWN_nameDef} has the Meditation Metabolism archite gene, allowing {PAWN_objective} to use any meditation focus type.</description>
+			<!--<allowedMeditationFocusTypes>
+				<li>Artistic</li>
+				<li>Dignified</li>
+				<li>Flame</li>
+				<li>Minimal</li>
+				<li>Morbid</li>
+				<li>Natural</li>
+				<li MayRequire="VanillaExpanded.VPsycastsE">VPE_Group</li>
+				<li MayRequire="VanillaExpanded.VPsycastsE">VPE_Archotech</li>
+				<li MayRequire="VanillaExpanded.VPsycastsE">VPE_Science</li>
+				<li MayRequire="VanillaExpanded.VPsycastsE">VPE_Wealth</li>
+			</allowedMeditationFocusTypes>-->
+		  </li>
+		</degreeDatas>
+        <modExtensions>
+            <li Class="HautsFramework.ExciseTraitExempt" />
+        </modExtensions>
+	</TraitDef>
+  <GeneDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_ADelugeGene</defName>
+    <label>simplest psycast mastery</label>
+    <labelShortAdj>awakened deluge</labelShortAdj>
+    <description>Carriers of this gene develop irregularities in the hippocampus, which shoulder an exceptional amount of computational burden involved in invoking first-level psycasts.</description>
+    <iconPath>PsychicTraits/Genes/HVT_Deluge</iconPath>
+    <displayCategory>HautsAATraits</displayCategory>
+    <marketValueFactor>2</marketValueFactor>
+    <biostatCpx>5</biostatCpx>
+    <biostatArc>6</biostatArc>
+	<statOffsets>
+		<PsychicSensitivity>0.6</PsychicSensitivity>
+		<RoyalFavorValue>4</RoyalFavorValue>
+		<Hauts_TierOnePsycastCostOffset>-0.225</Hauts_TierOnePsycastCostOffset>
+	</statOffsets>
+	<modExtensions>
+		<li Class="HautsTraits.SuperPsychicGene">
+			<category>awakening</category>
+			<correspondingTrait>HVT_AwakenedDeluge</correspondingTrait>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_AEruditeGene</defName>
+    <label>innate psycasting knowledge</label>
+    <labelShortAdj>awakened erudite</labelShortAdj>
+    <description>Carriers of this gene gain additional psylink levels, as well as psytrainer-like modifications via archites which may cause them to develop additional expressions of psychic energy in various circumstances.</description>
+    <iconPath>PsychicTraits/Genes/HVT_Erudite</iconPath>
+    <displayCategory>HautsAATraits</displayCategory>
+    <marketValueFactor>2</marketValueFactor>
+    <biostatCpx>5</biostatCpx>
+    <biostatArc>6</biostatArc>
+	<statOffsets>
+		<PsychicSensitivity>0.6</PsychicSensitivity>
+		<RoyalFavorValue>4</RoyalFavorValue>
+	</statOffsets>
+	<modExtensions>
+		<li Class="HautsTraits.SuperPsychicGene">
+			<category>awakening</category>
+			<correspondingTrait>HVT_AwakenedErudite</correspondingTrait>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_AIncarnateGene</defName>
+    <label>psycast-derived empowerment</label>
+    <labelShortAdj>awakened incarnate</labelShortAdj>
+    <description>Carriers of this gene mutate in response to psycasting knowledge, becoming physically and mentally stronger for each psycast known.</description>
+    <iconPath>PsychicTraits/Genes/HVT_Incarnate</iconPath>
+    <displayCategory>HautsAATraits</displayCategory>
+    <marketValueFactor>2</marketValueFactor>
+    <biostatCpx>5</biostatCpx>
+    <biostatArc>6</biostatArc>
+	<statOffsets>
+		<PsychicSensitivity>0.6</PsychicSensitivity>
+		<RoyalFavorValue>4</RoyalFavorValue>
+	</statOffsets>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffToWholeBody>HVT_PsychicIncarnate2</hediffToWholeBody>
+		</li>
+		<li Class="HautsTraits.SuperPsychicGene">
+			<category>awakening</category>
+			<correspondingTrait>HVT_AwakenedIncarnate</correspondingTrait>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_ALuminaryGene</defName>
+    <label>psycasting beacon</label>
+    <labelShortAdj>awakened luminary</labelShortAdj>
+    <description>Carriers of this gene emit short-ranged ripples in the psychic manifold, which enhance the psycasting abilities of those nearby. However, this doesn't benefit the carrier.</description>
+    <iconPath>PsychicTraits/Genes/HVT_Luminary</iconPath>
+    <displayCategory>HautsAATraits</displayCategory>
+    <marketValueFactor>2</marketValueFactor>
+    <biostatCpx>5</biostatCpx>
+    <biostatArc>6</biostatArc>
+	<statOffsets>
+		<PsychicSensitivity>0.6</PsychicSensitivity>
+		<RoyalFavorValue>4</RoyalFavorValue>
+	</statOffsets>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffToWholeBody>HVT_LuminaryGeneAura</hediffToWholeBody>
+		</li>
+		<li Class="HautsTraits.SuperPsychicGene">
+			<category>awakening</category>
+			<correspondingTrait>HVT_AwakenedLuminary</correspondingTrait>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_AMantraistGene</defName>
+    <label>psyfocus regeneration</label>
+    <labelShortAdj>awakened mantraist</labelShortAdj>
+    <description>Carriers of this gene continually gain psyfocus.</description>
+    <iconPath>PsychicTraits/Genes/HVT_Mantraist</iconPath>
+    <displayCategory>HautsAATraits</displayCategory>
+    <marketValueFactor>2</marketValueFactor>
+    <biostatCpx>5</biostatCpx>
+    <biostatArc>6</biostatArc>
+	<statOffsets>
+		<PsychicSensitivity>0.6</PsychicSensitivity>
+		<RoyalFavorValue>4</RoyalFavorValue>
+		<Hauts_PsyfocusRegenRate>0.175</Hauts_PsyfocusRegenRate>
+	</statOffsets>
+	<modExtensions>
+		<li Class="HautsTraits.SuperPsychicGene">
+			<category>awakening</category>
+			<correspondingTrait>HVT_AwakenedMantraist</correspondingTrait>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_APerennialGene</defName>
+    <label>psycasting power surge</label>
+    <labelShortAdj>awakened perennial</labelShortAdj>
+    <description>Carriers of this gene develop a specialized lobe of archite-heavy grey matter that seems to impede regular utilization of psyfocus. However, it creates unique thoughtwaves that can be harnessed no more than once a day to communicate with the archotechs at an unprecedented level of ease and clarity, granting an 'hour of power' in which psycasts are virtually free to invoke.</description>
+    <iconPath>PsychicTraits/Genes/HVT_Perennial</iconPath>
+    <displayCategory>HautsAATraits</displayCategory>
+    <marketValueFactor>2</marketValueFactor>
+    <abilities>
+      <li>HVT_ArchicSyzygy2</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>HVT_ArchicSyzygy</AbilityDef>
+    </descriptionHyperlinks>
+    <biostatCpx>5</biostatCpx>
+    <biostatArc>6</biostatArc>
+	<statOffsets>
+		<PsychicSensitivity>0.6</PsychicSensitivity>
+		<RoyalFavorValue>4</RoyalFavorValue>
+		<Hauts_PsycastFocusRefund>-0.15</Hauts_PsycastFocusRefund>
+		<VPE_PsyfocusCostFactor MayRequire="VanillaExpanded.VPsycastsE">0.3</VPE_PsyfocusCostFactor>
+	</statOffsets>
+	<modExtensions>
+		<li Class="HautsTraits.SuperPsychicGene">
+			<category>awakening</category>
+			<correspondingTrait>HVT_AwakenedPerennial</correspondingTrait>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_ASageGene</defName>
+    <label>neural resilience</label>
+    <labelShortAdj>awakened sage</labelShortAdj>
+    <description>Carriers of this gene show high archite concentration throughout their central and peripheral nervous systems, improving their pain shock threshold, mental break threshold, and neural heat limit.</description>
+    <iconPath>PsychicTraits/Genes/HVT_Sage</iconPath>
+    <displayCategory>HautsAATraits</displayCategory>
+    <marketValueFactor>2</marketValueFactor>
+    <biostatCpx>5</biostatCpx>
+    <biostatArc>6</biostatArc>
+	<statOffsets>
+		<PsychicSensitivity>0.6</PsychicSensitivity>
+		<RoyalFavorValue>4</RoyalFavorValue>
+	</statOffsets>
+	<statFactors>
+		<PsychicEntropyMax>2.8</PsychicEntropyMax>
+		<MentalBreakThreshold>0.85</MentalBreakThreshold>
+		<PainShockThreshold>1.25</PainShockThreshold>
+	</statFactors>
+	<modExtensions>
+		<li Class="HautsTraits.SuperPsychicGene">
+			<category>awakening</category>
+			<correspondingTrait>HVT_AwakenedSage</correspondingTrait>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_ASiphonerGene</defName>
+    <label>psyfocus-producing digestion</label>
+    <labelShortAdj>awakened siphoner</labelShortAdj>
+    <description>Carriers of this gene offload part of the behavior required to interact with the psychic field to their gut brain. For them, food not only provides physical nutrition; it also replenishes their psyfocus.</description>
+    <iconPath>PsychicTraits/Genes/HVT_Siphoner</iconPath>
+    <displayCategory>HautsAATraits</displayCategory>
+    <marketValueFactor>2</marketValueFactor>
+    <biostatCpx>5</biostatCpx>
+    <biostatArc>6</biostatArc>
+	<statOffsets>
+		<PsychicSensitivity>0.6</PsychicSensitivity>
+		<RoyalFavorValue>4</RoyalFavorValue>
+		<Hauts_PsyfocusFromFood>0.0425</Hauts_PsyfocusFromFood>
+	</statOffsets>
+    <capMods>
+	  <li>
+		<capacity>Eating</capacity>
+		<offset>0.4</offset>
+	  </li>
+    </capMods>
+	<modExtensions>
+		<li Class="HautsTraits.SuperPsychicGene">
+			<category>awakening</category>
+			<correspondingTrait>HVT_AwakenedSiphoner</correspondingTrait>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_ATitanGene</defName>
+    <label>psychic body reinforcement</label>
+    <labelShortAdj>awakened titan</labelShortAdj>
+    <description>Carriers of this gene reinforce their bodies with psyfocus. Unspent psyfocus boosts their move speed, work speed, armor, healing, and immunity.</description>
+    <iconPath>PsychicTraits/Genes/HVT_Titan</iconPath>
+    <displayCategory>HautsAATraits</displayCategory>
+    <marketValueFactor>2</marketValueFactor>
+    <biostatCpx>5</biostatCpx>
+    <biostatArc>6</biostatArc>
+	<statOffsets>
+		<PsychicSensitivity>0.6</PsychicSensitivity>
+		<RoyalFavorValue>4</RoyalFavorValue>
+	</statOffsets>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffToWholeBody>HVT_TitanpowerGene</hediffToWholeBody>
+		</li>
+		<li Class="HautsTraits.SuperPsychicGene">
+			<category>awakening</category>
+			<correspondingTrait>HVT_AwakenedTitan</correspondingTrait>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>HVT_AUndyingGene</defName>
+    <label>reactive psyfocus defense</label>
+    <labelShortAdj>awakened undying</labelShortAdj>
+    <description>Carriers of this gene are shrouded in a field that translates incoming physical harm into a psychic force, lowering their psyfocus instead of actually damaging them.</description>
+    <iconPath>PsychicTraits/Genes/HVT_Undying</iconPath>
+    <displayCategory>HautsAATraits</displayCategory>
+    <marketValueFactor>2</marketValueFactor>
+    <biostatCpx>5</biostatCpx>
+    <biostatArc>6</biostatArc>
+	<statOffsets>
+		<PsychicSensitivity>0.6</PsychicSensitivity>
+		<RoyalFavorValue>4</RoyalFavorValue>
+		<Hauts_ApparelWearRateFactor>-0.25</Hauts_ApparelWearRateFactor>
+	</statOffsets>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffToWholeBody>HVT_Settra</hediffToWholeBody>
+		</li>
+		<li Class="HautsTraits.SuperPsychicGene">
+			<category>awakening</category>
+			<correspondingTrait>HVT_AwakenedUndying</correspondingTrait>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  
+</Defs>

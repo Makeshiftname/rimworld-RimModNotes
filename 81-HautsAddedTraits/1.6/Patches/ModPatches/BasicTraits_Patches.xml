@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Basic Traits</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--AZphobe does not like taming animals-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="BT_BeastMaster"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="BT_BeastMaster"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Agrizoophobe</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="BT_BeastMaster"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Agrizoophobe</li>
+						</value>
+					</match>
+				</li>
+				<!--Charisma and forgettability do not mix-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="BT_Charismatic"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="BT_Charismatic"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Forgettable</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="BT_Charismatic"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Forgettable</li>
+						</value>
+					</match>
+				</li>
+				<!--Staid does not comprehend art-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="HVT_Staid"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="HVT_Staid"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>BT_Artist</li>
+								<li>BT_Visionary</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="HVT_Staid"]/conflictingTraits</xpath>
+						<value>
+							<li>BT_Artist</li>
+							<li>BT_Visionary</li>
+						</value>
+					</match>
+				</li>
+				<!--Sniper ew/ melee traits-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="BT_MeleeExpert"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="BT_MeleeExpert"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Sniper</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="BT_MeleeExpert"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Sniper</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="BT_Bruiser"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="BT_Bruiser"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Sniper</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="BT_Bruiser"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Sniper</li>
+						</value>
+					</match>
+				</li>
+				<!--Tranquil don't like traits mostly about altering mental break threshold-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="BT_Patient"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="BT_Patient"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Tranquil</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="BT_Patient"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+						</value>
+					</match>
+				</li>
+				<!--Finally... did you know Vanilla Traits Expanded forcibly renames other traits' mods so there's no name overlap? Well, it tries to. I think the xpath addresses are written wrong. Anyways, I too shall indulge in this fel practice-->
+				<li Class="PatchOperationReplace"> 
+					<xpath>/Defs/TraitDef[defName="BT_Visionary"]/degreeDatas/li[degree="0"]/label</xpath>
+					<value>
+						<label>artistic visionary</label>		
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	
+</Patch>

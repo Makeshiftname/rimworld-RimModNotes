@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Anomaly</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--governs extent to which transcendence undoes specific mutanthoods-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/MutantDef[defName="Shambler"]</xpath>
+					<value>
+						<li Class="HautsTraitsRoyalty.BecomeEvilIfRevertedByTrans">
+						  <unwaveringLoyaltyChance>0.5</unwaveringLoyaltyChance>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/MutantDef[defName="AwokenCorpse"]</xpath>
+					<value>
+						<li Class="HautsTraitsRoyalty.BecomeEvilIfRevertedByTrans">
+						  <canRevert>false</canRevert>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Cybranian - Anomaly Ghosts</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAddModExtension">
+								<xpath>/Defs/MutantDef[defName="Ghost"]</xpath>
+								<value>
+									<li Class="HautsTraitsRoyalty.BecomeEvilIfRevertedByTrans">
+									  <unwaveringLoyaltyChance>0.5</unwaveringLoyaltyChance>
+									</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<!--tooltips-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TraitDef[defName="HVT_TTraitHarbinger"]/degreeDatas/li/description</xpath>
+					<value>
+						<description>{PAWN_nameDef} can eat corpses to gain some of their skill experience, as well as potentially heal {PAWN_objective}self of an injury or ailment. The chance to heal scales with the corpse's body size. Moreover, {PAWN_pronoun} defers incoming damage to nearby corpses or undead entities.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>RPG Adventure Flavour Pack</li>
+						<li>RPG Adventure Flavour Pack - Fork</li>
+					</mods>
+					<nomatch Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraitDef[defName = "HVT_TTraitVulture"]/degreeDatas/li/description</xpath>
+								<value>
+									<description>Random corpses appear near {PAWN_nameDef} as {PAWN_pronoun} spends psyfocus.{PAWN_pronoun} also cannot be harmed by the living dead, such as ghouls or shamblers.</description>
+								</value>
+							</li>
+						</operations>
+					</nomatch>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

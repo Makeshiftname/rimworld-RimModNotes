@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenarioDef>
+    <defName>HVT_LatentPsychics</defName>
+    <label>Latent Psychic Runaways</label>
+    <description>Abducted by the Empire as youths, the six of you were held in a covert facility for years, subjected to varied and often traumatic tests attempting to unlock your psychic powers. A chance raid by dedicated enemies of the Empire provided the perfect opportunity to flee. Now you find yourselves in the open wilderness of some forsaken rimworld.\n\nNote: Since you start as enemies of the Empire and most of you are not yet full adults, this is a difficult scenario (at least at the start).</description>
+    <scenario>
+      <summary>Six young non-tribal latent psychics attempt to evade the Empire's grasp. Difficult.</summary>
+      <playerFaction>
+        <def>PlayerFaction</def>
+        <factionDef>PlayerColony</factionDef>
+      </playerFaction>
+      <parts>
+
+        <!-- Game start dialog -->
+        <li Class="ScenPart_GameStartDialog">
+          <def>GameStartDialog</def>
+          <text>Abducted by the Empire as youths, the six of you were held in a covert facility for years, subjected to varied and often traumatic tests attempting to unlock your psychic powers. A chance raid by dedicated enemies of the Empire provided the perfect opportunity to flee.\n\nNow you find yourselves in the open wilderness of some forsaken rimworld. Beware - the Empire will pursue you until you have made amends or been recaptured.</text>
+          <closeSound>GameStartSting</closeSound>
+        </li>
+
+        <!-- Config pages -->
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+          <def>ConfigPage_ConfigureStartingPawns</def>
+          <pawnCount>6</pawnCount>
+          <pawnChoiceCount>10</pawnChoiceCount>
+        </li>
+
+        <!-- Player starting stuff spawn method-->
+        <li Class="ScenPart_PlayerPawnsArriveMethod">
+          <def>PlayerPawnsArriveMethod</def>
+          <method>Standing</method>
+        </li>
+		
+		<!--food-->
+		<li Class="ScenPart_SetNeedLevel">
+			<def>SetNeedLevel</def>
+			<chance>1</chance>
+			<context>PlayerStarter</context>
+			<need>Food</need>
+			<levelRange>0.4962963~0.8037037</levelRange>
+		</li>
+		
+		<!--hate empire-->
+		<li Class="VFECore.ScenPart_ForcedFactionGoodwill">
+			<def>VFEC_ForcedFactionGoodwill</def>
+			<affectStartingGoodwill>True</affectStartingGoodwill>
+			<startingGoodwillRange>-100~-80</startingGoodwillRange>
+			<affectNaturalGoodwill>True</affectNaturalGoodwill>
+			<naturalGoodwillRange>-80~-40</naturalGoodwillRange>
+			<factionDef>Empire</factionDef>
+		</li>
+		
+        <!-- Player starting things -->
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>Steel</thingDef>
+          <count>450</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>WoodLog</thingDef>
+          <count>800</count>
+        </li>      
+        <li Class="ScenPart_ScatterThingsAnywhere">
+          <def>ScatterThingsAnywhere</def>
+          <thingDef>Steel</thingDef>
+          <count>720</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsAnywhere">
+          <def>ScatterThingsAnywhere</def>
+          <thingDef>MealSurvivalPack</thingDef>
+          <count>120</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MedicineHerbal</thingDef>
+          <count>24</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MeleeWeapon_Knife</thingDef>
+          <stuff>Steel</stuff>
+		  <count>3</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Gun_BoltActionRifle</thingDef>
+        </li>
+		
+		<!--RAID-->
+		<li Class="ScenPart_CreateIncident">
+			<def>CreateIncident</def>
+			<incident>HVT_CaptureTeam</incident>
+			<intervalDays>1.3</intervalDays>
+			<visible>false</visible>
+		</li>
+		
+		<!--Player pawns start with latent psychic. also, y'all youths-->
+        <li Class="HautsTraitsRoyalty.ScenPart_ForcedLatentPsychic">
+          <def>ForcedLatentPsychic</def>
+		  <context>PlayerStarter</context>
+        </li>
+        <li Class="ScenPart_PawnFilter_Age">
+          <def>PawnFilter_Age</def>
+		  <allowedAgeRange>10~18</allowedAgeRange>
+        </li>
+
+      </parts>
+    </scenario>
+  </ScenarioDef>
+  
+  <ScenarioDef>
+    <defName>HVT_LatentPsychicsTribal</defName>
+    <label>Latent Psychic Runaways (Tribal)</label>
+    <description>Abducted by the Empire as youths, the six of you were held in a covert facility for years, subjected to varied and often traumatic tests attempting to unlock your psychic powers. A chance raid by dedicated enemies of the Empire provided the perfect opportunity to flee. Now you find yourselves in the open wilderness of some forsaken rimworld.\n\nNote: Since you start as enemies of the Empire and most of you are not yet full adults, this is a difficult scenario (at least at the start).</description>
+    <scenario>
+      <summary>Six young tribal latent psychics attempt to evade the Empire's grasp. Difficult.</summary>
+      <playerFaction>
+        <def>PlayerFaction</def>
+        <factionDef>PlayerTribe</factionDef>
+      </playerFaction>
+      <parts>
+
+        <!-- Game start dialog -->
+        <li Class="ScenPart_GameStartDialog">
+          <def>GameStartDialog</def>
+          <text>Abducted by the Empire as youths, the six of you were held in a covert facility for years, subjected to varied and often traumatic tests attempting to unlock your psychic powers. A chance raid by dedicated enemies of the Empire provided the perfect opportunity to flee.\n\nNow you find yourselves in the open wilderness of some forsaken rimworld. Beware - the Empire will pursue you until you have made amends or been recaptured.</text>
+          <closeSound>GameStartSting</closeSound>
+        </li>
+
+        <!-- Config pages -->
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+          <def>ConfigPage_ConfigureStartingPawns</def>
+          <pawnCount>6</pawnCount>
+          <pawnChoiceCount>10</pawnChoiceCount>
+        </li>
+
+        <!-- Player starting stuff spawn method-->
+        <li Class="ScenPart_PlayerPawnsArriveMethod">
+          <def>PlayerPawnsArriveMethod</def>
+          <method>Standing</method>
+        </li>
+		
+		<!--food-->
+		<li Class="ScenPart_SetNeedLevel">
+			<def>SetNeedLevel</def>
+			<chance>1</chance>
+			<context>PlayerStarter</context>
+			<need>Food</need>
+			<levelRange>0.4962963~0.8037037</levelRange>
+		</li>
+		
+		<!--hate empire-->
+		<li Class="VFECore.ScenPart_ForcedFactionGoodwill">
+			<def>VFEC_ForcedFactionGoodwill</def>
+			<affectStartingGoodwill>True</affectStartingGoodwill>
+			<startingGoodwillRange>-100~-80</startingGoodwillRange>
+			<affectNaturalGoodwill>True</affectNaturalGoodwill>
+			<naturalGoodwillRange>-80~-40</naturalGoodwillRange>
+			<factionDef>Empire</factionDef>
+		</li>
+		
+        <!-- Player starting things -->
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>Steel</thingDef>
+          <count>450</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>WoodLog</thingDef>
+          <count>800</count>
+        </li>      
+        <li Class="ScenPart_ScatterThingsAnywhere">
+          <def>ScatterThingsAnywhere</def>
+          <thingDef>Steel</thingDef>
+          <count>720</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsAnywhere">
+          <def>ScatterThingsAnywhere</def>
+          <thingDef>MealSurvivalPack</thingDef>
+          <count>120</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MedicineHerbal</thingDef>
+          <count>24</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MeleeWeapon_Knife</thingDef>
+          <stuff>Steel</stuff>
+		  <count>3</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Gun_BoltActionRifle</thingDef>
+        </li>
+		
+		<!--RAID-->
+		<li Class="ScenPart_CreateIncident">
+			<def>CreateIncident</def>
+			<incident>HVT_CaptureTeam</incident>
+			<intervalDays>1.5</intervalDays>
+			<visible>false</visible>
+		</li>
+		
+		<!--Player pawns start with latent psychic. also, y'all youths-->
+        <li Class="HautsTraitsRoyalty.ScenPart_ForcedLatentPsychic">
+          <def>ForcedLatentPsychic</def>
+		  <context>PlayerStarter</context>
+        </li>
+        <li Class="ScenPart_PawnFilter_Age">
+          <def>PawnFilter_Age</def>
+		  <allowedAgeRange>10~18</allowedAgeRange>
+        </li>
+
+      </parts>
+    </scenario>
+  </ScenarioDef>
+  
+  <ScenPartDef>
+    <defName>ForcedLatentPsychic</defName>
+    <label>forced latent psychic trait</label>
+    <scenPartClass>HautsTraitsRoyalty.ScenPart_ForcedLatentPsychic</scenPartClass>
+    <category>PlayerPawnModifier</category>
+    <selectionWeight>0.1</selectionWeight>
+    <summaryPriority>1000</summaryPriority>
+    <maxUses>1</maxUses>
+  </ScenPartDef>
+  <ScenPartDef>
+    <defName>ForcedAwakenedPsychic</defName>
+    <label>forced psychic awakening traits</label>
+    <scenPartClass>HautsTraitsRoyalty.ScenPart_ForcedAwakenedPsychic</scenPartClass>
+    <category>PlayerPawnModifier</category>
+    <selectionWeight>0.1</selectionWeight>
+    <summaryPriority>1000</summaryPriority>
+    <maxUses>1</maxUses>
+  </ScenPartDef>
+  
+  <IncidentDef>
+    <defName>HVT_CaptureTeam</defName>
+    <label>imperial capture team</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>VFECore.IncidentWorker_RaidEnemySpecial</workerClass>
+    <baseChance>0</baseChance>
+    <category>ThreatBig</category>
+    <pointsScaleable>false</pointsScaleable>
+    <tale>Raid</tale>
+    <modExtensions>
+      <li Class="VFECore.IncidentDefExtension">
+        <forcedFaction>Empire</forcedFaction>
+        <forcedPointsRange>
+          <min>200</min>
+          <max>300</max>
+        </forcedPointsRange>
+        <forcedStrategy>ImmediateAttack</forcedStrategy>
+      </li>
+    </modExtensions>
+  </IncidentDef>
+</Defs>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Factions Expanded - Ancients</li>
+		</mods>
+		<match Class="PatchOperationFindMod">
+			<mods>
+				<li>Ideology</li>
+			</mods>
+			<match Class="PatchOperationSequence">
+				<operations>
+					<!--Champion and Conversationalist hate Isolationist-->
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/MemeDef[defName="VFEA_Isolationist"]/disagreeableTraits</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>/Defs/MemeDef[defName="VFEA_Isolationist"]</xpath>
+							<value>
+								<disagreeableTraits>
+									<li>HVT_Champion</li>
+									<li>HVT_Conversationalist</li>
+								</disagreeableTraits>
+							</value>
+						</nomatch>
+						<match Class="PatchOperationAdd">
+							<xpath>/Defs/MemeDef[defName="VFEA_Isolationist"]/disagreeableTraits</xpath>
+							<value>
+								<li>HVT_Champion</li>
+								<li>HVT_Conversationalist</li>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</match>
+		</match>
+	</Operation>
+</Patch>

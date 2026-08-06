@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <PawnsArrivalModeDef>
+    <defName>HVT_SkulkIn</defName>
+	<workerClass>HautsTraits.PawnsArrivalModeWorker_SkulkIn</workerClass>
+    <selectionWeightCurve>
+      <points>
+        <li>(500, 0)</li> <!--this mode can't be used by raids under 500 points-->
+        <li>(700, 0.15)</li> <!--only human factions can do this, and it doesn't apply to all raid strategies, but I'd still like it to be rather rare-->
+      </points>
+    </selectionWeightCurve>
+    <selectionWeightCurvesPerFaction>
+      <li>
+        <faction>Mechanoid</faction>  <!-- Obviously mechanoids can't field Skulker raids, they have no traits -->
+          <selectionWeightPerPointsCurve>
+            <points>
+              <li>(300, 0)</li>
+              <li>(1000, 0)</li>
+            </points>
+        </selectionWeightPerPointsCurve>
+      </li>
+    </selectionWeightCurvesPerFaction>
+    <pointsFactorCurve>
+      <points>
+        <li>0, 0.65</li>
+        <li>5000, 0.38</li>  <!--even less points than a random drop, which has the same positioning but also has to wait for the drop pods to land and open-->
+      </points>
+    </pointsFactorCurve>
+    <textEnemy>A group of skulking {0} from {1} have approached by exceptionally stealthy means, and are now quite close.</textEnemy>
+    <textFriendly>A group of friendly skulking {0} from {1} have approached by exceptionally stealthy means, and are now quite close.</textFriendly>
+    <textWillArrive>Skulking {0_pawnsPluralDef} will arrive in a very stealthy manner on foot.</textWillArrive>
+    <walkIn>true</walkIn>
+  </PawnsArrivalModeDef>
+  <PawnsArrivalModeDef>
+    <defName>HVT_SkulkInBaseCluster</defName>
+	<workerClass>HautsTraits.PawnsArrivalModeWorker_SkulkInBaseCluster</workerClass>
+    <selectionWeightCurve>
+      <points>
+        <li>(500, 0)</li> <!--this mode can't be used by raids under 500 points-->
+        <li>(700, 8)</li> <!--it only applies to specific raid strategies-->
+      </points>
+    </selectionWeightCurve>
+    <selectionWeightCurvesPerFaction>
+      <li>
+        <faction>Mechanoid</faction>
+          <selectionWeightPerPointsCurve>
+            <points>
+              <li>(300, 0)</li>
+              <li>(1000, 0)</li>
+            </points>
+        </selectionWeightPerPointsCurve>
+      </li>
+    </selectionWeightCurvesPerFaction>
+    <pointsFactorCurve>
+      <points>
+        <li>0, 0.48</li>
+        <li>5000, 0.26</li>  <!--even less points than a center drop, which has the same positioning, but this one doesn't wait for drop pods to land and open-->
+      </points>
+    </pointsFactorCurve>
+    <textEnemy>A group of {0} from {1} have already been skulking among you, and were only detected just now.</textEnemy>
+    <textFriendly>A group of friendly {0} from {1} have already been skulking among you, and were only detected just now.</textFriendly>
+    <textWillArrive>Skulking {0_pawnsPluralDef} will arrive among you.</textWillArrive>
+    <walkIn>true</walkIn>
+  </PawnsArrivalModeDef>
+  <PawnsArrivalModeDef>
+    <defName>HVT_SkulkInBaseSplitUp</defName>
+	<workerClass>HautsTraits.PawnsArrivalModeWorker_SkulkInBaseSplitUp</workerClass>
+    <selectionWeightCurve>
+      <points>
+        <li>(500, 0)</li> <!--this mode can't be used by raids under 500 points-->
+        <li>(700, 5)</li> <!--it only applies to specific raid strategies-->
+      </points>
+    </selectionWeightCurve>
+    <selectionWeightCurvesPerFaction>
+      <li>
+        <faction>Mechanoid</faction>
+          <selectionWeightPerPointsCurve>
+            <points>
+              <li>(300, 0)</li>
+              <li>(1000, 0)</li>
+            </points>
+        </selectionWeightPerPointsCurve>
+      </li>
+    </selectionWeightCurvesPerFaction>
+    <pointsFactorCurve>
+      <points>
+        <li>0, 0.48</li>
+        <li>5000, 0.26</li>  <!--since they can be SUPER spread out, they shouldn't be that points-intensive-->
+      </points>
+    </pointsFactorCurve>
+    <textEnemy>A group of {0} from {1} have already been skulking among you, and were only detected just now. They've split up to cover more ground.</textEnemy>
+    <textFriendly>A group of friendly {0} from {1} have already been skulking among you, and were only detected just now. They've split up to cover more ground.</textFriendly>
+    <textWillArrive>Skulking {0_pawnsPluralDef} will arrive among you, spread out to cover more ground.</textWillArrive>
+    <walkIn>true</walkIn>
+  </PawnsArrivalModeDef>
+  <PawnsArrivalModeDef>
+    <defName>HVT_Assassins</defName>
+	<workerClass>HautsTraits.PawnsArrivalModeWorker_Assassins</workerClass>
+    <selectionWeightCurve>
+      <points>
+        <li>(750, 0)</li> <!--this mode can't be used by raids under 500 points-->
+        <li>(1050, 5)</li> <!--it only applies to specific raid strategies-->
+      </points>
+    </selectionWeightCurve>
+    <selectionWeightCurvesPerFaction>
+      <li>
+        <faction>Mechanoid</faction>
+          <selectionWeightPerPointsCurve>
+            <points>
+              <li>(300, 0)</li>
+              <li>(1000, 0)</li>
+            </points>
+        </selectionWeightPerPointsCurve>
+      </li>
+    </selectionWeightCurvesPerFaction>
+    <pointsFactorCurve>
+      <points>
+        <li>0, 0.2</li>
+        <li>5000, 0.1</li>  <!--this raid gets the drop on one of Your Dudes, and will probably have a numbers advantage, so FAR less points than a usual raid-->
+      </points>
+    </pointsFactorCurve>
+    <textEnemy>A group of skulking assassins from {1} have ambushed one of your people!</textEnemy>
+    <textFriendly>A group of friendly {0} from {1} have arrived to protect one of your people.</textFriendly>
+    <textWillArrive>Skulking {0_pawnsPluralDef} will reveal themselves to one of your people.</textWillArrive>
+    <walkIn>true</walkIn>
+  </PawnsArrivalModeDef>
+  <PawnsArrivalModeDef>
+    <defName>HVT_SabotagePAM</defName>
+	<workerClass>HautsTraits.PawnsArrivalModeWorker_SabotagePAM</workerClass>
+    <selectionWeightCurve>
+      <points>
+        <li>(500, 0)</li> <!--this mode can't be used by raids under 500 points-->
+        <li>(700, 5)</li> <!--it only applies to specific raid strategies-->
+      </points>
+    </selectionWeightCurve>
+    <selectionWeightCurvesPerFaction>
+      <li>
+        <faction>Mechanoid</faction>
+          <selectionWeightPerPointsCurve>
+            <points>
+              <li>(300, 0)</li>
+              <li>(1000, 0)</li>
+            </points>
+        </selectionWeightPerPointsCurve>
+      </li>
+    </selectionWeightCurvesPerFaction>
+    <pointsFactorCurve>
+      <points>
+        <li>0, 0.48</li>
+        <li>5000, 0.26</li>  <!--despite the generally higher difficulty, yes, they're purposely just as points-intensive as Skulker split up-->
+      </points>
+    </pointsFactorCurve>
+    <textEnemy>A group of {0} from {1} have already been skulking among you, and were only detected just now. They've split up to cover more ground.</textEnemy>
+    <textFriendly>A group of friendly {0} from {1} have already been skulking among you, and were only detected just now. They've split up to cover more ground.</textFriendly>
+    <textWillArrive>Skulking {0_pawnsPluralDef} will arrive among you, spread out to cover more ground.</textWillArrive>
+    <walkIn>true</walkIn>
+  </PawnsArrivalModeDef>
+</Defs>

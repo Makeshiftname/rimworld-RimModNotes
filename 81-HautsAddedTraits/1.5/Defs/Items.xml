@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="MechSerumBase">
+    <defName>HVT_PersonalityNeuroformatter</defName>
+    <label>personality neuroformatter</label>
+    <description>An injector holding several capsules of mechanites capable of selectively editing the nervous system and adjacent tissues to change a subject's personality. The injector can be configured to give the subject any trait that can naturally spawn, though inflicting rarer traits uses more mechanites.</description>
+    <graphicData>
+      <texPath>Things/PersonalityNeuroformatter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Archotech</techLevel>
+    <tradeTags>
+      <li>Artifact</li>
+      <!--<li>ExoticMisc</li>-->
+    </tradeTags>
+    <stackLimit>1</stackLimit>
+    <statBases>
+      <MarketValue>4000</MarketValue>
+    </statBases>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+	<tradeNeverStack>true</tradeNeverStack>
+    <tradeNeverGenerateStacked>true</tradeNeverGenerateStacked>
+    <!--<tradeability>Buyable</tradeability>-->
+    <thingSetMakerTags>
+      <li>RewardStandardMidFreq</li>
+      <li>MapGen_AncientTempleContents</li>
+	  <li>MapGen_AncientComplex_SecurityCrate</li>
+    </thingSetMakerTags>
+    <comps>
+      <li Class="HautsTraits.CompProperties_PNF">
+        <maxCharges>10</maxCharges>
+        <destroyOnEmpty>true</destroyOnEmpty>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>charge</chargeNoun>
+      </li>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Use {0_label}</useLabel>
+        <useDuration>0</useDuration>
+        <warmupMote>Mote_ResurrectAbility</warmupMote>
+      </li>
+      <li Class="CompProperties_Targetable">
+        <compClass>CompTargetable_SinglePawn</compClass>
+      </li>
+      <li Class="HautsTraits.CompProperties_TargetEffectGiveTrait"/>
+    </comps>
+    <allowedArchonexusCount>1</allowedArchonexusCount>
+  </ThingDef>
+  
+  <JobDef>
+    <defName>HVT_UseTraitGiverSerum</defName>
+    <driverClass>HautsTraits.JobDriver_UseTraitGiverSerum</driverClass>
+    <reportString>administering trait serum to TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+</Defs>

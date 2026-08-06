@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <GeneDef ParentName="GenePsycastBase" MayRequire="Danzen.VPE.BiotechIntegration">
+        <defName>HVT_Gene_Mindbender</defName>
+        <label>Mindbender</label>
+        <labelShortAdj>Mindbender</labelShortAdj>
+        <description>Carriers of this gene are able to learn the Mindbender psycaster path. Genies and highmates have this natural endogene.
+        </description>
+        <iconPath>VPE/HVT_Gene_Mindbender</iconPath>
+        <displayOrderInCategory>1005</displayOrderInCategory>
+        <marketValueFactor>3</marketValueFactor>
+    </GeneDef>
+	
+</Defs>

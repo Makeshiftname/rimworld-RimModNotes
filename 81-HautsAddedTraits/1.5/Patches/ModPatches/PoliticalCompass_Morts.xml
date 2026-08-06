@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Political Compass - Mort's Ideologies</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Vag, Anarchist like Liberty and hate Authority; Lib also like Liberty-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="MI_GovernmentLiberty"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_GovernmentLiberty"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Vagabond</li>
+								<li>HVT_Liberator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_GovernmentLiberty"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Vagabond</li>
+							<li>HVT_Liberator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="MI_GovernmentAuthority"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_GovernmentAuthority"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Vagabond</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_GovernmentAuthority"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Vagabond</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						</value>
+					</match>
+				</li>
+				<!--Subjugators and Serviles like Authority, hate Liberty-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="MI_GovernmentAuthority"]/agreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_GovernmentAuthority"]</xpath>
+						<value>
+							<agreeableTraits>
+								<li>HVT_Subjugator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Servile</li>
+							</agreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_GovernmentAuthority"]/agreeableTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Servile</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="MI_GovernmentLiberty"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_GovernmentLiberty"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Subjugator</li>
+								<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Servile</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_GovernmentLiberty"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Subjugator</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Servile</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

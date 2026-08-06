@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Menagerist - Mort's Ideologies: Memes and Precepts</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--though AZphobes are fine with tame animals, Menagerism necessarily involves taming wild ones. disagree!-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="MI_Menagerist"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_Menagerist"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Agrizoophobe</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="MI_Menagerist"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Agrizoophobe</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

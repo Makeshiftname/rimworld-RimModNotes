@@ -1,0 +1,1408 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+		  <li>[SYR] Trait Value</li>
+		  <li>[SYR] Trait Value (Continued)</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_Anarchist"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>-15</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_Servile"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>10</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_PsychicallyBlank"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>-10</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_LatentPsychic"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>1, 18</li>
+						<li>2, 18</li>
+						<li>3, 18</li>
+						<li>4, 18</li>
+						<li>5, 18</li>
+						<li>6, 18</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_AwakenedAugur"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>30</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_AwakenedChanshi"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>30</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_ChanshiGene"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>10</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_AwakenedDeluge"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>30</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_AwakenedErudite"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>30</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_AwakenedIncarnate"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>30</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_AwakenedLuminary"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>30</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_AwakenedMantraist"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>30</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_AwakenedPerennial"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>30</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_AwakenedSage"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>30</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_AwakenedSiphoner"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>30</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_AwakenedTitan"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>30</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_AwakenedUndying"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>30</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitAlbatross"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitAnaconda"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitArcturan"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitAnimalume"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitApocriton"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitPipistrelle"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitBeaver"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitBellbird"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitBluejay"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitBouldermit"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitBowerbird"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitBudgerigar"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitCanary"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitCassowary"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitCockatiel"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitCockroach"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitCranchiid"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitCrane"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitCuckoo"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitDeimatic"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitDiabolus"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitDove"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitDulotic"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitEchinoid"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitEiderduck"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitElectrophorus"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitAptenodytes"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitEvergreen"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitFirefly"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitFirehawk"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitFlamingo"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitFodiator"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitFossil"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitFulmar"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>35</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitGlowworm"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitGnat"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitGoldfinch"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitHaast"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitHarbinger"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitHeron"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitHoneybee"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitHornet"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitHummingbird"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitIndigo"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitIvy"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitJackdaw"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitKea"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitKingfisher"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitKnapweed"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitLadybug"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitLeghorn"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitLocust"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_LocustClone"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>-40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitLovebug"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_LovebugDoppel"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>0</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitMagpie"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitMayfly"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitMeerkat"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitMite"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitMosquito"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitMusang"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitMynah"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitNightingale"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitNoctule"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitNotothen"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitOilbird"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitOrbWeaver"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitOxpecker"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitOrca"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitOsprey"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitPeacock"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitPelican"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitPeregrine"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitPitohui"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitPolux"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitPoorwill"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitPtarmigan"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitQuahog"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitQuelea"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitQuokka"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitRaven"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitRobin"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitRook"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitScarab"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitScarlet"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitScrubJay"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitSeaIce"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitShearwater"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitShrike"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitSpelopede"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitStoat"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitStork"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitStrix"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitSwan"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitSwift"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitTanager"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitTermite"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitTern"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitThrumbo"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitTMN"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitToxbuzzard"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitUhu"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitVulture"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitWarbler"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitWQ"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitWeaverbird"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitWhalehead"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitWoodpecker"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitXerigium"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitYellowjacket"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>40</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitDragon"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>45</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitEgregore"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>45</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitErinys"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>45</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitHarpy"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>45</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitLeviathan"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>45</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitPhoenix"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>45</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitSeraph"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>45</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitSiren"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>45</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitSphinx"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>45</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitThunderbird"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>45</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitWraith"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>45</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>*/TraitDef[defName = "HVT_TTraitZiz"]</xpath>
+				  <value>
+					<li Class="SyrTraitValue.TraitValueExtension">
+					  <traitValues>
+						<li>45</li>
+					  </traitValues>
+					</li>
+				  </value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

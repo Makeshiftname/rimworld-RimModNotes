@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+		  <li>Cyanobot's Genes</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--some genes should suppress some traits-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/GeneDef[defName="CYB_Afamilial"]/suppressedTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/GeneDef[defName="CYB_Afamilial"]</xpath>
+						<value>
+							<suppressedTraits>
+								<li><def>HVT_Caretaker</def></li>
+							</suppressedTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/GeneDef[defName="CYB_Afamilial"]/suppressedTraits</xpath>
+						<value>
+							<li><def>HVT_Caretaker</def></li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

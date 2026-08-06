@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!--And then Randy said "it's Skulkin' time" and dropped a bunch of Skulkers on you. not a literal drop but you get what I mean
+			only the following hostile raids are given Skulk Powers: walk-in, trap-avoidant walk-in, and the various flavors of "walls, what are those?"-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/RaidStrategyDef[defName="ImmediateAttack"]/arriveModes</xpath>
+		<value>
+			<li>HVT_SkulkIn</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/RaidStrategyDef[defName="ImmediateAttackSmart"]/arriveModes</xpath>
+		<value>
+			<li>HVT_SkulkIn</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/RaidStrategyDef[defName="ImmediateAttackBreaching"]</xpath>
+		<value>
+			<arriveModes>
+				<li>HVT_SkulkIn</li>
+			</arriveModes>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/RaidStrategyDef[defName="ImmediateAttackBreachingSmart"]</xpath>
+		<value>
+			<arriveModes>
+				<li>HVT_SkulkIn</li>
+			</arriveModes>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/RaidStrategyDef[defName="ImmediateAttackSappers"]/arriveModes</xpath>
+		<value>
+			<li>HVT_SkulkIn</li>
+		</value>
+	</Operation>
+</Patch>

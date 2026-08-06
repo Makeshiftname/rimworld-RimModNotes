@@ -2994,7 +2994,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 86,
+    "cs_count": 88,
     "has_languages": true,
     "has_docs": true,
     "has_tests": false,
@@ -3039,6 +3039,56 @@
       "80-RimTalkExpandMemory/Docs/标签测试工具快速参考.md",
       "80-RimTalkExpandMemory/Docs/记忆系统重构设计_最终版.md",
       "80-RimTalkExpandMemory/项目管线.md"
+    ],
+    "type": "patch",
+    "type_conf": "medium"
+  },
+  {
+    "dir": "81-HautsAddedTraits",
+    "number": "81",
+    "title": "HautsAddedTraits",
+    "has_about": true,
+    "in_backup": false,
+    "package_id": "Hautarche.HautsTraits",
+    "name": "Hauts' Added Traits",
+    "author": "Hautarche",
+    "supported_versions": [
+      "1.5",
+      "1.6"
+    ],
+    "deps": [
+      "brrainz.harmony",
+      "Hautarche.HautsFramework"
+    ],
+    "load_after": [
+      "OskarPotocki.VanillaFactionsExpanded.Core",
+      "VanillaExpanded.VPsycastsE",
+      "Danzen.VPE.BiotechIntegration",
+      "VanillaExpanded.VPE.Puppeteer",
+      "VPE.Neurophage.Sentinel",
+      "kikohi.cybernetic",
+      "vanillaracesexpanded.highmate",
+      "Hautarche.HautsFramework",
+      "CETeam.CombatExtended"
+    ],
+    "description": "Adds 50 fun traits for pawns (+15 with Ideology, +7 with Biotech, +4 with Royalty, +6 with Anomaly, and +8 with Odyssey; 89 with all DLCs). Most have unique mechanics, such as activatable combat abilities, new ways to get inspirations, and more. To experience more trait goodness, this mod also includes a serum that adds traits of your choice to pawns, and the mod settings enable you to tweak the number of traits pawns can spawn with, from anywhere between 1 to 9. With Royalty: exposing those with the Latent Psychic trait to extraordinary or traumatic events may 'awaken' them, transforming them into powerful psycasters with extra capabilities, and opening the path for them to develop even further, unique psychic powers. A new start scenario lets you start with six Latent Psychics, either at an industrial or tribal tech level. With Biotech: there are genes which either grant certain traits from this mod or provide near-identical effects. If the mod settings allow for more than 3 traits per pawn, children will have more frequent growth moments to enable them to attain that many traits. With Anomaly: there are two new benefits and two new downsides available to 'creepy joiners', each involving a unique trait. See the full description here: https://docs.google.com/document/d/1AjWjya-8knskExfpUYtH3eyMT3oHOg1_BPJzgBO_3FE/edit?usp=sharing",
+    "versions": [
+      "1.5",
+      "1.6"
+    ],
+    "has_common": false,
+    "has_csharp": true,
+    "cs_count": 73,
+    "has_languages": true,
+    "has_docs": false,
+    "has_tests": false,
+    "has_publisher_plus": false,
+    "has_loadfolders": true,
+    "has_loadfolders_bak": false,
+    "has_agents": false,
+    "readme_status": "ok",
+    "notes_files": [
+      "81-HautsAddedTraits/README_UPSTREAM.md"
     ],
     "type": "patch",
     "type_conf": "medium"

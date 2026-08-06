@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	
+	<!--Sages immune to drones-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/nullifyingTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li>HVT_AwakenedSage</li>
+					<li>HVT_TTraitDragon</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/nullifyingTraits</xpath>
+			<value>
+				<li>HVT_AwakenedSage</li>
+				<li>HVT_TTraitDragon</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+		  <li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/nullifyingGenes</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]</xpath>
+						<value>
+							<nullifyingGenes>
+								<li>HVT_ASageGene</li>
+							</nullifyingGenes>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/nullifyingGenes</xpath>
+						<value>
+							<li>HVT_ASageGene</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="HateAura"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="HateAura"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_AwakenedSage</li>
+								<li>HVT_TTraitDragon</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="HateAura"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_AwakenedSage</li>
+							<li>HVT_TTraitDragon</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+		  <li>Anomaly</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="DeadlifeDust"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="DeadlifeDust"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_TTraitDulotic</li>
+								<li>HVT_TTraitHarbinger</li>
+								<li>HVT_TTraitVulture</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="DeadlifeDust"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_TTraitDulotic</li>
+							<li>HVT_TTraitHarbinger</li>
+							<li>HVT_TTraitVulture</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="DeathRefusalSickness"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="DeathRefusalSickness"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_TTraitDulotic</li>
+								<li>HVT_TTraitHarbinger</li>
+								<li>HVT_TTraitVulture</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="DeathRefusalSickness"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_TTraitDulotic</li>
+							<li>HVT_TTraitHarbinger</li>
+							<li>HVT_TTraitVulture</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SpokeToDisturbingMood"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SpokeToDisturbingMood"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_TTraitDove</li>
+								<li>HVT_TTraitStrix</li>
+								<li>HVT_TTraitWhalehead</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SpokeToDisturbingMood"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_TTraitDove</li>
+							<li>HVT_TTraitStrix</li>
+							<li>HVT_TTraitWhalehead</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="HeardInhumanRambling"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="HeardInhumanRambling"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_TTraitDove</li>
+								<li>HVT_TTraitStrix</li>
+								<li>HVT_TTraitWhalehead</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="HeardInhumanRambling"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_TTraitDove</li>
+							<li>HVT_TTraitStrix</li>
+							<li>HVT_TTraitWhalehead</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

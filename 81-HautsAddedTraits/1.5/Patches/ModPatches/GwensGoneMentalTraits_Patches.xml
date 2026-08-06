@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Gwen's Gone Mental Traits</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--first, all the Socially Numb ews-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="GWT_SociallyNumb"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Champion</li>
+						<li>HVT_Conversationalist</li>
+						<li>HVT_Lovesick</li>
+						<li>HVT_PeoplePleaser</li>
+						<li>HVT_Reveller</li>
+						<li>HVT_Sadist</li>
+						<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Intolerant</li>
+						<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Tolerant</li>
+						<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Subjugator</li>
+						<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Liberator</li>
+						<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Conformist</li>
+						<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Guru</li>
+						<li MayRequire="Ludeon.RimWorld.Ideology">HVT_PersecutionComplex</li>
+						<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Proclaimer</li>
+						<li MayRequire="Ludeon.RimWorld.Biotech">HVT_Mentor</li>
+						<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Anarchist</li>
+						<li MayRequire="Ludeon.RimWorld.Royalty">HVT_Servile</li>
+					</value>
+				</li>
+				<!--Aestheticist is exclusive w/ Oblivious bc of beauty meter.-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="GWT_Oblivious"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Aestheticist</li>
+					</value>
+				</li>
+				<!--Animal Attuned's beauty meter is overriden by Aestheticist's.-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="GWT_AnimalLover_NeedBeauty"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GWT_AnimalLover_NeedBeauty"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Aestheticist</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GWT_AnimalLover_NeedBeauty"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Aestheticist</li>
+						</value>
+					</match>
+				</li>
+				<!--Also the Animal Attuned don't care about chitchat apparently? So they can't be Conversationalist. Also also, they don't jive w parties or weddings, so Reveller is a no-go. Also also also (x4 combo bonus!!1!) it grants
+					inspirations... sayonara, Staid.-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="GWT_AnimalLover"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Conversationalist</li>
+						<li>HVT_Reveller</li>
+						<li>HVT_Staid</li>
+					</value>
+				</li>
+				<!--Morbid and Graver share enough similarities that I'm making them mutually exclusive.
+					Also, Morbid requires one to be capable of Artistic work for some reason... so it's inherently exclusive with Staid.-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="GWT_Morbid"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Graver</li>
+					</value>
+				</li>
+				<!--Hedonist is exclusive w/ Oblivious bc of joy meter.-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="GWT_Oblivious"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Hedonist</li>
+					</value>
+				</li>
+				<!--These two have too much overlap, so they shouldn't be on the same pawn.-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="GWT_FoodApathy"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_MetabolicFreak</li>
+					</value>
+				</li>
+				<!--Outdoorsy cannot coexist with the Indoors meter, so it and Shut-in don't gel. Vag also don't like it-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="GWT_Shut_in"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Outdoorsy</li>
+						<li>HVT_Vagabond</li>
+					</value>
+				</li>
+				<!--PPleaser ew/ Spiteful-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="GWT_Spiteful"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_PeoplePleaser</li>
+					</value>
+				</li>
+				<!--Benevolents stated mission purpose is against those of Sadistic and Subjugator.-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="GWT_Benevolent"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Sadist</li>
+						<li MayRequire="Ludeon.RimWorld.Ideology">HVT_Subjugator</li>
+					</value>
+				</li>
+				<!--restless and misotherist grant inspirations. you know what that means: Staid as No Fun Guy. also, misotherist conceptually opposed to environmentalist AND tranquil-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="GWT_Restless"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Staid</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="GWT_Misotherist"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Staid</li>
+						<li>HVT_Tranquil</li>
+						<li>HVT_Tranquil0</li>
+						<li MayRequire="Ludeon.RimWorld.Biotech">HVT_Environmentalist</li>
+					</value>
+				</li>
+				<!--These two disagree about the importance of clothing. Mechaphile also disagrees with it due to being 'materialistic' in a different way.-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="GWT_Frangofilia"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Vain</li>
+						<li MayRequire="Ludeon.RimWorld.Biotech">HVT_Mechaphile</li>
+					</value>
+				</li>
+				<!--ALL sense traits are exclusive w/ Deadened Nerves-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="GWT_DeadendNerves"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Imperceptive</li>
+						<li>HVT_Perceptive</li>
+					</value>
+				</li>
+				<!--Imperceptive nullifies a Torpid-exclusive thought, and Torpid (as well as Oblivious) nullifies the enhanced comfort sensitivity of the positive sense traits.-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="GWT_Torpid_NeedComfort"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GWT_Torpid_NeedComfort"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Imperceptive</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="GWT_Torpid_NeedComfort"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Imperceptive</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

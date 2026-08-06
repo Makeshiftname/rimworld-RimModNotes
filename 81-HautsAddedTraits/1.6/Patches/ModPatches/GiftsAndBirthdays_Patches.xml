@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Rout: Birthdays</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Asocial disables moodlets but not opinions-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="BirthdayCongratulationReceivedMood"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BirthdayCongratulationReceivedMood"]</xpath>
+						<value><nullifyingTraits><li>HVT_Asocial</li></nullifyingTraits></value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BirthdayCongratulationReceivedMood"]/nullifyingTraits</xpath>
+						<value><li>HVT_Asocial</li></value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="BirthdayCongratulationGivenMood"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BirthdayCongratulationGivenMood"]</xpath>
+						<value><nullifyingTraits><li>HVT_Asocial</li></nullifyingTraits></value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="BirthdayCongratulationGivenMood"]/nullifyingTraits</xpath>
+						<value><li>HVT_Asocial</li></value>
+					</match>
+				</li>
+				<!--Reveller applies to both mood and opinion-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="BirthdayCongratulationReceived"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits><li><key>HVT_Reveller</key><value>2</value></li></multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="BirthdayCongratulationReceivedMood"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits><li><key>HVT_Reveller</key><value>2</value></li></multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="BirthdayCongratulationGiven"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits><li><key>HVT_Reveller</key><value>2</value></li></multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="BirthdayCongratulationGivenMood"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits><li><key>HVT_Reveller</key><value>2</value></li></multiplierTraits>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Genetics Expanded</li>
+		</mods>
+		<match Class="PatchOperationFindMod">
+			<mods>
+				<li>Ideology</li>
+			</mods>
+			<match Class="PatchOperationSequence">
+				<operations>
+					<!--visionary and monster lover love mad science-->
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/MemeDef[defName="GR_MadScientists"]/agreeableTraits</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>/Defs/MemeDef[defName="GR_MadScientists"]</xpath>
+							<value>
+								<agreeableTraits>
+									<li>HVT_Visionary</li>
+									<li MayRequire="Ludeon.RimWorld.Anomaly">HVT_MonsterLover</li>
+								</agreeableTraits>
+							</value>
+						</nomatch>
+						<match Class="PatchOperationAdd">
+							<xpath>/Defs/MemeDef[defName="GR_MadScientists"]/agreeableTraits</xpath>
+							<value>
+								<li>HVT_Visionary</li>
+								<li MayRequire="Ludeon.RimWorld.Anomaly">HVT_MonsterLover</li>
+							</value>
+						</match>
+					</li>
+					<!--xenotypist, monster hater hate mad science-->
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/MemeDef[defName="GR_MadScientists"]/disagreeableTraits</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>/Defs/MemeDef[defName="GR_MadScientists"]</xpath>
+							<value>
+								<disagreeableTraits>
+									<li MayRequire="Ludeon.RimWorld.Biotech">HVT_GenePurist</li>
+									<li MayRequire="Ludeon.RimWorld.Anomaly">HVT_MonsterHunter</li>
+								</disagreeableTraits>
+							</value>
+						</nomatch>
+						<match Class="PatchOperationAdd">
+							<xpath>/Defs/MemeDef[defName="GR_MadScientists"]/disagreeableTraits</xpath>
+							<value>
+								<li MayRequire="Ludeon.RimWorld.Biotech">HVT_GenePurist</li>
+								<li MayRequire="Ludeon.RimWorld.Anomaly">HVT_MonsterHunter</li>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</match>
+		</match>
+	</Operation>
+</Patch>

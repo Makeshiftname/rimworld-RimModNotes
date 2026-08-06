@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Obsidia Expansion - Paths and Stories</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--inspired taming goes against the spiritual core of Agrizoophobe-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="OEUnstableWhisperer"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="OEUnstableWhisperer"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Agrizoophobe</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="OEUnstableWhisperer"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Agrizoophobe</li>
+						</value>
+					</match>
+				</li>
+				<!--Proudly is too 'noticeable' to be Forgettable, and is too violent for Tranquil-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="OEEidolon"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="OEEidolon"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Forgettable</li>
+								<li>HVT_Tranquil</li>
+								<li>HVT_Tranquil0</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="OEEidolon"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Forgettable</li>
+							<li>HVT_Tranquil</li>
+							<li>HVT_Tranquil0</li>
+						</value>
+					</match>
+				</li>
+				<!--Tranquil trait conflicts-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="OESoldier"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="OESoldier"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Tranquil</li>
+								<li>HVT_Tranquil0</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="OESoldier"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+							<li>HVT_Tranquil0</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--too psysens for PsyBlank-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="OEPsyMonk"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="OEPsyMonk"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>HVT_PsychicallyBlank</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="OEPsyMonk"]/conflictingTraits</xpath>
+									<value>
+										<li>HVT_PsychicallyBlank</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="OEPsyBlood"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="OEPsyBlood"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>HVT_PsychicallyBlank</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="OEPsyBlood"]/conflictingTraits</xpath>
+									<value>
+										<li>HVT_PsychicallyBlank</li>
+									</value>
+								</match>
+							</li>
+							<!--too violent for Tranquil as well-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="OEPsyWarrior"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="OEPsyWarrior"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>HVT_PsychicallyBlank</li>
+											<li>HVT_Tranquil</li>
+											<li>HVT_Tranquil0</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="OEPsyWarrior"]/conflictingTraits</xpath>
+									<value>
+										<li>HVT_PsychicallyBlank</li>
+										<li>HVT_Tranquil</li>
+										<li>HVT_Tranquil0</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="OEPsyMarksman"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="OEPsyMarksman"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>HVT_PsychicallyBlank</li>
+											<li>HVT_Tranquil</li>
+											<li>HVT_Tranquil0</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="OEPsyMarksman"]/conflictingTraits</xpath>
+									<value>
+										<li>HVT_PsychicallyBlank</li>
+										<li>HVT_Tranquil</li>
+										<li>HVT_Tranquil0</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Ideology</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--traits which have as a big part of their identity alteration to mental break threshold are not good for Tranquil-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="OEIdeoSpread"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="OEIdeoSpread"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>HVT_Proclaimer</li>
+											<li>HVT_Tranquil</li>
+											<li>HVT_Tranquil0</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="OEIdeoSpread"]/conflictingTraits</xpath>
+									<value>
+										<li>HVT_Proclaimer</li>
+										<li>HVT_Tranquil</li>
+										<li>HVT_Tranquil0</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="OEIdeoPower"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="OEIdeoPower"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>HVT_Liberator</li>
+											<li>HVT_Subjugator</li>
+											<li>HVT_Tranquil</li>
+											<li>HVT_Tranquil0</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="OEIdeoPower"]/conflictingTraits</xpath>
+									<value>
+										<li>HVT_Liberator</li>
+										<li>HVT_Subjugator</li>
+										<li>HVT_Tranquil</li>
+										<li>HVT_Tranquil0</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Biotech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="HVT_Mechaphobe"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="HVT_Mechaphobe"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>OEMechLove</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="HVT_Mechaphobe"]/conflictingTraits</xpath>
+									<value>
+										<li>OEMechLove</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Odyssey</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="HVT_Earthborne"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="HVT_Earthborne"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>OEPilotingGood</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="HVT_Earthborne"]/conflictingTraits</xpath>
+									<value>
+										<li>OEPilotingGood</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

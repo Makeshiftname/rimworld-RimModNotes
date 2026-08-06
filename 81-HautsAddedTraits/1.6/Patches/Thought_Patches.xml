@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	
+	<!--Hedonists react more extremely to cur recreation level-->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="NeedJoy"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Hedonist</key>
+					<value>1.25</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	
+	<!--Lovesicks are very susceptible to various partner-related thoughts-->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="WantToSleepWithSpouseOrLover"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyHusbandLost"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyWifeLost"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyFianceLost"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyFianceeLost"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyLoverLost"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyHusbandDied"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyWifeDied"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyFianceDied"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyFianceeDied"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="MyLoverDied"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="CheatedOnMeMood"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="RebuffedMyRomanceAttemptMood"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="BrokeUpWithMeMood"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="DivorcedMeMood"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="RejectedMyProposalMood"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="SoldMyLovedOne"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="GotMarried"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>10</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="SoldMyLovedOne"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="KilledMyLover"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="KilledMyFiance"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="KilledMySpouse"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Lovesick</key>
+					<value>3</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	
+	<!--Revellers like festivities-->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="AttendedConcert"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Reveller</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="AttendedParty"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Reveller</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="AttendedWedding"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Reveller</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="HeldConcert"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Reveller</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	
+	<!--Anti-nudism-->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="ApparelDamaged"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Textile</key>
+					<value>2</value>
+				  </li>
+				  <li>
+					<key>HVT_Vain</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	
+	<!--Vain apparel thoughts-->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="DeadMansApparel"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Vain</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]</xpath>
+		<value>
+			<li Class="HautsFramework.ModifyingTraits">
+				<multiplierTraits>
+				  <li>
+					<key>HVT_Vain</key>
+					<value>2</value>
+				  </li>
+				</multiplierTraits>
+			</li>
+		</value>
+	</Operation>
+	
+	<!--ideology-exclusive-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Ideology</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+			<!--Reveller cares about ritual outcomes more-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[thoughtClass="Thought_AttendedRitual"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Reveller</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+			<!--Vain cares more about color wearing and desired changed looks-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="LookChangeDesired"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Vain</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="WearingColor_Favorite"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Vain</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="WearingColor_Ideo"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Vain</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+    </Operation>
+	
+			<!--biotech-exclusive-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<nomatch Class="PatchOperationSequence">
+			<operations>
+			<!--good sense traits affect comfort-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="NeedComfort"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Perceptive</key>
+								<value>1.35</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</nomatch>
+		<match Class="PatchOperationSequence">
+			<operations>
+			<!--imperceptive gene nullifies disturbed sleep-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="SleepDisturbed"]/nullifyingGenes</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SleepDisturbed"]</xpath>
+						<value>
+							<nullifyingGenes>
+								<li>HVT_ImperceptiveGene</li>
+							</nullifyingGenes>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="SleepDisturbed"]/nullifyingGenes</xpath>
+						<value>
+							<li>HVT_ImperceptiveGene</li>
+						</value>
+					</match>
+				</li>
+			<!--comfort matters to sense traits-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="NeedComfort"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Perceptive</key>
+								<value>1.35</value>
+							  </li>
+							</multiplierTraits>
+							<multiplierGenes>
+							  <li>
+								<key>HVT_KeenSensesGene</key>
+								<value>1.35</value>
+							  </li>
+							  <li>
+								<key>HVT_PowerfulSensesGene</key>
+								<value>1.35</value>
+							  </li>
+							</multiplierGenes>
+						</li>
+					</value>
+				</li>
+	
+			<!--stop asking misopedists when they're going to have a baby GOSH-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="GigglingBaby"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<forceNegative>
+							  <li>HVT_Misopedist</li>
+							</forceNegative>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="MyGigglingBaby"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<forceNegative>
+							  <li>HVT_Misopedist</li>
+							</forceNegative>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="ChildInGrowthVat"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>3</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="PregnancyTerminated" or defName="MyChildHappy" or defName="MyChildrenHappy" or defName="MyChildSad" or defName="MyChildrenSad" or defName="YoungstersHappy" or defName="YoungstersSad"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="EnslavedChild" or defName="BabySick" or defName="Stillbirth" or defName="Miscarried" or defName="KilledChild"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Misopedist</key>
+								<value>0.5</value>
+							  </li>
+							  <li>
+								<key>HVT_Caretaker</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<!--mechaphobe VICOTORY-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="DefeatedMechCluster"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Mechaphobe</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+    </Operation>
+	
+	
+	<!--anomaly-exclusive-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Anomaly</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Gravers LIKE ghouls-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="GhoulNegative"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<forcePositive>
+							  <li>HVT_Graver</li>
+							</forcePositive>
+						</li>
+					</value>
+				</li>
+				<!--it's fine if monsterlover is in same room as monster. hm, more than fine even-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="EntityInRoom"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_MonsterLover</key>
+								<value>0.5</value>
+							  </li>
+							</multiplierTraits>
+							<forcePositive>
+							  <li>HVT_MonsterLover</li>
+							</forcePositive>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="ClosedTheVoidOpinion"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<forceNegative>
+							  <li>HVT_MonsterLover</li>
+							</forceNegative>
+						</li>
+					</value>
+				</li>
+				<!--dump truck chimera-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="Chimera"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<forcePositive>
+							  <li>HVT_MonsterLover</li>
+							</forcePositive>
+						</li>
+					</value>
+				</li>
+				<!--we're not gonna take it, no we ain't gonna take it, we're not gonna take it anymore (HUMANITY BREAK)-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="VoidPleasure"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Twisted</key>
+								<value>1.5</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+    </Operation>
+	
+	
+	
+	
+	<!--odyssey-exclusive-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Odyssey</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+			<!--Mariner very happy hot spring-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="HotSpring"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Mariner</key>
+								<value>3</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+			<!--Mechaphobe hoo-ah!-->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Biotech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAddModExtension">
+								<xpath>/Defs/ThoughtDef[defName="DestroyedMechhive" or defName="DestroyedMechhiveMainPawn"]</xpath>
+								<value>
+									<li Class="HautsFramework.ModifyingTraits">
+										<multiplierTraits>
+										  <li>
+											<key>HVT_Mechaphobe</key>
+											<value>3</value>
+										  </li>
+										</multiplierTraits>
+										<forcePositive>
+										  <li>HVT_Mechaphobe</li>
+										</forcePositive>
+									</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

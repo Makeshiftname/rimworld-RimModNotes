@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Dynamic's Traits</li><!--thankfully, a lot of exclsions are already handled by conflicting disabled/required work tags, so we don't have to do much here-->
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--these traits and MetaFreak are too similar; Pescatarian implies a sense of taste, so-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Ageusia_DT"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Ageusia_DT"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_MetabolicFreak</li>
+								<li MayRequire="Ludeon.RimWorld.Odyssey">HVT_Pescatarian</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Ageusia_DT"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_MetabolicFreak</li>
+							<li MayRequire="Ludeon.RimWorld.Odyssey">HVT_Pescatarian</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Anorexic_DT"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Anorexic_DT"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_MetabolicFreak</li>
+								<li MayRequire="Ludeon.RimWorld.Odyssey">HVT_Pescatarian</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Anorexic_DT"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_MetabolicFreak</li>
+							<li MayRequire="Ludeon.RimWorld.Odyssey">HVT_Pescatarian</li>
+						</value>
+					</match>
+				</li>
+				<!--Tranquil trait conflicts-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Temper_DT"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Temper_DT"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Tranquil</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Temper_DT"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+						</value>
+					</match>
+				</li>
+				<!--Staid and joy/inspiration conflicts-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Hedonistic_DT"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Hedonistic_DT"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Staid</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Hedonistic_DT"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Staid</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Wanderer_DT"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Wanderer_DT"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Staid</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Wanderer_DT"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Staid</li>
+						</value>
+					</match>
+				</li>
+				<!--Narcissist ew/ Humble. This is technically covered by a work tags conflict, but the conceptual opposition is strong enough to warrant this patch so that if one of these traits is added onto a pawn that has the other (via genes, Personality Neuroformatter, or similar) the new one will suppress the old one
+							(as work tags conflicts don't cause suppression, they only prevent the traits from being GENERATED on the same pawn)-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Narcissist_DT"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Narcissist_DT"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Humble</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Narcissist_DT"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Humble</li>
+						</value>
+					</match>
+				</li>
+				<!--Despite their mechanical differences, these two traits are similar enough in concept that it feels weird seeing them on the same pawn-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Zoophobic_DT"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Zoophobic_DT"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Agrizoophobe</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Zoophobic_DT"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Agrizoophobe</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Ideology</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--Faith and Religion have poor overlap-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="Religion_DT"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="Religion_DT"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>HVT_Faithful</li>
+											<li>HVT_Doubtful</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="Religion_DT"]/conflictingTraits</xpath>
+									<value>
+										<li>HVT_Faithful</li>
+										<li>HVT_Doubtful</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Anomaly</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!--Paranoid ew/ Monster Lover-->
+							<li Class="PatchOperationConditional">
+								<xpath>/Defs/TraitDef[defName="Paranoid_DT"]/conflictingTraits</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="Paranoid_DT"]</xpath>
+									<value>
+										<conflictingTraits>
+											<li>HVT_MonsterLover</li>
+										</conflictingTraits>
+									</value>
+								</nomatch>
+								<match Class="PatchOperationAdd">
+									<xpath>/Defs/TraitDef[defName="Paranoid_DT"]/conflictingTraits</xpath>
+									<value>
+										<li>HVT_MonsterLover</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

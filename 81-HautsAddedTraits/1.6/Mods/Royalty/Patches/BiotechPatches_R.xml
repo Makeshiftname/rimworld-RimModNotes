@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThingDef[defName="Mech_Apocriton"]/comps</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThingDef[defName="Mech_Apocriton"]</xpath>
+						<value>
+							<comps>
+								<li Class="HautsTraitsRoyalty.CompProperties_TranscendNearbyOnDeath">
+									<chance>0.04</chance>
+									<radius>30.9</radius>
+								</li>
+							</comps>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThingDef[defName="Mech_Apocriton"]/comps</xpath>
+						<value>
+							<li Class="HautsTraitsRoyalty.CompProperties_TranscendNearbyOnDeath">
+								<chance>0.04</chance>
+								<radius>30.9</radius>
+							</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>RPG Adventure Flavour Pack</li>
+						<li>RPG Adventure Flavour Pack - Fork</li>
+					</mods>
+					<nomatch Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraitDef[defName = "HVT_TTraitApocriton"]/degreeDatas/li/description</xpath>
+								<value>
+									<description>{PAWN_nameDef} can exert a form of mind control on mechanoids. When {PAWN_pronoun} affects mechanoids with a psycast, they may become allied with {PAWN_objective} for up to an hour. The heavier the mech, the less likely this is to work.\n\nIn the absence of an active mechhive, archites in {PAWN_possessive} body will slowly synthesize various mechanoid chips.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraitDef[defName = "HVT_TTraitHarpy"]/degreeDatas/li/description</xpath>
+								<value>
+									<description>Ordinary food does little for {PAWN_nameDef}, but eating a psycaster will fully sate {PAWN_objective} for a long while as well as possibly grant a psylink level. On eating the corpse of a fellow awakened or transcendent psychic, {PAWN_pronoun} will assimilate all of their awakenings and up to one of their transcendences.\n\n{PAWN_pronoun} also gains the archite genes of anyone {PAWN_pronoun} eats.</description>
+								</value>
+							</li>
+						</operations>
+					</nomatch>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_AAugurGene"]/label</xpath>
+								<value>
+									<label>magic ultrasensitivity</label>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_AAugurGene"]/description</xpath>
+								<value>
+									<description>Members of this bloodline receive an immense bonus to magic sensitivity.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_AChanshiGene"]/description</xpath>
+								<value>
+									<description>Members of this bloodline meditate more effectively, can use any meditation focus type, and can take care of their basic needs simply by meditating.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraitDef[defName = "HVT_ChanshiGene"]/degreeDatas/li/label</xpath>
+								<value>
+									<label>chanshi bloodline</label>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraitDef[defName = "HVT_ChanshiGene"]/degreeDatas/li/description</xpath>
+								<value>
+									<description>{PAWN_nameDef} is a member of the Meditation Metabolism bloodline, allowing {PAWN_objective} to use any meditation focus type.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_ADelugeGene"]/label</xpath>
+								<value>
+									<label>cantrip mastery</label>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_ADelugeGene"]/description</xpath>
+								<value>
+									<description>Members of this bloodline have an affinity for cantrips, and use much less mana when casting them.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_AEruditeGene"]/label</xpath>
+								<value>
+									<label>living grimoire</label>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_AEruditeGene"]/description</xpath>
+								<value>
+									<description>Members of this bloodline remember spells learned by sorcerers in past lives. They know more spells and can have one more transcendence than other awakened sorcerers.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_AIncarnateGene"]/label</xpath>
+								<value>
+									<label>spellborn vigor</label>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_AIncarnateGene"]/description</xpath>
+								<value>
+									<description>Members of this bloodline are empowered simply by learning spells. They gain physical and mental strength per each spell known.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_ALuminaryGene"]/label</xpath>
+								<value>
+									<label>sorcerous beacon</label>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_ALuminaryGene"]/description</xpath>
+								<value>
+									<description>Members of this bloodline stir the currents of magic with each beat of their heart, enhancing the spellcasting abilities of those nearby. However, this does not benefit the member.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_AMantraistGene"]/label</xpath>
+								<value>
+									<label>mana regeneration</label>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_AMantraistGene"]/description</xpath>
+								<value>
+									<description>Members of this bloodline continually gain mana.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_APerennialGene"]/label</xpath>
+								<value>
+									<label>spellcasting surge</label>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_APerennialGene"]/description</xpath>
+								<value>
+									<description>Members of this bloodline have the ability to enhance their own spellcasting. A little less frequently than once a day, they can enter an 'hour of power' in which spells cost much less to invoke.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_ASageGene"]/label</xpath>
+								<value>
+									<label>resilient soul</label>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_ASageGene"]/description</xpath>
+								<value>
+									<description>Members of this bloodline have exceptionally disciplined minds which excel at high-intensity spellcasting.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_ASiphonerGene"]/label</xpath>
+								<value>
+									<label>mana from food</label>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_ASiphonerGene"]/description</xpath>
+								<value>
+									<description>Members of this bloodline extract mystic essence from any food they eat, gaining mana in the process.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_ATitanGene"]/label</xpath>
+								<value>
+									<label>mana reinforcement</label>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_ATitanGene"]/description</xpath>
+								<value>
+									<description>Members of this bloodline have an unusual way of storing mana. Unspent mana circulates through their bodies, boosting their move speed, work speed, armor, healing, and immunity.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_AUndyingGene"]/label</xpath>
+								<value>
+									<label>reactive mana defense</label>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName = "HVT_AUndyingGene"]/description</xpath>
+								<value>
+									<description>Members of this bloodline produce an aegis around their bodies which is powered by mana. Incoming harm depletes their mana instead of damaging them (at a ratio of 3.5 mana per 1% mana).\n\nIf the member also has the Awakened Undying trait, their effects will compound, and it will take 8 points of damage to deplete 1% mana.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraitDef[defName = "HVT_TTraitHarpy"]/degreeDatas/li/description</xpath>
+								<value>
+									<description>Ordinary food does little for {PAWN_nameDef}, but eating a spellcaster will fully sate {PAWN_objective} for a long while as well as possibly grant a magic level. On eating the corpse of a fellow awakened or transcendent sorcerer, {PAWN_pronoun} will assimilate all of their awakenings and up to one of their transcendences.\n\n{PAWN_pronoun} also gains the exotic bloodlines of anyone {PAWN_pronoun} eats.</description>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

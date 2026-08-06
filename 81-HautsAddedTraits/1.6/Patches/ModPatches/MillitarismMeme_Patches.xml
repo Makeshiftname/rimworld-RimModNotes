@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Millitarism Meme</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--well i'm just a typical american boy/from a typical american town/i believe in God and senator Todd and keepin ol Castro down-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/MemeDef[defName="Seti_Militarism"]/disagreeableTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="Seti_Militarism"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>HVT_Tranquil</li>
+							</disagreeableTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/MemeDef[defName="Seti_Militarism"]/disagreeableTraits</xpath>
+						<value>
+							<li>HVT_Tranquil</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

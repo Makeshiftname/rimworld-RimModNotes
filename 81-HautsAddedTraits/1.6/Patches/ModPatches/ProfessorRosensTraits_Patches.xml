@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Professor Rosen's Traits</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--Hotfoot conceptually misaligned from Pack Rat-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="HVT_Hotfoot"]/conflictingTraits</xpath>
+					<value>
+						<li MayRequire="CETeam.CombatExtended">Rosen_PackRat</li>
+					</value>
+				</li>
+				<!--Metafreak ew/ all metabolic traits-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="HVT_MetabolicFreak"]/conflictingTraits</xpath>
+					<value>
+						<li>Rosen_Metabolism</li>
+					</value>
+				</li>
+				<!--Snipers cannot excel at melee dueling-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="HVT_Sniper"]/conflictingTraits</xpath>
+					<value>
+						<li>Rosen_Duelist</li>
+					</value>
+				</li>
+				<!--Staid obviously ew/ any joy-relevant trait, but Tranquil also ew/ the whole spectrum because it disagrees fluff-wise w/ Discontent and Content, as well as overlaps significantly on a fluff level w Zen-like-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="HVT_Staid" or defName="HVT_Tranquil"]/conflictingTraits</xpath>
+					<value>
+						<li>Rosen_Content</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

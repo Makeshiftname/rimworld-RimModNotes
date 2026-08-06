@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Odyssey</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/TraitDef[defName = "HVT_TTraitRook"]/degreeDatas/li/description</xpath>
+					<value>
+						<description>{PAWN_nameDef} derives more usable material from harvesting plants, butchering animals, and mining. Animals {PAWN_pronoun} extracts resources from regrow that material quicker, and when fishing {PAWN_pronoun} ends up with more fish than were actually caught.</description>
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Vanilla Gravship Expanded - Chapter 1</li>
+					</mods>
+					<nomatch Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>RPG Adventure Flavour Pack</li>
+									<li>RPG Adventure Flavour Pack - Fork</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/TraitDef[defName = "HVT_TTraitFodiator"]/degreeDatas/li/description</xpath>
+											<value>
+												<description>Capable of sudden and unnatural movements, {PAWN_nameDef} can dodge blows with ease and jump far further. {PAWN_pronoun} can even leap great distances without the aid of artifacts or spells.\n\n{PAWN_pronoun} also has some degree of control over the forces of mass levitation, allowing {PAWN_objective} to suppress the destructive forces caused by the ascension of flying buildings. To do this, {PAWN_pronoun} must remain on the ground while the structure takes off.</description>
+											</value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/TraitDef[defName = "HVT_TTraitQuelea"]/degreeDatas/li/description</xpath>
+											<value>
+												<description>{PAWN_nameDef} is surrounded by winds that hold {PAWN_objective} and nearby allies aloft, keeping them from triggering traps and allowing them to move faster, heedless of the difficulty of the terrain.\n\n{PAWN_pronoun} can use this wind-aura to suppress the destructive forces caused by the ascension of flying buildings. To do this, {PAWN_pronoun} must remain on the ground while the structure takes off.</description>
+											</value>
+										</li>
+									</operations>
+								</match>
+								<nomatch Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/TraitDef[defName = "HVT_TTraitFodiator"]/degreeDatas/li/description</xpath>
+											<value>
+												<description>{PAWN_nameDef} can induce sudden and unnatural movements in {PAWN_possessive} body, making {PAWN_objective} faster and better at dodging, allowing {PAWN_objective} to travel much farther with jump abilities, and even allowing {PAWN_objective} to leap great distances under {PAWN_possessive} own power.\n\nThis power appears to be gravitic in nature, allowing {PAWN_objective} to cancel out the destructive effects of a gravship lift-off. To do this, {PAWN_pronoun} must remain on the ground while the ship takes off.</description>
+											</value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/TraitDef[defName = "HVT_TTraitQuelea"]/degreeDatas/li/description</xpath>
+											<value>
+												<description>{PAWN_nameDef} is surrounded by a field of selectively weakened gravity, allowing {PAWN_objective} and nearby allies to hover (allowing them to ignore terrain movement penalties), and preventing them from triggering traps.\n\nThis gravitic field also cancels out the destructive effects of a gravship lift-off. To do this, {PAWN_pronoun} must remain on the ground while the ship takes off.</description>
+											</value>
+										</li>
+									</operations>
+								</nomatch>
+							</li>
+						</operations>
+					</nomatch>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>RPG Adventure Flavour Pack</li>
+						<li>RPG Adventure Flavour Pack - Fork</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraitDef[defName = "HVT_TTraitOxpecker"]/degreeDatas/li/description</xpath>
+								<value>
+									<description>Animals randomly become tame in the presence of {PAWN_nameDef}. This effect can occur over long distances, and its frequency is based on {PAWN_possessive} magic sensitivity.\n\nWhen {PAWN_pronoun} affects an animal with a spell, its health is either boosted (if non-hostile) or impaired (if hostile).\n\nThis animal-compulsion magic also affects local fish populations, causing them to breed more rapidly.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraitDef[defName = "HVT_TTraitWQ"]/degreeDatas/li/description</xpath>
+								<value>
+									<description>{PAWN_nameDef} periodically conjures tame animals of a specific type to {PAWN_possessive} location. This effect occurs faster while meditating. New animals won't be summoned if doing so would cause the sum body size of all current ones to exceed twice {PAWN_possessive} attunement level.\n\nThis conjuration magic also gradually helps replenish local populations of fish.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/TraitDef[defName="HVT_Angler"]/degreeDatas/li/description</xpath>
+								<value>
+									<description>Fishing makes {PAWN_nameDef} happy, and {PAWN_possessive} skill at fishing makes {PAWN_objective} half as prone to fumble a catch or get hurt by a fish. However, {PAWN_pronoun} will be sad if there are no fish nearby.\n\nIf {PAWN_pronoun} is a spellcaster, {PAWN_pronoun} will find fishing sufficiently meditative to gain 3% mana per fishing attempt.</description>
+								</value>
+							</li>
+						</operations>
+					</match>
+					<nomatch Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraitDef[defName = "HVT_TTraitOxpecker"]/degreeDatas/li/description</xpath>
+								<value>
+									<description>{PAWN_nameDef} intermittently psychically tames a random animal. This effect can occur over long distances, and its frequency is based on {PAWN_possessive} psychic sensitivity.\n\nWhen {PAWN_pronoun} affects an animal with a psycast, its health is either boosted (if non-hostile) or impaired (if hostile).\n\nThis effect also alters fish reproductive behavior, causing them to breed more rapidly.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraitDef[defName = "HVT_TTraitWQ"]/degreeDatas/li/description</xpath>
+								<value>
+									<description>{PAWN_nameDef} periodically skips psychically tamed animals of a specific type to {PAWN_possessive} location. This effect occurs faster while meditating. New animals won't be summoned if doing so would cause the sum body size of all current ones to exceed twice {PAWN_possessive} psylink level.\n\nThis skipgate system also gradually helps replenish local populations of fish.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/TraitDef[defName="HVT_Angler"]/degreeDatas/li/description</xpath>
+								<value>
+									<description>Fishing makes {PAWN_nameDef} happy, and {PAWN_possessive} skill at fishing makes {PAWN_objective} half as prone to fumble a catch or get hurt by a fish. However, {PAWN_pronoun} will be sad if there are no fish nearby.\n\nIf {PAWN_pronoun} is a psycaster, {PAWN_pronoun} will find fishing sufficiently meditative to gain 3% psyfocus per fishing attempt.</description>
+								</value>
+							</li>
+						</operations>
+					</nomatch>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

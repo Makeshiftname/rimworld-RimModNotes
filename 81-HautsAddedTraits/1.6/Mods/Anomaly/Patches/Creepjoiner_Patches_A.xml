@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+		  <li>Integrated Creep Joiners</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--these forms can have these bebnefits-->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/CreepJoinerFormKindDef[defName="OldSoldier"]/requires</xpath>
+					<value>
+						<li>HVT_Jaeger</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/CreepJoinerFormKindDef[defName="CannibalGourmand"]/excludes</xpath><!--a good chef never brings disease into the kitchen. yes i know The Chef can have a metalhorror implant, that's different-->
+					<value>
+						<li>HVT_Pathogenic</li>
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/CreepJoinerFormKindDef[defName="ExiledNoble"]/requires</xpath><!--a "sixth sense" is psychic, right?-->
+								<value>
+									<li>HVT_Jaeger</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/CreepJoinerFormKindDef[defName="ManOfBlades"]/requires</xpath>
+								<value>
+									<li>HVT_Evolved</li>
+									<li>HVT_Jaeger</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Biotech</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/CreepJoinerFormKindDef[defName="vampirecreep"]/requires</xpath>
+								<value>
+									<li>HVT_Evolved</li>
+								</value>
+							</li>
+							<!--this combo just doesn't feel right, even if there's no reason a vampire COULDN'T be a disease carrier-->
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/CreepJoinerFormKindDef[defName="vampirecreep"]/excludes</xpath>
+								<value>
+									<li>HVT_Pathogenic</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				
+				<!--the cancer-proof benefit is obviously incompatible w the cancer-causing downside-->
+				<li Class="PatchOperationConditional">
+					<xpath>Defs/CreepJoinerBenefitDef[defName="HVT_Evolved"]/excludes</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>Defs/CreepJoinerBenefitDef[defName="HVT_Evolved"]</xpath>
+						<value>
+							<excludes>
+								<li>CreepIsCancerous</li>
+							</excludes>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>Defs/CreepJoinerBenefitDef[defName="HVT_Evolved"]/excludes</xpath>
+						<value>
+							<li>CreepIsCancerous</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

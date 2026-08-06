@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Events Expanded</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="PsychicRain"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileLikedCondition" />
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="VEE_LongNight" or defName="VEE_Whiteout" or defName="VEE_Scorch" or defName="VEE_Drought"]</xpath>
+					<value>
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Royalty</li>
+					</mods>
+					<match Class="PatchOperationFindMod">
+						<mods>
+							<li>Biotech</li>
+						</mods>
+						<match Class="PatchOperationConditional">
+							<xpath>/Defs/ThoughtDef[defName="VEE_SuperbloomPsychicDrone"]/nullifyingGenes</xpath>
+							<nomatch Class="PatchOperationAdd">
+								<xpath>/Defs/ThoughtDef[defName="VEE_SuperbloomPsychicDrone"]</xpath>
+								<value>
+									<nullifyingGenes>
+										<li>HVT_ASageGene</li>
+									</nullifyingGenes>
+								</value>
+							</nomatch>
+							<match Class="PatchOperationAdd">
+								<xpath>/Defs/ThoughtDef[defName="VEE_SuperbloomPsychicDrone"]/nullifyingGenes</xpath>
+								<value>
+									<li>HVT_ASageGene</li>
+								</value>
+							</match>
+						</match>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

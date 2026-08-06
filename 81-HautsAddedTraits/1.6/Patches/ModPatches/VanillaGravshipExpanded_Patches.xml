@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Gravship Expanded - Chapter 1</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="VGE_SpaceSolarFlare"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileLikedCondition" />
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="VGE_Comet"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="VGE_MicrometeorStorm"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileLikedCondition" />
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="VGE_SpaceDebris"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileLikedCondition" />
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="VGE_AsteroidShower"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileLikedCondition" />
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="VGE_DustCloud"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileLikedCondition" />
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/GameConditionDef[defName="VGE_ToxicDustCloud"]</xpath>
+					<value>
+						<li Class="HautsTraits.TempestophileLikedCondition" />
+						<li Class="HautsTraits.CatastrophistLikedCondition" />
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

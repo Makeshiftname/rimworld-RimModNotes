@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>[LC] Consolidated Traits</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--aestheticist is a stronger version of aesthete. staid is exclusive w/ it as staids do not understand beauty-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="RCT_Aesthete"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Aestheticist</li>
+						<li>HVT_Staid</li>
+					</value>
+				</li>
+				<!--agrizoophobe ew/ animal lover-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="RCT_AnimalLover"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Agrizoophobe</li>
+					</value>
+				</li>
+				<!--outdoorsy exclusive w/ the underground-loving rockhound-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="RCT_Rockhound"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Outdoorsy</li>
+					</value>
+				</li>
+				<!--imperceptive already does everything deep sleeper does, and more-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="RCT_DeepSleeper"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="RCT_DeepSleeper"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Imperceptive</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="RCT_DeepSleeper"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Imperceptive</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

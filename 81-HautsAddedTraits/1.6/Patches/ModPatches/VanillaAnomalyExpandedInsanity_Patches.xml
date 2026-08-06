@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Anomaly Expanded - Insanity</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--aestheticist is so affected by the art-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThoughtDef[defName="VAEI_VoidDrawings"]</xpath>
+					<value>
+						<li Class="HautsFramework.ModifyingTraits">
+							<multiplierTraits>
+							  <li>
+								<key>HVT_Aestheticist</key>
+								<value>2</value>
+							  </li>
+							</multiplierTraits>
+						</li>
+					</value>
+				</li>
+				<!--asocial unaffected by mockery (still affected by slander)-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="VAEI_MockedMood"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="VAEI_MockedMood"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Asocial</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="VAEI_MockedMood"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Asocial</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="VAEI_MockedMemory"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="VAEI_MockedMemory"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Asocial</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="VAEI_MockedMemory"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Asocial</li>
+						</value>
+					</match>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="VAEI_Gagged"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="VAEI_Gagged"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Asocial</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="VAEI_Gagged"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Asocial</li>
+						</value>
+					</match>
+				</li>
+				<!--Twisted WANTED to be inhumanized, how dare you take it away-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="VAEI_Rehumanized"]/nullifyingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="VAEI_Rehumanized"]</xpath>
+						<value>
+							<nullifyingTraits>
+								<li>HVT_Twisted</li>
+							</nullifyingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="VAEI_Rehumanized"]/nullifyingTraits</xpath>
+						<value>
+							<li>HVT_Twisted</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

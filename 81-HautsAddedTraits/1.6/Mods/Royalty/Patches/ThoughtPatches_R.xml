@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+		  <li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/nullifyingGenes</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]</xpath>
+						<value>
+							<nullifyingGenes>
+								<li>HVT_ASageGene</li>
+							</nullifyingGenes>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/nullifyingGenes</xpath>
+						<value>
+							<li>HVT_ASageGene</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThoughtDef[defName="EnvironmentDark"]/nullifyingHediffs</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="EnvironmentDark"]</xpath>
+			<value>
+				<nullifyingHediffs>
+					<li>HVT_PeacockBuff</li>
+				</nullifyingHediffs>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThoughtDef[defName="EnvironmentDark"]/nullifyingHediffs</xpath>
+			<value>
+				<li>HVT_PeacockBuff</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

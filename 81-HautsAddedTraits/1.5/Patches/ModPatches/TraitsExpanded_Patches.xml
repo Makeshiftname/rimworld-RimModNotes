@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Traits Expanded!</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!--you as well have a trait named sniper? feh.-->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/TraitDef[defName="ShotAccuracy"]/conflictingTraits</xpath>
+					<value>
+						<li>HVT_Sniper</li>
+					</value>
+				</li>
+				<!--Asocial exclusive w/ Socialite.-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Mercantile"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Mercantile"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Staid</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Mercantile"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Staid</li>
+						</value>
+					</match>
+				</li>
+				<!--Staid exclusive w/ Mercantile - the forced inspiration will just do nothing.-->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/TraitDef[defName="Socialite"]/conflictingTraits</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Socialite"]</xpath>
+						<value>
+							<conflictingTraits>
+								<li>HVT_Asocial</li>
+							</conflictingTraits>
+						</value>
+					</nomatch>
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/TraitDef[defName="Socialite"]/conflictingTraits</xpath>
+						<value>
+							<li>HVT_Asocial</li>
+						</value>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>
