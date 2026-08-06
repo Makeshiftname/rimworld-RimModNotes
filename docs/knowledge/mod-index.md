@@ -10,9 +10,9 @@
 
 ## 统计
 
-- Mod 总数：**82**（编号 01–78，55 重复出现）
-- 类型分布：`empty` × 1、`lib` × 1、`patch` × 25、`standalone` × 46、`translation` × 4、`xml` × 5
-- README 状态：`missing` × 1、`ok` × 81
+- Mod 总数：**83**（编号 01–78，55 重复出现）
+- 类型分布：`empty` × 1、`lib` × 1、`patch` × 25、`standalone` × 46、`translation` × 4、`xml` × 6
+- README 状态：`missing` × 1、`ok` × 82
 
 ## 索引表
 
@@ -100,6 +100,7 @@
 | 79 | RimTalk | patch | - | ✓ | ✓ | – | – | – | ok |
 | 80 | RimTalkExpandMemory | patch | 1.5,1.6 | ✓ | ✓ | ✓ | – | – | ok |
 | 81 | HautsAddedTraits | patch | 1.5,1.6 | ✓ | ✓ | – | – | – | ok |
+| 82 | 自建-RimTalkPersonaTraits | xml | 1.6 | – | ✓ | – | – | – | ok |
 
 > 图例：C#=有 C# 源码；翻=Languages/ 翻译；Doc=docs/；Tst=Tests/；
 > Pub=`_PublisherPlus.xml`；README=ok/模板占位(template)/空壳(stub)/缺失(missing)。
@@ -179,4 +180,13 @@
 - **53-AllowTunnelersToDrillFork** — fork 第三方（author Porio），临时 1.6 版。
 - 注：32 / 43 为**合作作者**（author 含 RunningBugs），非纯第三方。
 - 添加第三方 mod 流程：克隆到 `NN-` 目录 → 保留 `LICENSE` 与 `<author>`（原作者）→ 写收藏版 README（来源+许可+学习点）→ `scan_mods.py` 刷新（检测到 `third-party author` 警告属预期）→ `check_links.py` 验收。
+
+### 8. 自建 mod（RunningBugs 原创 · 可实际使用）
+
+- **82-自建-RimTalkPersonaTraits** — 轻量级角色扮演向特质包：10 个「对话人设」特质（性格/说话风格/嗜好），
+  0 数值、纯描述、纯 XML（无 C#），描述专为 RimTalk 提示词注入优化（`{PAWN_...}` 占位符 + 写明说话方式/话题）。
+  packageId `RunningBugs.RimTalkPersonaTraits`，1.6，中文翻译见 `Languages/`。
+  目录名 `82-自建-` 前缀 + README 顶部徽标 + 本小节 = 与第三方收录/学习类 mod 区分的**三重自建标注**。
+  详情见 `82-自建-RimTalkPersonaTraits/README.md`。
+- 后续新建可实际使用的 RunningBugs 原创 mod，沿用 `NN-自建-` 目录前缀，并在本小节登记。
 <!-- MANUAL-END -->

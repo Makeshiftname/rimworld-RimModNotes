@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<RB_Gossip.label>八卦精</RB_Gossip.label>
+	<RB_Gossip.description>{PAWN_nameDef}是个包打听，也是第一个传话的人。{PAWN_pronoun}说话总是压低声音、带着神秘兮兮的语气，最爱打听别人的私事，能把殖民地里的流言蜚语如数家珍。问{PAWN_objective}任何人的事，都能得到答案——当然，添油加醋是免不了的。</RB_Gossip.description>
+	<RB_Dramatic.label>戏精</RB_Dramatic.label>
+	<RB_Dramatic.description>在{PAWN_nameDef}眼里，一切都是一场演出。{PAWN_pronoun}会为了一点小事唉声叹气，又为了一点小确幸仰天长叹，把{PAWN_possessive}的人生讲得像波澜壮阔的英雄故事。任何小挫折都是危机，任何小快乐都值得昭告天下。</RB_Dramatic.description>
+	<RB_Raconteur.label>说书人</RB_Raconteur.label>
+	<RB_Raconteur.description>{PAWN_nameDef}是个天生的说书人，连去打趟水都能讲成一部史诗。只要有听众，{PAWN_pronoun}就能添油加醋地讲起长篇故事，配上腔调、手势和戏剧性的停顿。{PAWN_possessive}的故事每次讲都会比上次更精彩。</RB_Raconteur.description>
+	<RB_Taciturn.label>寡言</RB_Taciturn.label>
+	<RB_Taciturn.description>{PAWN_nameDef}惜字如金，把每句话都当成稀有的硬币。{PAWN_pronoun}说话简短干练，用点头的次数多过用词，只有真正要紧的时候才开口。而一旦{PAWN_pronoun}开口，大家都会认真听。</RB_Taciturn.description>
+	<RB_Pedant.label>字面人</RB_Pedant.label>
+	<RB_Pedant.description>{PAWN_nameDef}对措辞有着令人痛苦的精确。{PAWN_pronoun}会纠正别人的口误、追究词的确切含义，并且把每句比喻都当真。跟{PAWN_objective}聊天需要字斟句酌，因为任何一点不严谨都会被抓个正着。</RB_Pedant.description>
+	<RB_TeaConnoisseur.label>茶道爱好者</RB_TeaConnoisseur.label>
+	<RB_TeaConnoisseur.description>{PAWN_nameDef}把喝茶当作神圣的仪式，把待客当作一门艺术。{PAWN_pronoun}会从一个人喝茶的方式判断其人品，为水温火候斤斤计较，并总能不动声色地把话题引向茶叶、山泉与那一盏完美的茶。</RB_TeaConnoisseur.description>
+	<RB_Angler.label>钓鱼佬</RB_Angler.label>
+	<RB_Angler.description>只要有机会，{PAWN_nameDef}就会守在岸边把钓线甩进水里。{PAWN_pronoun}耐心超乎常人，满肚子越讲越夸张的钓鱼故事，能就鱼饵、潮汐和那条跑掉的大鱼聊上几个小时。</RB_Angler.description>
+	<RB_Stargazer.label>观星者</RB_Stargazer.label>
+	<RB_Stargazer.description>当别人低头赶路时，{PAWN_nameDef}总在仰望。{PAWN_pronoun}在夜空下感到安宁，谈论命运与远方星辰就像在读一本熟悉的书，常常用一句安静的哲思来回答最简单的问题。</RB_Stargazer.description>
+	<RB_Daydreamer.label>白日梦者</RB_Daydreamer.label>
+	<RB_Daydreamer.description>{PAWN_nameDef}有一半的心思早已神游天外。{PAWN_pronoun}会在谈话中走神，把{PAWN_possessive}的杂活当成冒险任务、把邻居当成奇幻故事里的角色，说着说着就溜进想象世界，把一句话丢在半空。</RB_Daydreamer.description>
+	<RB_Curmudgeon.label>老牢骚</RB_Curmudgeon.label>
+	<RB_Curmudgeon.description>{PAWN_nameDef}对一切人和事都满腹牢骚，却又总是第一个默默上前帮忙。{PAWN_pronoun}用抱怨和粗声粗气盖住内心的温柔，表达关心的方式，主要是嘟囔着别人怎么都做不好。</RB_Curmudgeon.description>
+</LanguageData>

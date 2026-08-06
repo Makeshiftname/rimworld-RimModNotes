@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<packageId>RunningBugs.RimTalkPersonaTraits</packageId>
+	<name>RimTalk 人设特质包 RimTalk Persona Traits</name>
+	<author>RunningBugs</author>
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+	<description>
+一个轻量级的角色扮演向特质包：10 个「对话人设」特质（性格/说话风格/嗜好），无数值改动、纯描述、纯 XML。
+每个特质的描述都专为 RimTalk 的提示词注入优化：使用 {PAWN_nameDef} 等占位符、写明说话方式与话题，让 AI 对话更有「人味」。
+
+A lightweight roleplay-oriented trait pack: 10 "conversational persona" traits (personality / speech style / hobbies), no stat changes, description-only, pure XML.
+Every trait description is optimized for RimTalk's prompt injection: it uses {PAWN_nameDef} placeholders and spells out how the pawn speaks and what it talks about, so AI dialogue feels more alive.
+	</description>
+</ModMetaData>

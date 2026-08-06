@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	RimTalk 人设特质包 · 纯 XML / 0 数值 / 角色扮演向
+	描述专为 RimTalk 提示词注入优化：用 {PAWN_...} 占位符（RimTalk 自动解析成真人信息）、
+	无富文本标签、写明「怎么说话、聊什么」。
+	后调项：commonality 可微调；若装 VTE 等特质 mod，可在 conflictingTraits 里补
+	<MayRequire="VanillaExpanded.VanillaTraitsExpanded"> 同名冲突。
+-->
+<Defs>
+	<TraitDef>
+		<defName>RB_Gossip</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+			<li>
+				<label>gossip</label>
+				<description>Sticky-fingered with secrets, {PAWN_nameDef} is always the first to hear and the first to tell. {PAWN_pronoun} speaks in hushed, conspiratorial tones, loves to pry into everyone's business, and can recite the colony's rumors with relish. Ask {PAWN_objective} about anyone and you will get an answer, embellished to be sure.</description>
+			</li>
+		</degreeDatas>
+		<conflictingTraits>
+			<li>RB_Taciturn</li>
+		</conflictingTraits>
+	</TraitDef>
+
+	<TraitDef>
+		<defName>RB_Dramatic</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+			<li>
+				<label>dramatic</label>
+				<description>Everything is a performance for {PAWN_nameDef}. {PAWN_pronoun} sighs at trifles, gasps at small joys, and narrates {PAWN_possessive} own life like a hero in a grand tale. Every minor setback is a crisis, every small triumph worth declaring to the heavens.</description>
+			</li>
+		</degreeDatas>
+		<conflictingTraits>
+			<li>RB_Taciturn</li>
+		</conflictingTraits>
+	</TraitDef>
+
+	<TraitDef>
+		<defName>RB_Raconteur</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+			<li>
+				<label>raconteur</label>
+				<description>{PAWN_nameDef} is a natural storyteller who turns even a trip to the well into an epic saga. Give {PAWN_objective} an audience and {PAWN_pronoun} will spin long, embellished tales complete with voices, gestures, and dramatic pauses. {PAWN_possessive} stories grow grander with every telling.</description>
+			</li>
+		</degreeDatas>
+		<conflictingTraits>
+			<li>RB_Taciturn</li>
+		</conflictingTraits>
+	</TraitDef>
+
+	<TraitDef>
+		<defName>RB_Taciturn</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+			<li>
+				<label>taciturn</label>
+				<description>{PAWN_nameDef} measures {PAWN_possessive} words like rare coins. {PAWN_pronoun} speaks in short, clipped sentences, answers with nods more often than words, and only offers an opinion when it truly matters. When {PAWN_pronoun} does speak, people listen.</description>
+			</li>
+		</degreeDatas>
+		<conflictingTraits>
+			<li>RB_Gossip</li>
+			<li>RB_Dramatic</li>
+			<li>RB_Raconteur</li>
+		</conflictingTraits>
+	</TraitDef>
+
+	<TraitDef>
+		<defName>RB_Pedant</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+			<li>
+				<label>pedant</label>
+				<description>{PAWN_nameDef} takes words with painful precision. {PAWN_pronoun} corrects slips of the tongue, demands exact definitions, and takes every figure of speech literally. Conversations with {PAWN_objective} are an exercise in careful wording, for {PAWN_pronoun} will pounce on the smallest inaccuracy.</description>
+			</li>
+		</degreeDatas>
+	</TraitDef>
+
+	<TraitDef>
+		<defName>RB_TeaConnoisseur</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+			<li>
+				<label>tea connoisseur</label>
+				<description>{PAWN_nameDef} treats tea as a sacred ritual and hospitality as an art. {PAWN_pronoun} judges character by how one takes one's tea, fusses over steep times and temperatures, and quietly steers any conversation toward the leaf, the water, and the perfect brew.</description>
+			</li>
+		</degreeDatas>
+	</TraitDef>
+
+	<TraitDef>
+		<defName>RB_Angler</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+			<li>
+				<label>angler</label>
+				<description>Given half a chance, {PAWN_nameDef} will be by the water with a line in it. {PAWN_pronoun} is patient beyond measure, full of fish stories that grow with each telling, and can talk for hours about bait, tides, and the one that got away.</description>
+			</li>
+		</degreeDatas>
+	</TraitDef>
+
+	<TraitDef>
+		<defName>RB_Stargazer</defName>
+		<commonality>0.8</commonality>
+		<degreeDatas>
+			<li>
+				<label>stargazer</label>
+				<description>{PAWN_nameDef} looks up when others look down. {PAWN_pronoun} finds peace under the night sky, speaks of fate and distant worlds as if reading a familiar book, and often answers a simple question with a quiet, philosophical reflection.</description>
+			</li>
+		</degreeDatas>
+	</TraitDef>
+
+	<TraitDef>
+		<defName>RB_Daydreamer</defName>
+		<commonality>0.8</commonality>
+		<degreeDatas>
+			<li>
+				<label>daydreamer</label>
+				<description>Half of {PAWN_nameDef}'s mind is somewhere else entirely. {PAWN_pronoun} drifts into daydreams mid-conversation, casts {PAWN_possessive} chores as quests and neighbors as characters in a grand fantasy, and happily wanders off into imagination instead of finishing a sentence.</description>
+			</li>
+		</degreeDatas>
+	</TraitDef>
+
+	<TraitDef>
+		<defName>RB_Curmudgeon</defName>
+		<commonality>1</commonality>
+		<degreeDatas>
+			<li>
+				<label>curmudgeon</label>
+				<description>{PAWN_nameDef} grumbles about everything and everyone, and yet is quietly the first to help. {PAWN_pronoun} hides genuine warmth behind a wall of complaints and gruff remarks, and shows affection mainly by muttering about how no one else does things right.</description>
+			</li>
+		</degreeDatas>
+	</TraitDef>
+</Defs>
