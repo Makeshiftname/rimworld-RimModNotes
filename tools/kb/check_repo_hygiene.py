@@ -73,7 +73,7 @@ def main() -> int:
         pid = (m.get("package_id") or "").strip()
         if pid and PLACEHOLDER_PID.match(pid):
             # Placeholder packageIds are intentionally kept for learning/collected
-            # mods (e.g. 45-TargetLine), registered in mod-index MANUAL — warn only.
+            # mods (e.g. 45-standalone-TargetLine), registered in mod-index MANUAL — warn only.
             warnings.append(f"placeholder packageId '{pid}' in {d} (registered, not fixed)")
         # naming alias -> warning only
         if pid and pid.lower().startswith("runningbugs."):

@@ -1,6 +1,6 @@
 # 测试与校验（白盒测试 + 单元测试）
 
-> 来源 mod：54、55-Common、68、70、72、73、77
+> 来源 mod：54、55、69、71、73、74、78
 > 适用：RimWorld mod 难以在游戏外实例化运行时对象，如何做可自动化的回归测试。
 
 ## 1. 为什么需要"白盒测试"
@@ -28,7 +28,7 @@ class XmlTests(unittest.TestCase):
 见 [`收集/54-standalone-AnotherAllowTool/Tests/whitebox/test_aat_static.py`](../../收集/54-standalone-AnotherAllowTool/Tests/whitebox/test_aat_static.py)
 （其 docstring 明确说明了为何用白盒方式）。
 
-白盒测试覆盖的 mod：54、55-Common、68、70、72、73、77。
+白盒测试覆盖的 mod：54、55、69、71、73、74、78。
 
 ## 3. C# 单元测试项目
 

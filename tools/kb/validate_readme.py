@@ -7,7 +7,7 @@ nearly empty ("stub"), or missing entirely.
 Usage:
   python tools/kb/validate_readme.py --list     # list all mods + README status
   python tools/kb/validate_readme.py --todo     # list mods that still need rewriting
-  python tools/kb/validate_readme.py --verify 01-AlertUtility   # check one mod
+  python tools/kb/validate_readme.py --verify 01-standalone-AlertUtility   # check one mod
   python tools/kb/validate_readme.py --progress # show batch rewrite progress
 Exit code 0 = ok; 1 = requested verification failed / placeholders remaining for --verify.
 """
