@@ -10,7 +10,7 @@
 
 ## 目录结构
 ```
-27-LetterStackCleaner2/
+收集/27-standalone-LetterStackCleaner2/
 ├── About/About.xml
 ├── Source/                 # 根目录副本
 └── 1.4|1.5/Source/         # Main.cs

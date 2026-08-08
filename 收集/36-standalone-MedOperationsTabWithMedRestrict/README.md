@@ -10,7 +10,7 @@
 
 ## 目录结构
 ```
-36-MedOperationsTabWithMedRestrict/
+收集/36-standalone-MedOperationsTabWithMedRestrict/
 ├── About/About.xml
 └── 1.5|1.6/Source/         # Main.cs
 ```

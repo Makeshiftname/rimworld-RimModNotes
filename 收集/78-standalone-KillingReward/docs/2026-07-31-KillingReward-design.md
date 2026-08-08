@@ -13,7 +13,7 @@
 
 ## 基本信息
 
-- 目录：`77-KillingReward`（仓库根目录下，沿用编号约定）
+- 目录：`收集/78-standalone-KillingReward`（仓库根目录下，沿用编号约定）
 - packageId：`RunningBugs.KillingReward`
 - 名称：KillingReward 嗜血恩赐
 - 支持版本：仅 1.6
@@ -115,7 +115,7 @@
   - 技能 +3 的 clamp 逻辑（18 → 20，而不是 21）；
   - 物品整格数量取 `stackLimit`。
   纯逻辑不依赖 Verse 类型，可脱离游戏进程运行。
-- Python 静态白盒测试（沿用 55-CommonModCompatibilityPatches 的 Tests 模式）：
+- Python 静态白盒测试（沿用 收集/55-patch-CommonModCompatibilityPatches 的 Tests 模式）：
   - Harmony patch 的目标方法签名与游戏程序集一致；
   - About.xml 描述与源码实际内容同步；
   - 英文/中文翻译 key 一一对应、无缺失。
@@ -124,7 +124,7 @@
 
 - csproj 沿用仓库约定：`net472` + `Krafs.Rimworld.Ref` + `Lib.Harmony`，输出到 `1.6/Assemblies`。
 - 编译后将 Mod 目录软链接到 `/Data/SteamLibrary/steamapps/common/RimWorld/Mods/77-KillingReward`
-  （与 01-AlertUtility、16-ResearchPrerequisites 现状一致），进游戏即可体验。
+  （与 收集/01-standalone-AlertUtility、收集/16-standalone-ResearchPrerequisites 现状一致），进游戏即可体验。
 
 ## 明确不做（本期）
 

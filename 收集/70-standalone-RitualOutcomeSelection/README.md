@@ -13,7 +13,7 @@
 
 ## 目录结构
 ```
-69-RitualOutcomeSelection/
+收集/70-standalone-RitualOutcomeSelection/
 ├── About/About.xml
 ├── Common/
 └── 1.6/Source/Main.cs

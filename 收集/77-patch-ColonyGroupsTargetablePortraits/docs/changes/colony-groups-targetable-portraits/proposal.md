@@ -32,7 +32,7 @@ TG 侧已有的现成资产（均为 public）：
 
 ## 做什么（范围，含明确不做的部分）
 
-新建 MOD `76-ColonyGroupsTargetablePortraits`（沿用仓库编号惯例）。
+新建 MOD `收集/77-patch-ColonyGroupsTargetablePortraits`（沿用仓库编号惯例）。
 packageId `RunningBugs.ColonyGroupsTargetablePortraits`（沿用仓库 `RunningBugs.*` 惯例），
 AssemblyName/RootNamespace `CGTargetablePortraits`。
 
@@ -56,14 +56,14 @@ AssemblyName/RootNamespace `CGTargetablePortraits`。
 
 其余行为（目标校验与提示、悬停高亮、确认音效、shift 连选、Esc/右键取消）全部由 vanilla `Targeter` 自动完成。
 
-工程约定（照搬 51-RACursePatch）：
+工程约定（照搬 收集/51-patch-RACursePatch）：
 
 - `About/About.xml`：`supportedVersions` 1.6；`loadAfter`: `brrainz.harmony`、`DerekBickley.LTOColonyGroupsFinal`
 - `1.6/Source/mod.csproj`：net472 + Krafs.Publicizer 2.* + Krafs.Rimworld.Ref 1.6.4488-beta +
   Lib.Harmony 2.3.*（本 MOD 不用 HugsLib API，不引用）；
   以 `<Reference>` + `<Private>false</Private>` 引用拷入 Source 目录的 `TacticalGroups.dll`（仅编译期，不分发）
 - 编译输出至 `1.6/Assemblies/`
-- 部署：软链接 `~/mine/workspace/rimworld/RimModNotes/76-ColonyGroupsTargetablePortraits`
+- 部署：软链接 `~/mine/workspace/rimworld/RimModNotes/收集/77-patch-ColonyGroupsTargetablePortraits`
   → `/Data/SteamLibrary/steamapps/common/RimWorld/Mods/76-ColonyGroupsTargetablePortraits`
 
 明确不做：

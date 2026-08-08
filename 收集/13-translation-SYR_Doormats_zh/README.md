@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-13-SYR_Doormats_zh/
+收集/13-translation-SYR_Doormats_zh/
 ├── About/About.xml                    # packageId RunningBugs.SYR.Doormats.zh
 └── Languages/                         # 简中翻译补充
 ```

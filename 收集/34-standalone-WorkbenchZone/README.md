@@ -13,7 +13,7 @@
 
 ## 目录结构
 ```
-34-WorkbenchZone/
+收集/34-standalone-WorkbenchZone/
 ├── About/About.xml
 ├── Common/Patches/         # 注入 comp
 ├── 1.5|1.6/Source/         # Main.cs、Logger.cs、Notes.md

@@ -10,7 +10,7 @@
 
 ## 目录结构
 ```
-28-AllowToolGhoulFix/
+收集/28-patch-AllowToolGhoulFix/
 ├── About/About.xml
 ├── Common/Patches/         # 真正的补丁
 └── 1.4|1.5/Source/         # 模板占位

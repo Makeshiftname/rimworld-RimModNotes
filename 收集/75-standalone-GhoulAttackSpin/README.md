@@ -14,7 +14,7 @@
 
 ## 目录结构
 ```
-74-GhoulAttackSpin/
+收集/75-standalone-GhoulAttackSpin/
 ├── About/About.xml
 ├── 1.6/Source/               # Main.cs、GhoulAutoFrenzy.cs
 ├── 1.6/Defs/KeyBindingDefs/

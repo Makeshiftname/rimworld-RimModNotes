@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-15-MusicalInstrumentsPatch/
+收集/15-patch-MusicalInstrumentsPatch/
 ├── About/About.xml
 └── Source/                # Main.cs、Comp_PlayingMusic.cs、CompProp_PlayingMusic.cs + MusicalInstruments.dll
 ```

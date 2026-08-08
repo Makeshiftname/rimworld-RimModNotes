@@ -10,7 +10,7 @@
 
 ## 目录结构
 ```
-56-AllowRightClickWorkOutsideZone/
+收集/57-standalone-AllowRightClickWorkOutsideZone/
 ├── About/About.xml
 ├── _PublisherPlus.xml
 └── 1.6/Source/                # Main.cs

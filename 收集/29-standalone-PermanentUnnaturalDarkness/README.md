@@ -13,7 +13,7 @@
 
 ## 目录结构
 ```
-29-PermanentUnnaturalDarkness/
+收集/29-standalone-PermanentUnnaturalDarkness/
 ├── About/About.xml
 ├── PLAN.md                 # 设计文档
 ├── 1.5|1.6/Source/         # 7 个 cs

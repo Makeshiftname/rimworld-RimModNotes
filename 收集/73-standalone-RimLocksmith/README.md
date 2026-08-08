@@ -15,7 +15,7 @@
 
 ## 目录结构
 ```
-72-RimLocksmith/
+收集/73-standalone-RimLocksmith/
 ├── About/About.xml
 ├── DESIGN.md                 # 设计文档
 ├── docs/                     # vanilla-behavior-audit.md、rebuild-design.md

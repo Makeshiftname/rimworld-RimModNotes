@@ -6,7 +6,7 @@ RimFlix (Continued)（packageId `zal.rimflix`，工坊 id `3194639480`）的本�
 ## 目录结构
 
 ```
-78-RimFlixAnimeShows/
+收集/79-xml-RimFlixAnimeShows/
 ├── About/About.xml        # packageId RunningBugs.RimFlix.AnimeShows，硬依赖 zal.rimflix
 ├── Defs/ShowDefs/         # 每个节目一个 <ID>.xml（由脚本生成）
 ├── Textures/Shows/<ID>/   # 每个节目一个帧图目录（由脚本生成）

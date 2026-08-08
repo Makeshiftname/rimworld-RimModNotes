@@ -15,7 +15,7 @@
 
 ## 目录结构
 ```
-53-AllowTunnelersToDrillFork/
+收集/53-patch-AllowTunnelersToDrillFork/
 ├── About/About.xml
 ├── Patches/                  # AllowMechToDrill.xml（核心）
 ├── 1.4/Source/TunnulerFix.cs

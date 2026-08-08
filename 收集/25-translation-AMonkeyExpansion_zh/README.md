@@ -11,7 +11,7 @@ A Monkey Expansion (Continued) 的简体中文翻译（纯翻译 mod）。
 
 ## 目录结构
 ```
-25-AMonkeyExpansion_zh/
+收集/25-translation-AMonkeyExpansion_zh/
 ├── About/About.xml
 └── Common/Languages/       # 简中翻译
 ```

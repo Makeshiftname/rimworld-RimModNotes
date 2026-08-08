@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-41-PolarisblocExt/
+收集/41-patch-PolarisblocExt/
 ├── About/About.xml
 ├── Common/Languages/
 └── 1.5|1.6/Source/         # RequestTechCoreInformation.cs

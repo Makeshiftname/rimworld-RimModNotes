@@ -10,7 +10,7 @@
 
 ## 目录结构
 ```
-04-WeatherControlDeviceCont_zh/
+收集/04-translation-WeatherControlDeviceCont_zh/
 ├── About/About.xml                    # packageId RunningBugs.WeatherControlDeviceContZh
 └── Languages/ChineseSimplified/       # 简中翻译（Keyed / DefInjected）
 ```

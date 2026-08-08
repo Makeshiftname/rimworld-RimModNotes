@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-38-DeepStorageContentsTabSearchPatch/
+收集/38-patch-DeepStorageContentsTabSearchPatch/
 ├── About/About.xml
 └── 1.5/Source/             # Main.cs + LWM.DeepStorage.dll
 ```

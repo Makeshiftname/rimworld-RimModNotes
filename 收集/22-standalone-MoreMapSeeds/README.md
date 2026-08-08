@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-22-MoreMapSeeds/
+收集/22-standalone-MoreMapSeeds/
 ├── About/About.xml
 ├── Common/Defs/            # RulePackDef.xml、LetterDefs.xml
 ├── Common/Languages/       # 中英种子词

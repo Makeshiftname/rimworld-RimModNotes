@@ -13,7 +13,7 @@
 
 ## 目录结构
 ```
-73-UsefulStats/
+收集/74-standalone-UsefulStats/
 ├── About/About.xml
 ├── DESIGN.md                 # 设计文档
 ├── 1.6/Source/Core/          # CraftableEfficiencyMetrics.cs、CraftableStatRow.cs

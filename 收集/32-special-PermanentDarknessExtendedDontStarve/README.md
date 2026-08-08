@@ -17,7 +17,7 @@ description 仍是占位 `Template`——属于「移动端未定稿」状态，
 
 ## 目录结构
 ```
-32-PermanentDarknessExtendedDontStarve/
+收集/32-special-PermanentDarknessExtendedDontStarve/
 ├── .roo/                   # agent 规则
 └── backup/                 # 全部内容在此（1.5|1.6/Source、Common/、About/、Textures/）
 ```

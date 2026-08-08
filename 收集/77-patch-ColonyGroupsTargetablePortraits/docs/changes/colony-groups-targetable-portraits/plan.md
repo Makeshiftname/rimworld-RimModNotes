@@ -15,7 +15,7 @@ TacticalGroups 自己的 `TacticalColonistBar.TryGetEntryAt`（主栏）与 `Try
 
 ## Global Constraints
 
-- MOD 目录：`/home/lisanhu/mine/workspace/rimworld/RimModNotes/76-ColonyGroupsTargetablePortraits/`（下文称 `$MOD`）
+- MOD 目录：`/home/lisanhu/mine/workspace/rimworld/RimModNotes/收集/77-patch-ColonyGroupsTargetablePortraits/`（下文称 `$MOD`）
 - packageId `RunningBugs.ColonyGroupsTargetablePortraits`，author `RunningBugs`（沿用仓库惯例）
 - AssemblyName/RootNamespace `CGTargetablePortraits`
 - `supportedVersions` 仅标 1.6；代码须保持跨版本兼容（不用 1.6 独有 API）
@@ -41,7 +41,7 @@ TacticalGroups 自己的 `TacticalColonistBar.TryGetEntryAt`（主栏）与 `Try
 - [ ] **Step 1: 创建目录与 About.xml**
 
 ```bash
-mkdir -p /home/lisanhu/mine/workspace/rimworld/RimModNotes/76-ColonyGroupsTargetablePortraits/{About,1.6/Assemblies,1.6/Source}
+mkdir -p /home/lisanhu/mine/workspace/rimworld/RimModNotes/收集/77-patch-ColonyGroupsTargetablePortraits/{About,1.6/Assemblies,1.6/Source}
 ```
 
 `$MOD/About/About.xml` 内容：
@@ -87,7 +87,7 @@ Makes [LTO] Colony Groups' top-bar portraits and hover group-popup portraits wor
 
 ```bash
 cp /Data/SteamLibrary/steamapps/workshop/content/294100/2345493945/1.6/Assemblies/TacticalGroups.dll \
-   /home/lisanhu/mine/workspace/rimworld/RimModNotes/76-ColonyGroupsTargetablePortraits/1.6/Source/TacticalGroups.dll
+   /home/lisanhu/mine/workspace/rimworld/RimModNotes/收集/77-patch-ColonyGroupsTargetablePortraits/1.6/Source/TacticalGroups.dll
 ```
 
 `$MOD/1.6/Source/mod.csproj` 内容：
@@ -161,7 +161,7 @@ namespace CGTargetablePortraits
 }
 ```
 
-Run: `cd /home/lisanhu/mine/workspace/rimworld/RimModNotes/76-ColonyGroupsTargetablePortraits/1.6/Source && /home/lisanhu/.dotnet/dotnet build -c Release`
+Run: `cd /home/lisanhu/mine/workspace/rimworld/RimModNotes/收集/77-patch-ColonyGroupsTargetablePortraits/1.6/Source && /home/lisanhu/.dotnet/dotnet build -c Release`
 
 Expected: `Build succeeded`，产物 `$MOD/1.6/Assemblies/CGTargetablePortraits.dll` 存在，
 且 `1.6/Assemblies/` 下**没有** TacticalGroups.dll（`Private=false` 生效）。
@@ -170,7 +170,7 @@ Expected: `Build succeeded`，产物 `$MOD/1.6/Assemblies/CGTargetablePortraits.
 
 ```bash
 cd /home/lisanhu/mine/workspace/rimworld/RimModNotes
-git add 76-ColonyGroupsTargetablePortraits
+git add 收集/77-patch-ColonyGroupsTargetablePortraits
 git commit -m "Add ColonyGroupsTargetablePortraits project skeleton"
 ```
 
@@ -254,13 +254,13 @@ namespace CGTargetablePortraits
 
 - [ ] **Step 2: 编译验证**
 
-Run: `cd /home/lisanhu/mine/workspace/rimworld/RimModNotes/76-ColonyGroupsTargetablePortraits/1.6/Source && /home/lisanhu/.dotnet/dotnet build -c Release`
+Run: `cd /home/lisanhu/mine/workspace/rimworld/RimModNotes/收集/77-patch-ColonyGroupsTargetablePortraits/1.6/Source && /home/lisanhu/.dotnet/dotnet build -c Release`
 
 Expected: `Build succeeded`，0 warning 0 error（Harmony/`nameof` 解析正常说明引用正确）。
 
 - [ ] **Step 3: 静态 sanity check（可选但推荐）**
 
-Run: `/home/lisanhu/.dotnet/tools/ilspycmd -t CGTargetablePortraits.ColonistBarTryGetEntryAtPatch /home/lisanhu/mine/workspace/rimworld/RimModNotes/76-ColonyGroupsTargetablePortraits/1.6/Assemblies/CGTargetablePortraits.dll | head -20`
+Run: `/home/lisanhu/.dotnet/tools/ilspycmd -t CGTargetablePortraits.ColonistBarTryGetEntryAtPatch /home/lisanhu/mine/workspace/rimworld/RimModNotes/收集/77-patch-ColonyGroupsTargetablePortraits/1.6/Assemblies/CGTargetablePortraits.dll | head -20`
 
 Expected: 能反编译出 patch 类，确认 DLL 内容有效。
 
@@ -268,7 +268,7 @@ Expected: 能反编译出 patch 类，确认 DLL 内容有效。
 
 ```bash
 cd /home/lisanhu/mine/workspace/rimworld/RimModNotes
-git add 76-ColonyGroupsTargetablePortraits
+git add 收集/77-patch-ColonyGroupsTargetablePortraits
 git commit -m "Implement ColonistBar.TryGetEntryAt patch for Colony Groups targeting"
 ```
 
@@ -285,7 +285,7 @@ git commit -m "Implement ColonistBar.TryGetEntryAt patch for Colony Groups targe
 - [ ] **Step 1: 建立软链接**
 
 ```bash
-ln -s /home/lisanhu/mine/workspace/rimworld/RimModNotes/76-ColonyGroupsTargetablePortraits \
+ln -s /home/lisanhu/mine/workspace/rimworld/RimModNotes/收集/77-patch-ColonyGroupsTargetablePortraits \
       /Data/SteamLibrary/steamapps/common/RimWorld/Mods/76-ColonyGroupsTargetablePortraits
 ls -la /Data/SteamLibrary/steamapps/common/RimWorld/Mods/76-ColonyGroupsTargetablePortraits/About/About.xml
 ```

@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-49-UnlockHarbingerTreeInAllCases/
+收集/49-patch-UnlockHarbingerTreeInAllCases/
 ├── About/About.xml
 └── 1.5|1.6/Source/           # Main.cs
 ```

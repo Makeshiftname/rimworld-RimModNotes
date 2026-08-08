@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-33-PolarisblocSecurityForceDistressCallPatch/
+收集/33-patch-PolarisblocSecurityForceDistressCallPatch/
 ├── About/About.xml
 ├── 1.5/Source/             # Main.cs
 └── 1.5/Assemblies/         # SFDistressCallFix.dll

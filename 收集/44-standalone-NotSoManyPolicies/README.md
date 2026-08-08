@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-44-NotSoManyPolicies/
+收集/44-standalone-NotSoManyPolicies/
 ├── About/About.xml
 └── 1.5|1.6/Source/         # Main.cs
 ```

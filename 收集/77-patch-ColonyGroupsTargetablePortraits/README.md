@@ -13,7 +13,7 @@
 
 ## 目录结构
 ```
-76-ColonyGroupsTargetablePortraits/
+收集/77-patch-ColonyGroupsTargetablePortraits/
 ├── About/About.xml
 ├── docs/changes/colony-groups-targetable-portraits/   # plan.md / proposal.md / tasks.md
 └── 1.6/Source/               # ColonistBarTryGetEntryAtPatch.cs + TacticalGroups.dll（编译期引用）

@@ -15,7 +15,7 @@
 
 ## 目录结构
 ```
-67-DontMeditateYet/
+收集/68-standalone-DontMeditateYet/
 ├── About/About.xml
 ├── README_MOD.md            # mod 说明
 ├── IMPLEMENTATION_NOTES.md  # 实现笔记（含未完成标注）

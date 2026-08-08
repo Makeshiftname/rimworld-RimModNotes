@@ -13,7 +13,7 @@
 
 ## 目录结构
 ```
-70-LinuxImeFix/
+收集/71-patch-LinuxImeFix/
 ├── About/About.xml
 ├── IBUS_SIGNAL_FORMAT.md     # 信号格式文档
 ├── 1.6/Source/               # Main.cs、linux_ime_native.c

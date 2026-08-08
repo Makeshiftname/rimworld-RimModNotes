@@ -10,8 +10,8 @@
 
 ## Global Constraints
 
-- 只改 `16-ResearchPrerequisites/1.6/` 目录;`1.4/`、`1.5/` 是冻结的历史版本,一律不动。
-- 设计依据:`16-ResearchPrerequisites/docs/superpowers/specs/2026-08-02-queue-head-is-current-design.md`,语义以它为准。
+- 只改 `收集/16-standalone-ResearchPrerequisites/1.6/` 目录;`1.4/`、`1.5/` 是冻结的历史版本,一律不动。
+- 设计依据:`收集/16-standalone-ResearchPrerequisites/docs/superpowers/specs/2026-08-02-queue-head-is-current-design.md`,语义以它为准。
 - 本仓库无 RimWorld 单元测试设施,每个任务的验证手段是 `dotnet build -c Release` 0 错误;功能验证靠末尾的游戏内清单。
 - 按环境策略**不执行任何 git 提交**,由用户自行提交。
 - 所有 patch 保持最小侵入:不 `return false` 拦截任何原版方法。
@@ -23,7 +23,7 @@
 ### Task 1: ResearchQueue 数据层 — 队首操作三方法
 
 **Files:**
-- Modify: `16-ResearchPrerequisites/1.6/Source/ResearchQueue.cs`
+- Modify: `收集/16-standalone-ResearchPrerequisites/1.6/Source/ResearchQueue.cs`
 
 **Interfaces:**
 - Consumes: 现有 `QueueFor(KnowledgeCategoryDef)`、`DistinctInPlace`。
@@ -36,7 +36,7 @@
 
 - [ ] **Step 1: 在 `ClearQueue` 方法之后添加三个方法**
 
-在 `16-ResearchPrerequisites/1.6/Source/ResearchQueue.cs` 的 `ClearQueue` 方法后插入:
+在 `收集/16-standalone-ResearchPrerequisites/1.6/Source/ResearchQueue.cs` 的 `ClearQueue` 方法后插入:
 
 ```csharp
         /// <summary>
@@ -79,7 +79,7 @@
 
 - [ ] **Step 2: 编译验证**
 
-Run: `cd 16-ResearchPrerequisites/1.6/Source && dotnet build -c Release`
+Run: `cd 收集/16-standalone-ResearchPrerequisites/1.6/Source && dotnet build -c Release`
 Expected: `Build succeeded. 0 Warning(s) 0 Error(s)`
 
 ---
@@ -87,9 +87,9 @@ Expected: `Build succeeded. 0 Warning(s) 0 Error(s)`
 ### Task 2: ResearchQueueController — tick 推进核心 + 链式插队合并 + 更新全部调用方
 
 **Files:**
-- Modify: `16-ResearchPrerequisites/1.6/Source/ResearchQueueController.cs`
-- Modify: `16-ResearchPrerequisites/1.6/Source/Patches/DrawStartButtonPatch.cs`
-- Delete: `16-ResearchPrerequisites/1.6/Source/Patches/FinishProjectPatch.cs`
+- Modify: `收集/16-standalone-ResearchPrerequisites/1.6/Source/ResearchQueueController.cs`
+- Modify: `收集/16-standalone-ResearchPrerequisites/1.6/Source/Patches/DrawStartButtonPatch.cs`
+- Delete: `收集/16-standalone-ResearchPrerequisites/1.6/Source/Patches/FinishProjectPatch.cs`
 
 **Interfaces:**
 - Consumes: Task 1 的 `PeekHead`、`MoveToHead`;现有 `AttemptBeginResearch`。
@@ -193,7 +193,7 @@ Expected: `Build succeeded. 0 Warning(s) 0 Error(s)`
 
 - [ ] **Step 2: 更新 `DrawStartButtonPatch.cs` 的按钮点击分支**
 
-把 `16-ResearchPrerequisites/1.6/Source/Patches/DrawStartButtonPatch.cs` 中 Postfix 的分支:
+把 `收集/16-standalone-ResearchPrerequisites/1.6/Source/Patches/DrawStartButtonPatch.cs` 中 Postfix 的分支:
 
 ```csharp
                 if (!jump)
@@ -230,14 +230,14 @@ Expected: `Build succeeded. 0 Warning(s) 0 Error(s)`
 - [ ] **Step 3: 删除 `FinishProjectPatch.cs`**
 
 ```bash
-rm 16-ResearchPrerequisites/1.6/Source/Patches/FinishProjectPatch.cs
+rm 收集/16-standalone-ResearchPrerequisites/1.6/Source/Patches/FinishProjectPatch.cs
 ```
 
 (tick 推进取代完成事件补位;`RPModSettings.cs` 的 `Patch_FinishProject` 是独立的 Letter 功能,不受影响。)
 
 - [ ] **Step 4: 编译验证 + 残留引用检查**
 
-Run: `cd 16-ResearchPrerequisites/1.6/Source && dotnet build -c Release && grep -rn "TryStartNext\|JumpToFrontAndStart" --include="*.cs" . | grep -v obj/ || echo "no stale references"`
+Run: `cd 收集/16-standalone-ResearchPrerequisites/1.6/Source && dotnet build -c Release && grep -rn "TryStartNext\|JumpToFrontAndStart" --include="*.cs" . | grep -v obj/ || echo "no stale references"`
 Expected: `Build succeeded. 0 Error(s)` + `no stale references`
 
 ---
@@ -245,7 +245,7 @@ Expected: `Build succeeded. 0 Error(s)` + `no stale references`
 ### Task 3: ResearchQueue.GameComponentTick — 接线 tick 驱动
 
 **Files:**
-- Modify: `16-ResearchPrerequisites/1.6/Source/ResearchQueue.cs`
+- Modify: `收集/16-standalone-ResearchPrerequisites/1.6/Source/ResearchQueue.cs`
 
 **Interfaces:**
 - Consumes: Task 2 的 `ResearchQueueController.AdvanceCategory(KnowledgeCategoryDef)`。
@@ -253,7 +253,7 @@ Expected: `Build succeeded. 0 Error(s)` + `no stale references`
 
 - [ ] **Step 1: 在 `ResearchQueue` 类中添加 `GameComponentTick`**
 
-在 `16-ResearchPrerequisites/1.6/Source/ResearchQueue.cs` 的 `ExposeData` 方法之前插入:
+在 `收集/16-standalone-ResearchPrerequisites/1.6/Source/ResearchQueue.cs` 的 `ExposeData` 方法之前插入:
 
 ```csharp
         /// <summary>
@@ -277,7 +277,7 @@ Expected: `Build succeeded. 0 Error(s)` + `no stale references`
 
 - [ ] **Step 2: 编译验证**
 
-Run: `cd 16-ResearchPrerequisites/1.6/Source && dotnet build -c Release`
+Run: `cd 收集/16-standalone-ResearchPrerequisites/1.6/Source && dotnet build -c Release`
 Expected: `Build succeeded. 0 Error(s)`
 
 ---
@@ -285,7 +285,7 @@ Expected: `Build succeeded. 0 Error(s)`
 ### Task 4: SetCurrentProjectPatch — 任何启动路径同步队首
 
 **Files:**
-- Create: `16-ResearchPrerequisites/1.6/Source/Patches/SetCurrentProjectPatch.cs`
+- Create: `收集/16-standalone-ResearchPrerequisites/1.6/Source/Patches/SetCurrentProjectPatch.cs`
 
 **Interfaces:**
 - Consumes: Task 1 的 `ResearchQueue.MoveToHead(ResearchProjectDef)`。
@@ -293,7 +293,7 @@ Expected: `Build succeeded. 0 Error(s)`
 
 - [ ] **Step 1: 新建补丁文件**
 
-创建 `16-ResearchPrerequisites/1.6/Source/Patches/SetCurrentProjectPatch.cs`:
+创建 `收集/16-standalone-ResearchPrerequisites/1.6/Source/Patches/SetCurrentProjectPatch.cs`:
 
 ```csharp
 using HarmonyLib;
@@ -324,7 +324,7 @@ namespace ResearchPrerequisites
 
 - [ ] **Step 2: 编译验证**
 
-Run: `cd 16-ResearchPrerequisites/1.6/Source && dotnet build -c Release`
+Run: `cd 收集/16-standalone-ResearchPrerequisites/1.6/Source && dotnet build -c Release`
 Expected: `Build succeeded. 0 Error(s)`
 
 ---
@@ -332,7 +332,7 @@ Expected: `Build succeeded. 0 Error(s)`
 ### Task 5: DrawContentSourcePatch — 单段队列绘制
 
 **Files:**
-- Modify: `16-ResearchPrerequisites/1.6/Source/Patches/DrawContentSourcePatch.cs`
+- Modify: `收集/16-standalone-ResearchPrerequisites/1.6/Source/Patches/DrawContentSourcePatch.cs`
 
 **Interfaces:**
 - Consumes: 现有 `QueueFor`、`ClearQueue`;语义变为队列含当前研究。
@@ -340,7 +340,7 @@ Expected: `Build succeeded. 0 Error(s)`
 
 - [ ] **Step 1: 替换绘制循环**
 
-把 `16-ResearchPrerequisites/1.6/Source/Patches/DrawContentSourcePatch.cs` 中从
+把 `收集/16-standalone-ResearchPrerequisites/1.6/Source/Patches/DrawContentSourcePatch.cs` 中从
 `y += Text.LineHeight;`(清空按钮之后)到方法末尾的绘制代码:
 
 ```csharp
@@ -391,7 +391,7 @@ Expected: `Build succeeded. 0 Error(s)`
 
 - [ ] **Step 2: 编译验证**
 
-Run: `cd 16-ResearchPrerequisites/1.6/Source && dotnet build -c Release`
+Run: `cd 收集/16-standalone-ResearchPrerequisites/1.6/Source && dotnet build -c Release`
 Expected: `Build succeeded. 0 Error(s)`
 
 ---
@@ -403,8 +403,8 @@ Expected: `Build succeeded. 0 Error(s)`
 
 - [ ] **Step 1: 清理全量重编译**
 
-Run: `cd 16-ResearchPrerequisites/1.6/Source && dotnet build -c Release --no-incremental`
-Expected: `Build succeeded. 0 Warning(s) 0 Error(s)`,DLL 输出到 `16-ResearchPrerequisites/1.6/Assemblies/ResearchPrerequisites.dll`
+Run: `cd 收集/16-standalone-ResearchPrerequisites/1.6/Source && dotnet build -c Release --no-incremental`
+Expected: `Build succeeded. 0 Warning(s) 0 Error(s)`,DLL 输出到 `收集/16-standalone-ResearchPrerequisites/1.6/Assemblies/ResearchPrerequisites.dll`
 
 - [ ] **Step 2: 游戏内功能清单(交用户验证)**
 

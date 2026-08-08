@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-63-HideGenebankGenesFromTraders/
+收集/64-patch-HideGenebankGenesFromTraders/
 ├── About/About.xml
 ├── Common/
 └── 1.6/Source/Main.cs

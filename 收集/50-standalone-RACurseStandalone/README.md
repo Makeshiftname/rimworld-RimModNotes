@@ -17,7 +17,7 @@
 
 ## 目录结构
 ```
-50-RACurseStandalone/
+收集/50-standalone-RACurseStandalone/
 ├── About/About.xml
 ├── Common/Defs/              # GameConditionDef + IncidentDef + LetterDef
 ├── Common/Languages/

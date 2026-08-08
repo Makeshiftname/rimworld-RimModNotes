@@ -14,7 +14,7 @@
 
 ## 目录结构
 ```
-68-BetterOutfitStand/
+收集/69-standalone-BetterOutfitStand/
 ├── About/About.xml
 ├── Common/
 ├── Tests/whitebox/test_better_outfit_stand_static.py

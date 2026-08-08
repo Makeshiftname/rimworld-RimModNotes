@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-57-MoreRaidStrategies-HybridRaids/
+收集/58-standalone-MoreRaidStrategies-HybridRaids/
 ├── About/About.xml
 ├── Common/Defs/RaidStrategyDefs.xml
 ├── Languages/

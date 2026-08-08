@@ -41,7 +41,7 @@
 
 ## 交付
 
-- 目录 `75-SmoothDragSelect/`（显示名 Smooth Drag Select；About/About.xml、1.6/Source、1.6/Assemblies），结构仿 `14-SurgeryNeverFail`。
+- 目录 `收集/76-standalone-SmoothDragSelect/`（显示名 Smooth Drag Select；About/About.xml、1.6/Source、1.6/Assemblies），结构仿 `收集/14-standalone-SurgeryNeverFail`。
 - csproj：net472，`Krafs.Rimworld.Ref 1.6.4871`（与游戏本体一致），`Lib.Harmony 2.3.1.1`。
 - 编译后软链接到 `/Data/SteamLibrary/steamapps/common/RimWorld/Mods/75-SmoothDragSelect`。
 

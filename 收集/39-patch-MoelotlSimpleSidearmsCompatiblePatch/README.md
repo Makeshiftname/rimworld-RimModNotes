@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-39-MoelotlSimpleSidearmsCompatiblePatch/
+收集/39-patch-MoelotlSimpleSidearmsCompatiblePatch/
 ├── About/About.xml
 └── 1.5/Source/             # Main.cs + Axolotl.dll
 ```

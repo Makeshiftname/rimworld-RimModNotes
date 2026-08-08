@@ -28,7 +28,7 @@
 ## 目录结构
 
 ```
-81-HautsAddedTraits/
+收集/82-patch-HautsAddedTraits/
 ├── About/About.xml          # packageId Hautarche.HautsTraits, author Hautarche
 ├── README_UPSTREAM.md       # 上游完整文档
 ├── LICENSE                  # MIT（原样保留）

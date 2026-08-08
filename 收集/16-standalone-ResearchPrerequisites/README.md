@@ -13,7 +13,7 @@
 
 ## 目录结构
 ```
-16-ResearchPrerequisites/
+收集/16-standalone-ResearchPrerequisites/
 ├── About/About.xml
 ├── docs/                  # superpowers specs/plans 设计文档
 ├── 1.4|1.5|1.6/Source/    # ResearchQueue*.cs、RPModSettings.cs、Patches/

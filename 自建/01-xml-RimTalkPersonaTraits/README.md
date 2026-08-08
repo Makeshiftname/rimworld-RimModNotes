@@ -1,7 +1,7 @@
 # ⭐ 自建原创 mod · RunningBugs
 
-> **三重自建标注**：目录名 `82-自建-` 前缀 / 本 README 顶部徽标 / `mod-index.md` MANUAL 段「自建 mod」小节。
-> 与 `79-RimTalk`、`80-RimTalkExpandMemory`、`81-HautsAddedTraits` 等**第三方收录**（克隆收藏）明确区分。
+> **三重自建标注**：位于 `自建/` 大类目录（`NN-功能-名称`）/ 本 README 顶部徽标 / `mod-index.md` MANUAL 段「自建 mod」小节。
+> 与 `收集/80-standalone-RimTalk`、`收集/81-patch-RimTalkExpandMemory`、`收集/82-patch-HautsAddedTraits` 等**第三方收录**（克隆收藏）明确区分。
 
 ## 一句话定位
 
@@ -10,7 +10,7 @@
 
 ## 为什么做这个（RimTalk 提示词优化）
 
-RimTalk（`79-RimTalk`）在 `Full` 信息级别下，会把小人每个特质的
+RimTalk（`收集/80-standalone-RimTalk`）在 `Full` 信息级别下，会把小人每个特质的
 `degreeDatas/li/label` + `description` 拼进提示词：
 
 ```text
@@ -47,7 +47,7 @@ Traits: gossip:{PAWN_nameDef} is always the first to hear...
 ## 目录结构
 
 ```
-82-自建-RimTalkPersonaTraits/
+自建/01-xml-RimTalkPersonaTraits/
 ├── About/About.xml                                  # packageId RunningBugs.RimTalkPersonaTraits, 1.6
 ├── 1.6/Defs/Traits.xml                              # 10 个 TraitDef（纯 XML）
 ├── Languages/ChineseSimplified/DefInjected/TraitDef/Traits.xml   # 中文 label + description
@@ -75,6 +75,6 @@ RimTalk 对话（Full 信息级别）确认 `Traits:` 行包含本包特质描�
 
 ## 相关参考
 
-- RimTalk 提示词注入机制：`../79-RimTalk/Source/Service/ContextBuilder.cs`（`GetTraitsContext`）
-- TraitDef 结构参考：`../81-HautsAddedTraits/1.6/Defs/Traits.xml`
+- RimTalk 提示词注入机制：`../../收集/80-standalone-RimTalk/Source/Service/ContextBuilder.cs`（`GetTraitsContext`）
+- TraitDef 结构参考：`../../收集/82-patch-HautsAddedTraits/1.6/Defs/Traits.xml`
 - 仓库 mod 索引（含本包自建标注）：`../docs/knowledge/mod-index.md`

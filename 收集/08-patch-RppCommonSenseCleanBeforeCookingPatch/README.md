@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-08-RppCommonSenseCleanBeforeCookingPatch/
+收集/08-patch-RppCommonSenseCleanBeforeCookingPatch/
 ├── About/About.xml
 └── Source/                # Main.cs + CommonSense.dll（第三方引用）
 ```

@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-61-MoreResponsivePlanet/
+收集/62-standalone-MoreResponsivePlanet/
 ├── About/About.xml
 ├── Common/
 └── 1.6/Source/              # Main.cs、ImmediateDragBox.cs、ThreadSafeSelectionProcessor.cs、UnityMainThreadDispatcher.cs、ScreenshotCache.cs

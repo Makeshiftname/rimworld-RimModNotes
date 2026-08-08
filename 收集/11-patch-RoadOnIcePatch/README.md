@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-11-RoadOnIcePatch/
+收集/11-patch-RoadOnIcePatch/
 ├── About/About.xml
 └── Source/                # Main.cs（MyMapComponent）、Logger.cs
 ```

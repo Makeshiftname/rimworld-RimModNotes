@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-14-SurgeryNeverFail/
+收集/14-standalone-SurgeryNeverFail/
 ├── About/About.xml
 └── 1.4|1.5|1.6/Source/       # Main.cs + Logger.cs
 ```

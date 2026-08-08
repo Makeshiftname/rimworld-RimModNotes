@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-31-AutomaticBioferriteHarvesting/
+收集/31-standalone-AutomaticBioferriteHarvesting/
 ├── About/About.xml
 ├── Common/Patches/         # 注入 comp
 └── 1.5|1.6/Source/         # Main.cs

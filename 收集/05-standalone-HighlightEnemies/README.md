@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-05-HighlightEnemies/
+收集/05-standalone-HighlightEnemies/
 ├── About/About.xml
 ├── 1.4|1.5|1.6/Source/      # Main.cs（EnemyHighlighter）、ModSettings.cs、LogUtility.cs
 └── Languages/               # 本地化文本

@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-43-RatkinCursesStandalone/
+收集/43-standalone-RatkinCursesStandalone/
 ├── About/About.xml
 ├── Common/Defs/GameConditionDefs/
 ├── Common/Languages/

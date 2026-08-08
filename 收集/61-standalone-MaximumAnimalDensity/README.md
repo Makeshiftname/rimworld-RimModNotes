@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-60-MaximumAnimalDensity/
+收集/61-standalone-MaximumAnimalDensity/
 ├── About/About.xml
 ├── Common/
 └── 1.6/Source/Main.cs

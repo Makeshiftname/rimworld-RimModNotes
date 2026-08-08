@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-12-RimSavesMoreAutoaveSlotsPatch/
+收集/12-patch-RimSavesMoreAutoaveSlotsPatch/
 ├── About/About.xml
 ├── 1.4|1.6/Source/        # Main.cs、PatchHelper、Logger.cs + 两个第三方 dll
 └── 1.4|1.6/Assemblies/    # 编译产物

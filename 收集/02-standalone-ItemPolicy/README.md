@@ -13,7 +13,7 @@
 
 ## 目录结构
 ```
-02-ItemPolicy/
+收集/02-standalone-ItemPolicy/
 ├── About/About.xml
 ├── CHANGELOG.md
 ├── Common/Defs/Misc/ItemPolicy.xml

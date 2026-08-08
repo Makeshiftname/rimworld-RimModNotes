@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-47-WorldMapEditor/
+收集/47-standalone-WorldMapEditor/
 ├── About/About.xml
 ├── Common/Defs/UsefulDefs/   # WorldObjectDef + WorldGenStepDef
 ├── Common/Textures/

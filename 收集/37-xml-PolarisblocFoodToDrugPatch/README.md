@@ -13,7 +13,7 @@
 
 ## 目录结构
 ```
-37-PolarisblocFoodToDrugPatch/
+收集/37-xml-PolarisblocFoodToDrugPatch/
 ├── About/About.xml
 └── Common/Patches/         # FoodPatches.xml
 ```

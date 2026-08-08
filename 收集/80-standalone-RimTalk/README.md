@@ -24,7 +24,7 @@ AI 驱动的游戏内对话 mod：用 Google Gemini / OpenAI 兼容 API 为每�
 ## 目录结构
 
 ```
-79-RimTalk/
+收集/80-standalone-RimTalk/
 ├── About/About.xml          # packageId cj.rimtalk, author juicy
 ├── README_UPSTREAM.md       # 上游完整文档
 ├── LICENSE                  # CC BY-NC-SA 4.0（原样保留）

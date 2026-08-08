@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-10-QuestItemWatch/
+收集/10-standalone-QuestItemWatch/
 ├── About/About.xml
 └── Source/                # Main.cs（QuestItemWatcher）、Logger.cs
 ```

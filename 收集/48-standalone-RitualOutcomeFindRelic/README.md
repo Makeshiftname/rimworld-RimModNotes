@@ -13,7 +13,7 @@
 
 ## 目录结构
 ```
-48-RitualOutcomeFindRelic/
+收集/48-standalone-RitualOutcomeFindRelic/
 ├── About/About.xml
 ├── Common/Defs/PerceptDefs/
 ├── Common/Languages/

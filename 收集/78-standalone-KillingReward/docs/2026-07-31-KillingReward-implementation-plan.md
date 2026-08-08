@@ -8,14 +8,14 @@
 
 **Tech Stack:** C# net472 + Krafs.Rimworld.Ref 1.6.4488-beta + Lib.Harmony 2.3.1.1；xunit(net8.0) 单元测试；python 静态白盒测试；rimworld-imgui-sim（位于 `~/mine/workspace/rimworld/rimworld-imgui-sim`）做 UI mockup。
 
-**Spec:** `77-KillingReward/docs/2026-07-31-KillingReward-design.md`（含全部双语字符串的「文案与基调」一节）
+**Spec:** `收集/78-standalone-KillingReward/docs/2026-07-31-KillingReward-design.md`（含全部双语字符串的「文案与基调」一节）
 
 ## Global Constraints
 
-- 目录：`77-KillingReward/`；packageId `RunningBugs.KillingReward`；仅支持 1.6。
+- 目录：`收集/78-standalone-KillingReward/`；packageId `RunningBugs.KillingReward`；仅支持 1.6。
 - 全部文案双语：英文 + 简体中文，代码内不写死显示字符串（Keyed 翻译；Def 的 label 走 DefInjected）。
 - 纯逻辑（`Source/Core/*.cs`）禁止引用 Verse/RimWorld/UnityEngine，命名空间 `KillingReward.Core`。
-- csproj 约定：net472、`<OutputPath>../Assemblies</OutputPath>`、`DebugType=none`、LangVersion 11.0（参照 `16-ResearchPrerequisites/1.6/Source/mod.csproj`，但不要 HugsLib）。
+- csproj 约定：net472、`<OutputPath>../Assemblies</OutputPath>`、`DebugType=none`、LangVersion 11.0（参照 `收集/16-standalone-ResearchPrerequisites/1.6/Source/mod.csproj`，但不要 HugsLib）。
 - 提交风格：与仓库历史一致的英文简短 commit。
 - 设计文档中的字符串表格是文案事实源，实现时 key 名按下表，字符串逐字采用设计文档「文案与基调」。
 
@@ -61,15 +61,15 @@
 ### Task 1: 项目脚手架 + 构建 + 软链接部署
 
 **Files:**
-- Create: `77-KillingReward/About/About.xml`
-- Create: `77-KillingReward/LoadFolders.xml`
-- Create: `77-KillingReward/1.6/Source/mod.csproj`
-- Create: `77-KillingReward/1.6/Source/KillingRewardMod.cs`
-- Create: `77-KillingReward/1.6/Source/KillingRewardSettings.cs`
+- Create: `收集/78-standalone-KillingReward/About/About.xml`
+- Create: `收集/78-standalone-KillingReward/LoadFolders.xml`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/mod.csproj`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/KillingRewardMod.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/KillingRewardSettings.cs`
 
 **Interfaces:**
 - Produces: `KillingReward.KillingRewardMod : Mod`，静态属性 `KillingRewardMod.Settings`（类型 `KillingRewardSettings`）；`KillingRewardSettings` 字段 `int InitialKills=10`、`GrowthMode Mode=Exponential`、`float ExponentialFactor=1.2f`、`int LinearIncrement=10`；`KillingReward.Core.GrowthMode` 枚举（Step 4 创建）。
-- Produces: 构建产物 `77-KillingReward/1.6/Assemblies/KillingReward.dll`；游戏 Mods 目录软链接。
+- Produces: 构建产物 `收集/78-standalone-KillingReward/1.6/Assemblies/KillingReward.dll`；游戏 Mods 目录软链接。
 
 - [ ] **Step 1: 写 About/About.xml**
 
@@ -208,13 +208,13 @@ namespace KillingReward
 
 - [ ] **Step 7: 构建**
 
-Run: `cd 77-KillingReward/1.6/Source && dotnet build -c Release`
+Run: `cd 收集/78-standalone-KillingReward/1.6/Source && dotnet build -c Release`
 Expected: `Build succeeded.` / `0 Error(s)`，生成 `../Assemblies/KillingReward.dll`
 
 - [ ] **Step 8: 软链接到游戏 Mods 目录**
 
 ```bash
-ln -sfn "$PWD/77-KillingReward" "/Data/SteamLibrary/steamapps/common/RimWorld/Mods/77-KillingReward"
+ln -sfn "$PWD/收集/78-standalone-KillingReward" "/Data/SteamLibrary/steamapps/common/RimWorld/Mods/77-KillingReward"
 ls -l "/Data/SteamLibrary/steamapps/common/RimWorld/Mods/77-KillingReward/About/About.xml"
 ```
 
@@ -223,7 +223,7 @@ Expected: 链接存在且能读到 About.xml（与仓库中 01、16 号 Mod 的�
 - [ ] **Step 9: Commit**
 
 ```bash
-git add 77-KillingReward
+git add 收集/78-standalone-KillingReward
 git commit -m "Scaffold KillingReward mod (About, csproj, settings stub)"
 ```
 
@@ -232,9 +232,9 @@ git commit -m "Scaffold KillingReward mod (About, csproj, settings stub)"
 ### Task 2: ProgressCurve 进度曲线 + 单元测试
 
 **Files:**
-- Create: `77-KillingReward/1.6/Source/Core/ProgressCurve.cs`
-- Create: `77-KillingReward/Tests/unit/KillingReward.UnitTests.csproj`
-- Create: `77-KillingReward/Tests/unit/ProgressCurveTests.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/Core/ProgressCurve.cs`
+- Create: `收集/78-standalone-KillingReward/Tests/unit/KillingReward.UnitTests.csproj`
+- Create: `收集/78-standalone-KillingReward/Tests/unit/ProgressCurveTests.cs`
 
 **Interfaces:**
 - Produces: `KillingReward.Core.ProgressCurve.RequiredKills(GrowthMode mode, int initial, double factor, int increment, long completedLevels) -> long`。completedLevels 从 0 起：第 0 级（第一次升级）要求 = initial。
@@ -312,7 +312,7 @@ namespace KillingReward.UnitTests
 
 - [ ] **Step 3: 运行确认失败**
 
-Run: `cd 77-KillingReward/Tests/unit && dotnet test`
+Run: `cd 收集/78-standalone-KillingReward/Tests/unit && dotnet test`
 Expected: 编译失败（`ProgressCurve` 不存在）。
 
 - [ ] **Step 4: 实现 ProgressCurve**
@@ -350,13 +350,13 @@ namespace KillingReward.Core
 
 - [ ] **Step 5: 运行确认通过**
 
-Run: `cd 77-KillingReward/Tests/unit && dotnet test`
+Run: `cd 收集/78-standalone-KillingReward/Tests/unit && dotnet test`
 Expected: 5 个测试全部 Passed。
 
 - [ ] **Step 6: Commit**
 
 ```bash
-git add 77-KillingReward
+git add 收集/78-standalone-KillingReward
 git commit -m "Add ProgressCurve with xunit tests"
 ```
 
@@ -365,8 +365,8 @@ git commit -m "Add ProgressCurve with xunit tests"
 ### Task 3: ProgressState 进度状态机 + 单元测试
 
 **Files:**
-- Create: `77-KillingReward/1.6/Source/Core/ProgressState.cs`
-- Create: `77-KillingReward/Tests/unit/ProgressStateTests.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/Core/ProgressState.cs`
+- Create: `收集/78-standalone-KillingReward/Tests/unit/ProgressStateTests.cs`
 
 **Interfaces:**
 - Consumes: `ProgressCurve.RequiredKills`（Task 2）。
@@ -437,7 +437,7 @@ namespace KillingReward.UnitTests
 
 - [ ] **Step 2: 运行确认失败**
 
-Run: `cd 77-KillingReward/Tests/unit && dotnet test`
+Run: `cd 收集/78-standalone-KillingReward/Tests/unit && dotnet test`
 Expected: 编译失败（`ProgressState` 不存在）。
 
 - [ ] **Step 3: 实现 ProgressState**
@@ -481,13 +481,13 @@ namespace KillingReward.Core
 
 - [ ] **Step 4: 运行确认通过**
 
-Run: `cd 77-KillingReward/Tests/unit && dotnet test`
+Run: `cd 收集/78-standalone-KillingReward/Tests/unit && dotnet test`
 Expected: 累计 10 个测试全部 Passed。
 
 - [ ] **Step 5: Commit**
 
 ```bash
-git add 77-KillingReward
+git add 收集/78-standalone-KillingReward
 git commit -m "Add ProgressState rollover machine with tests"
 ```
 
@@ -496,12 +496,12 @@ git commit -m "Add ProgressState rollover machine with tests"
 ### Task 4: KillEligibility / SkillMath / StackMath + 单元测试
 
 **Files:**
-- Create: `77-KillingReward/1.6/Source/Core/KillEligibility.cs`
-- Create: `77-KillingReward/1.6/Source/Core/SkillMath.cs`
-- Create: `77-KillingReward/1.6/Source/Core/StackMath.cs`
-- Create: `77-KillingReward/Tests/unit/KillEligibilityTests.cs`
-- Create: `77-KillingReward/Tests/unit/SkillMathTests.cs`
-- Create: `77-KillingReward/Tests/unit/StackMathTests.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/Core/KillEligibility.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/Core/SkillMath.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/Core/StackMath.cs`
+- Create: `收集/78-standalone-KillingReward/Tests/unit/KillEligibilityTests.cs`
+- Create: `收集/78-standalone-KillingReward/Tests/unit/SkillMathTests.cs`
+- Create: `收集/78-standalone-KillingReward/Tests/unit/StackMathTests.cs`
 
 **Interfaces:**
 - Produces:
@@ -576,7 +576,7 @@ namespace KillingReward.UnitTests
 
 - [ ] **Step 2: 运行确认失败**
 
-Run: `cd 77-KillingReward/Tests/unit && dotnet test`
+Run: `cd 收集/78-standalone-KillingReward/Tests/unit && dotnet test`
 Expected: 编译失败（三个类不存在）。
 
 - [ ] **Step 3: 实现三个纯逻辑类**
@@ -623,13 +623,13 @@ namespace KillingReward.Core
 
 - [ ] **Step 4: 运行确认通过**
 
-Run: `cd 77-KillingReward/Tests/unit && dotnet test`
+Run: `cd 收集/78-standalone-KillingReward/Tests/unit && dotnet test`
 Expected: 累计 19 个测试全部 Passed。
 
 - [ ] **Step 5: Commit**
 
 ```bash
-git add 77-KillingReward
+git add 收集/78-standalone-KillingReward
 git commit -m "Add kill eligibility, skill and stack helpers with tests"
 ```
 
@@ -638,23 +638,23 @@ git commit -m "Add kill eligibility, skill and stack helpers with tests"
 ### Task 5: 游戏骨架（主按钮 + 信件 + 窗口骨架 + 双语翻译）
 
 **Files:**
-- Create: `77-KillingReward/1.6/Source/KillingRewardDefOf.cs`
-- Create: `77-KillingReward/1.6/Source/UI/ChoiceLetter_KillingReward.cs`
-- Create: `77-KillingReward/1.6/Source/UI/MainButtonWorker_KillingReward.cs`
-- Create: `77-KillingReward/1.6/Source/UI/Dialog_KillingReward.cs`
-- Create: `77-KillingReward/1.6/Source/RewardNotifier.cs`
-- Create: `77-KillingReward/1.6/Defs/MainButtonDefs/KillingRewardMainButton.xml`
-- Create: `77-KillingReward/1.6/Defs/LetterDefs/KillingRewardLetter.xml`
-- Create: `77-KillingReward/Languages/English/Keyed/Keys.xml`
-- Create: `77-KillingReward/Languages/ChineseSimplified/Keyed/Keys.xml`
-- Create: `77-KillingReward/Languages/ChineseSimplified/DefInjected/MainButtonDef/KillingRewardMainButton.xml`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/KillingRewardDefOf.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/UI/ChoiceLetter_KillingReward.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/UI/MainButtonWorker_KillingReward.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/UI/Dialog_KillingReward.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/RewardNotifier.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Defs/MainButtonDefs/KillingRewardMainButton.xml`
+- Create: `收集/78-standalone-KillingReward/1.6/Defs/LetterDefs/KillingRewardLetter.xml`
+- Create: `收集/78-standalone-KillingReward/Languages/English/Keyed/Keys.xml`
+- Create: `收集/78-standalone-KillingReward/Languages/ChineseSimplified/Keyed/Keys.xml`
+- Create: `收集/78-standalone-KillingReward/Languages/ChineseSimplified/DefInjected/MainButtonDef/KillingRewardMainButton.xml`
 
 **Interfaces:**
 - Produces: `RewardNotifier.NotifyLevelUp()`（Task 6 的 Tracker 调用）；`Dialog_KillingReward : Window`（Task 7-10 逐步填充）；`KillingRewardDefOf.BoonLetter`（`LetterDef`）。
 
 - [ ] **Step 1: 写两个 Keys.xml（key 全集见 Global Constraints 表格；英文文件填英文列，中文文件填中文列）**
 
-`77-KillingReward/Languages/English/Keyed/Keys.xml`：
+`收集/78-standalone-KillingReward/Languages/English/Keyed/Keys.xml`：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -694,11 +694,11 @@ git commit -m "Add kill eligibility, skill and stack helpers with tests"
 </LanguageData>
 ```
 
-`77-KillingReward/Languages/ChineseSimplified/Keyed/Keys.xml`：结构相同，value 换成 Global Constraints 表格的中文列（如 `<KR_LetterTitle>嗜血恩赐</KR_LetterTitle>`、`<KR_WindowTitle>黑暗超凡智能的恩赐</KR_WindowTitle>` 等，逐字采用设计文档「文案与基调」）。
+`收集/78-standalone-KillingReward/Languages/ChineseSimplified/Keyed/Keys.xml`：结构相同，value 换成 Global Constraints 表格的中文列（如 `<KR_LetterTitle>嗜血恩赐</KR_LetterTitle>`、`<KR_WindowTitle>黑暗超凡智能的恩赐</KR_WindowTitle>` 等，逐字采用设计文档「文案与基调」）。
 
 - [ ] **Step 2: 写 Defs**
 
-`77-KillingReward/1.6/Defs/MainButtonDefs/KillingRewardMainButton.xml`：
+`收集/78-standalone-KillingReward/1.6/Defs/MainButtonDefs/KillingRewardMainButton.xml`：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -715,7 +715,7 @@ git commit -m "Add kill eligibility, skill and stack helpers with tests"
 </Defs>
 ```
 
-`77-KillingReward/1.6/Defs/LetterDefs/KillingRewardLetter.xml`：
+`收集/78-standalone-KillingReward/1.6/Defs/LetterDefs/KillingRewardLetter.xml`：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -728,7 +728,7 @@ git commit -m "Add kill eligibility, skill and stack helpers with tests"
 </Defs>
 ```
 
-`77-KillingReward/Languages/ChineseSimplified/DefInjected/MainButtonDef/KillingRewardMainButton.xml`：
+`收集/78-standalone-KillingReward/Languages/ChineseSimplified/DefInjected/MainButtonDef/KillingRewardMainButton.xml`：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -880,13 +880,13 @@ namespace KillingReward
 
 - [ ] **Step 4: 构建**
 
-Run: `cd 77-KillingReward/1.6/Source && dotnet build -c Release`
+Run: `cd 收集/78-standalone-KillingReward/1.6/Source && dotnet build -c Release`
 Expected: `0 Error(s)`。注意：`Dialog_KillingReward` 引用了 Task 6 的 `KillRewardTracker`——**因此本 Step 先实现 Task 6 的 `KillRewardTracker.cs` 骨架**（只有字段/属性/ExposeData 和空的 AddKill，见 Task 6 Step 1，提前到这里创建），再构建。
 
 - [ ] **Step 5: Commit**
 
 ```bash
-git add 77-KillingReward
+git add 收集/78-standalone-KillingReward
 git commit -m "Add main button, boon letter, dialog skeleton and translations"
 ```
 
@@ -895,10 +895,10 @@ git commit -m "Add main button, boon letter, dialog skeleton and translations"
 ### Task 6: 设置界面 + KillRewardTracker + 击杀补丁
 
 **Files:**
-- Create: `77-KillingReward/1.6/Source/KillRewardTracker.cs`（Task 5 Step 4 已建骨架，本任务补全）
-- Create: `77-KillingReward/1.6/Source/KillEligibilityAdapter.cs`
-- Create: `77-KillingReward/1.6/Source/Patches/PawnKillPatch.cs`
-- Modify: `77-KillingReward/1.6/Source/KillingRewardMod.cs`（填设置界面）
+- Create: `收集/78-standalone-KillingReward/1.6/Source/KillRewardTracker.cs`（Task 5 Step 4 已建骨架，本任务补全）
+- Create: `收集/78-standalone-KillingReward/1.6/Source/KillEligibilityAdapter.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/Patches/PawnKillPatch.cs`
+- Modify: `收集/78-standalone-KillingReward/1.6/Source/KillingRewardMod.cs`（填设置界面）
 
 **Interfaces:**
 - Consumes: `ProgressState.AddKill`（Task 3）、`KillEligibility.ShouldCount`（Task 4）、`RewardNotifier.NotifyLevelUp`（Task 5）、`KillingRewardMod.Settings`（Task 1）。
@@ -1093,13 +1093,13 @@ namespace KillingReward
 
 - [ ] **Step 5: 构建 + 单测回归**
 
-Run: `cd 77-KillingReward/1.6/Source && dotnet build -c Release && cd ../../Tests/unit && dotnet test`
+Run: `cd 收集/78-standalone-KillingReward/1.6/Source && dotnet build -c Release && cd ../../Tests/unit && dotnet test`
 Expected: 构建 `0 Error(s)`；19 个单测全部 Passed。
 
 - [ ] **Step 6: Commit**
 
 ```bash
-git add 77-KillingReward
+git add 收集/78-standalone-KillingReward
 git commit -m "Add kill tracker, kill-counting patch and mod settings"
 ```
 
@@ -1108,8 +1108,8 @@ git commit -m "Add kill tracker, kill-counting patch and mod settings"
 ### Task 7: 研究奖励「禁忌知识」
 
 **Files:**
-- Create: `77-KillingReward/1.6/Source/Rewards/ResearchReward.cs`
-- Modify: `77-KillingReward/1.6/Source/UI/Dialog_KillingReward.cs`（加模式切换与研究列表视图）
+- Create: `收集/78-standalone-KillingReward/1.6/Source/Rewards/ResearchReward.cs`
+- Modify: `收集/78-standalone-KillingReward/1.6/Source/UI/Dialog_KillingReward.cs`（加模式切换与研究列表视图）
 
 **Interfaces:**
 - Produces: `ResearchReward.Available() -> List<ResearchProjectDef>`、`ResearchReward.Complete(ResearchProjectDef)`。Dialog 内部枚举 `View { Main, Research, SkillPawn, SkillSkill, Item }`（Task 8/9 复用该模式）。
@@ -1239,13 +1239,13 @@ namespace KillingReward
 
 - [ ] **Step 3: 构建**
 
-Run: `cd 77-KillingReward/1.6/Source && dotnet build -c Release`
+Run: `cd 收集/78-standalone-KillingReward/1.6/Source && dotnet build -c Release`
 Expected: `0 Error(s)`。
 
 - [ ] **Step 4: Commit**
 
 ```bash
-git add 77-KillingReward
+git add 收集/78-standalone-KillingReward
 git commit -m "Add research reward view (Forbidden Knowledge)"
 ```
 
@@ -1254,8 +1254,8 @@ git commit -m "Add research reward view (Forbidden Knowledge)"
 ### Task 8: 技能奖励「技艺灌注」
 
 **Files:**
-- Create: `77-KillingReward/1.6/Source/Rewards/SkillReward.cs`
-- Modify: `77-KillingReward/1.6/Source/UI/Dialog_KillingReward.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/Rewards/SkillReward.cs`
+- Modify: `收集/78-standalone-KillingReward/1.6/Source/UI/Dialog_KillingReward.cs`
 
 **Interfaces:**
 - Produces: `SkillReward.Candidates() -> List<Pawn>`、`SkillReward.AvailableSkills(Pawn) -> List<SkillRecord>`、`SkillReward.Apply(SkillRecord)`（内部用 `SkillMath.ClampedAdd`，Task 4）。Dialog `View` 枚举增加 `SkillPawn`、`SkillSkill`。
@@ -1396,13 +1396,13 @@ namespace KillingReward
 
 - [ ] **Step 3: 构建**
 
-Run: `cd 77-KillingReward/1.6/Source && dotnet build -c Release`
+Run: `cd 收集/78-standalone-KillingReward/1.6/Source && dotnet build -c Release`
 Expected: `0 Error(s)`。
 
 - [ ] **Step 4: Commit**
 
 ```bash
-git add 77-KillingReward
+git add 收集/78-standalone-KillingReward
 git commit -m "Add skill reward view (Bestowed Prowess)"
 ```
 
@@ -1411,8 +1411,8 @@ git commit -m "Add skill reward view (Bestowed Prowess)"
 ### Task 9: 物品奖励「虚空馈赠」+ 玩家选格
 
 **Files:**
-- Create: `77-KillingReward/1.6/Source/Rewards/ItemReward.cs`
-- Modify: `77-KillingReward/1.6/Source/UI/Dialog_KillingReward.cs`
+- Create: `收集/78-standalone-KillingReward/1.6/Source/Rewards/ItemReward.cs`
+- Modify: `收集/78-standalone-KillingReward/1.6/Source/UI/Dialog_KillingReward.cs`
 
 **Interfaces:**
 - Consumes: `StackMath.FullStackCount`（Task 4）。
@@ -1573,13 +1573,13 @@ namespace KillingReward
 
 - [ ] **Step 3: 构建**
 
-Run: `cd 77-KillingReward/1.6/Source && dotnet build -c Release`
+Run: `cd 收集/78-standalone-KillingReward/1.6/Source && dotnet build -c Release`
 Expected: `0 Error(s)`。若 `canTargetLocations` 在 1.6 引用集中不存在，改用 `canTargetCells = true`（以编译器提示为准，二选一）。
 
 - [ ] **Step 4: Commit**
 
 ```bash
-git add 77-KillingReward
+git add 收集/78-standalone-KillingReward
 git commit -m "Add item reward with player-picked drop cell (Gift from the Void)"
 ```
 
@@ -1588,11 +1588,11 @@ git commit -m "Add item reward with player-picked drop cell (Gift from the Void)
 ### Task 10: UI mockup（rimworld-imgui-sim）+ 布局定稿 + 主按钮图标
 
 **Files:**
-- Create: `77-KillingReward/docs/mockup/render_dialog.py`
-- Create: `77-KillingReward/docs/mockup/dialog.png`（生成物）
-- Create: `77-KillingReward/tools/make_icon.py`
-- Create: `77-KillingReward/Textures/UI/Icons/KillingReward.png`（生成物，被 MainButtonDef/LetterDef 引用）
-- Modify: `77-KillingReward/1.6/Source/UI/Dialog_KillingReward.cs`（按 mockup 定稿布局）
+- Create: `收集/78-standalone-KillingReward/docs/mockup/render_dialog.py`
+- Create: `收集/78-standalone-KillingReward/docs/mockup/dialog.png`（生成物）
+- Create: `收集/78-standalone-KillingReward/tools/make_icon.py`
+- Create: `收集/78-standalone-KillingReward/Textures/UI/Icons/KillingReward.png`（生成物，被 MainButtonDef/LetterDef 引用）
+- Modify: `收集/78-standalone-KillingReward/1.6/Source/UI/Dialog_KillingReward.cs`（按 mockup 定稿布局）
 
 **Interfaces:**
 - Consumes: rimworld-imgui-sim 包（`~/mine/workspace/rimworld/rimworld-imgui-sim`，README 示例展示 `IMGUIContext(w,h)`、`ctx.fillable_bar(rect, frac, fill, bg)`、`ctx.label(rect, text)`、`ctx.font/anchor/gui_color`、`ctx.solid_tex(color)`、`ctx.save(path)`）。
@@ -1607,7 +1607,7 @@ python3 -m venv .venv
 
 Expected: 安装成功（README 称资产已内置）。若已存在 `.venv` 则跳过安装。
 
-- [ ] **Step 2: 写 mockup 渲染脚本 `77-KillingReward/docs/mockup/render_dialog.py`**
+- [ ] **Step 2: 写 mockup 渲染脚本 `收集/78-standalone-KillingReward/docs/mockup/render_dialog.py`**
 
 设计稿：640×480 窗口。顶部标题（Medium 字号居中）；其下「恩赐等阶 / 待领取」一行；血祭进度条（黑边、暗底、暗红填充）；下方三张奖励卡片竖排：每张卡片 = 深色底块 + 标题 + 描述 + 右侧「领取」按钮。
 
@@ -1672,12 +1672,12 @@ print(f"wrote {OUT}")
 - [ ] **Step 3: 渲染并读图检查**
 
 ```bash
-~/mine/workspace/rimworld/rimworld-imgui-sim/.venv/bin/python 77-KillingReward/docs/mockup/render_dialog.py
+~/mine/workspace/rimworld/rimworld-imgui-sim/.venv/bin/python 收集/78-standalone-KillingReward/docs/mockup/render_dialog.py
 ```
 
-Expected: 生成 `77-KillingReward/docs/mockup/dialog.png`。用 ReadMediaFile 查看；若 `ctx.draw_texture` 等调用名与包内 API 不符，执行 `python -c "import rimworld_imgui; print([m for m in dir(rimworld_imgui.IMGUIContext) if not m.startswith('_')])"` 核对后修正脚本。按读图结果微调间距/配色，直到布局顺眼（重点：标题居中、进度条可读、卡片间距均匀、按钮位置一致）。
+Expected: 生成 `收集/78-standalone-KillingReward/docs/mockup/dialog.png`。用 ReadMediaFile 查看；若 `ctx.draw_texture` 等调用名与包内 API 不符，执行 `python -c "import rimworld_imgui; print([m for m in dir(rimworld_imgui.IMGUIContext) if not m.startswith('_')])"` 核对后修正脚本。按读图结果微调间距/配色，直到布局顺眼（重点：标题居中、进度条可读、卡片间距均匀、按钮位置一致）。
 
-- [ ] **Step 4: 生成主按钮图标 `77-KillingReward/tools/make_icon.py` 并运行**
+- [ ] **Step 4: 生成主按钮图标 `收集/78-standalone-KillingReward/tools/make_icon.py` 并运行**
 
 ```python
 #!/usr/bin/env python3
@@ -1698,8 +1698,8 @@ img.save(OUT)
 print(f"wrote {OUT}")
 ```
 
-Run: `python3 77-KillingReward/tools/make_icon.py`（Pillow 不可用时用 sim 的 venv：`~/mine/workspace/rimworld/rimworld-imgui-sim/.venv/bin/python`）。
-Expected: 生成 `77-KillingReward/Textures/UI/Icons/KillingReward.png`，ReadMediaFile 查看确认是血滴形状。
+Run: `python3 收集/78-standalone-KillingReward/tools/make_icon.py`（Pillow 不可用时用 sim 的 venv：`~/mine/workspace/rimworld/rimworld-imgui-sim/.venv/bin/python`）。
+Expected: 生成 `收集/78-standalone-KillingReward/Textures/UI/Icons/KillingReward.png`，ReadMediaFile 查看确认是血滴形状。
 
 - [ ] **Step 5: 按 mockup 定稿 Dialog 布局**
 
@@ -1743,13 +1743,13 @@ Expected: 生成 `77-KillingReward/Textures/UI/Icons/KillingReward.png`，ReadMe
 
 - [ ] **Step 6: 构建**
 
-Run: `cd 77-KillingReward/1.6/Source && dotnet build -c Release`
+Run: `cd 收集/78-standalone-KillingReward/1.6/Source && dotnet build -c Release`
 Expected: `0 Error(s)`。
 
 - [ ] **Step 7: Commit**
 
 ```bash
-git add 77-KillingReward
+git add 收集/78-standalone-KillingReward
 git commit -m "Polish reward dialog layout per imgui mockup; add blood-drop icon"
 ```
 
@@ -1758,14 +1758,14 @@ git commit -m "Polish reward dialog layout per imgui mockup; add blood-drop icon
 ### Task 11: 静态白盒测试 + README + 全量验证
 
 **Files:**
-- Create: `77-KillingReward/Tests/whitebox/test_killingreward_static.py`
-- Create: `77-KillingReward/Tests/run_whitebox.sh`
-- Create: `77-KillingReward/README.md`
+- Create: `收集/78-standalone-KillingReward/Tests/whitebox/test_killingreward_static.py`
+- Create: `收集/78-standalone-KillingReward/Tests/run_whitebox.sh`
+- Create: `收集/78-standalone-KillingReward/README.md`
 
 **Interfaces:**
 - Consumes: 全部产物文件。
 
-- [ ] **Step 1: 写静态白盒测试 `77-KillingReward/Tests/whitebox/test_killingreward_static.py`**
+- [ ] **Step 1: 写静态白盒测试 `收集/78-standalone-KillingReward/Tests/whitebox/test_killingreward_static.py`**
 
 ```python
 #!/usr/bin/env python3
@@ -1838,11 +1838,11 @@ cd "$(dirname "$0")/whitebox"
 python3 -m unittest -v test_killingreward_static
 ```
 
-并 `chmod +x 77-KillingReward/Tests/run_whitebox.sh`。
+并 `chmod +x 收集/78-standalone-KillingReward/Tests/run_whitebox.sh`。
 
 - [ ] **Step 3: 运行白盒测试**
 
-Run: `bash 77-KillingReward/Tests/run_whitebox.sh`
+Run: `bash 收集/78-standalone-KillingReward/Tests/run_whitebox.sh`
 Expected: 全部 `ok`，`OK`。
 
 - [ ] **Step 4: 写 README.md（中英双语简介）**
@@ -1877,7 +1877,7 @@ bash Tests/run_whitebox.sh     # 静态白盒检查
 - [ ] **Step 5: 全量验证**
 
 ```bash
-cd 77-KillingReward/1.6/Source && dotnet build -c Release
+cd 收集/78-standalone-KillingReward/1.6/Source && dotnet build -c Release
 cd ../../Tests/unit && dotnet test
 cd .. && bash run_whitebox.sh
 ```
@@ -1887,7 +1887,7 @@ Expected: 构建 0 Error；19 个 C# 单测全过；7 个静态白盒测试全�
 - [ ] **Step 6: Commit**
 
 ```bash
-git add 77-KillingReward
+git add 收集/78-standalone-KillingReward
 git commit -m "Add whitebox tests and README for KillingReward"
 ```
 

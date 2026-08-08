@@ -10,7 +10,7 @@
 
 ## 目录结构
 ```
-40-AreaUnlockerReorderFix/
+收集/40-patch-AreaUnlockerReorderFix/
 ├── About/About.xml
 └── 1.5|1.6/Source/         # Main.cs
 ```

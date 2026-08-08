@@ -10,7 +10,7 @@
 
 ## 目录结构
 ```
-62-PawnNotBlockingConstruct/
+收集/63-standalone-PawnNotBlockingConstruct/
 ├── About/About.xml
 ├── Common/
 └── 1.6/Source/Main.cs

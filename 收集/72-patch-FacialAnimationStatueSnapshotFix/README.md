@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-71-FacialAnimationStatueSnapshotFix/
+收集/72-patch-FacialAnimationStatueSnapshotFix/
 ├── About/About.xml
 └── 1.6/Source/Main.cs
 ```

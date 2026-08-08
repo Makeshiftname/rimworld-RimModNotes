@@ -10,7 +10,7 @@
 
 ## 目录结构
 ```
-19-FacialAnimationEyeFix/
+收集/19-patch-FacialAnimationEyeFix/
 ├── About/About.xml
 └── Source/                # Main.cs（TextureReDraw）、Logger.cs
 ```

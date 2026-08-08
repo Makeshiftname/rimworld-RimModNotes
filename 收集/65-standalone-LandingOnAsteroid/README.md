@@ -13,7 +13,7 @@
 
 ## 目录结构
 ```
-64-LandingOnAsteroid/
+收集/65-standalone-LandingOnAsteroid/
 ├── About/About.xml
 ├── Common/Patches/          # 给 SpaceMapGenerator 插入 FindPlayerStartSpot
 ├── Common/Textures/

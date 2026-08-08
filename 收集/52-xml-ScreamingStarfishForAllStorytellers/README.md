@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-52-ScreamingStarfishForAllStorytellers/
+收集/52-xml-ScreamingStarfishForAllStorytellers/
 ├── About/About.xml
 └── Common/Patches/           # Patches.xml
 ```

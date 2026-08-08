@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-21-ArmorRacksForceWearFix/
+收集/21-patch-ArmorRacksForceWearFix/
 ├── About/About.xml
 └── Source/                # Main.cs、TargetIL.il、Logger.cs + ArmorRacks.dll
 ```

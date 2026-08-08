@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-09-GUILib/
+收集/09-lib-GUILib/
 ├── About/About.xml
 ├── 1.4|1.5/Source/        # Main.cs、SampleWindow.cs、Utility.cs、Log.cs
 └── Textures/              # 图标资源

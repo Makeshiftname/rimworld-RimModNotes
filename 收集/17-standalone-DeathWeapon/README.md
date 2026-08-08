@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-17-DeathWeapon/
+收集/17-standalone-DeathWeapon/
 ├── About/About.xml
 ├── 1.4|1.5|1.6/Source/    # Main.cs、DeathDamageWorker.cs、Logger.cs
 └── 1.4|1.5|1.6/Defs/      # 武器 Def

@@ -13,7 +13,7 @@
 
 ## 目录结构
 ```
-54-AnotherAllowTool/
+收集/54-standalone-AnotherAllowTool/
 ├── About/About.xml
 ├── Common/Defs/AllowFunctionDefs/   # 4 个 XML
 ├── Common/Patches/                  # 给 Mech_Lifter 加 HaulingUrgent

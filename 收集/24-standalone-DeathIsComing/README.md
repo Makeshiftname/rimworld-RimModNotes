@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-24-DeathIsComing/
+收集/24-standalone-DeathIsComing/
 ├── About/About.xml
 ├── Common/Defs/            # IncidentDef.xml
 └── 1.4|1.5/Source/         # Main.cs

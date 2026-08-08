@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-26-RestockingStatus/
+收集/26-standalone-RestockingStatus/
 ├── About/About.xml
 ├── Common/Textures/
 └── 1.4|1.5|1.6/Source/     # Main.cs

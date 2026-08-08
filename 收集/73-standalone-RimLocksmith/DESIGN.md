@@ -15,7 +15,7 @@ RimLocksmith 边缘锁匠是一个 RimWorld 1.6 门锁/门禁 Mod，用来替代
 ## 名称
 
 - Mod 名称：`RimLocksmith 边缘锁匠`
-- 目录：`72-RimLocksmith`
+- 目录：`收集/73-standalone-RimLocksmith`
 - packageId：`runningbugs.rimlocksmith`
 - 程序集/根命名空间：`RunningBugs.RimLocksmith`
 

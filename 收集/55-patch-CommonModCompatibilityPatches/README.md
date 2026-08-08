@@ -18,7 +18,7 @@
 
 ## 目录结构
 ```
-55-CommonModCompatibilityPatches/
+收集/55-patch-CommonModCompatibilityPatches/
 ├── About/About.xml              # 唯一文档（含 Current patches 清单）
 ├── AGENTS.md                    # 维护约定
 ├── 1.6/Source/                  # CommonModCompatibilityPatches.cs（单文件 ~1700 行）

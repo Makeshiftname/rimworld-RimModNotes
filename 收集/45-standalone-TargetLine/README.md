@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-45-TargetLine/
+收集/45-standalone-TargetLine/
 ├── About/About.xml
 ├── Common/Languages/       # 中英
 └── 1.5|1.6/Source/         # Main.cs

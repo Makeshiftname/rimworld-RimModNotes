@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-23-MoreScenarioSearchbars/
+收集/23-patch-MoreScenarioSearchbars/
 ├── About/About.xml
 └── Source/                # Main.cs + ScenarioSearchbar.dll
 ```

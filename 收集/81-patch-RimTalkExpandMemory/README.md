@@ -7,7 +7,7 @@
 - **克隆 commit**：`ae1d0a4`（2026-06-26）
 - **版本**：3.4.0（packageId `cj.rimtalk.expandmemory`，1.5/1.6）
 - **许可**：⚠️ **仓库无 LICENSE 文件**，作者未明确授权（默认保留所有权利）
-- **状态**：纯学习收藏，**不发布**（详见下方红线）；依赖 RimTalk（79-RimTalk）
+- **状态**：纯学习收藏，**不发布**（详见下方红线）；依赖 RimTalk（收集/80-standalone-RimTalk）
 
 ## 一句话定位
 
@@ -25,7 +25,7 @@ RimTalk 的记忆扩展 mod：给殖民者加一套**四层记忆系统**，让 
 ## 目录结构
 
 ```
-80-RimTalkExpandMemory/
+收集/81-patch-RimTalkExpandMemory/
 ├── About/About.xml          # packageId cj.rimtalk.expandmemory, author SANGUO
 ├── 1.5/ 1.6/                # 版本目录（含 Source/Assemblies）
 ├── Source/                  # API/ Capture/ Memory/ Patches/ Settings/ Utils/
@@ -40,4 +40,4 @@ RimTalk 的记忆扩展 mod：给殖民者加一套**四层记忆系统**，让 
 
 - 该仓库**没有 LICENSE 文件**：作者未以任何许可协议授权，默认「保留所有权利」。
 - 本目录**仅供本地学习参考**，不得发布、不得制作衍生作品分发；如需使用请先联系作者（GitHub Issues）。
-- 与 `79-RimTalk`（CC BY-NC-SA 4.0）不同，本 mod 授权状态未明，收藏与引用时务必保守。
+- 与 `收集/80-standalone-RimTalk`（CC BY-NC-SA 4.0）不同，本 mod 授权状态未明，收藏与引用时务必保守。

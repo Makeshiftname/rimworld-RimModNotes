@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-46-NotSoLoudMilira/
+收集/46-xml-NotSoLoudMilira/
 ├── About/About.xml
 └── Common/Patches/         # Patches.xml（13 个音量替换）
 ```

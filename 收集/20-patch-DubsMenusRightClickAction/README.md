@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-20-DubsMenusRightClickAction/
+收集/20-patch-DubsMenusRightClickAction/
 ├── About/About.xml
 └── Source/                # Main.cs、PlantsViewPatch.cs、Logger.cs + DubsMintMenus.dll
 ```

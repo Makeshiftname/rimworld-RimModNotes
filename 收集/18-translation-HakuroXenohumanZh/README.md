@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-18-HakuroXenohumanZh/
+收集/18-translation-HakuroXenohumanZh/
 ├── About/About.xml
 ├── Languages/             # 简中翻译
 └── Source/                # Main.cs（残留模板，待清理）

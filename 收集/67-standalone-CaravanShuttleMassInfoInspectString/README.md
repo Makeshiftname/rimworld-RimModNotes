@@ -10,7 +10,7 @@
 
 ## 目录结构
 ```
-66-CaravanShuttleMassInfoInspectString/
+收集/67-standalone-CaravanShuttleMassInfoInspectString/
 ├── About/About.xml
 ├── Common/Patches/          # 注入 comp
 ├── Common/Languages/

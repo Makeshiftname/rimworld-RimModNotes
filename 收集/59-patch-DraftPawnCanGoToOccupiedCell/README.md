@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-58-DraftPawnCanGoToOccupiedCell/
+收集/59-patch-DraftPawnCanGoToOccupiedCell/
 ├── About/About.xml
 └── 1.6/Source/                # Main.cs
 ```

@@ -10,7 +10,7 @@
 
 ## 目录结构
 ```
-30-SilencedToxifierGenerator/
+收集/30-xml-SilencedToxifierGenerator/
 ├── About/About.xml
 └── Common/Patches/         # Patches.xml
 ```

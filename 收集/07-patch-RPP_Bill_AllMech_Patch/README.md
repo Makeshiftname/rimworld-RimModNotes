@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-07-RPP_Bill_AllMech_Patch/
+收集/07-patch-RPP_Bill_AllMech_Patch/
 ├── About/About.xml
 └── Source/                # Main.cs（Bill.PawnAllowedToStartAnew 补丁）
 ```

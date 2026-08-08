@@ -13,7 +13,7 @@
 
 ## 目录结构
 ```
-51-RACursePatch/
+收集/51-patch-RACursePatch/
 ├── About/About.xml
 └── 1.5/Source/               # Main.cs + RatkinAnomaly.dll（+RASL.dll 残留）
 ```

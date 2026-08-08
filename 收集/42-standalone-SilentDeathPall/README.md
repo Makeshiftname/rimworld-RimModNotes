@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-42-SilentDeathPall/
+收集/42-standalone-SilentDeathPall/
 ├── About/About.xml
 └── 1.5|1.6/Source/         # Main.cs
 ```

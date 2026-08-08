@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-59-GhoulCommands/
+收集/60-standalone-GhoulCommands/
 ├── About/About.xml
 ├── Common/Defs/JobDefs/     # Jobs_Ghoul.xml
 ├── Common/Languages/

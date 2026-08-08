@@ -11,7 +11,7 @@
 
 ## 目录结构
 ```
-35-QuickDumpWornCloth/
+收集/35-standalone-QuickDumpWornCloth/
 ├── About/About.xml
 └── 1.5|1.6/Source/         # Main.cs
 ```

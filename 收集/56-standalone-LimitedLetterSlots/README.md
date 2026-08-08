@@ -12,7 +12,7 @@
 
 ## 目录结构
 ```
-55-LimitedLetterSlots/
+收集/56-standalone-LimitedLetterSlots/
 ├── About/About.xml
 ├── Common/Languages/          # 中英
 └── 1.5|1.6/Source/            # Main.cs
