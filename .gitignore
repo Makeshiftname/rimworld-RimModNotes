@@ -32,7 +32,7 @@ mono_crash.*
 *.Z
 *.zst
 
-# /*/Assemblies
-# /*/Assemblies/*.pdb
+# 产物 DLL 有意入库；PDB 为可再生调试符号，忽略
+/*/Assemblies/*.pdb
 # /.vscode
 # /Source
