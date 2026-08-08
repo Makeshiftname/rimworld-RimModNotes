@@ -98,7 +98,7 @@
 | 77 | 收集 | ColonyGroupsTargetablePortraits | patch | 1.6 | ✓ | – | ✓ | – | – | ok |
 | 78 | 收集 | KillingReward | standalone | 1.6 | ✓ | ✓ | ✓ | ✓ | ✓ | ok |
 | 79 | 收集 | RimFlixAnimeShows | xml | - | – | – | ✓ | – | – | ok |
-| 80 | 收集 | RimTalk | standalone | 1.6 | ✓ | ✓ | – | – | – | ok |
+| 80 | 收集 | RimTalk | standalone | - | ✓ | ✓ | – | – | – | ok |
 | 81 | 收集 | RimTalkExpandMemory | patch | 1.5,1.6 | ✓ | ✓ | ✓ | – | – | ok |
 | 82 | 收集 | HautsAddedTraits | patch | 1.5,1.6 | ✓ | ✓ | – | – | – | ok |
 

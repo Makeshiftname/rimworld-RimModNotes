@@ -136,16 +136,19 @@ def probe_mod(mod_dir: Path) -> dict:
     in_backup = about_backup.exists() and not has_about
     about = parse_about(about_top if has_about else about_backup) if (has_about or in_backup) else {}
 
-    versions = sorted(
-        d.name for d in mod_dir.iterdir()
-        if d.is_dir() and VERSION_DIR_RE.match(d.name)
-    )
+    def _real_version_dirs(d: Path) -> list[str]:
+        """Version subdirs that actually contain files (ignore ghost/empty dirs
+        which git does not track, keeping local scan == CI scan)."""
+        return sorted(
+            sub.name for sub in d.iterdir()
+            if sub.is_dir() and VERSION_DIR_RE.match(sub.name)
+            and any(p.is_file() for p in sub.rglob("*"))
+        )
+
+    versions = _real_version_dirs(mod_dir)
     backup_dir = mod_dir / "backup"
     if not versions and backup_dir.is_dir():
-        versions = sorted(
-            d.name for d in backup_dir.iterdir()
-            if d.is_dir() and VERSION_DIR_RE.match(d.name)
-        )
+        versions = _real_version_dirs(backup_dir)
 
     cs_files = sorted(p for p in mod_dir.rglob("*.cs")
                       if "Source" in p.parts and ".roo" not in p.parts)
