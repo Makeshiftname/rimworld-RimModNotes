@@ -60,16 +60,16 @@ See `docs/knowledge/CONTRIBUTING.md` for the full update checklist. Summary:
 - `kb-progress.json` (this folder) tracks README rewrite batches; it is the only
   state the toolchain keeps outside `docs/knowledge/`.
 
-## CI
+## 验收门槛（替代 CI）
 
-`.github/workflows/kb-ci.yml` runs on every push/PR:
+本仓库**不配置 GitHub Actions**（CI 已移除）；每次改动后用以下命令在本地验收，
+全部必须退出码 0：
 
-```yaml
-- run: python tools/kb/check_links.py
-- run: python tools/kb/check_repo_hygiene.py
-- run: python tools/kb/scan_mods.py --check
-- run: python tools/kb/validate_readme.py --todo
+```powershell
+python tools/kb/check_links.py          # 链接完整性
+python tools/kb/check_repo_hygiene.py   # 结构卫生（.bak/PDB/目录命名）
+python tools/kb/scan_mods.py --check    # 索引漂移检测
+python tools/kb/validate_readme.py --todo   # README 占位检测
 ```
 
-CI cannot build the C# mods (no game assemblies here); it only enforces the
-knowledge-base and structure gates.
+工具链只能做知识库与结构的静态校验（本仓库无法构建 C#，无游戏程序集）。
