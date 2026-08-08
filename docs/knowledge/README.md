@@ -1,8 +1,7 @@
 # RimWorld Mod 知识库
 
-本目录把仓库 79 个 RimWorld mod（编号 01–78，55 重复）积累的 modding 经验整理成
-可检索的知识文档。主要面向 **Copilot / AI 助手在后续 RimWorld modding 时调用**，
-也可供人查阅。
+本目录把仓库 83 个 RimWorld mod 目录（`收集/` 82 + `自建/` 1，`NN-功能-名称`）积累的 modding 经验
+整理成可检索的知识文档。主要面向 **Copilot / AI 助手在后续 RimWorld modding 时调用**，也可供人查阅。
 
 ## 怎么用（AI 检索指南）
 
@@ -40,8 +39,8 @@
 `Notes.md` / `docs/` / `DESIGN.md` 等文件。完整分布见
 [mod-index.md 的 MANUAL 段](mod-index.md#3-真实笔记分布非根-readme学习主载体)。几个重点：
 
-- `75-SmoothDragSelect/README.md` — GUI 性能剖析（死亡螺旋/限流）
-- `01-AlertUtility/README.md` — 入门四件套（patch/窗口/组件/tick）
-- `34-WorkbenchZone/1.6/Source/Notes.md` — 工作台区域实现笔记
-- `77-KillingReward/docs/` — 设计→实现→测试完整流程
-- `72-RimLocksmith/DESIGN.md`、`73-UsefulStats/DESIGN.md` — 模块设计
+- `收集/76-standalone-SmoothDragSelect/README.md` — GUI 性能剖析（死亡螺旋/限流）
+- `收集/01-standalone-AlertUtility/README.md` — 入门四件套（patch/窗口/组件/tick）
+- `收集/34-standalone-WorkbenchZone/1.6/Source/Notes.md` — 工作台区域实现笔记
+- `收集/78-standalone-KillingReward/docs/` — 设计→实现→测试完整流程
+- `收集/73-standalone-RimLocksmith/DESIGN.md`、`收集/74-standalone-UsefulStats/DESIGN.md` — 模块设计

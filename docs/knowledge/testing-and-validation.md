@@ -25,7 +25,7 @@ class XmlTests(unittest.TestCase):
         self.assertIn("AAT.Designator_Allow", values)   # 关键 Def 存在且内容正确
 ```
 
-见 [`54-AnotherAllowTool/Tests/whitebox/test_aat_static.py`](../../54-AnotherAllowTool/Tests/whitebox/test_aat_static.py)
+见 [`收集/54-standalone-AnotherAllowTool/Tests/whitebox/test_aat_static.py`](../../收集/54-standalone-AnotherAllowTool/Tests/whitebox/test_aat_static.py)
 （其 docstring 明确说明了为何用白盒方式）。
 
 白盒测试覆盖的 mod：54、55-Common、68、70、72、73、77。
@@ -33,15 +33,15 @@ class XmlTests(unittest.TestCase):
 ## 3. C# 单元测试项目
 
 对纯逻辑（不依赖游戏运行时）的部分，建立正规 C# 单测项目：
-- `72-RimLocksmith`：`tests/RimLocksmith.Tests/`
-- `73-UsefulStats`：`tests/UsefulStats.Tests/`
-- `77-KillingReward`：`Tests/unit/`（4 个 C# 单测 + csproj）
+- `收集/73-standalone-RimLocksmith`：`tests/RimLocksmith.Tests/`
+- `收集/74-standalone-UsefulStats`：`tests/UsefulStats.Tests/`
+- `收集/78-standalone-KillingReward`：`Tests/unit/`（4 个 C# 单测 + csproj）
 
-## 4. 原生代码测试（70-LinuxImeFix）
+## 4. 原生代码测试（收集/71-patch-LinuxImeFix）
 
-`70-LinuxImeFix` 涉及原生 C（IME 信号格式），配了
+`收集/71-patch-LinuxImeFix` 涉及原生 C（IME 信号格式），配了
 `tests/source_invariant_tests.py` + `native_whitebox_tests.c` + `run_whitebox_tests.sh`。
-信号格式文档见 [`70-LinuxImeFix/IBUS_SIGNAL_FORMAT.md`](../../70-LinuxImeFix/IBUS_SIGNAL_FORMAT.md)。
+信号格式文档见 [`收集/71-patch-LinuxImeFix/IBUS_SIGNAL_FORMAT.md`](../../收集/71-patch-LinuxImeFix/IBUS_SIGNAL_FORMAT.md)。
 
 ## 5. 建议的新 mod 测试基线
 
@@ -51,6 +51,6 @@ class XmlTests(unittest.TestCase):
 
 ## 6. 相关文件
 
-- 白盒样例：`54-AnotherAllowTool/Tests/whitebox/test_aat_static.py`
-- C# 单测：`73-UsefulStats/tests/UsefulStats.Tests/`、`77-KillingReward/Tests/unit/`
-- 原生测试：`70-LinuxImeFix/tests/`
+- 白盒样例：`收集/54-standalone-AnotherAllowTool/Tests/whitebox/test_aat_static.py`
+- C# 单测：`收集/74-standalone-UsefulStats/tests/UsefulStats.Tests/`、`收集/78-standalone-KillingReward/Tests/unit/`
+- 原生测试：`收集/71-patch-LinuxImeFix/tests/`

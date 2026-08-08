@@ -21,7 +21,7 @@ NN-ModName/
 早期 mod（10、11、12、14、16、17、19、20、21、34 等 18+ 处）共享同一套
 `Logger.cs`：把 `Verse.Log` 包一层，自动附带调用者文件/成员/行号。
 
-见 [`10-QuestItemWatch/Source/Logger.cs`](../../10-QuestItemWatch/Source/Logger.cs)：
+见 [`收集/10-standalone-QuestItemWatch/Source/Logger.cs`](../../收集/10-standalone-QuestItemWatch/Source/Logger.cs)：
 
 ```csharp
 public static class Log
@@ -42,7 +42,7 @@ public static class Log
 
 ## 3. 入口与 DefOf
 
-见 [`10-QuestItemWatch/Source/Main.cs`](../../10-QuestItemWatch/Source/Main.cs)：
+见 [`收集/10-standalone-QuestItemWatch/Source/Main.cs`](../../收集/10-standalone-QuestItemWatch/Source/Main.cs)：
 
 ```csharp
 [DefOf]                      // 让静态字段在启动时绑定 Def
@@ -57,19 +57,19 @@ public class TemplateDefOf
 
 ## 4. 教训：不要残留模板代码
 
-- `18-HakuroXenohumanZh/Source/Main.cs` 残留了模板 `namespace Template`（翻译 mod 其实
+- `收集/18-translation-HakuroXenohumanZh/Source/Main.cs` 残留了模板 `namespace Template`（翻译 mod 其实
   不需要 C# 源码）——复制模板后务必改 namespace 或删掉无用文件。
-- `02-ItemPolicy`、`03-RecipeBook` 的 README 是空壳，且 03 误复制了 02 的标题
+- `收集/02-standalone-ItemPolicy`、`收集/03-standalone-RecipeBook` 的 README 是空壳，且 03 误复制了 02 的标题
   （复制粘贴残留），重写时注意。
 
 ## 5. 现代写法（新 mod 参考 55）
 
-`55-CommonModCompatibilityPatches` 使用较新的 C# 语法：文件级 `namespace`、
+`收集/55-patch-CommonModCompatibilityPatches` 使用较新的 C# 语法：文件级 `namespace`、
 `new("id")`（目标类型 new）、`nameof` 等，见
-[`55-CommonModCompatibilityPatches/1.6/Source/CommonModCompatibilityPatches.cs`](../../55-CommonModCompatibilityPatches/1.6/Source/CommonModCompatibilityPatches.cs)。
+[`收集/55-patch-CommonModCompatibilityPatches/1.6/Source/CommonModCompatibilityPatches.cs`](../../收集/55-patch-CommonModCompatibilityPatches/1.6/Source/CommonModCompatibilityPatches.cs)。
 
 ## 6. 相关文件
 
-- 日志骨架：`10-QuestItemWatch/Source/Logger.cs`
-- 入口/DefOf：`10-QuestItemWatch/Source/Main.cs`
+- 日志骨架：`收集/10-standalone-QuestItemWatch/Source/Logger.cs`
+- 入口/DefOf：`收集/10-standalone-QuestItemWatch/Source/Main.cs`
 - 构建命令：`cross-version-structure.md`

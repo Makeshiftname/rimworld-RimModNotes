@@ -6,7 +6,7 @@
 ## 1. PatchOperation 系列（改已有 Def）
 
 用 `Patches/*.xml` + `PatchOperationSequence` 批量改 Defs，可带 `MayRequire` 条件。
-见 [`30-SilencedToxifierGenerator/Common/Patches/Patches.xml`](../../30-SilencedToxifierGenerator/Common/Patches/Patches.xml)：
+见 [`收集/30-xml-SilencedToxifierGenerator/Common/Patches/Patches.xml`](../../收集/30-xml-SilencedToxifierGenerator/Common/Patches/Patches.xml)：
 
 ```xml
 <Patch>
@@ -28,10 +28,10 @@
 
 ## 2. 纯 XML 内容包（无 C#）
 
-`78-RimFlixAnimeShows` 是范式：定义 `RimFlix.ShowDef`（自定义 DefClass）+ 帧图目录，
+`收集/79-xml-RimFlixAnimeShows` 是范式：定义 `RimFlix.ShowDef`（自定义 DefClass）+ 帧图目录，
 由脚本抽帧生成每个节目的 `<ID>.xml`。详见
-[`78-RimFlixAnimeShows/AGENTS.md`](../../78-RimFlixAnimeShows/AGENTS.md) 与
-[`78-RimFlixAnimeShows/docs/adding-shows.md`](../../78-RimFlixAnimeShows/docs/adding-shows.md)。
+[`收集/79-xml-RimFlixAnimeShows/AGENTS.md`](../../收集/79-xml-RimFlixAnimeShows/AGENTS.md) 与
+[`收集/79-xml-RimFlixAnimeShows/docs/adding-shows.md`](../../收集/79-xml-RimFlixAnimeShows/docs/adding-shows.md)。
 
 纯 XML mod 的常见形态：
 - 静音补丁（30 排污发电机、46 Milira 音量）
@@ -47,6 +47,6 @@
 
 ## 4. 相关文件
 
-- 数值补丁：`30-SilencedToxifierGenerator/Common/Patches/Patches.xml`
-- 内容包：`78-RimFlixAnimeShows/AGENTS.md`
+- 数值补丁：`收集/30-xml-SilencedToxifierGenerator/Common/Patches/Patches.xml`
+- 内容包：`收集/79-xml-RimFlixAnimeShows/AGENTS.md`
 - 结构约定：`cross-version-structure.md`

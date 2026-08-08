@@ -1,6 +1,7 @@
 [
   {
-    "dir": "01-AlertUtility",
+    "dir": "01-standalone-AlertUtility",
+    "category": "收集",
     "number": "01",
     "title": "AlertUtility",
     "has_about": true,
@@ -25,7 +26,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 6,
+    "cs_count": 12,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -36,10 +37,45 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "02-ItemPolicy",
+    "dir": "01-xml-RimTalkPersonaTraits",
+    "category": "自建",
+    "number": "01",
+    "title": "RimTalkPersonaTraits",
+    "has_about": true,
+    "in_backup": false,
+    "package_id": "RunningBugs.RimTalkPersonaTraits",
+    "name": "RimTalk 人设特质包 RimTalk Persona Traits",
+    "author": "RunningBugs",
+    "supported_versions": [
+      "1.6"
+    ],
+    "deps": [],
+    "load_after": [],
+    "description": "一个轻量级的角色扮演向特质包：10 个「对话人设」特质（性格/说话风格/嗜好），无数值改动、纯描述、纯 XML。 每个特质的描述都专为 RimTalk 的提示词注入优化：使用 {PAWN_nameDef} 等占位符、写明说话方式与话题，让 AI 对话更有「人味」。 A lightweight roleplay-oriented trait pack: 10 \"conversational persona\" traits (personality / speech style / hobbies), no stat changes, description-only, pure XML. Every trait description is optimized for RimTalk's prompt injection: it uses {PAWN_nameDef} placeholders and spells out how the pawn speaks and what it talks about, so AI dialogue feels more alive.",
+    "versions": [
+      "1.6"
+    ],
+    "has_common": false,
+    "has_csharp": false,
+    "cs_count": 0,
+    "has_languages": true,
+    "has_docs": false,
+    "has_tests": false,
+    "has_publisher_plus": false,
+    "has_loadfolders": false,
+    "has_loadfolders_bak": false,
+    "has_agents": false,
+    "readme_status": "ok",
+    "notes_files": [],
+    "type": "xml",
+    "type_conf": "high"
+  },
+  {
+    "dir": "02-standalone-ItemPolicy",
+    "category": "收集",
     "number": "02",
     "title": "ItemPolicy",
     "has_about": true,
@@ -62,7 +98,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 12,
+    "cs_count": 18,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -72,13 +108,14 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "02-ItemPolicy/CHANGELOG.md"
+      "收集/02-standalone-ItemPolicy/CHANGELOG.md"
     ],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "03-RecipeBook",
+    "dir": "03-standalone-RecipeBook",
+    "category": "收集",
     "number": "03",
     "title": "RecipeBook",
     "has_about": true,
@@ -98,7 +135,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 3,
+    "cs_count": 5,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -109,10 +146,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "04-WeatherControlDeviceCont_zh",
+    "dir": "04-translation-WeatherControlDeviceCont_zh",
+    "category": "收集",
     "number": "04",
     "title": "WeatherControlDeviceCont_zh",
     "has_about": true,
@@ -147,7 +185,8 @@
     "type_conf": "high"
   },
   {
-    "dir": "05-HighlightEnemies",
+    "dir": "05-standalone-HighlightEnemies",
+    "category": "收集",
     "number": "05",
     "title": "HighlightEnemies",
     "has_about": true,
@@ -172,7 +211,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 8,
+    "cs_count": 12,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -183,10 +222,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "06-ColonyManager_zh",
+    "dir": "06-empty-ColonyManager_zh",
+    "category": "收集",
     "number": "06",
     "title": "ColonyManager_zh",
     "has_about": false,
@@ -208,7 +248,8 @@
     "type_conf": "high"
   },
   {
-    "dir": "07-RPP_Bill_AllMech_Patch",
+    "dir": "07-patch-RPP_Bill_AllMech_Patch",
+    "category": "收集",
     "number": "07",
     "title": "RPP_Bill_AllMech_Patch",
     "has_about": true,
@@ -230,7 +271,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 3,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -241,10 +282,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "08-RppCommonSenseCleanBeforeCookingPatch",
+    "dir": "08-patch-RppCommonSenseCleanBeforeCookingPatch",
+    "category": "收集",
     "number": "08",
     "title": "RppCommonSenseCleanBeforeCookingPatch",
     "has_about": true,
@@ -267,7 +309,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 3,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -278,10 +320,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "09-GUILib",
+    "dir": "09-lib-GUILib",
+    "category": "收集",
     "number": "09",
     "title": "GUILib",
     "has_about": true,
@@ -304,7 +347,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 8,
+    "cs_count": 12,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -315,10 +358,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "lib",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "10-QuestItemWatch",
+    "dir": "10-standalone-QuestItemWatch",
+    "category": "收集",
     "number": "10",
     "title": "QuestItemWatch",
     "has_about": true,
@@ -339,7 +383,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 4,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -350,10 +394,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "11-RoadOnIcePatch",
+    "dir": "11-patch-RoadOnIcePatch",
+    "category": "收集",
     "number": "11",
     "title": "RoadOnIcePatch",
     "has_about": true,
@@ -378,7 +423,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 4,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -389,10 +434,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "12-RimSavesMoreAutoaveSlotsPatch",
+    "dir": "12-patch-RimSavesMoreAutoaveSlotsPatch",
+    "category": "收集",
     "number": "12",
     "title": "RimSavesMoreAutoaveSlotsPatch",
     "has_about": true,
@@ -420,7 +466,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 4,
+    "cs_count": 8,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -431,10 +477,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "13-SYR_Doormats_zh",
+    "dir": "13-translation-SYR_Doormats_zh",
+    "category": "收集",
     "number": "13",
     "title": "SYR_Doormats_zh",
     "has_about": true,
@@ -471,7 +518,8 @@
     "type_conf": "high"
   },
   {
-    "dir": "14-SurgeryNeverFail",
+    "dir": "14-standalone-SurgeryNeverFail",
+    "category": "收集",
     "number": "14",
     "title": "SurgeryNeverFail",
     "has_about": true,
@@ -496,7 +544,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 9,
+    "cs_count": 15,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -507,10 +555,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "15-MusicalInstrumentsPatch",
+    "dir": "15-patch-MusicalInstrumentsPatch",
+    "category": "收集",
     "number": "15",
     "title": "MusicalInstrumentsPatch",
     "has_about": true,
@@ -537,7 +586,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 3,
+    "cs_count": 5,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -548,10 +597,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "16-ResearchPrerequisites",
+    "dir": "16-standalone-ResearchPrerequisites",
+    "category": "收集",
     "number": "16",
     "title": "ResearchPrerequisites",
     "has_about": true,
@@ -576,7 +626,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 15,
+    "cs_count": 21,
     "has_languages": true,
     "has_docs": true,
     "has_tests": false,
@@ -586,16 +636,17 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "16-ResearchPrerequisites/docs/superpowers/plans/2026-07-29-research-queue-redesign.md",
-      "16-ResearchPrerequisites/docs/superpowers/plans/2026-08-02-queue-head-is-current.md",
-      "16-ResearchPrerequisites/docs/superpowers/specs/2026-07-29-research-queue-redesign-design.md",
-      "16-ResearchPrerequisites/docs/superpowers/specs/2026-08-02-queue-head-is-current-design.md"
+      "收集/16-standalone-ResearchPrerequisites/docs/superpowers/plans/2026-07-29-research-queue-redesign.md",
+      "收集/16-standalone-ResearchPrerequisites/docs/superpowers/plans/2026-08-02-queue-head-is-current.md",
+      "收集/16-standalone-ResearchPrerequisites/docs/superpowers/specs/2026-07-29-research-queue-redesign-design.md",
+      "收集/16-standalone-ResearchPrerequisites/docs/superpowers/specs/2026-08-02-queue-head-is-current-design.md"
     ],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "17-DeathWeapon",
+    "dir": "17-standalone-DeathWeapon",
+    "category": "收集",
     "number": "17",
     "title": "DeathWeapon",
     "has_about": true,
@@ -620,7 +671,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 9,
+    "cs_count": 15,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -631,10 +682,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "18-HakuroXenohumanZh",
+    "dir": "18-translation-HakuroXenohumanZh",
+    "category": "收集",
     "number": "18",
     "title": "HakuroXenohumanZh",
     "has_about": true,
@@ -657,7 +709,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 3,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -671,7 +723,8 @@
     "type_conf": "high"
   },
   {
-    "dir": "19-FacialAnimationEyeFix",
+    "dir": "19-patch-FacialAnimationEyeFix",
+    "category": "收集",
     "number": "19",
     "title": "FacialAnimationEyeFix",
     "has_about": true,
@@ -695,7 +748,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 4,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -706,10 +759,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "20-DubsMenusRightClickAction",
+    "dir": "20-patch-DubsMenusRightClickAction",
+    "category": "收集",
     "number": "20",
     "title": "DubsMenusRightClickAction",
     "has_about": true,
@@ -735,7 +789,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 3,
+    "cs_count": 5,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -746,10 +800,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "21-ArmorRacksForceWearFix",
+    "dir": "21-patch-ArmorRacksForceWearFix",
+    "category": "收集",
     "number": "21",
     "title": "ArmorRacksForceWearFix",
     "has_about": true,
@@ -774,7 +829,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 4,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -785,10 +840,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "22-MoreMapSeeds",
+    "dir": "22-standalone-MoreMapSeeds",
+    "category": "收集",
     "number": "22",
     "title": "MoreMapSeeds",
     "has_about": true,
@@ -813,7 +869,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 8,
+    "cs_count": 16,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -824,10 +880,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "23-MoreScenarioSearchbars",
+    "dir": "23-patch-MoreScenarioSearchbars",
+    "category": "收集",
     "number": "23",
     "title": "MoreScenarioSearchbars",
     "has_about": true,
@@ -848,7 +905,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 3,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -859,10 +916,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "24-DeathIsComing",
+    "dir": "24-standalone-DeathIsComing",
+    "category": "收集",
     "number": "24",
     "title": "DeathIsComing",
     "has_about": true,
@@ -885,7 +943,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 6,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -896,10 +954,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "25-AMonkeyExpansion_zh",
+    "dir": "25-translation-AMonkeyExpansion_zh",
+    "category": "收集",
     "number": "25",
     "title": "AMonkeyExpansion_zh",
     "has_about": true,
@@ -934,7 +993,8 @@
     "type_conf": "high"
   },
   {
-    "dir": "26-RestockingStatus",
+    "dir": "26-standalone-RestockingStatus",
+    "category": "收集",
     "number": "26",
     "title": "RestockingStatus",
     "has_about": true,
@@ -959,7 +1019,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 3,
+    "cs_count": 9,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -970,10 +1030,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "27-LetterStackCleaner2",
+    "dir": "27-standalone-LetterStackCleaner2",
+    "category": "收集",
     "number": "27",
     "title": "LetterStackCleaner2",
     "has_about": true,
@@ -996,7 +1057,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 3,
+    "cs_count": 9,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1007,10 +1068,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "28-AllowToolGhoulFix",
+    "dir": "28-patch-AllowToolGhoulFix",
+    "category": "收集",
     "number": "28",
     "title": "AllowToolGhoulFix",
     "has_about": true,
@@ -1032,7 +1094,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 6,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1043,10 +1105,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "29-PermanentUnnaturalDarkness",
+    "dir": "29-standalone-PermanentUnnaturalDarkness",
+    "category": "收集",
     "number": "29",
     "title": "PermanentUnnaturalDarkness",
     "has_about": true,
@@ -1071,7 +1134,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 12,
+    "cs_count": 16,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1081,13 +1144,14 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "29-PermanentUnnaturalDarkness/PLAN.md"
+      "收集/29-standalone-PermanentUnnaturalDarkness/PLAN.md"
     ],
-    "type": "patch",
-    "type_conf": "medium"
+    "type": "standalone",
+    "type_conf": "high"
   },
   {
-    "dir": "30-SilencedToxifierGenerator",
+    "dir": "30-xml-SilencedToxifierGenerator",
+    "category": "收集",
     "number": "30",
     "title": "SilencedToxifierGenerator",
     "has_about": true,
@@ -1117,10 +1181,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "xml",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "31-AutomaticBioferriteHarvesting",
+    "dir": "31-standalone-AutomaticBioferriteHarvesting",
+    "category": "收集",
     "number": "31",
     "title": "AutomaticBioferriteHarvesting",
     "has_about": true,
@@ -1143,7 +1208,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 6,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1153,11 +1218,12 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [],
-    "type": "patch",
-    "type_conf": "medium"
+    "type": "standalone",
+    "type_conf": "high"
   },
   {
-    "dir": "32-PermanentDarknessExtendedDontStarve",
+    "dir": "32-special-PermanentDarknessExtendedDontStarve",
+    "category": "收集",
     "number": "32",
     "title": "PermanentDarknessExtendedDontStarve",
     "has_about": false,
@@ -1182,7 +1248,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 8,
+    "cs_count": 12,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1192,11 +1258,12 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [],
-    "type": "patch",
-    "type_conf": "medium"
+    "type": "special",
+    "type_conf": "high"
   },
   {
-    "dir": "33-PolarisblocSecurityForceDistressCallPatch",
+    "dir": "33-patch-PolarisblocSecurityForceDistressCallPatch",
+    "category": "收集",
     "number": "33",
     "title": "PolarisblocSecurityForceDistressCallPatch",
     "has_about": true,
@@ -1219,7 +1286,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 3,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1230,10 +1297,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "34-WorkbenchZone",
+    "dir": "34-standalone-WorkbenchZone",
+    "category": "收集",
     "number": "34",
     "title": "WorkbenchZone",
     "has_about": true,
@@ -1256,7 +1324,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 4,
+    "cs_count": 8,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1266,14 +1334,15 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "34-WorkbenchZone/1.5/Source/Notes.md",
-      "34-WorkbenchZone/1.6/Source/Notes.md"
+      "收集/34-standalone-WorkbenchZone/1.5/Source/Notes.md",
+      "收集/34-standalone-WorkbenchZone/1.6/Source/Notes.md"
     ],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "35-QuickDumpWornCloth",
+    "dir": "35-standalone-QuickDumpWornCloth",
+    "category": "收集",
     "number": "35",
     "title": "QuickDumpWornCloth",
     "has_about": true,
@@ -1294,7 +1363,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 6,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1305,10 +1374,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "36-MedOperationsTabWithMedRestrict",
+    "dir": "36-standalone-MedOperationsTabWithMedRestrict",
+    "category": "收集",
     "number": "36",
     "title": "MedOperationsTabWithMedRestrict",
     "has_about": true,
@@ -1331,7 +1401,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 6,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1342,10 +1412,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "37-PolarisblocFoodToDrugPatch",
+    "dir": "37-xml-PolarisblocFoodToDrugPatch",
+    "category": "收集",
     "number": "37",
     "title": "PolarisblocFoodToDrugPatch",
     "has_about": true,
@@ -1377,10 +1448,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "xml",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "38-DeepStorageContentsTabSearchPatch",
+    "dir": "38-patch-DeepStorageContentsTabSearchPatch",
+    "category": "收集",
     "number": "38",
     "title": "DeepStorageContentsTabSearchPatch",
     "has_about": true,
@@ -1401,7 +1473,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 3,
     "has_languages": false,
     "has_docs": false,
     "has_tests": false,
@@ -1412,10 +1484,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "39-MoelotlSimpleSidearmsCompatiblePatch",
+    "dir": "39-patch-MoelotlSimpleSidearmsCompatiblePatch",
+    "category": "收集",
     "number": "39",
     "title": "MoelotlSimpleSidearmsCompatiblePatch",
     "has_about": true,
@@ -1437,7 +1510,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 3,
     "has_languages": false,
     "has_docs": false,
     "has_tests": false,
@@ -1448,10 +1521,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "40-AreaUnlockerReorderFix",
+    "dir": "40-patch-AreaUnlockerReorderFix",
+    "category": "收集",
     "number": "40",
     "title": "AreaUnlockerReorderFix",
     "has_about": true,
@@ -1475,7 +1549,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 6,
     "has_languages": false,
     "has_docs": false,
     "has_tests": false,
@@ -1486,10 +1560,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "41-PolarisblocExt",
+    "dir": "41-patch-PolarisblocExt",
+    "category": "收集",
     "number": "41",
     "title": "PolarisblocExt",
     "has_about": true,
@@ -1513,7 +1588,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 6,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1524,10 +1599,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "42-SilentDeathPall",
+    "dir": "42-standalone-SilentDeathPall",
+    "category": "收集",
     "number": "42",
     "title": "SilentDeathPall",
     "has_about": true,
@@ -1551,7 +1627,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 6,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1561,11 +1637,12 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [],
-    "type": "patch",
-    "type_conf": "medium"
+    "type": "standalone",
+    "type_conf": "high"
   },
   {
-    "dir": "43-RatkinCursesStandalone",
+    "dir": "43-standalone-RatkinCursesStandalone",
+    "category": "收集",
     "number": "43",
     "title": "RatkinCursesStandalone",
     "has_about": true,
@@ -1588,7 +1665,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 4,
+    "cs_count": 8,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1599,10 +1676,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "44-NotSoManyPolicies",
+    "dir": "44-standalone-NotSoManyPolicies",
+    "category": "收集",
     "number": "44",
     "title": "NotSoManyPolicies",
     "has_about": true,
@@ -1625,7 +1703,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 6,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1636,10 +1714,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "45-TargetLine",
+    "dir": "45-standalone-TargetLine",
+    "category": "收集",
     "number": "45",
     "title": "TargetLine",
     "has_about": true,
@@ -1662,7 +1741,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 6,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1673,10 +1752,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "46-NotSoLoudMilira",
+    "dir": "46-xml-NotSoLoudMilira",
+    "category": "收集",
     "number": "46",
     "title": "NotSoLoudMilira",
     "has_about": true,
@@ -1708,10 +1788,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "xml",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "47-WorldMapEditor",
+    "dir": "47-standalone-WorldMapEditor",
+    "category": "收集",
     "number": "47",
     "title": "WorldMapEditor",
     "has_about": true,
@@ -1734,7 +1815,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 6,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1745,10 +1826,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "48-RitualOutcomeFindRelic",
+    "dir": "48-standalone-RitualOutcomeFindRelic",
+    "category": "收集",
     "number": "48",
     "title": "RitualOutcomeFindRelic",
     "has_about": true,
@@ -1769,7 +1851,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 6,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1780,10 +1862,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "49-UnlockHarbingerTreeInAllCases",
+    "dir": "49-patch-UnlockHarbingerTreeInAllCases",
+    "category": "收集",
     "number": "49",
     "title": "UnlockHarbingerTreeInAllCases",
     "has_about": true,
@@ -1808,7 +1891,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 6,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1818,11 +1901,12 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [],
-    "type": "standalone",
-    "type_conf": "low"
+    "type": "patch",
+    "type_conf": "high"
   },
   {
-    "dir": "50-RACurseStandalone",
+    "dir": "50-standalone-RACurseStandalone",
+    "category": "收集",
     "number": "50",
     "title": "RACurseStandalone",
     "has_about": true,
@@ -1843,7 +1927,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 4,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1854,10 +1938,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "51-RACursePatch",
+    "dir": "51-patch-RACursePatch",
+    "category": "收集",
     "number": "51",
     "title": "RACursePatch",
     "has_about": true,
@@ -1881,7 +1966,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 3,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -1892,10 +1977,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "52-ScreamingStarfishForAllStorytellers",
+    "dir": "52-xml-ScreamingStarfishForAllStorytellers",
+    "category": "收集",
     "number": "52",
     "title": "ScreamingStarfishForAllStorytellers",
     "has_about": true,
@@ -1928,10 +2014,11 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "xml",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "53-AllowTunnelersToDrillFork",
+    "dir": "53-patch-AllowTunnelersToDrillFork",
+    "category": "收集",
     "number": "53",
     "title": "AllowTunnelersToDrillFork",
     "has_about": true,
@@ -1967,11 +2054,12 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [],
-    "type": "standalone",
-    "type_conf": "low"
+    "type": "patch",
+    "type_conf": "high"
   },
   {
-    "dir": "54-AnotherAllowTool",
+    "dir": "54-standalone-AnotherAllowTool",
+    "category": "收集",
     "number": "54",
     "title": "AnotherAllowTool",
     "has_about": true,
@@ -1992,7 +2080,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 5,
+    "cs_count": 7,
     "has_languages": true,
     "has_docs": true,
     "has_tests": true,
@@ -2002,13 +2090,14 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "54-AnotherAllowTool/docs/architecture.md"
+      "收集/54-standalone-AnotherAllowTool/docs/architecture.md"
     ],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "55-CommonModCompatibilityPatches",
+    "dir": "55-patch-CommonModCompatibilityPatches",
+    "category": "收集",
     "number": "55",
     "title": "CommonModCompatibilityPatches",
     "has_about": true,
@@ -2044,7 +2133,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 3,
     "has_languages": false,
     "has_docs": false,
     "has_tests": true,
@@ -2054,14 +2143,15 @@
     "has_agents": true,
     "readme_status": "ok",
     "notes_files": [
-      "55-CommonModCompatibilityPatches/AGENTS.md"
+      "收集/55-patch-CommonModCompatibilityPatches/AGENTS.md"
     ],
-    "type": "standalone",
-    "type_conf": "low"
+    "type": "patch",
+    "type_conf": "high"
   },
   {
-    "dir": "55-LimitedLetterSlots",
-    "number": "55",
+    "dir": "56-standalone-LimitedLetterSlots",
+    "category": "收集",
+    "number": "56",
     "title": "LimitedLetterSlots",
     "has_about": true,
     "in_backup": false,
@@ -2083,7 +2173,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 4,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2094,11 +2184,12 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "56-AllowRightClickWorkOutsideZone",
-    "number": "56",
+    "dir": "57-standalone-AllowRightClickWorkOutsideZone",
+    "category": "收集",
+    "number": "57",
     "title": "AllowRightClickWorkOutsideZone",
     "has_about": true,
     "in_backup": false,
@@ -2116,7 +2207,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 2,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2127,11 +2218,12 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "57-MoreRaidStrategies-HybridRaids",
-    "number": "57",
+    "dir": "58-standalone-MoreRaidStrategies-HybridRaids",
+    "category": "收集",
+    "number": "58",
     "title": "MoreRaidStrategies-HybridRaids",
     "has_about": true,
     "in_backup": false,
@@ -2149,7 +2241,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 4,
+    "cs_count": 5,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2160,11 +2252,12 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "58-DraftPawnCanGoToOccupiedCell",
-    "number": "58",
+    "dir": "59-patch-DraftPawnCanGoToOccupiedCell",
+    "category": "收集",
+    "number": "59",
     "title": "DraftPawnCanGoToOccupiedCell",
     "has_about": true,
     "in_backup": false,
@@ -2184,7 +2277,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 2,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2194,12 +2287,13 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [],
-    "type": "standalone",
-    "type_conf": "low"
+    "type": "patch",
+    "type_conf": "high"
   },
   {
-    "dir": "59-GhoulCommands",
-    "number": "59",
+    "dir": "60-standalone-GhoulCommands",
+    "category": "收集",
+    "number": "60",
     "title": "GhoulCommands",
     "has_about": true,
     "in_backup": false,
@@ -2217,7 +2311,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 2,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2228,11 +2322,12 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "60-MaximumAnimalDensity",
-    "number": "60",
+    "dir": "61-standalone-MaximumAnimalDensity",
+    "category": "收集",
+    "number": "61",
     "title": "MaximumAnimalDensity",
     "has_about": true,
     "in_backup": false,
@@ -2252,7 +2347,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 2,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2263,11 +2358,12 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "61-MoreResponsivePlanet",
-    "number": "61",
+    "dir": "62-standalone-MoreResponsivePlanet",
+    "category": "收集",
+    "number": "62",
     "title": "MoreResponsivePlanet",
     "has_about": true,
     "in_backup": false,
@@ -2287,7 +2383,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 5,
+    "cs_count": 6,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2298,11 +2394,12 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "62-PawnNotBlockingConstruct",
-    "number": "62",
+    "dir": "63-standalone-PawnNotBlockingConstruct",
+    "category": "收集",
+    "number": "63",
     "title": "PawnNotBlockingConstruct",
     "has_about": true,
     "in_backup": false,
@@ -2322,7 +2419,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 2,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2333,11 +2430,12 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "63-HideGenebankGenesFromTraders",
-    "number": "63",
+    "dir": "64-patch-HideGenebankGenesFromTraders",
+    "category": "收集",
+    "number": "64",
     "title": "HideGenebankGenesFromTraders",
     "has_about": true,
     "in_backup": false,
@@ -2357,7 +2455,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 2,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2367,12 +2465,13 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [],
-    "type": "standalone",
-    "type_conf": "low"
+    "type": "patch",
+    "type_conf": "high"
   },
   {
-    "dir": "64-LandingOnAsteroid",
-    "number": "64",
+    "dir": "65-standalone-LandingOnAsteroid",
+    "category": "收集",
+    "number": "65",
     "title": "LandingOnAsteroid",
     "has_about": true,
     "in_backup": false,
@@ -2392,7 +2491,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 2,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2402,14 +2501,15 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "64-LandingOnAsteroid/Notes.md"
+      "收集/65-standalone-LandingOnAsteroid/Notes.md"
     ],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "65-NewBlueprint",
-    "number": "65",
+    "dir": "66-standalone-NewBlueprint",
+    "category": "收集",
+    "number": "66",
     "title": "NewBlueprint",
     "has_about": true,
     "in_backup": false,
@@ -2429,7 +2529,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 18,
+    "cs_count": 19,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2439,14 +2539,15 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "65-NewBlueprint/TerrainOverview.md"
+      "收集/66-standalone-NewBlueprint/TerrainOverview.md"
     ],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "66-CaravanShuttleMassInfoInspectString",
-    "number": "66",
+    "dir": "67-standalone-CaravanShuttleMassInfoInspectString",
+    "category": "收集",
+    "number": "67",
     "title": "CaravanShuttleMassInfoInspectString",
     "has_about": true,
     "in_backup": false,
@@ -2464,7 +2565,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 2,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2475,11 +2576,12 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "67-DontMeditateYet",
-    "number": "67",
+    "dir": "68-standalone-DontMeditateYet",
+    "category": "收集",
+    "number": "68",
     "title": "DontMeditateYet",
     "has_about": true,
     "in_backup": false,
@@ -2497,7 +2599,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 8,
+    "cs_count": 9,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2507,15 +2609,16 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "67-DontMeditateYet/IMPLEMENTATION_NOTES.md",
-      "67-DontMeditateYet/README_MOD.md"
+      "收集/68-standalone-DontMeditateYet/IMPLEMENTATION_NOTES.md",
+      "收集/68-standalone-DontMeditateYet/README_MOD.md"
     ],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "68-BetterOutfitStand",
-    "number": "68",
+    "dir": "69-standalone-BetterOutfitStand",
+    "category": "收集",
+    "number": "69",
     "title": "BetterOutfitStand",
     "has_about": true,
     "in_backup": false,
@@ -2535,7 +2638,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 8,
+    "cs_count": 9,
     "has_languages": true,
     "has_docs": false,
     "has_tests": true,
@@ -2546,11 +2649,12 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "69-RitualOutcomeSelection",
-    "number": "69",
+    "dir": "70-standalone-RitualOutcomeSelection",
+    "category": "收集",
+    "number": "70",
     "title": "RitualOutcomeSelection",
     "has_about": true,
     "in_backup": false,
@@ -2570,7 +2674,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 2,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2581,11 +2685,12 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "70-LinuxImeFix",
-    "number": "70",
+    "dir": "71-patch-LinuxImeFix",
+    "category": "收集",
+    "number": "71",
     "title": "LinuxImeFix",
     "has_about": true,
     "in_backup": false,
@@ -2605,7 +2710,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 2,
     "has_languages": false,
     "has_docs": false,
     "has_tests": true,
@@ -2615,14 +2720,15 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "70-LinuxImeFix/IBUS_SIGNAL_FORMAT.md"
+      "收集/71-patch-LinuxImeFix/IBUS_SIGNAL_FORMAT.md"
     ],
-    "type": "standalone",
-    "type_conf": "low"
+    "type": "patch",
+    "type_conf": "high"
   },
   {
-    "dir": "71-FacialAnimationStatueSnapshotFix",
-    "number": "71",
+    "dir": "72-patch-FacialAnimationStatueSnapshotFix",
+    "category": "收集",
+    "number": "72",
     "title": "FacialAnimationStatueSnapshotFix",
     "has_about": true,
     "in_backup": false,
@@ -2646,7 +2752,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 2,
     "has_languages": false,
     "has_docs": false,
     "has_tests": false,
@@ -2657,11 +2763,12 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "72-RimLocksmith",
-    "number": "72",
+    "dir": "73-standalone-RimLocksmith",
+    "category": "收集",
+    "number": "73",
     "title": "RimLocksmith",
     "has_about": true,
     "in_backup": false,
@@ -2681,7 +2788,7 @@
     ],
     "has_common": true,
     "has_csharp": true,
-    "cs_count": 17,
+    "cs_count": 18,
     "has_languages": true,
     "has_docs": true,
     "has_tests": true,
@@ -2691,16 +2798,17 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "72-RimLocksmith/DESIGN.md",
-      "72-RimLocksmith/docs/rebuild-design.md",
-      "72-RimLocksmith/docs/vanilla-behavior-audit.md"
+      "收集/73-standalone-RimLocksmith/DESIGN.md",
+      "收集/73-standalone-RimLocksmith/docs/rebuild-design.md",
+      "收集/73-standalone-RimLocksmith/docs/vanilla-behavior-audit.md"
     ],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "73-UsefulStats",
-    "number": "73",
+    "dir": "74-standalone-UsefulStats",
+    "category": "收集",
+    "number": "74",
     "title": "UsefulStats",
     "has_about": true,
     "in_backup": false,
@@ -2718,7 +2826,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 4,
+    "cs_count": 5,
     "has_languages": false,
     "has_docs": false,
     "has_tests": true,
@@ -2728,14 +2836,15 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "73-UsefulStats/DESIGN.md"
+      "收集/74-standalone-UsefulStats/DESIGN.md"
     ],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "74-GhoulAttackSpin",
-    "number": "74",
+    "dir": "75-standalone-GhoulAttackSpin",
+    "category": "收集",
+    "number": "75",
     "title": "GhoulAttackSpin",
     "has_about": true,
     "in_backup": false,
@@ -2755,7 +2864,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 2,
+    "cs_count": 3,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -2766,11 +2875,12 @@
     "readme_status": "ok",
     "notes_files": [],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "75-SmoothDragSelect",
-    "number": "75",
+    "dir": "76-standalone-SmoothDragSelect",
+    "category": "收集",
+    "number": "76",
     "title": "SmoothDragSelect",
     "has_about": true,
     "in_backup": false,
@@ -2790,7 +2900,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 3,
     "has_languages": true,
     "has_docs": true,
     "has_tests": false,
@@ -2800,14 +2910,15 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "75-SmoothDragSelect/docs/superpowers/specs/2026-07-27-mouse-event-throttle-design.md"
+      "收集/76-standalone-SmoothDragSelect/docs/superpowers/specs/2026-07-27-mouse-event-throttle-design.md"
     ],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "76-ColonyGroupsTargetablePortraits",
-    "number": "76",
+    "dir": "77-patch-ColonyGroupsTargetablePortraits",
+    "category": "收集",
+    "number": "77",
     "title": "ColonyGroupsTargetablePortraits",
     "has_about": true,
     "in_backup": false,
@@ -2831,7 +2942,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 1,
+    "cs_count": 3,
     "has_languages": false,
     "has_docs": true,
     "has_tests": false,
@@ -2841,16 +2952,17 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "76-ColonyGroupsTargetablePortraits/docs/changes/colony-groups-targetable-portraits/plan.md",
-      "76-ColonyGroupsTargetablePortraits/docs/changes/colony-groups-targetable-portraits/proposal.md",
-      "76-ColonyGroupsTargetablePortraits/docs/changes/colony-groups-targetable-portraits/tasks.md"
+      "收集/77-patch-ColonyGroupsTargetablePortraits/docs/changes/colony-groups-targetable-portraits/plan.md",
+      "收集/77-patch-ColonyGroupsTargetablePortraits/docs/changes/colony-groups-targetable-portraits/proposal.md",
+      "收集/77-patch-ColonyGroupsTargetablePortraits/docs/changes/colony-groups-targetable-portraits/tasks.md"
     ],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "77-KillingReward",
-    "number": "77",
+    "dir": "78-standalone-KillingReward",
+    "category": "收集",
+    "number": "78",
     "title": "KillingReward",
     "has_about": true,
     "in_backup": false,
@@ -2870,7 +2982,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 20,
+    "cs_count": 22,
     "has_languages": true,
     "has_docs": true,
     "has_tests": true,
@@ -2880,15 +2992,16 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "77-KillingReward/docs/2026-07-31-KillingReward-design.md",
-      "77-KillingReward/docs/2026-07-31-KillingReward-implementation-plan.md"
+      "收集/78-standalone-KillingReward/docs/2026-07-31-KillingReward-design.md",
+      "收集/78-standalone-KillingReward/docs/2026-07-31-KillingReward-implementation-plan.md"
     ],
     "type": "standalone",
-    "type_conf": "low"
+    "type_conf": "high"
   },
   {
-    "dir": "78-RimFlixAnimeShows",
-    "number": "78",
+    "dir": "79-xml-RimFlixAnimeShows",
+    "category": "收集",
+    "number": "79",
     "title": "RimFlixAnimeShows",
     "has_about": true,
     "in_backup": false,
@@ -2919,15 +3032,16 @@
     "has_agents": true,
     "readme_status": "ok",
     "notes_files": [
-      "78-RimFlixAnimeShows/AGENTS.md",
-      "78-RimFlixAnimeShows/docs/adding-shows.md"
+      "收集/79-xml-RimFlixAnimeShows/AGENTS.md",
+      "收集/79-xml-RimFlixAnimeShows/docs/adding-shows.md"
     ],
     "type": "xml",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "79-RimTalk",
-    "number": "79",
+    "dir": "80-standalone-RimTalk",
+    "category": "收集",
+    "number": "80",
     "title": "RimTalk",
     "has_about": true,
     "in_backup": false,
@@ -2947,7 +3061,9 @@
       "Jaxe.Bubbles"
     ],
     "description": "Bring your colonists to life with RimTalk! This revolutionary mod uses Google's AI to generate dynamic, context-aware dialogue for your pawns in real-time. Key Features: • AI-powered conversations that reflect each pawn's current mood, thoughts, and situation • Context-aware dialogue based on what colonists are doing and thinking • Multi-language support for diverse colony experiences • Configurable conversation frequency and message suppression options • Easy setup - just get a free API key from Google AI Studio Every conversation is unique and emergent, creating immersive storytelling experiences that evolve with your colony. Gone are the days of repetitive interactions - your pawns will now speak with personality and purpose! Setup: Get your free API key at aistudio.google.com, enable the mod, and paste your key in mod settings. Compatible with most other mods and respects API rate limits automatically.",
-    "versions": [],
+    "versions": [
+      "1.6"
+    ],
     "has_common": false,
     "has_csharp": true,
     "cs_count": 103,
@@ -2960,15 +3076,16 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "79-RimTalk/README_UPSTREAM.md",
-      "79-RimTalk/preset.md"
+      "收集/80-standalone-RimTalk/README_UPSTREAM.md",
+      "收集/80-standalone-RimTalk/preset.md"
     ],
-    "type": "patch",
-    "type_conf": "medium"
+    "type": "standalone",
+    "type_conf": "high"
   },
   {
-    "dir": "80-RimTalkExpandMemory",
-    "number": "80",
+    "dir": "81-patch-RimTalkExpandMemory",
+    "category": "收集",
+    "number": "81",
     "title": "RimTalkExpandMemory",
     "has_about": true,
     "in_backup": false,
@@ -2994,7 +3111,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 88,
+    "cs_count": 90,
     "has_languages": true,
     "has_docs": true,
     "has_tests": false,
@@ -3004,48 +3121,51 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "80-RimTalkExpandMemory/CHANGELOG.md",
-      "80-RimTalkExpandMemory/Changelog Guidelines.md",
-      "80-RimTalkExpandMemory/Docs/AI_PROVIDERS_GUIDE.md",
-      "80-RimTalkExpandMemory/Docs/CommonKnowledgeAPI.md",
-      "80-RimTalkExpandMemory/Docs/ContentSniffingPlan.md",
-      "80-RimTalkExpandMemory/Docs/ELS_TIMESTAMP_BUG_FIX.md",
-      "80-RimTalkExpandMemory/Docs/Git_提交命令清单.md",
-      "80-RimTalkExpandMemory/Docs/JobMemoryCapturer.md",
-      "80-RimTalkExpandMemory/Docs/MEMORY_WINDOW_PERFORMANCE_OPTIMIZATION.md",
-      "80-RimTalkExpandMemory/Docs/PROMPT_CACHING_GUIDE.md",
-      "80-RimTalkExpandMemory/Docs/PROMPT_CACHING_PATCH.md",
-      "80-RimTalkExpandMemory/Docs/StreamingRoundMemory-Pipeline.md",
-      "80-RimTalkExpandMemory/Docs/TTS_REMOVAL_GUIDE.md",
-      "80-RimTalkExpandMemory/Docs/v3.3.2.37_旧存档保护机制修复.md",
-      "80-RimTalkExpandMemory/Docs/v3.3.21发布总结.md",
-      "80-RimTalkExpandMemory/Docs/v3.3.21更新说明-简洁版.md",
-      "80-RimTalkExpandMemory/Docs/v3.3.4_EVENT_COMPRESSION.md",
-      "80-RimTalkExpandMemory/Docs/v3.3.4_SUMMARY.md",
-      "80-RimTalkExpandMemory/Docs/世界书第一阶段-字符串全匹配标签实现.md",
-      "80-RimTalkExpandMemory/Docs/世界书第三阶段-扩展属性与UI优化.md",
-      "80-RimTalkExpandMemory/Docs/世界书第二阶段-向量增强检索.md",
-      "80-RimTalkExpandMemory/Docs/修复_提示词花括号错误.md",
-      "80-RimTalkExpandMemory/Docs/修复总结_时间戳和固定记忆.md",
-      "80-RimTalkExpandMemory/Docs/修改_注入位置从prompts改为context.md",
-      "80-RimTalkExpandMemory/Docs/常识库使用说明按钮.md",
-      "80-RimTalkExpandMemory/Docs/常识库匹配引擎评估报告.md",
-      "80-RimTalkExpandMemory/Docs/常识库标签最佳实践-技能名陷阱.md",
-      "80-RimTalkExpandMemory/Docs/拆分_MainTabWindow_Memory.md",
-      "80-RimTalkExpandMemory/Docs/拆分_MainTabWindow_Memory_最终报告.md",
-      "80-RimTalkExpandMemory/Docs/拆分_验证清单.md",
-      "80-RimTalkExpandMemory/Docs/标签测试工具使用说明.md",
-      "80-RimTalkExpandMemory/Docs/标签测试工具实现总结.md",
-      "80-RimTalkExpandMemory/Docs/标签测试工具快速参考.md",
-      "80-RimTalkExpandMemory/Docs/记忆系统重构设计_最终版.md",
-      "80-RimTalkExpandMemory/项目管线.md"
+      "收集/81-patch-RimTalkExpandMemory/CHANGELOG.md",
+      "收集/81-patch-RimTalkExpandMemory/Changelog Guidelines.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/AI_PROVIDERS_GUIDE.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/CommonKnowledgeAPI.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/ContentSniffingPlan.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/ELS_TIMESTAMP_BUG_FIX.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/Git_提交命令清单.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/JobMemoryCapturer.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/MEMORY_WINDOW_PERFORMANCE_OPTIMIZATION.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/PROMPT_CACHING_GUIDE.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/PROMPT_CACHING_PATCH.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/StreamingRoundMemory-Pipeline.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/TTS_REMOVAL_GUIDE.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/v3.3.2.37_旧存档保护机制修复.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/v3.3.21发布总结.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/v3.3.21更新说明-简洁版.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/v3.3.4_EVENT_COMPRESSION.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/v3.3.4_SUMMARY.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/世界书第一阶段-字符串全匹配标签实现.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/世界书第三阶段-扩展属性与UI优化.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/世界书第二阶段-向量增强检索.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/修复_提示词花括号错误.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/修复总结_时间戳和固定记忆.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/修改_注入位置从prompts改为context.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/常识库使用说明按钮.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/常识库匹配引擎评估报告.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/常识库标签最佳实践-技能名陷阱.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/拆分_MainTabWindow_Memory.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/拆分_MainTabWindow_Memory_最终报告.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/拆分_验证清单.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/标签测试工具使用说明.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/标签测试工具实现总结.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/标签测试工具快速参考.md",
+      "收集/81-patch-RimTalkExpandMemory/Docs/记忆系统重构设计_最终版.md",
+      "收集/81-patch-RimTalkExpandMemory/自用每日总结提示词（防语义锚定化）.md",
+      "收集/81-patch-RimTalkExpandMemory/自用深度归档提示词（防语义锚定化）.md",
+      "收集/81-patch-RimTalkExpandMemory/项目管线.md"
     ],
     "type": "patch",
-    "type_conf": "medium"
+    "type_conf": "high"
   },
   {
-    "dir": "81-HautsAddedTraits",
-    "number": "81",
+    "dir": "82-patch-HautsAddedTraits",
+    "category": "收集",
+    "number": "82",
     "title": "HautsAddedTraits",
     "has_about": true,
     "in_backup": false,
@@ -3088,42 +3208,9 @@
     "has_agents": false,
     "readme_status": "ok",
     "notes_files": [
-      "81-HautsAddedTraits/README_UPSTREAM.md"
+      "收集/82-patch-HautsAddedTraits/README_UPSTREAM.md"
     ],
     "type": "patch",
-    "type_conf": "medium"
-  },
-  {
-    "dir": "82-自建-RimTalkPersonaTraits",
-    "number": "82",
-    "title": "自建-RimTalkPersonaTraits",
-    "has_about": true,
-    "in_backup": false,
-    "package_id": "RunningBugs.RimTalkPersonaTraits",
-    "name": "RimTalk 人设特质包 RimTalk Persona Traits",
-    "author": "RunningBugs",
-    "supported_versions": [
-      "1.6"
-    ],
-    "deps": [],
-    "load_after": [],
-    "description": "一个轻量级的角色扮演向特质包：10 个「对话人设」特质（性格/说话风格/嗜好），无数值改动、纯描述、纯 XML。 每个特质的描述都专为 RimTalk 的提示词注入优化：使用 {PAWN_nameDef} 等占位符、写明说话方式与话题，让 AI 对话更有「人味」。 A lightweight roleplay-oriented trait pack: 10 \"conversational persona\" traits (personality / speech style / hobbies), no stat changes, description-only, pure XML. Every trait description is optimized for RimTalk's prompt injection: it uses {PAWN_nameDef} placeholders and spells out how the pawn speaks and what it talks about, so AI dialogue feels more alive.",
-    "versions": [
-      "1.6"
-    ],
-    "has_common": false,
-    "has_csharp": false,
-    "cs_count": 0,
-    "has_languages": true,
-    "has_docs": false,
-    "has_tests": false,
-    "has_publisher_plus": false,
-    "has_loadfolders": false,
-    "has_loadfolders_bak": false,
-    "has_agents": false,
-    "readme_status": "ok",
-    "notes_files": [],
-    "type": "xml",
-    "type_conf": "medium"
+    "type_conf": "high"
   }
 ]

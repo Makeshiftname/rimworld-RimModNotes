@@ -107,7 +107,7 @@
 - 出现方式：机械族巢穴派系（远古遗迹 / 袭击 / 心灵飞船 / 枯萎飞船 / 机械集群[Royalty] /
   远古遗迹[Ideology]）；若开局派系设定删掉「机械族巢穴」则不敌对出现。
 - 友方机械体：制造见 `机械体制造`（Biotech DLC）；对应 rimworldwiki `Mechanoid`。
-- 相关本地 mod：`53-AllowTunnelersToDrillFork`（机械体可钻矿）、`07-RPP_Bill_AllMech_Patch`
+- 相关本地 mod：`收集/53-patch-AllowTunnelersToDrillFork`（机械体可钻矿）、`收集/07-patch-RPP_Bill_AllMech_Patch`
   等（打机械体行为补丁时可作示例）。
 
 ### Modding 教程（rimworldwiki ↔ 灰机，与本地知识库映射）

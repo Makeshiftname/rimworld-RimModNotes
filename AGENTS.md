@@ -1,15 +1,18 @@
 # AGENTS.md — RimWorld Modding 仓库
 
-本仓库是个人 RimWorld modding 学习作品集：**79 个 mod**（编号 `01–78`，`55` 出现两次），
-单一作者 RunningBugs，`packageId` 前缀 `RunningBugs.*`，MIT 许可。
+本仓库是个人 RimWorld modding 学习作品集：**83 个 mod 目录**——`收集/` 82 个（收集的他人 mod，重编 `01–82`，目录名带功能前缀）+ `自建/` 1 个（RunningBugs 原创，编号从 `01` 起）。
+除 `自建/` 外均为**收集/学习的他人 mod，不宜改动 mod 本体**（含 About.xml 内容/C#/Defs）；作者 RunningBugs，`packageId` 前缀 `RunningBugs.*`，MIT 许可。
 
 ## 仓库结构
 
-- 每个 mod 一个目录 `NN-名称/`，内含 `About/About.xml`、版本目录（`1.4/` `1.5/` `1.6/`）、
-  `Common/`（跨版本共享 Defs/Patches/Languages）、`Source/`（C#）、`Languages/`、`docs/`、`Tests/` 等。
-- 类型分布（人工核实）：Harmony 补丁 24 / 独立功能 42 / 纯 XML 5（30,37,46,52,78）/
-  翻译 4（04,13,18,25；06 空）/ 工具库 1（09）。
-- **既有事实勿改**：06 空目录、32 内容在 `backup/`、55 编号重复。
+- 两级分类：`自建/`（RunningBugs 原创可发布）、`收集/`（收集的他人 mod）；目录名 `NN-功能-名称`，
+  功能前缀 = standalone/patch/xml/translation/lib/empty/special（与 mod-index Type 一致）。
+  每个 mod 内含 `About/About.xml`、版本目录（`1.4/` `1.5/` `1.6/`）、`Common/`（跨版本共享）、
+  `Source/`（C#）、`Languages/`、`docs/`、`Tests/` 等。
+- 类型分布（人工核实，即目录功能前缀）：patch 26 / standalone 44 / xml 5（30,37,46,52,79）/ 翻译 4
+  （04,13,18,25；06 空）/ lib 1（09）/ special 2（06,32）。
+- **既有事实勿改**：06 空目录、32 内容在 `backup/`；55 重复编号已于 2026-08-08 修正
+  （现为 `55-patch-CommonModCompatibilityPatches` 与 `56-standalone-LimitedLetterSlots`）。
 
 ## 知识库（重要）
 
@@ -33,10 +36,10 @@
 
 ## 关键约定
 
-- **跨版本**：共享资源放 `Common/`；老 mod 单 1.4，新 mod（≥54）仅 1.6；避免用 LoadFolders.xml。
+- **跨版本**：共享资源放 `Common/`；老 mod 单 1.4，新收集 mod（编号 ≥54）基本仅 1.6；避免用 LoadFolders.xml。
 - **测试**：RimWorld 运行时对象无法在游戏外实例化，用 Python 静态白盒测试
   （`Tests/whitebox/test_*_static.py` + `run_whitebox.sh`）；纯逻辑可加 C# 单测。
-- **发布**：13 个 mod 带 `_PublisherPlus.xml`（发布时排除 `obj/`）；patch 第三方 mod 时其
+- **发布**：13 个 mod 带 `_PublisherPlus.xml`（16,26,57,60,66,67,69,70,71,73,75,76,78；发布时排除 `obj/`）；patch 第三方 mod 时其
   packageId 写入 `<loadAfter>` 而非 `<modDependencies>`；改动后 `About.xml` 描述与代码保持同步。
 - **构建**：`cd <版本>/Source && dotnet build -c Release`，产物 DLL 随源码提交。
 - **日志**：复用 `Logger.cs` 骨架（`Log.Message/Warning/Error` 自动带调用位置）。
@@ -50,6 +53,7 @@
 python tools/kb/scan_mods.py            # 重新生成 mod-index 元数据段（保留 MANUAL 段）
 python tools/kb/scan_mods.py --check    # 查看变更报告
 python tools/kb/check_links.py          # 验收门槛：必须退出码 0
+python tools/kb/check_repo_hygiene.py   # 结构卫生门槛（.bak/PDB/目录命名）：必须退出码 0
 python tools/kb/validate_readme.py --todo   # 查看占位 README 待重写清单
 ```
 

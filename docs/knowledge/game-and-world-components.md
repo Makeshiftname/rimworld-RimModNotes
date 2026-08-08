@@ -32,8 +32,8 @@ public class AlertUtility : WorldComponent
 - 想按时间/频率触发，可在内部计数 tick（01 用 `defaultInterval = 60` 即每"秒"检查一次，
   慢速模式下一个游戏 tick = 1/60 秒）。
 
-见 [`01-AlertUtility/1.4/Source/AlertUtility.cs`](../../01-AlertUtility/1.4/Source/AlertUtility.cs)
-与 [`10-QuestItemWatch/Source/Main.cs`](../../10-QuestItemWatch/Source/Main.cs)
+见 [`收集/01-standalone-AlertUtility/1.4/Source/AlertUtility.cs`](../../收集/01-standalone-AlertUtility/1.4/Source/AlertUtility.cs)
+与 [`收集/10-standalone-QuestItemWatch/Source/Main.cs`](../../收集/10-standalone-QuestItemWatch/Source/Main.cs)
 （`QuestItemWatcher : GameComponent` + `GameComponentTick`）。
 
 ## 3. 存档兼容（IExposable + Scribe）
@@ -58,8 +58,8 @@ public class Event : IExposable
 
 ## 4. 相关文件
 
-- 组件 + 存档：`01-AlertUtility/1.4/Source/AlertUtility.cs`
-- GameComponent 例子：`10-QuestItemWatch/Source/Main.cs`
+- 组件 + 存档：`收集/01-standalone-AlertUtility/1.4/Source/AlertUtility.cs`
+- GameComponent 例子：`收集/10-standalone-QuestItemWatch/Source/Main.cs`
 
 ## 相关主题
 

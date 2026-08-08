@@ -5,8 +5,8 @@
 
 ## 1. 自定义窗口生命周期
 
-见 [`01-AlertUtility/1.4/Source/TimerSetWindow.cs`](../../01-AlertUtility/1.4/Source/TimerSetWindow.cs) 与
-[`01-AlertUtility/README.md`](../../01-AlertUtility/README.md)。
+见 [`收集/01-standalone-AlertUtility/1.4/Source/TimerSetWindow.cs`](../../收集/01-standalone-AlertUtility/1.4/Source/TimerSetWindow.cs) 与
+[`收集/01-standalone-AlertUtility/README.md`](../../收集/01-standalone-AlertUtility/README.md)。
 
 - 继承 `Verse.Window`，按需覆写：
   - `SetInitialSizeAndPosition` — 初始大小/位置
@@ -33,12 +33,12 @@
 - 挂在 OnGUI 里的 FPS 计数器会**虚高**（实测 900+，因为 OnGUI 触发次数≠帧数）。
 - 参考解法：在 `UIRoot_Play.UIRootOnGUI` 入口做自适应事件限流（间隔=平滑帧时间÷2，
   范围 60Hz–10Hz），Repaint 事件不拦截。完整设计与数据见
-  [`75-SmoothDragSelect/docs/superpowers/specs/2026-07-27-mouse-event-throttle-design.md`](../../75-SmoothDragSelect/docs/superpowers/specs/2026-07-27-mouse-event-throttle-design.md)。
+  [`收集/76-standalone-SmoothDragSelect/docs/superpowers/specs/2026-07-27-mouse-event-throttle-design.md`](../../收集/76-standalone-SmoothDragSelect/docs/superpowers/specs/2026-07-27-mouse-event-throttle-design.md)。
 
 ## 4. 相关文件
 
-- 窗口与图标：`01-AlertUtility/1.4/Source/TimerSetWindow.cs`
-- GUI 性能笔记：`75-SmoothDragSelect/README.md`
+- 窗口与图标：`收集/01-standalone-AlertUtility/1.4/Source/TimerSetWindow.cs`
+- GUI 性能笔记：`收集/76-standalone-SmoothDragSelect/README.md`
 
 ## 相关主题
 

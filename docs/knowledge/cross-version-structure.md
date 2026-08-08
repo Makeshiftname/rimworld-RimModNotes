@@ -47,10 +47,10 @@ cd 1.6/Source && dotnet build -c Release
 
 ## 5. 相关文件
 
-- 多版本 + Common 的例子：`01-AlertUtility/`（1.4/1.5/1.6 + LoadFolders）、
-  `30-SilencedToxifierGenerator/`（纯 Common/）、`54-AnotherAllowTool/`（1.6 + Common/）
-- 构建与提交约定：`55-CommonModCompatibilityPatches/AGENTS.md`
-- 构建命令示例：`75-SmoothDragSelect/README.md`
+- 多版本 + Common 的例子：`收集/01-standalone-AlertUtility/`（1.4/1.5/1.6 + LoadFolders）、
+  `收集/30-xml-SilencedToxifierGenerator/`（纯 Common/）、`收集/54-standalone-AnotherAllowTool/`（1.6 + Common/）
+- 构建与提交约定：`收集/55-patch-CommonModCompatibilityPatches/AGENTS.md`
+- 构建命令示例：`收集/76-standalone-SmoothDragSelect/README.md`
 
 ## 相关主题
 

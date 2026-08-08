@@ -2,7 +2,8 @@
 
 本文档说明如何让 `docs/knowledge/` 与仓库中的 mod 保持同步。脚本详见
 [`tools/kb/README.md`](../../tools/kb/README.md)。**验收门槛**：任何改动后
-`python tools/kb/check_links.py` 必须退出码为 0。
+`python tools/kb/check_links.py` 与 `python tools/kb/check_repo_hygiene.py`
+必须都退出码为 0。
 
 ## 知识库结构
 
@@ -23,22 +24,25 @@ tools/kb/                   # 工具链（Python 标准库）
    人工维护，脚本永不覆盖。
 2. **主题文档是手写的**：脚本只扫描/生成元数据/校验，不生成任何正文。
 3. **链接相对所在 md 文件解析**：如 `docs/knowledge/mod-index.md` 里指向
-   `01-AlertUtility/README.md` 需写 `../../01-AlertUtility/README.md`。
+   `收集/01-standalone-AlertUtility/README.md` 需写 `../../收集/01-standalone-AlertUtility/README.md`。
 
 ## 更新场景 checklist
 
 ### A. 新增一个 mod
+0. 放入正确大类目录：`自建/`（RunningBugs 原创可发布）或 `收集/`（收集的他人 mod）；
+   目录名 `NN-功能-名称`，功能前缀 = standalone/patch/xml/translation/lib/empty/special（按类型定，编号在大类内唯一）
 1. `python tools/kb/scan_mods.py` —— 刷新索引元数据段 + `kb-index.json`
 2. `python tools/kb/scan_mods.py --check` —— 确认新增项进入变更报告
 3. 若新 mod 引入未覆盖的知识点：在 `docs/knowledge/` 新增主题文档或补充
    `MANUAL` 段的「真实笔记分布」；否则在 mod-index 的 MANUAL 段补一行要点
 4. 若仍为模板占位 README，按「README 重写」场景处理
 5. `python tools/kb/check_links.py` —— 必须通过
+6. `python tools/kb/check_repo_hygiene.py` —— 必须通过（无 `.bak`/跟踪 PDB/目录命名问题）
 
 ### B. 修改已有 mod（改版本 / 加功能 / 加 docs / 换类型）
 1. `python tools/kb/scan_mods.py --check` —— 查看变更报告
 2. 只更新受影响的主题文档与 `MANUAL` 段要点（类型变化时同步「类型权威清单」）
-3. `python tools/kb/check_links.py` —— 必须通过
+3. `python tools/kb/check_links.py` 与 `python tools/kb/check_repo_hygiene.py` —— 必须通过
 
 ### C. 重写占位 README（阶段 F 批次任务）
 1. 用 `python tools/kb/validate_readme.py --todo` 查看待重写清单
@@ -46,11 +50,11 @@ tools/kb/                   # 工具链（Python 标准库）
 3. 每批完成：`python tools/kb/validate_readme.py --verify <mod>` 验收每个 mod
 4. `python tools/kb/scan_mods.py` —— 刷新索引（README 状态列会变为 `ok`）
 5. 若重写中提炼出新知识点，同步补充对应主题文档
-6. `python tools/kb/check_links.py` —— 必须通过
+6. `python tools/kb/check_links.py` 与 `python tools/kb/check_repo_hygiene.py` —— 必须通过
 
 ## README 重写模板
 
-参考 `01-AlertUtility/README.md`（学习要点风格）与 `78-RimFlixAnimeShows/AGENTS.md`
+参考 `收集/01-standalone-AlertUtility/README.md`（学习要点风格）与 `收集/79-xml-RimFlixAnimeShows/AGENTS.md`
 （操作手册风格），建议结构：
 
 ```markdown
