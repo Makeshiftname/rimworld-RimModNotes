@@ -1,0 +1,222 @@
+# 简体中文翻译确定错误清单（启发式扫描，非游戏内报告）
+# 错误类型: baddef=DefInjected引用不存在def | ph=占位符/格式 | xml=XML解析失败 | badkey=key非法字符
+
+## 2135654735 (shavius.vpe.zh)  (baddef=429 ph=0 badkey=0 xml=0)
+  [引用不存在 def: VPE_AteBlisscap] DefInjected/HediffDef/Hediffs_Global_Misc.xml :: VPE_AteBlisscap.label
+  [引用不存在 def: VPE_AteBlisscap] DefInjected/HediffDef/Hediffs_Global_Misc.xml :: VPE_AteBlisscap.description
+  [引用不存在 def: VPEF_PansyAroma] DefInjected/HediffDef/Hediffs_Misc_Flowers.xml :: VPEF_PansyAroma.label
+  [引用不存在 def: VPEF_PansyAroma] DefInjected/HediffDef/Hediffs_Misc_Flowers.xml :: VPEF_PansyAroma.description
+  [引用不存在 def: VPEF_Weeds] DefInjected/IncidentDef/Incidents_Map_Misc.xml :: VPEF_Weeds.label
+  [引用不存在 def: VPEF_SmellingFlowers] DefInjected/JobDef/Jobs_Joy.xml :: VPEF_SmellingFlowers.reportString
+  [引用不存在 def: VPEF_SmellingFlowers] DefInjected/JoyKindDef/JoyKinds.xml :: VPEF_SmellingFlowers.label
+  [引用不存在 def: VCE_Make_Kibble_Moss] DefInjected/RecipeDef/Recipes_Food.xml :: VCE_Make_Kibble_Moss.label
+  [引用不存在 def: VCE_Make_Kibble_Moss] DefInjected/RecipeDef/Recipes_Food.xml :: VCE_Make_Kibble_Moss.description
+  [引用不存在 def: VCE_Make_Kibble_Moss] DefInjected/RecipeDef/Recipes_Food.xml :: VCE_Make_Kibble_Moss.jobString
+  [引用不存在 def: VCE_Make_ChemfuelFromCanola] DefInjected/RecipeDef/Recipes_Production.xml :: VCE_Make_ChemfuelFromCanola.label
+  [引用不存在 def: VCE_Make_ChemfuelFromCanola] DefInjected/RecipeDef/Recipes_Production.xml :: VCE_Make_ChemfuelFromCanola.description
+
+## 3582880007 (silversol.biotech.zh)  (baddef=191 ph=0 badkey=0 xml=0)
+  [引用不存在 def: AT_Mech_FlyAwayReturn] DefInjected/AbilityDef/Azur_AbilityDef.xml :: AT_Mech_FlyAwayReturn.label
+  [引用不存在 def: AT_Mech_FlyAwayReturn] DefInjected/AbilityDef/Azur_AbilityDef.xml :: AT_Mech_FlyAwayReturn.description
+  [引用不存在 def: AT_Mech_FlyAwayReturn2] DefInjected/AbilityDef/Azur_AbilityDef.xml :: AT_Mech_FlyAwayReturn2.label
+  [引用不存在 def: AT_Mech_FlyAwayReturn2] DefInjected/AbilityDef/Azur_AbilityDef.xml :: AT_Mech_FlyAwayReturn2.description
+  [引用不存在 def: AT_Mech_FlyAwayReturn3] DefInjected/AbilityDef/Azur_AbilityDef.xml :: AT_Mech_FlyAwayReturn3.label
+  [引用不存在 def: AT_Mech_FlyAwayReturn3] DefInjected/AbilityDef/Azur_AbilityDef.xml :: AT_Mech_FlyAwayReturn3.description
+  [引用不存在 def: Shurike_miningP] DefInjected/AbilityDef/Azur_AbilityDef.xml :: Shurike_miningP.label
+  [引用不存在 def: Shurike_miningP] DefInjected/AbilityDef/Azur_AbilityDef.xml :: Shurike_miningP.description
+  [引用不存在 def: Shurike_miningU] DefInjected/AbilityDef/Azur_AbilityDef.xml :: Shurike_miningU.label
+  [引用不存在 def: Shurike_miningU] DefInjected/AbilityDef/Azur_AbilityDef.xml :: Shurike_miningU.description
+  [引用不存在 def: RaidravenO1] DefInjected/AbilityDef/Azur_AbilityDef.xml :: RaidravenO1.label
+  [引用不存在 def: RaidravenO1] DefInjected/AbilityDef/Azur_AbilityDef.xml :: RaidravenO1.description
+
+## 3248796760 (holarula.mlie.sdbridges.zh)  (baddef=125 ph=0 badkey=0 xml=0)
+  [引用不存在 def: sd_bridges_category_terraform] DefInjected/DesignationCategoryDef/sd_bridges_DesignationCategoryDefs.xml :: sd_bridges_category_terraform.label
+  [引用不存在 def: sd_bridges_category_terraform] DefInjected/DesignationCategoryDef/sd_bridges_DesignationCategoryDefs.xml :: sd_bridges_category_terraform.description
+  [引用不存在 def: Architect_sd_bridges_category_terraform] DefInjected/KeyBindingCategoryDef/ImpliedDefs.xml :: Architect_sd_bridges_category_terraform.label
+  [引用不存在 def: Architect_sd_bridges_category_terraform] DefInjected/KeyBindingCategoryDef/ImpliedDefs.xml :: Architect_sd_bridges_category_terraform.description
+  [引用不存在 def: sd_bridges_recipe_foundationmaterial_tablemachin] DefInjected/RecipeDef/sd_bridges_RecipeDefs.xml :: sd_bridges_recipe_foundationmaterial_tablemachin.label
+  [引用不存在 def: sd_bridges_recipe_foundationmaterial_tablemachin] DefInjected/RecipeDef/sd_bridges_RecipeDefs.xml :: sd_bridges_recipe_foundationmaterial_tablemachin.description
+  [引用不存在 def: sd_bridges_recipe_foundationmaterial_tablemachin] DefInjected/RecipeDef/sd_bridges_RecipeDefs.xml :: sd_bridges_recipe_foundationmaterial_tablemachin.jobString
+  [引用不存在 def: sd_bridges_recipe_foundationmaterial_tablemachin_10times] DefInjected/RecipeDef/sd_bridges_RecipeDefs.xml :: sd_bridges_recipe_foundationmaterial_tablemachin_10times.label
+  [引用不存在 def: sd_bridges_recipe_foundationmaterial_tablemachin_10times] DefInjected/RecipeDef/sd_bridges_RecipeDefs.xml :: sd_bridges_recipe_foundationmaterial_tablemachin_10times.description
+  [引用不存在 def: sd_bridges_recipe_foundationmaterial_tablemachin_10times] DefInjected/RecipeDef/sd_bridges_RecipeDefs.xml :: sd_bridges_recipe_foundationmaterial_tablemachin_10times.jobString
+  [引用不存在 def: sd_bridges_recipe_foundationmaterial_tablestone] DefInjected/RecipeDef/sd_bridges_RecipeDefs.xml :: sd_bridges_recipe_foundationmaterial_tablestone.label
+  [引用不存在 def: sd_bridges_recipe_foundationmaterial_tablestone] DefInjected/RecipeDef/sd_bridges_RecipeDefs.xml :: sd_bridges_recipe_foundationmaterial_tablestone.description
+
+## RJW-体液-精液汇编（Cumpilation） (vegapnk.cumpilation)  (baddef=77 ph=0 badkey=0 xml=0)
+  [引用不存在 def: Cumpilation_Hediff_SlugCoverageController] DefInjected/HediffDef/SlugBukkake.xml :: Cumpilation_Hediff_SlugCoverageController.label
+  [引用不存在 def: Cumpilation_Hediff_SlugCoverageController] DefInjected/HediffDef/SlugBukkake.xml :: Cumpilation_Hediff_SlugCoverageController.description
+  [引用不存在 def: Cumpilation_Hediff_SlugCoverageController] DefInjected/HediffDef/SlugBukkake.xml :: Cumpilation_Hediff_SlugCoverageController.stages.minor.label
+  [引用不存在 def: Cumpilation_Hediff_SlugCoverageController] DefInjected/HediffDef/SlugBukkake.xml :: Cumpilation_Hediff_SlugCoverageController.stages.little.label
+  [引用不存在 def: Cumpilation_Hediff_SlugCoverageController] DefInjected/HediffDef/SlugBukkake.xml :: Cumpilation_Hediff_SlugCoverageController.stages.extensive.label
+  [引用不存在 def: Cumpilation_Hediff_SlugCoverageController] DefInjected/HediffDef/SlugBukkake.xml :: Cumpilation_Hediff_SlugCoverageController.stages.full.label
+  [引用不存在 def: Cumpilation_Hediff_Slugsplash] DefInjected/HediffDef/SlugBukkake.xml :: Cumpilation_Hediff_Slugsplash.label
+  [引用不存在 def: Cumpilation_Hediff_Slugsplash] DefInjected/HediffDef/SlugBukkake.xml :: Cumpilation_Hediff_Slugsplash.description
+  [引用不存在 def: Cumpilation_Hediff_Slugsplash] DefInjected/HediffDef/SlugBukkake.xml :: Cumpilation_Hediff_Slugsplash.labelNoun
+  [引用不存在 def: Cumpilation_Hediff_Slugsplash] DefInjected/HediffDef/SlugBukkake.xml :: Cumpilation_Hediff_Slugsplash.labelNounPretty
+  [引用不存在 def: Cumpilation_Hediff_Slugsplash] DefInjected/HediffDef/SlugBukkake.xml :: Cumpilation_Hediff_Slugsplash.stages.little.label
+  [引用不存在 def: Cumpilation_Hediff_Slugsplash] DefInjected/HediffDef/SlugBukkake.xml :: Cumpilation_Hediff_Slugsplash.stages.some.label
+
+## RJW-功能-色情商人 (shauaputa.lewdtrader)  (baddef=45 ph=0 badkey=0 xml=1)
+  [XML] DefInjected/HediffDef/Hediffs_PrivateParts_Misc.xml :: XML 解析失败: not well-formed (invalid token): line 17, column 100
+  [引用不存在 def: AttachRJW_DogCatPenis] DefInjected/RecipeDef/Recipes_Surgery.xml :: AttachRJW_DogCatPenis.label
+  [引用不存在 def: AttachRJW_DogCatPenis] DefInjected/RecipeDef/Recipes_Surgery.xml :: AttachRJW_DogCatPenis.description
+  [引用不存在 def: AttachRJW_DogCatPenis] DefInjected/RecipeDef/Recipes_Surgery.xml :: AttachRJW_DogCatPenis.jobString
+  [引用不存在 def: AttachRJW_FossaPenis] DefInjected/RecipeDef/Recipes_Surgery.xml :: AttachRJW_FossaPenis.label
+  [引用不存在 def: AttachRJW_FossaPenis] DefInjected/RecipeDef/Recipes_Surgery.xml :: AttachRJW_FossaPenis.description
+  [引用不存在 def: AttachRJW_FossaPenis] DefInjected/RecipeDef/Recipes_Surgery.xml :: AttachRJW_FossaPenis.jobString
+  [引用不存在 def: AttachRJW_HemiHuman] DefInjected/RecipeDef/Recipes_Surgery.xml :: AttachRJW_HemiHuman.label
+  [引用不存在 def: AttachRJW_HemiHuman] DefInjected/RecipeDef/Recipes_Surgery.xml :: AttachRJW_HemiHuman.description
+  [引用不存在 def: AttachRJW_HemiHuman] DefInjected/RecipeDef/Recipes_Surgery.xml :: AttachRJW_HemiHuman.jobString
+  [引用不存在 def: AttachRJW_OPHorsePenis] DefInjected/RecipeDef/Recipes_Surgery.xml :: AttachRJW_OPHorsePenis.label
+  [引用不存在 def: AttachRJW_OPHorsePenis] DefInjected/RecipeDef/Recipes_Surgery.xml :: AttachRJW_OPHorsePenis.description
+
+## 3454053400 (fxz.moelotlzombie.update)  (baddef=10 ph=27 badkey=0 xml=0)
+  [命名占位符 ['MOTHER_nameDef', 'MOTHER_pronoun']] Keyed/Messages.xml :: RiM.DeadBabyDesc
+  [占位符数不匹配] Keyed/Messages.xml :: RiM.BeastlyZombieProgressADesc
+  [命名占位符 ['PAWN_nameDef', 'PAWN_possessive', 'PAWN_pronoun']] Keyed/Messages.xml :: RiM.AteZombieTailDesc
+  [命名占位符 ['PAWN_nameDef', 'PAWN_pronoun']] Keyed/Messages.xml :: RiM.ZombieWorshipMoonDesc
+  [命名占位符 ['PAWN_nameDef', 'PAWN_pronoun']] Keyed/Messages.xml :: RiM.ZombieBegForFoodDesc
+  [命名占位符 ['PAWN_nameDef', 'PAWN_pronoun']] Keyed/Messages.xml :: RiM.ZombiePaintSkinDesc
+  [命名占位符 ['PAWN_nameDef', 'PAWN_pronoun']] Keyed/Messages.xml :: RiM.PaintSkinFailedDesc
+  [命名占位符 ['PAWN_nameDef', 'PAWN_pronoun']] Keyed/Messages.xml :: RiM.PaintSkinSuccessDesc
+  [命名占位符 ['PAWN_nameDef', 'PAWN_pronoun']] Keyed/Messages.xml :: RiM.GiveTaoistNameDesc
+  [命名占位符 ['PAWN_nameDef']] Keyed/Messages.xml :: RiM.TaoistNameDesc
+  [命名占位符 ['PAWN_nameDef', 'PAWN_possessive', 'PAWN_pronoun']] Keyed/Messages.xml :: RiM.ApprenticeLetterDesc
+  [占位符数不匹配] Keyed/Messages.xml :: RiM.ApprenticeLetterDetail
+
+## 2882927601 (temeez.floorlights2)  (baddef=23 ph=0 badkey=0 xml=0)
+  [引用不存在 def: Architect_Lamps] DefInjected/KeyBindingCategoryDef/KeyBindingCategories_Add_Architect.xml :: Architect_Lamps.label
+  [引用不存在 def: Architect_Lamps] DefInjected/KeyBindingCategoryDef/KeyBindingCategories_Add_Architect.xml :: Architect_Lamps.description
+  [引用不存在 def: FloorLightSquare_Blueprint] DefInjected/ThingDef/Building_Furniture.xml :: FloorLightSquare_Blueprint.label
+  [引用不存在 def: FloorLightSquare_Frame] DefInjected/ThingDef/Building_Furniture.xml :: FloorLightSquare_Frame.label
+  [引用不存在 def: FloorLightSquare_Frame] DefInjected/ThingDef/Building_Furniture.xml :: FloorLightSquare_Frame.description
+  [引用不存在 def: FloorLightStripe_Blueprint] DefInjected/ThingDef/Building_Furniture.xml :: FloorLightStripe_Blueprint.label
+  [引用不存在 def: FloorLightStripe_Frame] DefInjected/ThingDef/Building_Furniture.xml :: FloorLightStripe_Frame.label
+  [引用不存在 def: FloorLightStripe_Frame] DefInjected/ThingDef/Building_Furniture.xml :: FloorLightStripe_Frame.description
+  [引用不存在 def: FloorLightSmallStripe_Blueprint] DefInjected/ThingDef/Building_Furniture.xml :: FloorLightSmallStripe_Blueprint.label
+  [引用不存在 def: FloorLightSmallStripe_Frame] DefInjected/ThingDef/Building_Furniture.xml :: FloorLightSmallStripe_Frame.label
+  [引用不存在 def: FloorLightSmallStripe_Frame] DefInjected/ThingDef/Building_Furniture.xml :: FloorLightSmallStripe_Frame.description
+  [引用不存在 def: FloorLightPlus_Blueprint] DefInjected/ThingDef/Building_Furniture.xml :: FloorLightPlus_Blueprint.label
+
+## 3028740322 (dorely.emergencysurgery.cn)  (baddef=19 ph=0 badkey=0 xml=0)
+  [引用不存在 def: EmergencySurgery_SurgicalTrauma] DefInjected/HediffDef/EmergencySurgery.xml :: EmergencySurgery_SurgicalTrauma.label
+  [引用不存在 def: EmergencySurgery_SurgicalTrauma] DefInjected/HediffDef/EmergencySurgery.xml :: EmergencySurgery_SurgicalTrauma.description
+  [引用不存在 def: EmergencySurgery_SurgicalTrauma] DefInjected/HediffDef/EmergencySurgery.xml :: EmergencySurgery_SurgicalTrauma.comps.0.labelTendedWell
+  [引用不存在 def: EmergencySurgery_SurgicalTrauma] DefInjected/HediffDef/EmergencySurgery.xml :: EmergencySurgery_SurgicalTrauma.comps.0.labelTendedWellInner
+  [引用不存在 def: EmergencySurgery_SurgicalTrauma] DefInjected/HediffDef/EmergencySurgery.xml :: EmergencySurgery_SurgicalTrauma.stages.0.label
+  [引用不存在 def: EmergencySurgery_SurgicalTrauma] DefInjected/HediffDef/EmergencySurgery.xml :: EmergencySurgery_SurgicalTrauma.stages.1.label
+  [引用不存在 def: EmergencySurgery_SurgicalTrauma] DefInjected/HediffDef/EmergencySurgery.xml :: EmergencySurgery_SurgicalTrauma.stages.2.label
+  [引用不存在 def: EmergencySurgery_SurgicalTrauma] DefInjected/HediffDef/EmergencySurgery.xml :: EmergencySurgery_SurgicalTrauma.stages.3.label
+  [引用不存在 def: EmergencySurgery_SurgicalTrauma] DefInjected/HediffDef/EmergencySurgery.xml :: EmergencySurgery_SurgicalTrauma.stages.4.label
+  [引用不存在 def: EmergencySurgery_SurgicalTrauma] DefInjected/HediffDef/EmergencySurgery.xml :: EmergencySurgery_SurgicalTrauma.labelNoun
+  [引用不存在 def: EmergencySurgery_RemoveBodyPart] DefInjected/RecipeDef/EmergencySurgery.xml :: EmergencySurgery_RemoveBodyPart.label
+  [引用不存在 def: EmergencySurgery_RemoveBodyPart] DefInjected/RecipeDef/EmergencySurgery.xml :: EmergencySurgery_RemoveBodyPart.description
+
+## 3220299022 (nilchei.dynamicdiplomacycontinued)  (baddef=0 ph=11 badkey=0 xml=0)
+  [占位符数不匹配] Keyed/Incidents_NPC.xml :: DescRebellion
+  [占位符数不匹配] Keyed/Incidents_NPC.xml :: DescExpansion
+  [占位符数不匹配] Keyed/Incidents_NPC.xml :: DescDDProselytization
+  [占位符数不匹配] Keyed/Incidents_NPC.xml :: DescDDFoundation
+  [占位符数不匹配] Keyed/Incidents_NPC.xml :: DescConquestBattleStart
+  [占位符数不匹配] Keyed/Incidents_NPC.xml :: DescConquestBattleDefended
+  [占位符数不匹配] Keyed/LordJobAssaultFactionFirst.xml :: SrIrritateFaction
+  [占位符数不匹配] Keyed/LordJobAssaultFactionFirst.xml :: SrAssaultFactionVictory
+  [占位符数不匹配] Keyed/LordJobAssaultFactionFirst.xml :: SrClearBattlefiled
+  [占位符数不匹配] Keyed/LordJobShellFactionFirst.xml :: SrFactionShellBegin
+  [占位符数不匹配] Keyed/LordJobStageThenAssaultFactionFirst.xml :: SrFactionAssaultBegin
+
+## 3707497233 (leopoko.wolfeinallegiance)  (baddef=2 ph=8 badkey=0 xml=0)
+  [占位符数不匹配] Keyed/Keys.xml :: WA_HonorGained
+  [占位符数不匹配] Keyed/Keys.xml :: WA_SurvivalBonus
+  [占位符数不匹配] Keyed/Keys.xml :: WA_RewardHonorTip
+  [占位符数不匹配] Keyed/Keys.xml :: WA_RewardHonorChoosePawn
+  [占位符数不匹配] Keyed/Keys.xml :: WA_RewardHonorDesc
+  [占位符数不匹配] Keyed/Keys.xml :: WA_MC_Propaganda_Desc
+  [占位符数不匹配] Keyed/Keys.xml :: WA_MC_ShuttleDefense_Desc
+  [占位符数不匹配] Keyed/Keys.xml :: WA_Prep_MC_CommAdjust_Desc
+  [引用不存在 def: Wolfein_Faction_MegaCorp] DefInjected/FactionDef/Factions.xml :: Wolfein_Faction_MegaCorp.royalFavorLabel
+  [引用不存在 def: Wolfein_Faction_Rebel] DefInjected/FactionDef/Factions.xml :: Wolfein_Faction_Rebel.royalFavorLabel
+
+## 3622246013 (ariandel.rabiosus.funnelmilian)  (baddef=9 ph=0 badkey=0 xml=0)
+  [引用不存在 def: FunnelBit_DroneMobility] DefInjected/StatDef/Stats_FunnelBit.xml :: FunnelBit_DroneMobility.label
+  [引用不存在 def: FunnelBit_DroneMobility] DefInjected/StatDef/Stats_FunnelBit.xml :: FunnelBit_DroneMobility.description
+  [引用不存在 def: FunnelBit_DroneRangeOffset] DefInjected/StatDef/Stats_FunnelBit.xml :: FunnelBit_DroneRangeOffset.label
+  [引用不存在 def: FunnelBit_DroneRangeOffset] DefInjected/StatDef/Stats_FunnelBit.xml :: FunnelBit_DroneRangeOffset.description
+  [引用不存在 def: FunnelBit_DroneRechargeRate] DefInjected/StatDef/Stats_FunnelBit.xml :: FunnelBit_DroneRechargeRate.label
+  [引用不存在 def: FunnelBit_DroneRechargeRate] DefInjected/StatDef/Stats_FunnelBit.xml :: FunnelBit_DroneRechargeRate.description
+  [引用不存在 def: FunnelBit_SubProjectileDamageFactor] DefInjected/StatDef/Stats_FunnelBit.xml :: FunnelBit_SubProjectileDamageFactor.label
+  [引用不存在 def: FunnelBit_SubProjectileDamageFactor] DefInjected/StatDef/Stats_FunnelBit.xml :: FunnelBit_SubProjectileDamageFactor.description
+  [引用不存在 def: Bullet_Milira_FunnelBit_C] DefInjected/ThingDef/Projectile_ArsenalMilian_FunnelBit_C.xml :: Bullet_Milira_FunnelBit_C.label
+
+## 3625898554 (quartz.floorstoragetanks.zh)  (baddef=8 ph=0 badkey=0 xml=0)
+  [引用不存在 def: quartz_floorstoragetanks] DefInjected/XmlExtensions.SettingsMenuDef/UFSTSettingsMenuDef.xml :: quartz_floorstoragetanks.label
+  [引用不存在 def: quartz_floorstoragetanks] DefInjected/XmlExtensions.SettingsMenuDef/UFSTSettingsMenuDef.xml :: quartz_floorstoragetanks.settings.2.cachedText
+  [引用不存在 def: quartz_floorstoragetanks] DefInjected/XmlExtensions.SettingsMenuDef/UFSTSettingsMenuDef.xml :: quartz_floorstoragetanks.settings.2.text
+  [引用不存在 def: quartz_floorstoragetanks] DefInjected/XmlExtensions.SettingsMenuDef/UFSTSettingsMenuDef.xml :: quartz_floorstoragetanks.settings.6.cachedText
+  [引用不存在 def: quartz_floorstoragetanks] DefInjected/XmlExtensions.SettingsMenuDef/UFSTSettingsMenuDef.xml :: quartz_floorstoragetanks.settings.6.text
+  [引用不存在 def: quartz_floorstoragetanks] DefInjected/XmlExtensions.SettingsMenuDef/UFSTSettingsMenuDef.xml :: quartz_floorstoragetanks.settings.8.label
+  [引用不存在 def: quartz_floorstoragetanks] DefInjected/XmlExtensions.SettingsMenuDef/UFSTSettingsMenuDef.xml :: quartz_floorstoragetanks.settings.10.cachedText
+  [引用不存在 def: quartz_floorstoragetanks] DefInjected/XmlExtensions.SettingsMenuDef/UFSTSettingsMenuDef.xml :: quartz_floorstoragetanks.settings.10.text
+
+## RJW-基因-性技拓展（RJW Cumquer） (lw.rjw.cumquer)  (baddef=4 ph=0 badkey=0 xml=0)
+  [引用不存在 def: ForceLayDown] DefInjected/AbilityDef/Ability_Cumquer.xml :: ForceLayDown.label
+  [引用不存在 def: ForceLayDown] DefInjected/AbilityDef/Ability_Cumquer.xml :: ForceLayDown.description
+  [引用不存在 def: PsychicConquer] DefInjected/AbilityDef/Ability_Cumquer.xml :: PsychicConquer.label
+  [引用不存在 def: PsychicConquer] DefInjected/AbilityDef/Ability_Cumquer.xml :: PsychicConquer.description
+
+## RJW-文化-淫秽文化 (rjw.sexperience.ideology)  (baddef=3 ph=0 badkey=0 xml=0)
+  [引用不存在 def: Autobong_Aphrodisiac_Blueprint] DefInjected/ThingDef/Buildings_Ideo_sex.xml :: Autobong_Aphrodisiac_Blueprint.label
+  [引用不存在 def: Autobong_Aphrodisiac_Frame] DefInjected/ThingDef/Buildings_Ideo_sex.xml :: Autobong_Aphrodisiac_Frame.label
+  [引用不存在 def: Autobong_Aphrodisiac_Frame] DefInjected/ThingDef/Buildings_Ideo_sex.xml :: Autobong_Aphrodisiac_Frame.description
+
+## 3608181242 (cj.rimtalk.expandmemory)  (baddef=0 ph=3 badkey=0 xml=0)
+  [占位符数不匹配] Keyed/MemoryPatch.xml :: RimTalk_Memory_ImportConfirm
+  [占位符数不匹配] Keyed/MemoryPatch.xml :: RimTalk_Knowledge_VisibilityDeleted
+  [占位符数不匹配] Keyed/RimTalk_CommonKnowledge.xml :: RimTalk_Memory_AddToLayer
+
+## 3659064387 (cj.rimtalk.toddlers)  (baddef=0 ph=3 badkey=0 xml=0)
+  [命名占位符 ['TODDLER']] Keyed/RimTalk_ToddlersExpansion.xml :: RimTalk_ToddlersExpansion_ToddlerTumbleText
+  [命名占位符 ['PARTNER', 'TODDLER']] Keyed/RimTalk_ToddlersExpansion.xml :: RimTalk_ToddlersExpansion_ToddlerScuffleText
+  [命名占位符 ['PARTNER']] Keyed/RimTalk_ToddlersExpansion.xml :: RimTalk_ToddlersExpansion_PlayReport_MutualPrefix
+
+## 3612632140 (saltgin.rimtalkeventmemory)  (baddef=0 ph=3 badkey=0 xml=0)
+  [命名占位符 ['{context']] Keyed/RimTalkEventPlus_Settings.xml :: RimTalkEventPlus_AppendToContext
+  [命名占位符 ['{context']] Keyed/RimTalkEventPlus_Settings.xml :: RimTalkEventPlus_AppendToContext_Tooltip
+  [命名占位符 ['{eventplus_all', '{eventplus_conditions', '{eventplus_location', '{eventplus_quests']] Keyed/RimTalkEventPlus_Settings.xml :: RimTalkEventPlus_AppendToContext_Desc
+
+## 2013476665 (nephlite.orbitaltradecolumn)  (baddef=2 ph=0 badkey=0 xml=0)
+  [引用不存在 def: ClaymoreBomb] DefInjected/DamageDef/Damages.xml :: ClaymoreBomb.label
+  [引用不存在 def: ClaymoreBomb] DefInjected/DamageDef/Damages.xml :: ClaymoreBomb.deathMessage
+
+## 3551203752 (cj.rimtalk)  (baddef=0 ph=2 badkey=0 xml=0)
+  [命名占位符 ['{chat.history', '{context', '{json.format', '{prompt']] Keyed/Translation_ChineseSimplified.xml :: RimTalk.Settings.SimpleModeTip
+  [命名占位符 ['{ ... ', '{ else ', '{ end ', '{ for need in pawn.needs.AllNeeds ']] Keyed/Translation_ChineseSimplified.xml :: RimTalk.Settings.AdvancedHelpContent
+
+## RJW-玩法-SexSlaveCraft-星怒工艺-2.2.8（修仪式后等级变为0的bug） (rjw.sexslavecraft)  (baddef=0 ph=2 badkey=0 xml=0)
+  [命名占位符 ['MASTER']] Keyed/SSC_Schedule.xml :: SSC_RimTalk_DefaultInterrupt
+  [命名占位符 ['ACT', 'MASTER', 'SLAVE', 'TARGET']] Keyed/SSC_Settings.xml :: SSC_Setting_RimTalkInterruptTemplate_Desc
+
+## RJW_玩法_SM道具+炮机 (rimworld.ekss.rjwex)  (baddef=0 ph=0 badkey=0 xml=1)
+  [XML] DefInjected/ThingDef/Items_Plugs_Inflatable.xml :: XML 解析失败: not well-formed (invalid token): line 14, column 56
+
+## RJW-玩法-爱神触手Amor-tentaculum-main (castle.tentaclecults)  (baddef=0 ph=0 badkey=0 xml=1)
+  [XML] DefInjected/ThoughtDef/ThoughtQueen.xml :: XML 解析失败: not well-formed (invalid token): line 178, column 95
+
+## RJW-功能-裸体评价 (dord.nuditymattersmore)  (baddef=0 ph=0 badkey=0 xml=1)
+  [XML] DefInjected/TraitDef/Traits_Singular.xml :: XML 解析失败: not well-formed (invalid token): line 5, column 59
+
+## 3540066516 (trigger.universalblueprints)  (baddef=0 ph=1 badkey=0 xml=0)
+  [占位符数不匹配] Keyed/PrefabProject.xml :: ProjectionPlacedAsBlueprints
+
+## 3543624873 (temeez.floorlights2.youchenzh)  (baddef=1 ph=0 badkey=0 xml=0)
+  [引用不存在 def: Architect_Lamps] DefInjected/KeyBindingCategoryDef/KeyBindingCategories_Add_Architect.xml :: Architect_Lamps.description
+
+## RJW_文化玩法_隐私意识 (abscon.privacy.please)  (baddef=1 ph=0 badkey=0 xml=0)
+  [引用不存在 def: li] DefInjected/InteractionDef/InteractionDefs.xml :: li
+
+## 3701968323 (trigger.ceoocplan)  (baddef=0 ph=1 badkey=0 xml=0)
+  [命名占位符 ['PAWN_nameDef']] Keyed/President_Name.xml :: CEO_ArrivalJoinedText
+
+## RJW_Onahole色情束缚家具 (rim.job.world.onahole.ext)  (baddef=0 ph=1 badkey=0 xml=0)
+  [命名占位符 ['PAWN_labelShort']] Keyed/Keyed.xml :: RJW_Onahole_CaptiveDissolving

@@ -20,6 +20,7 @@
 | 卡顿 / GUI 性能剖析 | [performance-and-gui.md](performance-and-gui.md) |
 | 新建 C# mod 的骨架与日志模板 | [project-templates.md](project-templates.md) |
 | 发布 / 软链接 / 工坊红线 | [publishing-and-release.md](publishing-and-release.md) |
+| 查游戏机制/数值、找 wiki 外部资料 | [wiki-sources.md](wiki-sources.md) |
 
 ## 索引与数据
 
