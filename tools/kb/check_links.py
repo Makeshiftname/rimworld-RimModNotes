@@ -60,12 +60,15 @@ def check_mod_numbers(problems: list[str], warnings: list[str]) -> None:
     mods = json.loads(kb.INDEX_JSON.read_text(encoding="utf-8"))
     seen: dict[str, list[str]] = {}
     for m in mods:
-        seen.setdefault(m["number"], []).append(m["dir"])
-    for num, dirs in sorted(seen.items()):
+        # number is unique within a category (自建/收集 each start at 01)
+        key = (m.get("category", ""), m["number"])
+        seen.setdefault(key, []).append(m["dir"])
+    for key, dirs in sorted(seen.items()):
         if len(dirs) > 1:
-            # Duplicate numbering is a known repo fact (55 appears twice); it is
-            # reported as a warning, not a hard failure.
-            warnings.append(f"duplicate mod number {num}: {', '.join(dirs)}")
+            # Duplicate numbering within a category is reported as a warning,
+            # not a hard failure (kept for forward-compat with any future dup).
+            cat, num = key
+            warnings.append(f"duplicate mod number [{cat} {num}]: {', '.join(dirs)}")
 
 
 def main() -> int:

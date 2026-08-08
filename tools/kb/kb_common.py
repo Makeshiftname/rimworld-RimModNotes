@@ -15,6 +15,10 @@ MOD_DIR_RE = re.compile(r"^\d+[-_]")
 NUMBER_RE = re.compile(r"^(\d+)")
 VERSION_DIR_RE = re.compile(r"^1\.\d+$")
 
+# 两级分类：大类（自建/收集）+ 功能前缀（与 mod-index Type 一致）
+CATEGORY_DIRS = ("自建", "收集")
+FUNC_PREFIX_RE = re.compile(r"^(standalone|patch|xml|translation|lib|empty|special)[-_]")
+
 # Markers that identify the GitHub template placeholder README
 TEMPLATE_MARKERS = [
     "Rimworld Mod Template Monodevelop and Linux",
@@ -32,12 +36,14 @@ MANUAL_END = "<!-- MANUAL-END -->"
 
 
 def mod_dirs() -> list[Path]:
-    """Return top-level mod directories (named NN-xxx), sorted by name."""
-    return sorted(
-        (p for p in REPO_ROOT.iterdir()
-         if p.is_dir() and MOD_DIR_RE.match(p.name)),
-        key=lambda p: p.name,
-    )
+    """Return all mod directories under the 自建/ and 收集/ category folders."""
+    dirs = []
+    for cat in CATEGORY_DIRS:
+        cat_dir = REPO_ROOT / cat
+        if cat_dir.is_dir():
+            dirs.extend(p for p in cat_dir.iterdir()
+                        if p.is_dir() and MOD_DIR_RE.match(p.name))
+    return sorted(dirs, key=lambda p: p.name)
 
 
 def _child_text(elem: ET.Element, tag: str) -> str:
@@ -119,7 +125,10 @@ def probe_mod(mod_dir: Path) -> dict:
     """Collect structural facts about one mod directory."""
     m = NUMBER_RE.match(mod_dir.name)
     number = m.group(1) if m else ""
-    title = NUMBER_RE.sub("", mod_dir.name, count=1).lstrip("-_ ") or mod_dir.name
+    title = FUNC_PREFIX_RE.sub(
+        "", NUMBER_RE.sub("", mod_dir.name, count=1).lstrip("-_ "), count=1
+    ) or mod_dir.name
+    category = mod_dir.parent.name if mod_dir.parent.name in CATEGORY_DIRS else ""
 
     about_top = mod_dir / "About" / "About.xml"
     about_backup = mod_dir / "backup" / "About" / "About.xml"
@@ -168,6 +177,7 @@ def probe_mod(mod_dir: Path) -> dict:
 
     mod = {
         "dir": mod_dir.name,
+        "category": category,
         "number": number,
         "title": title,
         "has_about": has_about,
@@ -192,11 +202,12 @@ def probe_mod(mod_dir: Path) -> dict:
 
 
 def classify(mod: dict) -> tuple[str, str]:
-    """Heuristic type classification. Confidence: high/medium/low.
-
-    Patch vs standalone is ambiguous from structure alone; verify manually
-    (the manual section of mod-index.md is the source of truth).
-    """
+    """Type classification. Directory func prefix (自建/收集/NN-功能-名称) is
+    the authoritative source (conf=high); fall back to heuristics otherwise."""
+    stem = NUMBER_RE.sub("", mod["dir"], count=1).lstrip("-_ ")
+    m = FUNC_PREFIX_RE.match(stem)
+    if m:
+        return m.group(1), "high"
     if not mod.get("has_about") and not mod.get("in_backup"):
         return "empty", "high"
     dirname = mod["dir"].lower()

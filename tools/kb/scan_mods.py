@@ -45,7 +45,15 @@ def build_markdown(mods: list[dict]) -> str:
     lines.append("")
     lines.append("## 统计")
     lines.append("")
-    lines.append(f"- Mod 总数：**{len(mods)}**（编号 01–78，55 重复出现）")
+    cat_stats = {}
+    for m in mods:
+        c = m.get("category", "")
+        cat_stats[c] = cat_stats.get(c, 0) + 1
+    lines.append(
+        f"- Mod 总数：**{len(mods)}**（"
+        + "、".join(f"`{c}` × {n}" for c, n in sorted(cat_stats.items(), key=lambda x: x[1], reverse=True))
+        + "）"
+    )
     lines.append(
         "- 类型分布：" + "、".join(f"`{t}` × {c}" for t, c in sorted(stats.items()))
     )
@@ -56,15 +64,16 @@ def build_markdown(mods: list[dict]) -> str:
     lines.append("## 索引表")
     lines.append("")
     lines.append(
-        "| # | Mod | Type | Versions | C# | 翻 | Doc | Tst | Pub | README |"
+        "| # | 类 | Mod | Type | Versions | C# | 翻 | Doc | Tst | Pub | README |"
     )
     lines.append(
-        "|---|-----|------|----------|----|----|-----|-----|-----|--------|"
+        "|---|----|-----|------|----------|----|----|-----|-----|-----|--------|"
     )
     for m in mods:
         vers = ",".join(m["versions"]) or ("backup" if m["in_backup"] else "-")
         lines.append(
-            f"| {m['number']} | {m['title']} | {type_label(m['type'], m['type_conf'])} "
+            f"| {m['number']} | {m.get('category', '')} | {m['title']} | "
+            f"{type_label(m['type'], m['type_conf'])} "
             f"| {vers} | {tick(m['has_csharp'])} | {tick(m['has_languages'])} "
             f"| {tick(m['has_docs'])} | {tick(m['has_tests'])} "
             f"| {tick(m['has_publisher_plus'])} | {m['readme_status']} |"
@@ -157,15 +166,17 @@ def main() -> int:
     warn = []
     seen = {}
     for m in mods:
-        seen.setdefault(m["number"], []).append(m["dir"])
+        # number is unique within a category (自建/收集 each start at 01)
+        key = (m.get("category", ""), m["number"])
+        seen.setdefault(key, []).append(m["dir"])
         if m["readme_status"] == "missing" and not m["in_backup"]:
             warn.append(f"  no README: {m['dir']}")
         author = (m.get("author") or "").strip()
         if author and "runningbugs" not in author.lower():
             warn.append(f"  third-party author: {m['dir']} ({author})")
-    for num, dirs in seen.items():
+    for key, dirs in seen.items():
         if len(dirs) > 1:
-            warn.append(f"  duplicate number {num}: {dirs}")
+            warn.append(f"  duplicate number {key}: {dirs}")
     empties = [m["dir"] for m in mods if m["type"] == "empty"]
     if empties:
         warn.append(f"  empty mod dirs: {empties}")
