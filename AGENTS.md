@@ -1,11 +1,11 @@
 # AGENTS.md — RimWorld Modding 仓库
 
-本仓库是个人 RimWorld modding 学习作品集：**83 个 mod 目录**——`收集/` 82 个（收集的他人 mod，重编 `01–82`，目录名带功能前缀）+ `自建/` 1 个（RunningBugs 原创，编号从 `01` 起）。
-除 `自建/` 外均为**收集/学习的他人 mod，不宜改动 mod 本体**（含 About.xml 内容/C#/Defs）；作者 RunningBugs，`packageId` 前缀 `RunningBugs.*`，MIT 许可。
+本仓库是个人 RimWorld modding 学习作品集：**83 个 mod 目录**——`收集/` 82 个（收集的他人 mod，重编 `01–82`，目录名带功能前缀）+ `自建/` 1 个（**仓库主本人原创**，编号从 `01` 起）。
+仓库以 [RunningBugs/rimworld-RimModNotes](https://github.com/RunningBugs/rimworld-RimModNotes) 为基础 fork 搭建；除 `自建/` 外均为**收集/学习的他人 mod，不宜改动 mod 本体**（含 About.xml 内容/C#/Defs）；`packageId` 前缀 `RunningBugs.*`，MIT 许可。
 
 ## 仓库结构
 
-- 两级分类：`自建/`（RunningBugs 原创可发布）、`收集/`（收集的他人 mod）；目录名 `NN-功能-名称`，
+- 两级分类：`自建/`（仓库主本人原创可发布）、`收集/`（收集的他人 mod）；目录名 `NN-功能-名称`，
   功能前缀 = standalone/patch/xml/translation/lib/empty/special（与 mod-index Type 一致）。
   每个 mod 内含 `About/About.xml`、版本目录（`1.4/` `1.5/` `1.6/`）、`Common/`（跨版本共享）、
   `Source/`（C#）、`Languages/`、`docs/`、`Tests/` 等。

@@ -1,4 +1,4 @@
-# ⭐ 自建原创 mod · RunningBugs
+# ⭐ 自建原创 mod · 仓库主本人
 
 > **三重自建标注**：位于 `自建/` 大类目录（`NN-功能-名称`）/ 本 README 顶部徽标 / `mod-index.md` MANUAL 段「自建 mod」小节。
 > 与 `收集/80-standalone-RimTalk`、`收集/81-patch-RimTalkExpandMemory`、`收集/82-patch-HautsAddedTraits` 等**第三方收录**（克隆收藏）明确区分。

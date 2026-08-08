@@ -164,7 +164,7 @@
 - **18-translation-HakuroXenohumanZh / 44-standalone-NotSoManyPolicies / 21-patch-ArmorRacksForceWearFix / 63-standalone-PawnNotBlockingConstruct**：残留 `namespace Template` 或模板 Harmony id（63 是 `com.RunningBugs.Test`）。
 - **38-patch-DeepStorageContentsTabSearchPatch**：About 漏声明 `brrainz.harmony` 依赖（代码实际需要）。
 - **28-patch-AllowToolGhoulFix**：无编译产物——「假 C# 壳 + 真 XML patch」。
-- **53-patch-AllowTunnelersToDrillFork**：非 RunningBugs 原创（fork），临时 1.6 版，原 mod 更新后删除。
+- **53-patch-AllowTunnelersToDrillFork**：非仓库主本人原创（fork 第三方 Porio），临时 1.6 版，原 mod 更新后删除。
 - **50-standalone-RACurseStandalone**：About 声称「可配置只对殖民者」但设置未接入 UI。
 - **51-patch-RACursePatch**：`RASL.dll` 已提交但未被 csproj 引用（残留）。
 
@@ -175,7 +175,7 @@
 - 2026-08-08 两级分类目录重构：`自建/`、`收集/` 大类 + `NN-功能-名称`，收集类重编 01–82、自建类从 01 起；工具链 `kb_common.py` 已适配。
 - 后续新增/修改 mod 时按 `docs/knowledge/CONTRIBUTING.md` 的更新流程维护。
 
-### 7. 第三方收录（克隆收藏，非 RunningBugs 原创）
+### 7. 第三方收录（克隆收藏，非仓库主本人原创）
 
 - **80-standalone-RimTalk** — 独立功能 mod（AI 对话；启发式因依赖 `Jaxe.Bubbles` 误判为 `patch`，实际非 patch）。原作者 juicy（jlibrary），<https://github.com/jlibrary/RimTalk>，commit `df80ade`，许可 **CC BY-NC-SA 4.0**（非商用）。详情见 `收集/80-standalone-RimTalk/README.md`。
 - **81-patch-RimTalkExpandMemory** — RimTalk 的记忆扩展（四层记忆/常识库/记忆时间线）。原作者 SANGUO（sanguodxj-byte），<https://github.com/sanguodxj-byte/RimTalk-ExpandMemory>，commit `ae1d0a4`，⚠️ **无 LICENSE 文件**（作者未明确授权，仅本地学习、勿发布）。详情见 `收集/81-patch-RimTalkExpandMemory/README.md`。
@@ -184,12 +184,12 @@
 - 注：32（special）/ 43（standalone）为**合作作者**（author 含 RunningBugs），非纯第三方。
 - 添加第三方 mod 流程：克隆到 `收集/NN-功能-名称` 目录 → 保留 `LICENSE` 与 `<author>`（原作者）→ 写收藏版 README（来源+许可+学习点）→ `scan_mods.py` 刷新（检测到 `third-party author` 警告属预期）→ `check_links.py` 验收。
 
-### 8. 自建 mod（RunningBugs 原创 · 可实际使用）
+### 8. 自建 mod（仓库主本人原创 · 可实际使用）
 
 - **自建/01-xml-RimTalkPersonaTraits** — 轻量级角色扮演向特质包：10 个「对话人设」特质（性格/说话风格/嗜好），
   0 数值、纯描述、纯 XML（无 C#），描述专为 RimTalk 提示词注入优化（`{PAWN_...}` 占位符 + 写明说话方式/话题）。
   packageId `RunningBugs.RimTalkPersonaTraits`，1.6，中文翻译见 `Languages/`。
   `自建/` 大类目录 + README 顶部徽标 + 本小节 = 与第三方收录/学习类 mod 区分的**三重自建标注**。
   详情见 `自建/01-xml-RimTalkPersonaTraits/README.md`。
-- 后续新建可实际使用的 RunningBugs 原创 mod，放进 `自建/` 大类（`NN-功能-名称`），并在本小节登记。
+- 后续新建可实际使用的原创 mod，放进 `自建/` 大类（`NN-功能-名称`），并在本小节登记。
 <!-- MANUAL-END -->

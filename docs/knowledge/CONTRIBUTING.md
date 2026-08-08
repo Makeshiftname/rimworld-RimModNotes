@@ -29,7 +29,7 @@ tools/kb/                   # 工具链（Python 标准库）
 ## 更新场景 checklist
 
 ### A. 新增一个 mod
-0. 放入正确大类目录：`自建/`（RunningBugs 原创可发布）或 `收集/`（收集的他人 mod）；
+0. 放入正确大类目录：`自建/`（仓库主本人原创可发布）或 `收集/`（收集的他人 mod）；
    目录名 `NN-功能-名称`，功能前缀 = standalone/patch/xml/translation/lib/empty/special（按类型定，编号在大类内唯一）
 1. `python tools/kb/scan_mods.py` —— 刷新索引元数据段 + `kb-index.json`
 2. `python tools/kb/scan_mods.py --check` —— 确认新增项进入变更报告
