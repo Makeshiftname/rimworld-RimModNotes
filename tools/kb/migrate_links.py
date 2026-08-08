@@ -62,15 +62,48 @@ def iter_md_files() -> list[Path]:
     return files
 
 
-def rewrite_text(text: str, rows: list[dict]) -> tuple[str, int]:
-    """替换正文里的旧目录名（NN-名称）为新路径（大类/NN-功能-名称）。"""
+def rewrite_text(text: str, rows: list[dict], md_path: Path | None = None) -> tuple[str, int]:
+    """替换正文里的旧目录名（NN-名称）为新路径（大类/NN-功能-名称）。
+
+    保护游戏安装路径（`/Mods/NN-名称` / `\\Mods\\NN-名称`）不被误改；
+    对带 `../` 相对前缀的引用按新位置重算相对路径（md 位于新目录结构下）。
+    """
     items = sorted(rows, key=lambda r: len(r["old"]), reverse=True)
     count = 0
+    # 1) 保护游戏安装路径中的旧目录名（Mods/<NN-名称>）
+    ph: dict[str, str] = {}
+
+    def _protect(m: re.Match) -> str:
+        k = f"@@MODS_PH{len(ph)}@@"
+        ph[k] = m.group(2)          # 只存 old 部分（不含 Mods/ 前缀）
+        return m.group(1) + k
+
+    for r in items:
+        old = r["old"]
+        # 前缀是 Mods/（游戏安装路径）即保护，不要求 old 后有特定分隔符
+        #（路径后可能是反引号/中文标点/行尾）
+        text = re.sub(
+            r"((?:^|[/\\\\])Mods[/\\\\])(" + re.escape(old) + r")",
+            _protect, text,
+        )
+    # 2) 主替换（相对路径重算 / 普通替换）
     for r in items:
         old, new = r["old"], r["new_dir"]
-        if old in text:
-            count += text.count(old)
-            text = text.replace(old, new)
+        pat = re.compile(r"((?:\.\./)*)" + re.escape(old))
+
+        def _repl(m: re.Match) -> str:
+            nonlocal count
+            count += 1
+            prefix = m.group(1)
+            if prefix and md_path is not None:
+                rel = os.path.relpath((REPO_ROOT / new).resolve(), md_path.parent).replace("\\", "/")
+                return rel
+            return new
+
+        text = pat.sub(_repl, text)
+    # 3) 恢复被保护的游戏路径
+    for k, v in ph.items():
+        text = text.replace(k, v)
     return text, count
 
 
@@ -82,19 +115,25 @@ def main() -> None:
     total_files, total_links = 0, 0
 
     if text_mode:
-        # 正文旧目录名替换（不处理 mod-index.md，其 MANUAL 段人工维护）
+        # 正文旧目录名替换（不处理 mod-index.md，其 MANUAL 段人工维护；
+        # 覆盖 AGENTS、docs/knowledge 与所有 mod 内 md）
         targets = []
         agents = REPO_ROOT / "AGENTS.md"
         if agents.exists():
             targets.append(agents)
         targets.extend(sorted(p for p in (REPO_ROOT / "docs" / "knowledge").glob("*.md")
                               if p.name != "mod-index.md"))
+        for cat in ("自建", "收集"):
+            cat_dir = REPO_ROOT / cat
+            if cat_dir.is_dir():
+                targets.extend(p for p in cat_dir.rglob("*.md")
+                               if not any(part.startswith(".") for part in p.relative_to(REPO_ROOT).parts))
         for path in targets:
             try:
                 text = path.read_text(encoding="utf-8", errors="replace")
             except OSError:
                 continue
-            new_text, count = rewrite_text(text, rows)
+            new_text, count = rewrite_text(text, rows, path)
             if count:
                 total_files += 1
                 total_links += count
