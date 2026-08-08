@@ -1,4 +1,4 @@
-# ⭐ 自建原创 mod · 仓库主本人
+# ⭐ 自建 mod · Makeshiftname
 
 > **三重自建标注**：位于 `自建/` 大类目录（`NN-功能-名称`）/ 本 README 顶部徽标 / `mod-index.md` MANUAL 段「自建 mod」小节。
 > 与 `收集/80-standalone-RimTalk`、`收集/81-patch-RimTalkExpandMemory`、`收集/82-patch-HautsAddedTraits` 等**第三方收录**（克隆收藏）明确区分。
@@ -28,18 +28,18 @@ Traits: gossip:{PAWN_nameDef} is always the first to hear...
 
 ## 特质清单（10 个，初始定稿，可细调）
 
-| defName / label | 中文名 | 类型 | 对话钩子 |
-|---|---|---|---|
-| `RB_Gossip` / gossip | 八卦精 | 性格 | 爱打听、主动聊他人近况 |
-| `RB_Dramatic` / dramatic | 戏精 | 性格 | 戏剧化独白、夸张措辞 |
-| `RB_Raconteur` / raconteur | 说书人 | 说话风格 | 长篇叙事、把日常讲成传奇 |
-| `RB_Taciturn` / taciturn | 寡言 | 说话风格 | 极简短句、开口即点睛 |
-| `RB_Pedant` / pedant | 字面人 | 说话风格 | 抠定义、纠正措辞、字面理解 |
-| `RB_TeaConnoisseur` / tea connoisseur | 茶道爱好者 | 嗜好 | 以茶会友、品评生活细节 |
-| `RB_Angler` / angler | 钓鱼佬 | 嗜好 | 「跑掉的那条鱼」式吹牛 |
-| `RB_Stargazer` / stargazer | 观星者 | 嗜好 | 星空哲思、深夜有感 |
-| `RB_Daydreamer` / daydreamer | 白日梦者 | 性格 | 幻想跑偏、话题神游 |
-| `RB_Curmudgeon` / curmudgeon | 老牢骚 | 性格 | 刀子嘴豆腐心、毒舌吐槽 |
+| defName / label                         | 中文名     | 类型     | 对话钩子                   |
+| --------------------------------------- | ---------- | -------- | -------------------------- |
+| `RB_Gossip` / gossip                  | 八卦精     | 性格     | 爱打听、主动聊他人近况     |
+| `RB_Dramatic` / dramatic              | 戏精       | 性格     | 戏剧化独白、夸张措辞       |
+| `RB_Raconteur` / raconteur            | 说书人     | 说话风格 | 长篇叙事、把日常讲成传奇   |
+| `RB_Taciturn` / taciturn              | 寡言       | 说话风格 | 极简短句、开口即点睛       |
+| `RB_Pedant` / pedant                  | 字面人     | 说话风格 | 抠定义、纠正措辞、字面理解 |
+| `RB_TeaConnoisseur` / tea connoisseur | 茶道爱好者 | 嗜好     | 以茶会友、品评生活细节     |
+| `RB_Angler` / angler                  | 钓鱼佬     | 嗜好     | 「跑掉的那条鱼」式吹牛     |
+| `RB_Stargazer` / stargazer            | 观星者     | 嗜好     | 星空哲思、深夜有感         |
+| `RB_Daydreamer` / daydreamer          | 白日梦者   | 性格     | 幻想跑偏、话题神游         |
+| `RB_Curmudgeon` / curmudgeon          | 老牢骚     | 性格     | 刀子嘴豆腐心、毒舌吐槽     |
 
 - 全部 `commonality` = 1.0、degree 0、**无数值/thought/mentalState**。
 - 内部冲突：`Taciturn` 与 `Gossip` / `Raconteur` / `Dramatic` 互斥（说话风格矛盾）。
