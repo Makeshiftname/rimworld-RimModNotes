@@ -44,6 +44,31 @@
 - **构建**：`cd <版本>/Source && dotnet build -c Release`，产物 DLL 随源码提交。
 - **日志**：复用 `Logger.cs` 骨架（`Log.Message/Warning/Error` 自动带调用位置）。
 
+## 技能与 RAG 检索约定（2026-08-08）
+
+**RAGnarōk 本地 RAG（零外部依赖、全离线）**：RimWorld 知识库问题
+（Harmony 补丁 / XML Defs / 翻译 / 跨版本 / 性能等）**优先用 `ragQuery` 工具查
+topic `Rimworld KB`**，命中后再作答；该 topic 内容 = `docs/knowledge/`（72 chunks，
+新增文档后需在扩展侧重新索引）。显式说"用 RAG 查 X"即强制触发。
+
+**常用 skill 触发约定**（安装于 `~/.agents/skills/`，显式点名即强制触发；
+mattpocock 系多数需先跑一次 `/setup-matt-pocock-skills`）：
+
+| 任务 | skill | 触发语 |
+|---|---|---|
+| 调研外部资料（灰机 wiki/官方 docs/一手来源）并落盘 findings 到仓库 | `research` | "研究/调研 X" |
+| 排查难缠 bug / 性能回归 | `diagnosing-bugs` | "诊断/调试 X" |
+| 测试先行开发（Python 白盒 / C# 单测） | `tdd` | "red-green-refactor / 加测试" |
+| 审查改动（自建 mod、PR、分支） | `code-review` | "review 改动/分支" |
+| 压测新 mod 功能设计决策 | `grilling` | "压测/挑战我的方案" |
+| C# 模块/接口深度设计 | `codebase-design` | "设计这个模块/接口" |
+| 重构规划（拆小步 + GitHub issue） | `request-refactor-plan` | "规划重构" |
+| 快速原型验证补丁/逻辑思路 | `prototype` | "做个原型验证" |
+| 合并上游/fork 冲突 | `resolving-merge-conflicts` | 遇到合并冲突时 |
+
+> 原则：skill 按需触发（模型读 frontmatter 描述判断），**显式点名最可靠**；
+> RAGnarōk 是函数工具（`ragQuery`），命中主题即可直接调用。
+
 ## 维护知识库（当新增/修改 mod 时）
 
 工具链在 `tools/kb/`（纯 Python 标准库），完整流程见
