@@ -3293,5 +3293,88 @@
     ],
     "type": "patch",
     "type_conf": "high"
+  },
+  {
+    "dir": "85-patch-RimTalkStyleExpand",
+    "category": "收集",
+    "number": "85",
+    "title": "RimTalkStyleExpand",
+    "has_about": true,
+    "in_backup": false,
+    "package_id": "RimTalk.StyleExpand",
+    "name": "RimTalk StyleExpand",
+    "author": "NUOQI_P",
+    "supported_versions": [
+      "1.5",
+      "1.6"
+    ],
+    "deps": [
+      "brrainz.harmony",
+      "cj.rimtalk"
+    ],
+    "load_after": [
+      "brrainz.harmony",
+      "cj.rimtalk"
+    ],
+    "description": "RimTalk文风扩展模块 — 让对话呈现任意写作风格。 【功能】 用户提供文风素材（小说片段等），MOD自动分析并在对话生成时注入风格特征。支持语义切分、向量检索、LLM文风分析。 【使用】 将文风素材(.txt)放入Styles文件夹，配置Embedding API（推荐Ollama），在设置中扫描并切分文风即可。推荐使用「生成文风描述」功能以获得最佳效果。 【依赖与排序】 需要RimTalk和Harmony，加载顺序置于RimTalk之后。 交流群：1076958977",
+    "versions": [
+      "1.5",
+      "1.6"
+    ],
+    "has_common": false,
+    "has_csharp": true,
+    "cs_count": 18,
+    "has_languages": true,
+    "has_docs": false,
+    "has_tests": false,
+    "has_publisher_plus": false,
+    "has_loadfolders": false,
+    "has_loadfolders_bak": false,
+    "has_agents": false,
+    "readme_status": "ok",
+    "notes_files": [
+      "收集/85-patch-RimTalkStyleExpand/README_EN.md",
+      "收集/85-patch-RimTalkStyleExpand/README_UPSTREAM.md"
+    ],
+    "type": "patch",
+    "type_conf": "high"
+  },
+  {
+    "dir": "86-patch-RimTalkDynamicColors",
+    "category": "收集",
+    "number": "86",
+    "title": "RimTalkDynamicColors",
+    "has_about": true,
+    "in_backup": false,
+    "package_id": "Maiya.RimTalkDynamicColors",
+    "name": "RimTalk DynamicColors 边缘世谭-言出多彩",
+    "author": "Maiya0126",
+    "supported_versions": [
+      "1.6"
+    ],
+    "deps": [],
+    "load_after": [
+      "brrainz.harmony",
+      "Jaxe.Bubbles",
+      "cj.rimtalk"
+    ],
+    "description": "[b]RimTalk DynamicColors (言出多彩)[/b] A tailored enhancement mod for RimTalk and Interaction Bubbles. 专为 RimTalk 打造的沉浸式色彩增强模组。 [b]✨ All features can be toggled freely in Mod Settings.[/b] [b]✨ 所有功能均可在 Mod 设置里自由开关。[/b] [h1]⚠️ Load Order / 加载顺序[/h1] 1. Harmony 2. Interaction Bubbles 3. RimTalk 4. [b]RimTalk DynamicColors[/b] (This Mod) [h1]Features / 功能[/h1] [b]1. Dynamic Character Colors (角色专属色)[/b] Set custom colors for specific pawns. Supports Ideology \"Favorite Color\" auto-apply. 为角色设置专属颜色，支持自动应用文化DLC的“最爱颜色”。 [b]2. Immersive Actions (沉浸式动作)[/b] Text inside brackets (), **, [] will be dimmed or italicized to distinguish actions from speech. 括号内的动作描写会自动变暗或变为斜体。 [b]3. Bubbles Sync (气泡同步)[/b] All colors and styles sync perfectly to Interaction Bubbles! 所有颜色特效完美同步显示在头顶气泡中！ [b]4. History & Export (历史与导出)[/b] View chat history in-game and export to TXT or HTML files. 内置历史记录查看器，支持导出为 TXT 或 HTML（带颜色）文件。 [h1]New Items / 新增物品[/h1] Craftable at Crafting Spot: [b]🍬 Rainbow Candy:[/b] Makes your speech rainbow-colored! (说话变成动态彩虹色) [b]💊 B&W Pill:[/b] Makes speech high-contrast black & white. (说话变成黑白风格) [b]🍵 Clear Soup:[/b] Removes color effects. (清除特效) [h1]FAQ[/h1] [b]Error: \"Json deserialization failed\"?[/b] This is caused by the AI model generating bad data, not this mod. Please ignore it. 这是AI模型偶尔抽风输出错误格式导致的，不是Mod的问题，请直接忽略。 [h1]Recommended Mod / 推荐模组[/h1] [b]RimTuber 环主播[/b] (by Maiya0126) — Turn your colonists into live-streamers and watch them stream, chat, raid, and build a followership on an in-game platform! Perfect paired with RimTalk for an immersive livestream chat experience. [b]RimTuber 环主播[/b] (作者:Maiya0126) — 让殖民地小人成为主播，在游戏内直播、聊天、互动！与 RimTalk 搭配体验沉浸式直播聊天。 Workshop: steam://url/CommunityFilePage/3723552881",
+    "versions": [],
+    "has_common": false,
+    "has_csharp": true,
+    "cs_count": 1,
+    "has_languages": true,
+    "has_docs": false,
+    "has_tests": false,
+    "has_publisher_plus": false,
+    "has_loadfolders": false,
+    "has_loadfolders_bak": false,
+    "has_agents": false,
+    "readme_status": "ok",
+    "notes_files": [
+      "收集/86-patch-RimTalkDynamicColors/README_UPSTREAM.md"
+    ],
+    "type": "patch",
+    "type_conf": "high"
   }
 ]

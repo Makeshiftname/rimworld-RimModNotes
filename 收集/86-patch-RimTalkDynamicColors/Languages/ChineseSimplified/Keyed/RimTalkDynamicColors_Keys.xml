@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<RTDC_ModName>RimTalk DynamicColors 边缘世谭-言出多彩</RTDC_ModName>
+	<RTDC_SettingsTitle>RimTalk DynamicColors 边缘世谭-言出多彩</RTDC_SettingsTitle>
+	<RTDC_EnableNativeBubbleSupport>原生气泡支持</RTDC_EnableNativeBubbleSupport>
+	<RTDC_HangIndentHistory>记录窗悬挂缩进</RTDC_HangIndentHistory>
+	<RTDC_HangIndentHistoryDesc>开启后，记录窗中每句话的首行从名字右侧开始，换行时回卷到名字左端对齐，阅读更整洁。默认开启。</RTDC_HangIndentHistoryDesc>
+	<RTDC_HangIndentOverlay>悬浮窗悬挂缩进</RTDC_HangIndentOverlay>
+	<RTDC_HangIndentOverlayDesc>开启后，RimTalk 悬浮窗中对话首行从名字右侧开始，换行时回卷到悬浮窗最左端全宽，对话内容不再被挤在狭窄的右侧列中。默认开启。</RTDC_HangIndentOverlayDesc>
+	<RTDC_EnableNativeBubbleSupportDesc>开启后，会自动为 RimTalk 自带的原生对话气泡（v1.2.6+）应用染色，无需区分旧版 Interaction Bubbles 与原生气泡。默认开启。</RTDC_EnableNativeBubbleSupportDesc>
+
+	<RTDC_HistoryTab>言出多彩记录窗</RTDC_HistoryTab>
+	<RTDC_ChatHistoryViewer>聊天记录查看器</RTDC_ChatHistoryViewer>
+
+	<RTDC_BufferStatus>缓存状态: {0}/{1}</RTDC_BufferStatus>
+	<RTDC_QuickAutoExport>满额自动导出</RTDC_QuickAutoExport>
+	<RTDC_QuickAutoExportTip>启用后，当记录达到200条上限时，会自动导出HTML文件到本地并清空缓存。\n若关闭，达到上限时将直接清空而不保存。</RTDC_QuickAutoExportTip>
+
+	<RTDC_BasicSettings>基础设置</RTDC_BasicSettings>
+	<RTDC_HistorySettings>历史记录设置</RTDC_HistorySettings>
+	<RTDC_EnableMod>启用 Mod 功能</RTDC_EnableMod>
+	<RTDC_EnableModDesc>如果关闭，所有文本染色和替换功能将停止。</RTDC_EnableModDesc>
+	<RTDC_ShowHistoryTab>显示底部历史记录标签页</RTDC_ShowHistoryTab>
+	<RTDC_ShowHistoryTabDesc>在屏幕下方的主按钮栏显示"Chat Log"标签。</RTDC_ShowHistoryTabDesc>
+	<RTDC_AutoExportHistory>历史记录已满自动导出</RTDC_AutoExportHistory>
+	<RTDC_AutoExportHistoryDesc>当记录达到上限(200条)时，自动保存HTML文件到指定目录。</RTDC_AutoExportHistoryDesc>
+	<RTDC_ShowAvatarInHistory>在记录窗显示角色头像</RTDC_ShowAvatarInHistory>
+	<RTDC_EnableBubblesSync>同步气泡 Mod (Bubbles) 颜色</RTDC_EnableBubblesSync>
+	<RTDC_EnableBubblesSyncDesc>尝试对 Interaction Bubbles 产生的气泡进行染色。</RTDC_EnableBubblesSyncDesc>
+	<RTDC_BubblesNotDetected>未检测到 Bubbles Mod</RTDC_BubblesNotDetected>
+	<RTDC_EnableRimTalkNameColoring>RimTalk 名字染色</RTDC_EnableRimTalkNameColoring>
+	<RTDC_EnableRimTalkNameColoringDesc>将 RimTalk 聊天框左侧的名字进行染色。</RTDC_EnableRimTalkNameColoringDesc>
+	<RTDC_EnableChatColoring>RimTalk 内容染色</RTDC_EnableChatColoring>
+	<RTDC_EnableChatColoringDesc>将聊天内容中的关键词、动作描述进行染色。</RTDC_EnableChatColoringDesc>
+	<RTDC_OpenHistoryWindow>打开独立历史记录窗口</RTDC_OpenHistoryWindow>
+	<RTDC_OpenHistoryWindowDesc>打开一个可拖动的窗口来查看聊天记录。</RTDC_OpenHistoryWindowDesc>
+	<RTDC_ColorRules>色彩规则</RTDC_ColorRules>
+	<RTDC_EnableForPrisoners>囚犯</RTDC_EnableForPrisoners>
+	<RTDC_EnableForSlaves>奴隶</RTDC_EnableForSlaves>
+	<RTDC_EnableForGuests>访客</RTDC_EnableForGuests>
+	<RTDC_EnableForFriendlies>盟友</RTDC_EnableForFriendlies>
+	<RTDC_EnableForEnemies>敌人</RTDC_EnableForEnemies>
+	<RTDC_EnableForNonHumans>非人类 (动物/机械)</RTDC_EnableForNonHumans>
+	<RTDC_SelectNonHumanColor>非人类颜色</RTDC_SelectNonHumanColor>
+	<RTDC_UseFactionColor>使用派系颜色</RTDC_UseFactionColor>
+	<RTDC_UseFactionColorDesc>优先使用该角色所属派系的代表色。</RTDC_UseFactionColorDesc>
+	<RTDC_AutoFavColor>使用最爱颜色</RTDC_AutoFavColor>
+	<RTDC_AutoFavColorDesc>如果角色设定了最爱颜色(DLC)，优先使用它。</RTDC_AutoFavColorDesc>
+	<RTDC_AutoApplyBold>同时应用加粗</RTDC_AutoApplyBold>
+	<RTDC_StyleSettings>样式设置</RTDC_StyleSettings>
+	<RTDC_EnableSelfTalkColor>动作/心理活动染色 (*...*)</RTDC_EnableSelfTalkColor>
+	<RTDC_SelectSelfTalkColor>选择动作颜色</RTDC_SelectSelfTalkColor>
+	<RTDC_Bold>加粗</RTDC_Bold>
+	<RTDC_SelfTalkItalic>斜体</RTDC_SelfTalkItalic>
+	<RTDC_EnableKaomojiColoring>颜文字染色 (>_&lt;)</RTDC_EnableKaomojiColoring>
+	<RTDC_SelectKaomojiColor>选择颜文字颜色</RTDC_SelectKaomojiColor>
+	<RTDC_EnableRainbow>彩虹文字特效</RTDC_EnableRainbow>
+	<RTDC_EnableRainbowDesc>启用“喝了彩虹汤”后的动态彩虹字效果。</RTDC_EnableRainbowDesc>
+	<RTDC_EnableBW>黑白文字特效</RTDC_EnableBW>
+	<RTDC_EnableBWDesc>启用“喝了墨水汤”后的黑白字效果。</RTDC_EnableBWDesc>
+	<RTDC_DrinkSoup>喝了解药汤，文字恢复正常了。</RTDC_DrinkSoup>
+	<RTDC_DataManage>数据管理</RTDC_DataManage>
+	<RTDC_ManageNames>自定义名字颜色</RTDC_ManageNames>
+	<RTDC_ManageKeywords>自定义关键词颜色</RTDC_ManageKeywords>
+	<RTDC_Add>添加</RTDC_Add>
+	<RTDC_ImportColonists>导入当前殖民者</RTDC_ImportColonists>
+	<RTDC_ClearNames>清空名字</RTDC_ClearNames>
+	<RTDC_ClearAll>清空所有数据</RTDC_ClearAll>
+	<RTDC_Cleared>数据已清空</RTDC_Cleared>
+	<RTDC_ImportDone>导入完成</RTDC_ImportDone>
+	<RTDC_HistoryInfo>这里显示最近的对话记录。</RTDC_HistoryInfo>
+	<RTDC_ExportPathSetting>导出路径设置</RTDC_ExportPathSetting>
+	<RTDC_SetPath>设置路径</RTDC_SetPath>
+	<RTDC_OpenFolder>打开文件夹</RTDC_OpenFolder>
+	<RTDC_ResetPath>重置默认</RTDC_ResetPath>
+	<RTDC_CurrentPathLabel>当前:</RTDC_CurrentPathLabel>
+	<RTDC_PathInvalid>路径无效或不存在。</RTDC_PathInvalid>
+	<RTDC_LogTools>记录工具</RTDC_LogTools>
+	<RTDC_CopyPlain>复制(纯文本)</RTDC_CopyPlain>
+	<RTDC_CopyRich>复制(带格式)</RTDC_CopyRich>
+	<RTDC_ExportTxt>导出 TXT</RTDC_ExportTxt>
+	<RTDC_ExportHtml>导出 HTML</RTDC_ExportHtml>
+	<RTDC_Copied>已复制到剪贴板。</RTDC_Copied>
+	<RTDC_NoLogFound>暂无记录可导出。</RTDC_NoLogFound>
+	<RTDC_AutoExportMsg>记录已满，自动导出至: {0}</RTDC_AutoExportMsg>
+	<RTDC_ExportSuccess>导出成功: {0}</RTDC_ExportSuccess>
+	<RTDC_SelectColor>选择颜色</RTDC_SelectColor>
+	<RTDC_Alpha>透明度</RTDC_Alpha>
+	<RTDC_Preview>预览 Preview</RTDC_Preview>
+	<RTDC_Reset>重置</RTDC_Reset>
+	<RTDC_BracketStyleSettings>自定义符号样式</RTDC_BracketStyleSettings>
+	<RTDC_BracketStyleDesc>为特定符号对内的文本设置独立颜色和样式。优先级高于默认动作染色和颜文字染色。\n例如：添加「 」用于心声，添加~ ~用于动作。</RTDC_BracketStyleDesc>
+	<RTDC_ClearBracketStyles>清空符号样式</RTDC_ClearBracketStyles>
+	<RTDC_Italic>斜体</RTDC_Italic>
+	<RTDC_ShowDirectionalArrow>显示对话指向箭头</RTDC_ShowDirectionalArrow>
+	<RTDC_ShowDirectionalArrowDesc>在 RimTalk Overlay 聊天窗口中显示指向箭头。新版 RimTalk 已原生集成箭头显示，建议保持关闭；旧版 RimTalk 建议打开。</RTDC_ShowDirectionalArrowDesc>
+	<RTDC_EnableRelationEffects>启用关系动态特效</RTDC_EnableRelationEffects>
+	<RTDC_EnableRelationEffectsDesc>当说话者与听众有特定关系（夫妻/恋人 ❤、宿敌/仇人 ☠、挚友 ★）时，在名字前显示状态徽章。</RTDC_EnableRelationEffectsDesc>
+	<RTDC_ShowDirectionalArrowHistory>历史记录窗显示指向箭头</RTDC_ShowDirectionalArrowHistory>
+	<RTDC_ShowDirectionalArrowHistoryDesc>在对话记录窗口以及 TXT/HTML 导出中显示指向箭头，独立于上方主箭头开关，默认开启。</RTDC_ShowDirectionalArrowHistoryDesc>
+	<RTDC_ModVersionLabel>RimTalk DynamicColors v{0}</RTDC_ModVersionLabel>
+	<RTDC_ShowDirectionalArrowVertical>纵向箭头布局</RTDC_ShowDirectionalArrowVertical>
+	<RTDC_ShowDirectionalArrowVerticalDesc>当上方主指向箭头开启时，将人名纵向排列显示为 [A-&gt; 换行 B]，避免长名字侵占对话宽度；关闭则用单行 [A -&gt; B]。仅当主箭头开关开启时本项才可见。</RTDC_ShowDirectionalArrowVerticalDesc>
+</LanguageData>

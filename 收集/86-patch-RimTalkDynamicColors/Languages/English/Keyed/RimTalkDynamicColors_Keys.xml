@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<RTDC_ModName>RimTalk DynamicColors</RTDC_ModName>
+	<RTDC_SettingsTitle>RimTalk DynamicColors</RTDC_SettingsTitle>
+	<RTDC_EnableNativeBubbleSupport>Native Bubble Support</RTDC_EnableNativeBubbleSupport>
+	<RTDC_HangIndentHistory>History Hanging Indent</RTDC_HangIndentHistory>
+	<RTDC_HangIndentHistoryDesc>When enabled, the first line of each message starts after the name, and wrapped lines align back to the name's left edge for cleaner reading. Enabled by default.</RTDC_HangIndentHistoryDesc>
+	<RTDC_HangIndentOverlay>Overlay Hanging Indent</RTDC_HangIndentOverlay>
+	<RTDC_HangIndentOverlayDesc>When enabled, dialogue in RimTalk's overlay starts after the name on the first line, and wrapped lines align back to the left edge across full width rather than being cramped in a narrow column. Enabled by default.</RTDC_HangIndentOverlayDesc>
+	<RTDC_EnableNativeBubbleSupportDesc>When enabled, coloring is automatically applied to RimTalk's built-in native speech bubbles (v1.2.6+), so you don't need to tell apart old Interaction Bubbles from native bubbles. Enabled by default.</RTDC_EnableNativeBubbleSupportDesc>
+
+	<RTDC_HistoryTab>DynamicColors Chat Log</RTDC_HistoryTab>
+	<RTDC_ChatHistoryViewer>Chat History Viewer</RTDC_ChatHistoryViewer>
+
+	<RTDC_BufferStatus>Buffer: {0}/{1}</RTDC_BufferStatus>
+	<RTDC_QuickAutoExport>Auto Export (Max)</RTDC_QuickAutoExport>
+	<RTDC_QuickAutoExportTip>If checked, log will be auto-exported to HTML when the 200 limit is reached.\nIf unchecked, the log will simply be cleared without saving.</RTDC_QuickAutoExportTip>
+
+	<RTDC_BasicSettings>Basic Settings</RTDC_BasicSettings>
+	<RTDC_HistorySettings>History Settings</RTDC_HistorySettings>
+	<RTDC_EnableMod>Enable Mod</RTDC_EnableMod>
+	<RTDC_EnableModDesc>Toggle all coloring features on or off.</RTDC_EnableModDesc>
+	<RTDC_ShowHistoryTab>Show History Tab</RTDC_ShowHistoryTab>
+	<RTDC_ShowHistoryTabDesc>Show 'Chat Log' tab in the main button bar.</RTDC_ShowHistoryTabDesc>
+	<RTDC_AutoExportHistory>Auto Export History</RTDC_AutoExportHistory>
+	<RTDC_AutoExportHistoryDesc>Automatically export log to HTML when limit (200) is reached.</RTDC_AutoExportHistoryDesc>
+	<RTDC_ShowAvatarInHistory>Show Avatar in History</RTDC_ShowAvatarInHistory>
+	<RTDC_EnableBubblesSync>Sync Bubbles Color</RTDC_EnableBubblesSync>
+	<RTDC_EnableBubblesSyncDesc>Apply colors to Interaction Bubbles mod.</RTDC_EnableBubblesSyncDesc>
+	<RTDC_BubblesNotDetected>Bubbles Mod Not Detected</RTDC_BubblesNotDetected>
+	<RTDC_EnableRimTalkNameColoring>Color RimTalk Names</RTDC_EnableRimTalkNameColoring>
+	<RTDC_EnableRimTalkNameColoringDesc>Colorize names in the RimTalk dialog box.</RTDC_EnableRimTalkNameColoringDesc>
+	<RTDC_EnableChatColoring>Color Chat Content</RTDC_EnableChatColoring>
+	<RTDC_EnableChatColoringDesc>Colorize keywords and actions in chat.</RTDC_EnableChatColoringDesc>
+	<RTDC_OpenHistoryWindow>Open History Window</RTDC_OpenHistoryWindow>
+	<RTDC_OpenHistoryWindowDesc>Open a floating window to view chat logs.</RTDC_OpenHistoryWindowDesc>
+	<RTDC_ColorRules>Color Rules</RTDC_ColorRules>
+	<RTDC_EnableForPrisoners>Prisoners</RTDC_EnableForPrisoners>
+	<RTDC_EnableForSlaves>Slaves</RTDC_EnableForSlaves>
+	<RTDC_EnableForGuests>Guests</RTDC_EnableForGuests>
+	<RTDC_EnableForFriendlies>Friendlies</RTDC_EnableForFriendlies>
+	<RTDC_EnableForEnemies>Enemies</RTDC_EnableForEnemies>
+	<RTDC_EnableForNonHumans>Non-Humans (Animals/Mechs)</RTDC_EnableForNonHumans>
+	<RTDC_SelectNonHumanColor>Non-Human Color</RTDC_SelectNonHumanColor>
+	<RTDC_UseFactionColor>Use Faction Color</RTDC_UseFactionColor>
+	<RTDC_UseFactionColorDesc>Prioritize using the pawn's faction color.</RTDC_UseFactionColorDesc>
+	<RTDC_AutoFavColor>Use Favorite Color</RTDC_AutoFavColor>
+	<RTDC_AutoFavColorDesc>Use pawn's favorite color (DLC) if available.</RTDC_AutoFavColorDesc>
+	<RTDC_AutoApplyBold>Also Apply Bold</RTDC_AutoApplyBold>
+	<RTDC_StyleSettings>Style Settings</RTDC_StyleSettings>
+	<RTDC_EnableSelfTalkColor>Color Actions/Thoughts (*...*)</RTDC_EnableSelfTalkColor>
+	<RTDC_SelectSelfTalkColor>Action Color</RTDC_SelectSelfTalkColor>
+	<RTDC_Bold>Bold</RTDC_Bold>
+	<RTDC_SelfTalkItalic>Italic</RTDC_SelfTalkItalic>
+	<RTDC_EnableKaomojiColoring>Color Kaomoji (>_&lt;)</RTDC_EnableKaomojiColoring>
+	<RTDC_SelectKaomojiColor>Kaomoji Color</RTDC_SelectKaomojiColor>
+	<RTDC_EnableRainbow>Rainbow Effect</RTDC_EnableRainbow>
+	<RTDC_EnableRainbowDesc>Enable animated rainbow text status effect.</RTDC_EnableRainbowDesc>
+	<RTDC_EnableBW>Black &amp; White Effect</RTDC_EnableBW>
+	<RTDC_EnableBWDesc>Enable black and white text status effect.</RTDC_EnableBWDesc>
+	<RTDC_DrinkSoup>drank the clear soup and text returned to normal.</RTDC_DrinkSoup>
+	<RTDC_DataManage>Data Management</RTDC_DataManage>
+	<RTDC_ManageNames>Custom Name Colors</RTDC_ManageNames>
+	<RTDC_ManageKeywords>Custom Keywords</RTDC_ManageKeywords>
+	<RTDC_Add>Add</RTDC_Add>
+	<RTDC_ImportColonists>Import Colonists</RTDC_ImportColonists>
+	<RTDC_ClearNames>Clear Names</RTDC_ClearNames>
+	<RTDC_ClearAll>Clear All Data</RTDC_ClearAll>
+	<RTDC_Cleared>Data Cleared</RTDC_Cleared>
+	<RTDC_ImportDone>Import Done</RTDC_ImportDone>
+	<RTDC_HistoryInfo>Displaying recent conversation logs.</RTDC_HistoryInfo>
+	<RTDC_ExportPathSetting>Export Path</RTDC_ExportPathSetting>
+	<RTDC_SetPath>Set Path</RTDC_SetPath>
+	<RTDC_OpenFolder>Open Folder</RTDC_OpenFolder>
+	<RTDC_ResetPath>Reset Default</RTDC_ResetPath>
+	<RTDC_CurrentPathLabel>Current:</RTDC_CurrentPathLabel>
+	<RTDC_PathInvalid>Path is invalid or does not exist.</RTDC_PathInvalid>
+	<RTDC_LogTools>Log Tools</RTDC_LogTools>
+	<RTDC_CopyPlain>Copy (Text)</RTDC_CopyPlain>
+	<RTDC_CopyRich>Copy (Rich)</RTDC_CopyRich>
+	<RTDC_ExportTxt>Export TXT</RTDC_ExportTxt>
+	<RTDC_ExportHtml>Export HTML</RTDC_ExportHtml>
+	<RTDC_Copied>Copied to clipboard.</RTDC_Copied>
+	<RTDC_NoLogFound>No logs to export.</RTDC_NoLogFound>
+	<RTDC_AutoExportMsg>Log full, auto-exported to: {0}</RTDC_AutoExportMsg>
+	<RTDC_ExportSuccess>Export success: {0}</RTDC_ExportSuccess>
+	<RTDC_SelectColor>Select Color</RTDC_SelectColor>
+	<RTDC_Alpha>Alpha</RTDC_Alpha>
+	<RTDC_Preview>Preview</RTDC_Preview>
+	<RTDC_Reset>Reset</RTDC_Reset>
+	<RTDC_BracketStyleSettings>Custom Bracket Styles</RTDC_BracketStyleSettings>
+	<RTDC_BracketStyleDesc>Set independent color and style for text inside specific symbol pairs. Higher priority than default action/kaomoji styling.\ne.g. Add 「 」for inner thoughts, ~ ~for actions.</RTDC_BracketStyleDesc>
+	<RTDC_ClearBracketStyles>Clear Bracket Styles</RTDC_ClearBracketStyles>
+	<RTDC_Italic>Italic</RTDC_Italic>
+	<RTDC_ShowDirectionalArrow>Show Directional Arrow</RTDC_ShowDirectionalArrow>
+	<RTDC_ShowDirectionalArrowDesc>Show arrow-to-recipient on the RimTalk Overlay chat. New RimTalk already renders this natively, so keep OFF. Legacy RimTalk users should turn ON.</RTDC_ShowDirectionalArrowDesc>
+	<RTDC_EnableRelationEffects>Enable Relation Effects</RTDC_EnableRelationEffects>
+	<RTDC_EnableRelationEffectsDesc>Show a relationship status badge (Lover ❤, Rival ☠, Friend ★) in front of the name when specific relationships exist between speaker and recipient.</RTDC_EnableRelationEffectsDesc>
+	<RTDC_ShowDirectionalArrowHistory>Show Directional Arrow in History / Exports</RTDC_ShowDirectionalArrowHistory>
+	<RTDC_ShowDirectionalArrowHistoryDesc>Show the [Speaker ➔ Recipient] arrow in the history window and TXT/HTML exports, independent of the main arrow toggle. ON by default.</RTDC_ShowDirectionalArrowHistoryDesc>
+	<RTDC_ShowDirectionalArrowVertical>Vertical Arrow Layout</RTDC_ShowDirectionalArrowVertical>
+	<RTDC_ShowDirectionalArrowVerticalDesc>When the main directional arrow is ON, stack names vertically as [A-&gt; newline B] so long names don't compress the chat width. OFF = single-line [A -&gt; B]. Only visible when the main arrow toggle is enabled.</RTDC_ShowDirectionalArrowVerticalDesc>
+	<RTDC_ModVersionLabel>RimTalk DynamicColors v{0}</RTDC_ModVersionLabel>
+</LanguageData>
