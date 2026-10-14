@@ -168,7 +168,129 @@ LongEventHandler.ExecuteWhenFinished(() =>
 两个要点：**回调里必须重新校验对象有效性**（地图会没了），以及**预热类逻辑整段包 try/catch**——
 84 号的注释写着 "Prewarm is optional; never let it interfere with gameplay"，单个任务失败只 `Log.Warning`。
 
-## 8. 相关文件
+## 8. Transpiler：替换调用点的参数来源（86 号范式）
+
+目标方法签名不能改、又不想要 postfix 拿到结果再回写时，可以**改 IL：在某个 `call` 指令前插入一条
+自己的调用**，让栈顶的参数被换掉。86 号的 `Patch_CommonTranspiler` 是本仓库目前最干净的范例：
+
+```csharp
+var methodLabel    = AccessTools.Method(typeof(Widgets), nameof(Widgets.Label),
+                                       new Type[] { typeof(Rect), typeof(string) });
+var methodColorize = AccessTools.Method(typeof(DynamicColorMod),
+                                       nameof(DynamicColorMod.ColorizeStringForBubbles));
+foreach (var instruction in instructions)
+{
+    if (instruction.Calls(methodLabel))
+        yield return new CodeInstruction(OpCodes.Call, methodColorize);
+    yield return instruction;   // ← 原指令保留，让它照常执行
+}
+```
+
+`ColorizeStringForBubbles(string) → string` 执行时，IL 栈顶正好是待显示的字符串：它弹出、染色、
+再压回，**栈深度不变**，原来那条 `call Widgets.Label` 自然就拿到了富文本版本。
+
+三条硬性要求：
+
+1. **替换函数的签名必须与原调用的参数类型逐一对应**（此处 `string → string`），
+   否则栈会失衡，运行时抛 `InvalidProgramException`。
+2. **必须按完整重载签名锁定目标**：`AccessTools.Method(..., new[]{typeof(Rect), typeof(string)})`
+   只命中 `Label(Rect, string)`，`Label(Rect, string, GUIStyle)` 不受影响。
+3. **带 transpiler 的补丁通常只能手工挂载**：目标类型来自第三方、编译期不可知，
+   拿不到可用于 `[HarmonyPatch(typeof(X), ...)]` 的类型引用。86 号的
+   `Patch_CommonTranspiler` **没有 `[HarmonyPatch]` 特性**，而是在
+   `TryPatchInteractionBubbles()` 里显式
+   `harmony.Patch(drawMethod, transpiler: new HarmonyMethod(typeof(Patch_CommonTranspiler), "Transpiler"))`。
+   这与第 4 节的「启动期装配」是同一个动作，只是多了 transpiler 参数。
+
+对比第 3 节的常用技巧：**postfix 改 `__result` 是「事后修」，transpiler 换参数是「事前换」**。
+需要在原方法内部逻辑之前就改变输入时，才值得付 transpiler 的复杂度与脆弱性。
+
+## 9. 对接第三方公共 API：确定性 ID + upsert 注册（85 号范式）
+
+给 RimTalk 这类提供公共 API 的 mod 注册内容时，最容易写出「每次启动都多一条」的 bug。
+85 号的 `RimTalkAPIIntegration` 是标准解法，两个部件缺一不可：
+
+**① 确定性 ID —— 两边算出的值必须一致**
+
+```csharp
+// 优先用对方提供的生成器，保证与对方内部的 ID 规则对齐
+var generate = _promptEntryType.GetMethod("GenerateDeterministicId",
+                                          BindingFlags.Public | BindingFlags.Static);
+if (generate != null) return (string)generate.Invoke(null, new object[] { modId, name });
+
+// 兜底：本地规则 sanitize（. - 空格 → _），并保证兜底规则本身跨启动稳定
+return $"mod_{modId.Replace(".", "_").Replace("-", "_").Replace(" ", "_")}_{name.Replace(" ", "_")}";
+```
+
+**② upsert —— 先查后写**
+
+```csharp
+var existing = preset.GetType().GetMethod("GetEntry")?.Invoke(preset, new object[] { entryId });
+if (existing != null) { SetProperty(existing, "Content", NewContent); return; }  // 只更新，不重建
+// 没有才 Activator.CreateInstance 新建，再按名插入到锚点之后
+```
+
+这样「首次创建」与「更新模板文本」走同一条幂等路径，重开游戏不会重复堆积条目。
+若再配一个静态 `_initialized` 标志（85 号的 `Initialize()` 开头就判一次），就同时防住了
+同一次启动内的重复执行。参见第 6 节的「一次性迁移 + 幂等标志」。
+
+配套的两个反射技巧：
+
+- **属性/字段双通道写入**：对方可能把 public 字段改成属性（或反过来），
+  `SetProperty()` 先试 `GetProperty(name).CanWrite`，失败再退 `GetField(name)`——改哪个都不炸。
+- **装配体靠 AppDomain 遍历发现**：`<Private>false</Private>` 引用的第三方 DLL 不随本 mod 复制，
+  编译期类型引用在运行时不可用，只能
+  `AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == "RimTalk")`。
+  详见 [cross-version-structure.md](cross-version-structure.md)。
+
+## 10. 编译期引用第三方 DLL ≠ 编译期使用其类型（85 号反面教材）
+
+85 号的 csproj **确实** `<Reference Include="RimTalk">` 了，但补丁层全部写成：
+
+```csharp
+[HarmonyPatch("RimTalk.Prompt.PromptManager", "BuildMessages")]      // 字符串定位
+public static bool BuildMessagesPrefix(object __instance, object talkRequest, ...)  // 参数按 object
+```
+
+**好处是 RimTalk 内部改名/重构时 mod 仍能加载，只是功能静默降级**，
+而不是在 `PatchAll()` 抛异常炸掉整个 mod（一个坏补丁拖垮整个列表，参见 83 号的
+`[HarmonyPrepare]` 兜底）。85 号用一个总闸把降级收口：
+
+```csharp
+public static bool IsRimTalkAvailable() => _talkRequestType != null && _promptManagerType != null;
+// 每个补丁最外层第一句先判启用与能力，缺目标就原样放行：
+if (!StyleExpandSettings.Instance?.IsEnabled ?? true) return true;
+```
+
+**降级要降在补丁最外层，不要散落到每个功能分支里。**
+
+⚠️ 代价同样真实：85 号的 `BuildMessagesPostfix` 用 `GetField("Item1")/GetField("Item2")` 反射读写
+`ValueTuple` 元素、再经索引器写回 `List<T>`——**能改，但极脆**，RimTalk 换成 class 或改名就静默失效，
+外面包着 try/catch 只打 Warning。这类「反射改泛型集合元素」的代码应视为临时手段。
+
+## 11. 结构未知时的自适应字段发现（86 号）
+
+目标类字段名完全不可知、但**类型**已知时，可以按类型扫出来用。86 号找 Interaction Bubbles
+里「谁在说、谁在听」的两个 Pawn 字段：
+
+```csharp
+foreach (var field in AccessTools.GetDeclaredFields(targetType))
+    if (field.FieldType == typeof(Pawn)) BubblePawnFields.Add(field);
+// 取用约定：第一个 = 说话者，第二个 = 接收者
+```
+
+比硬编码字段名更耐改版，但**依赖字段声明顺序**——对方调换顺序就静默取错人。
+配一个静态 `List<FieldInfo>` 缓存 + 幂等标志，只在首次探测时扫一次。
+配套的还有 §11 之前的双通道 mod 探测（83 号范式，见
+[publishing-and-release.md 第 5 节](publishing-and-release.md)）：
+
+```csharp
+bool active = ModLister.GetActiveModWithIdentifier("Jaxe.Bubbles") != null;      // 精确
+if (!active) active = ModLister.AllInstalledMods
+                        .Any(x => x.Active && x.Name.Contains("Interaction Bubbles"));  // 名称兜底
+```
+
+## 12. 相关文件
 
 - 启动/装配样板：`收集/01-standalone-AlertUtility/1.4/Source/AlertUtility.cs`
 - 图标补丁：`收集/01-standalone-AlertUtility/1.4/Source/TimerSetWindow.cs`
@@ -177,7 +299,10 @@ LongEventHandler.ExecuteWhenFinished(() =>
 - 缓存失效补丁组：`收集/84-patch-RimTalkEventPlus/Source/RimTalkEventMemory/Quest_CacheInvalidation_Patches.cs`
 - `TargetMethods()` 整族发现 + `__state` 上下文对象：`收集/84-patch-RimTalkEventPlus/Source/RimTalkEventMemory/ThreatCapture.cs`
 - 长事件延后预热：`收集/84-patch-RimTalkEventPlus/Source/RimTalkEventMemory/Map_FinalizeInit_OngoingEventsDump_Patch.cs`
-- 学习笔记：`收集/01-standalone-AlertUtility/README.md`、`收集/55-patch-CommonModCompatibilityPatches/AGENTS.md`、`收集/84-patch-RimTalkEventPlus/README.md`
+- 字符串定位 + `object` 签名 + 能力总闸：`收集/85-patch-RimTalkStyleExpand/Source/Patches/RimTalkPatches.cs`
+- 确定性 ID + upsert 注册 + 双通道属性写入：`收集/85-patch-RimTalkStyleExpand/Source/API/RimTalkAPIIntegration.cs`
+- Transpiler 换参数 + 自适应字段发现 + 帧号哨兵：`收集/86-patch-RimTalkDynamicColors/Source/RimTalkDynamicColors.cs`
+- 学习笔记：`收集/01-standalone-AlertUtility/README.md`、`收集/55-patch-CommonModCompatibilityPatches/AGENTS.md`、`收集/84-patch-RimTalkEventPlus/README.md`、`收集/85-patch-RimTalkStyleExpand/README.md`、`收集/86-patch-RimTalkDynamicColors/README.md`
 
 ## 相关主题
 

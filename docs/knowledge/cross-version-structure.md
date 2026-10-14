@@ -73,6 +73,60 @@ cd 1.6/Source && dotnet build -c Release
 **没有任何 1.5 分支**。核对时要看三处是否一致：
 `supportedVersions` × 实际输出目录 × 实际编译引用（csproj 里引用的游戏 mod DLL 路径）。
 
+### 更好的做法：一份 csproj 模板化出两个版本（85 号）
+
+85 号是目前本仓库最干净的多版本工程：
+
+```xml
+<PropertyGroup>
+  <GameVersion Condition=" '$(GameVersion)' == '' ">1.5</GameVersion>   <!-- 可被命令行覆盖 -->
+</PropertyGroup>
+<PropertyGroup>
+  <OutputPath>..\$(GameVersion)\Assemblies</OutputPath>                    <!-- 输出跟随版本 -->
+</PropertyGroup>
+```
+
+```bash
+dotnet build -c Release -p:GameVersion=1.5   # → ../1.5/Assemblies/
+dotnet build -c Release -p:GameVersion=1.6   # → ../1.6/Assemblies/
+```
+
+关键配套是 `Krafs.Rimworld.Ref` 的版本号也引用同一个变量：
+
+```xml
+<PackageReference Include="Krafs.Rimworld.Ref" Version="$(GameVersion).*-*" PrivateAssets="All" />
+```
+
+**声明、输出、引用三者都由 `$(GameVersion)` 串起来，天然不会脱节。**
+
+⚠️ 反例就在同一个文件里：`<Reference Include="RimTalk"><HintPath>..\..\RimTalk-main\1.5\Assemblies\RimTalk.dll</HintPath>`
+**把第三方依赖的路径写死成 1.5**，所以 `-p:GameVersion=1.6` 编出来的仍是 1.5 的 RimTalk.dll。
+**模板化必须同时覆盖输出路径和引用路径**，只做一半反而更隐蔽——目录名对了，依赖却是旧的。
+
+### 引用第三方 mod 的 DLL：`Private=false` 是必须的
+
+85 号的 csproj：
+
+```xml
+<Reference Include="RimTalk">
+  <HintPath>..\..\RimTalk-main\1.5\Assemblies\RimTalk.dll</HintPath>
+  <Private>false</Private>          <!-- 关键 -->
+</Reference>
+```
+
+- **`Private=false`（CopyLocal=false）**：不把第三方 DLL 复制进自己 `Assemblies/`。
+  对方 mod 自己会加载它，复制一份会造成**同一个类在进程里有两份类型身份**——
+  `is` 判断、`as` 转换、静态字段全部对不上，是极难定位的诡异 bug。
+  此时编译期能用到的第三方类型在运行时也不可直接引用，得靠
+  `AppDomain.CurrentDomain.GetAssemblies()` 按名找（见
+  [harmony-patching.md 第 9 节](harmony-patching.md)）。
+- **`Private=true`（CopyLocal=true，默认）**：适用于公共库。85 号的 `Scriban` 就标了 `true`。
+  ⚠️ 但它连 `Newtonsoft.Json.dll`（712 KB）也一起复制进了**两个** `Assemblies/` 目录。
+  **把公共库 DLL 塞进 mod 的 `Assemblies/` 是版本冲突高发点**：玩家同时装了另一个携带不同版本
+  Newtonsoft.Json 的 mod 时，加载顺序决定胜者，症状是莫名其妙的 `MissingMethodException`。
+
+**记忆点：引用别人的 mod → `Private=false`；引用公共库 → 先确认版本协商策略，别无脑打包。**
+
 ## 5. 相关文件
 
 - 多版本 + Common 的例子：`收集/01-standalone-AlertUtility/`（1.4/1.5/1.6 + LoadFolders）、

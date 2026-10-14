@@ -132,13 +132,79 @@ public static class BlacklistMigrationStartup
 **当前整合包里不存在的 Def 直接跳过而不是报错**——这是 mods 之间共享 Def 数据的标准姿势
 （玩家未必装了定义这些 Def 的前置 mod）。
 
-## 7. 相关文件
+## 7. 读玩家自己放的文件：编码嗅探 + 监听防抖（85 号）
+
+凡是让玩家往目录里丢文件的 mod（素材、配置、词表），都要处理两件麻烦事。
+
+### 7.1 编码必须嗅探，不能假定 UTF-8
+
+玩家从网上随手下载的 `.txt`，UTF-8 / UTF-16LE / UTF-16BE / GBK 混杂是常态。
+直接 `File.ReadAllText(path)` 用默认编码读，中文会整片乱码。85 号的
+`FileEncodingHelper.DetectEncoding` 按可靠性递减依次判定：
+
+```csharp
+var bom = reader.ReadBytes(4);
+if (bom[0] == 0xEF && bom[1] == 0xBB && bom[2] == 0xBF) return Encoding.UTF8;   // UTF-8 BOM
+if (bom[0] == 0xFF && bom[1] == 0xFE)                  return Encoding.Unicode;  // UTF-16LE
+if (bom[0] == 0xFE && bom[1] == 0xFF)                  return Encoding.BigEndianUnicode;
+stream.Position = 0;
+if (IsUtf8(buffer, bytesRead))                          return new UTF8Encoding(false);  // 无 BOM 但合法 UTF-8
+// 都不是才回退到默认编码
+```
+
+无 BOM 时靠**读前 4096 字节跑 UTF-8 合法性校验**来判定——比「无 BOM 就当 UTF-8」稳，
+因为它能识别出 GBK 字节序列不是合法 UTF-8。85 号的 v1.0.2 版本记录第一条就是「修复中文编码问题」，
+对应的正是这个文件。
+
+### 7.2 `FileSystemWatcher` 必须配防抖
+
+外部编辑一次文件会连续触发 `Changed`（保存、临时文件改名、权限变更各一次），
+不防抖就会重复跑重建逻辑。85 号的 `StyleWatcher`：
+
+```csharp
+private static DateTime _lastEvent = DateTime.MinValue;
+private static readonly TimeSpan _debounceTime = TimeSpan.FromSeconds(1);
+
+private static void OnFileChanged(object sender, FileSystemEventArgs e)
+{
+    if (DateTime.Now - _lastEvent < _debounceTime) return;   // ← 合并连续事件
+    _lastEvent = DateTime.Now;
+    // ...重建
+}
+```
+
+配套三件事：
+
+- **订阅四种事件**：`Created` / `Changed` / `Deleted` / `Renamed`（重命名等于删+建，漏了就不同步）。
+- **限制范围**：`new FileSystemWatcher(dir, "*.txt")` + `IncludeSubdirectories = false` +
+  `NotifyFilter = FileName | LastWrite | Size`，别让缓存目录把自己的写入也触发回来。
+- **停机要解绑**：`Stop()` 里逐个 `-=` 再 `Dispose()`，否则 mod 重载时句柄泄漏。
+
+### 7.3 缓存放哪：别写进 mod 自己的目录
+
+85 号把切分结果缓存写到 `Path.Combine(mod.Content.RootDir, "Styles/.cache")`：
+
+- ✅ 好处：素材与缓存同目录，天然按 mod 实例隔离，**切分结果与存档无关，可以跨存档共用**。
+- ❌ 风险：**工坊安装的 mod 目录通常是只读的**，`Directory.CreateDirectory` / 写文件会失败；
+  源码随 Steam 更新被覆盖后缓存也会丢。稳妥做法是写到 `Prefs.GetSaveFilePath()` 或用户目录。
+
+缓存有效性用**内容哈希**判定（缓存文件里存 `fileHash`，素材改动即失效），
+比用时间戳可靠——用户可能只是把文件内容改回去，时间戳却变新了。
+另一个反面点：同一份数据用了**两套序列化路径**（`StringBuilder` 手拼 JSON 写入，
+再用 `ParseCache` / `ParseChunkCountOnly` / `ParseMetadataOnly` 三个专用函数回读），
+项目明明已引 Newtonsoft.Json，很容易写出不一致。
+
+## 8. 相关文件
 
 - 组件 + 存档：`收集/01-standalone-AlertUtility/1.4/Source/AlertUtility.cs`
 - GameComponent 例子：`收集/10-standalone-QuestItemWatch/Source/Main.cs`
 - 缓存组件 vs 真数据组件：`收集/84-patch-RimTalkEventPlus/Source/RimTalkEventMemory/QuestCacheComponent.cs`、`.../ThreatTrackerComponent.cs`
 - 设置持久化（`ModSettings.ExposeData` + `filterSchemaVersion`）：`收集/84-patch-RimTalkEventPlus/Source/RimTalkEventMemory/EventFilterSettings.cs`
 - 一次性迁移：`收集/84-patch-RimTalkEventPlus/Source/RimTalkEventMemory/BlacklistMigrationStartup.cs`
+- 编码嗅探：`收集/85-patch-RimTalkStyleExpand/Source/FileEncodingHelper.cs`
+- 文件监听 + 防抖：`收集/85-patch-RimTalkStyleExpand/Source/StyleWatcher.cs`
+- 哈希失效的缓存：`收集/85-patch-RimTalkStyleExpand/Source/EmbeddingCache.cs`
+- 会话级数据在 `Game.FinalizeInit` 复位：`收集/86-patch-RimTalkDynamicColors/Source/RimTalkDynamicColors.cs`
 
 ## 相关主题
 

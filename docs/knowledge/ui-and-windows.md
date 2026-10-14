@@ -102,12 +102,46 @@ UI 读 `Effective`（并在顶部画冲突横幅提示已被锁定），业务�
 
 **反面点**：单文件超过 ~600 行 / 30 KB 就该拆了；这类文件在原版 API 大改时几乎无法合并冲突。
 
-## 7. 相关文件
+## 7. 设置入口的两种放法：`Mod` 设置页 vs `MainButtonDef`（86 号）
+
+第 4 节的骨架是「塞进 Mod 设置列表」。当功能有自己的复杂窗口（如历史查看器）时，
+更合适的做法是**在主界面按钮栏插一个独立图标页**，86 号的 `Defs/MainButtonDef.xml` 只有 13 行：
+
+```xml
+<MainButtonDef>
+  <defName>RTDC_HistoryTab</defName>
+  <label>言出多彩</label>
+  <description>左键：查看历史记录\n右键：打开 Mod 设置</description>
+  <tabWindowClass>RimTalkDynamicColors.RimTalkHistoryWindow</tabWindowClass>
+  <workerClass>RimTalkDynamicColors.MainButtonWorker_RimTalkHistory</workerClass>
+  <order>79</order>              <!-- 决定排序位置 -->
+  <minimized>True</minimized>    <!-- 默认折叠，不抢主界面空间 -->
+  <iconPath>UI/Icons/RTDC_Icon</iconPath>
+</MainButtonDef>
+```
+
+对比两种放法：
+
+| | `Mod` 设置页（第 4 节） | `MainButtonDef` |
+|---|---|---|
+| 入口位置 | Mod 设置列表里的一行 | 主界面顶部按钮栏 |
+| 是否需 C# | 需要（覆写 `SettingsCategory` 等） | 纯 XML 即可挂窗口，图标/提示用 `workerClass` |
+| 适合 | 开关、参数、过滤器 | 有独立窗口的重功能 |
+| 空间 | 受限，需折叠分区 | 一个图标位，`minimized` 可默认收起 |
+
+`MainButtonWorker` 决定图标与「未读/高亮」提示的绘制；`tabWindowClass` 挂的窗口就是点开后的内容。
+86 号的 worker 还把右键分给了 Mod 设置，形成「左键主功能 / 右键设置」的紧凑交互。
+
+⚠️ 同一份 `About.xml` 的 `<description>` 与 README 的功能列表必须同步——86 号 README 列了 5 项功能，
+`About.xml` 只写了 4 项（漏掉「关键词高亮」），工坊页面就少一个卖点。
+
+## 8. 相关文件
 
 - 窗口与图标：`收集/01-standalone-AlertUtility/1.4/Source/TimerSetWindow.cs`
 - GUI 性能笔记：`收集/76-standalone-SmoothDragSelect/README.md`
 - 设置页骨架 + 过滤 UI：`收集/84-patch-RimTalkEventPlus/Source/RimTalkEventMemory/RimTalkEventPlus.cs`、`.../EventFilterUI.cs`
 - 过滤能力声明与设置持久化：`收集/84-patch-RimTalkEventPlus/Source/RimTalkEventMemory/EventFilterSettings.cs`
+- `MainButtonDef` 独立设置页 + 颜色选择器/历史窗口：`收集/86-patch-RimTalkDynamicColors/Defs/MainButtonDef.xml`、`.../Source/RimTalkDynamicColors.cs`
 
 ## 相关主题
 

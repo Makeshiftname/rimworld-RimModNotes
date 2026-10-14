@@ -72,7 +72,27 @@ New-Item -ItemType SymbolicLink -Path "C:\Program Files (x86)\Steam\steamapps\co
   而依赖项里是 `cj.rimtalk`——**packageId 大小写不一致导致该行实际失效**。
   又因为它同样没把 RimTalk 写进 `modDependencies`，结果就是「少了必需依赖也不报错」。
 
-**自检：`loadAfter` 里的每个 packageId 必须与 `modDependencies` 里的拼写逐字符相同。**
+**自检两条**：
+1. `loadAfter` 里的每个 packageId 必须与 `modDependencies` 里的拼写逐字符相同。
+2. README/描述里凡是写了「必须安装 / Required / 需要 X」的，`modDependencies` 里必须有对应条目。
+
+- ❌ **86-patch-RimTalkDynamicColors** 最严重：**完全没有 `<modDependencies>`**，
+  只有 `<loadAfter>` 列了 `brrainz.harmony` / `Jaxe.Bubbles` / `cj.rimtalk`，
+  而它的 README 明确写着 Interaction Bubbles 与 RimTalk「**必须安装 / Required**」。
+  后果：玩家没装 RimTalk 时**游戏不弹任何依赖缺失提示**，mod 照样加载，
+  只是一路 `AccessTools.TypeByName(...)` 返回 null 后**静默失效**——功能不 working，日志也无痕迹。
+  **硬依赖必须进 `modDependencies`；`loadAfter` 只管排序，不代替依赖检查。**
+- ⚠️ **85-patch-RimTalkStyleExpand** 冗余：`loadAfter` 两项与 `modDependencies` **完全重复**，
+  依赖已由 `modDependencies` 表达，`loadAfter` 里再写一遍纯属噪音。
+
+### 依赖元数据会随时间腐化
+
+本仓库已收录的四个 RimTalk 生态 mod，对**同一个 `packageId` `cj.rimtalk`** 声明了**两个不同的工坊 ID**：
+`3551203752`（83、84 的 `About.xml`）与 `3381946324`（81、85 的 `About.xml`，后者还附了 GitHub 下载地址）；
+86 号的 csproj `HintPath` 又指向 `3551203752`。
+
+RimWorld 只用 `<steamWorkshopUrl>` 弹下载提示，ID 失效**对加载毫无影响**，玩家点不动才发现。
+**发布前应定期核对依赖的工坊链接**，别指望它会自己报错。
 
 ### 声明支持的版本要对得上实际产物
 
@@ -80,6 +100,17 @@ New-Item -ItemType SymbolicLink -Path "C:\Program Files (x86)\Steam\steamapps\co
 但 `.csproj` 的 `OutputPath` 只有 `..\..\1.6\Assemblies\`，没有任何 1.5 分支——
 **声明支持 1.5，产物却只落在 1.6 目录**，1.5 玩家拿不到 DLL。发布前核对
 「`supportedVersions` × 实际输出目录 × 实际编译引用」三者一致。
+
+对照 **85 号**做对的一面（模板化跨版本，见
+[cross-version-structure.md](cross-version-structure.md)）：
+`<OutputPath>..\$(GameVersion)\Assemblies</OutputPath>` 配合
+`dotnet build -p:GameVersion=1.5` / `=1.6`，声明与产物天然一致。
+⚠️ 但它的 `<Reference Include="RimTalk"><HintPath>…\1.5\Assemblies\RimTalk.dll</HintPath>` **写死了 1.5**——
+输出路径模板化了，**引用路径没有**，所以 `-p:GameVersion=1.6` 编出来的仍是 1.5 的依赖。
+**模板化要覆盖引用，不能只覆盖输出。**
+
+⚠️ 版本号本身也要规范：86 号写 `<modVersion>1.2.03</modVersion>`（第三段前导零，非标准 semver）；
+85 号 `About.xml` 写 `1.0.2` 而 commit 与 README 已经是 v1.0.3——**`About.xml` 与发布版本脱节**。
 
 ## 5. 跨 mod 抢同一功能：特性检测 + 互斥锁定（84 号范式）
 
