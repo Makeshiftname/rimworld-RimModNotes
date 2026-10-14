@@ -19,8 +19,8 @@ New-Item -ItemType SymbolicLink -Path "C:\Program Files (x86)\Steam\steamapps\co
 
 ## 2. PublisherPlus 发布配置
 
-仓库有 **13 个 mod** 带 `_PublisherPlus.xml`（16、26、29、56、59、65、66、68、69、
-70、72、74、75、77）。这是 RimWorld 的 **PublisherPlus** 发布工具配置，示例见
+仓库有 **13 个 mod** 带 `_PublisherPlus.xml`（16、26、57、60、66、67、69、70、71、73、75、76、78）。
+这是 RimWorld 的 **PublisherPlus** 发布工具配置，示例见
 [`收集/16-standalone-ResearchPrerequisites/_PublisherPlus.xml`](../../收集/16-standalone-ResearchPrerequisites/_PublisherPlus.xml)：
 
 ```xml

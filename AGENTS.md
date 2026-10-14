@@ -1,6 +1,6 @@
 # AGENTS.md — RimWorld Modding 仓库
 
-本仓库是个人 RimWorld modding 学习作品集：**83 个 mod 目录**——`收集/` 82 个（收集的他人 mod，重编 `01–82`，目录名带功能前缀）+ `自建/` 1 个（**仓库主本人原创**，编号从 `01` 起）。
+本仓库是个人 RimWorld modding 学习作品集：**85 个 mod 目录**——`收集/` 84 个（收集的他人 mod，重编 `01–84`，目录名带功能前缀）+ `自建/` 1 个（**仓库主本人原创**，编号从 `01` 起）。
 仓库以 [RunningBugs/rimworld-RimModNotes](https://github.com/RunningBugs/rimworld-RimModNotes) 为基础 fork 搭建；除 `自建/` 外均为**收集/学习的他人 mod，不宜改动 mod 本体**（含 About.xml 内容/C#/Defs）；`packageId` 前缀 `RunningBugs.*`，MIT 许可。
 
 ## 仓库结构
@@ -9,8 +9,9 @@
   功能前缀 = standalone/patch/xml/translation/lib/empty/special（与 mod-index Type 一致）。
   每个 mod 内含 `About/About.xml`、版本目录（`1.4/` `1.5/` `1.6/`）、`Common/`（跨版本共享）、
   `Source/`（C#）、`Languages/`、`docs/`、`Tests/` 等。
-- 类型分布（人工核实，即目录功能前缀）：patch 26 / standalone 44 / xml 5（30,37,46,52,79）/ 翻译 4
-  （04,13,18,25；06 空）/ lib 1（09）/ special 2（06,32）。
+- 类型分布（仅 `收集/`，按目录功能前缀统计）：patch 28 / standalone 44 / xml 5（30,37,46,52,79）/
+  translation 4（04,13,18,25）/ empty 1（06）/ lib 1（09）/ special 1（32）。
+  ⚠️ `scan_mods.py` 报的分布**含 `自建/`**（其 01 为 xml 型），故它报 `xml × 6`、总数 85——两个数都对，只是口径不同。
 - **既有事实勿改**：06 空目录、32 内容在 `backup/`；55 重复编号已于 2026-08-08 修正
   （现为 `55-patch-CommonModCompatibilityPatches` 与 `56-standalone-LimitedLetterSlots`）。
 
