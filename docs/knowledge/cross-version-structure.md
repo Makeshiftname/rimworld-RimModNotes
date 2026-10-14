@@ -1,7 +1,7 @@
 # 跨版本结构（1.4 / 1.5 / 1.6 + Common/）
 
 > 适用：新写 mod 时如何组织多版本目录、共享资源与发布物。
-> 数据来源：`scan_mods.py` 对全部 83 个 mod 目录的扫描。
+> 数据来源：`scan_mods.py` 对全部 85 个 mod 目录的扫描。
 
 ## 1. 目录布局
 
@@ -45,12 +45,41 @@ cd 1.6/Source && dotnet build -c Release
 产物 `bin/Release/.../mod.dll` 复制到 `1.6/Assemblies/` 随源码提交（55 的 AGENTS.md 约定：
 源码改动后必须重新编译并连同 DLL 一起提交）。
 
+### csproj 的 OutputPath 反推目录布局
+
+上游 mod 的 csproj 常把产物路径写死，**它反过来告诉你在游戏目录里的正确层级**。
+例如 84 号（`收集/84-patch-RimTalkEventPlus/Source/RimTalkEventMemory/RimTalkEventPlus.csproj`）：
+
+```xml
+<OutputPath>..\..\1.6\Assemblies\</OutputPath>   <!-- 相对 Source/RimTalkEventMemory/ -->
+```
+
+即工程放在 `<mod 根>/Source/<工程名>/`，产物落到 `<mod 根>/1.6/Assemblies/`。
+**收纳第三方 mod 时按这个反推 DLL 该放哪，别照搬上游的 flat 习惯。**
+
+### 没有预编译 DLL 的第三方 mod
+
+部分上游**只发源码不提交产物**（`.gitignore` 里含 `*.dll`），此时本仓库也无 `Assemblies/`。
+84 号就是这种情况（本机无 RimWorld 安装也无法补编）。处置：
+
+- 保持上游 flat 布局不动，**不要凭空造版本目录**；
+- 在 mod 的 README 里写全构建前置条件（游戏程序集 / 第三方 mod DLL / NuGet 包）与产物落点；
+- `mod-index.md` 的 Assemblies 列显示 `–`，属于正常状态；
+- 这类 mod 的价值在**源码学习**，不在可运行性。
+
+### 声明版本 ≠ 有该版本产物
+
+84 号的 `About.xml` 声明 `1.5 + 1.6`，但 csproj 只输出到 `1.6/Assemblies\`，
+**没有任何 1.5 分支**。核对时要看三处是否一致：
+`supportedVersions` × 实际输出目录 × 实际编译引用（csproj 里引用的游戏 mod DLL 路径）。
+
 ## 5. 相关文件
 
 - 多版本 + Common 的例子：`收集/01-standalone-AlertUtility/`（1.4/1.5/1.6 + LoadFolders）、
   `收集/30-xml-SilencedToxifierGenerator/`（纯 Common/）、`收集/54-standalone-AnotherAllowTool/`（1.6 + Common/）
 - 构建与提交约定：`收集/55-patch-CommonModCompatibilityPatches/AGENTS.md`
 - 构建命令示例：`收集/76-standalone-SmoothDragSelect/README.md`
+- 无预编译 DLL 的收录实例：`收集/84-patch-RimTalkEventPlus/README.md`、`收集/84-patch-RimTalkEventPlus/Source/RimTalkEventMemory/RimTalkEventPlus.csproj`
 
 ## 相关主题
 
