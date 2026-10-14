@@ -10,9 +10,9 @@
 
 ## 统计
 
-- Mod 总数：**84**（`收集` × 83、`自建` × 1）
-- 类型分布：`empty` × 1、`lib` × 1、`patch` × 27、`special` × 1、`standalone` × 44、`translation` × 4、`xml` × 6
-- README 状态：`missing` × 1、`ok` × 83
+- Mod 总数：**85**（`收集` × 84、`自建` × 1）
+- 类型分布：`empty` × 1、`lib` × 1、`patch` × 28、`special` × 1、`standalone` × 44、`translation` × 4、`xml` × 6
+- README 状态：`missing` × 1、`ok` × 84
 
 ## 索引表
 
@@ -102,6 +102,7 @@
 | 81 | 收集 | RimTalkExpandMemory | patch | 1.5,1.6 | ✓ | ✓ | ✓ | – | – | ok |
 | 82 | 收集 | HautsAddedTraits | patch | 1.5,1.6 | ✓ | ✓ | – | – | – | ok |
 | 83 | 收集 | RPDPersonaDirector | patch | 1.6 | ✓ | ✓ | – | – | – | ok |
+| 84 | 收集 | RimTalkEventPlus | patch | - | ✓ | ✓ | – | – | – | ok |
 
 > 图例：C#=有 C# 源码；翻=Languages/ 翻译；Doc=docs/；Tst=Tests/；
 > Pub=`_PublisherPlus.xml`；README=ok/模板占位(template)/空壳(stub)/缺失(missing)。
@@ -182,6 +183,7 @@
 - **81-patch-RimTalkExpandMemory** — RimTalk 的记忆扩展（四层记忆/常识库/记忆时间线）。原作者 SANGUO（sanguodxj-byte），<https://github.com/sanguodxj-byte/RimTalk-ExpandMemory>，commit `ae1d0a4`，⚠️ **无 LICENSE 文件**（作者未明确授权，仅本地学习、勿发布）。详情见 `收集/81-patch-RimTalkExpandMemory/README.md`。
 - **82-patch-HautsAddedTraits** — 「加特质」教科书级 mod（89 特质横跨全 DLC，大部分带独特机制；启发式判为 `patch`，实际是独立功能 + Harmony 补丁混合）。原作者 Hautarche（LaserToothLiger），<https://github.com/LaserToothLiger/Hauts-Added-Traits>，commit `eb83882`（v1.4.14），许可 **MIT**。核心学习点：三层独特机制写法（XML TraitDef + Harmony `HasTrait` 补丁 + `[DefOf]`/`MayRequire` 门控）、DefModExtension 传参、ModSettings、第三方兼容独立工程。详情见 `收集/82-patch-HautsAddedTraits/README.md`。
 - **83-patch-RPDPersonaDirector** — RimTalk 的人格导演插件（packageId `RP.RimTalk.PersonaDirector`，1.6；硬依赖 `cj.rimtalk`）。接管 Smart Gen，把 Pawn 深层资料组装成结构化 prompt 生成 Persona，叠加预设库/规则分配、导演台批量生成、人格演变（可回滚）、自动生成与自动更新、Scriban 变量注册。原作者 Rabirinth（Rabirinth-hub），<https://github.com/Rabirinth-hub/RPD>，commit `1fd225b`，⚠️ **无 LICENSE 文件**（作者未明确授权，仅本地学习、勿发布）。核心学习点：①`AccessTools` 反射定位 + `[HarmonyTargetMethod]` 目标方法回退，应对第三方 UI 改版（RimTalk 1.3 加 tab）；②`[HarmonyPrepare]` 兜底 null 目标，单个补丁静默跳过而不拖垮 `PatchAll`；③`__state` 跨 Prefix/Postfix 传递状态做「修改前后 diff」范式（身份变化/生育/特质/亲属死亡触发器全集）；④`[HarmonyPatchCategory]` + `PatchCategory/UnpatchAll` 运行时整组摘挂实验补丁；⑤`WorldComponent.ExposeData()` 存「资料块文本快照 + 人格历史」；⑥全局单飞 AI 请求协调器（同 World 互斥 + 熔断 + ≥3 倍速暂停）；⑦肖像逐像素 diff（`changedPixelThreshold=32` 容忍 JPEG 噪声，无变化不烧 token）；⑧上游 README 附录 A–H 把每条请求路径的 Context/Prompt 格式写成契约。⚠️ 反面教材：上游 `About.xml` 的 `loadAfter` 写成 `cj.RimTalk`（应为 `cj.rimtalk`，大小写笔误致其失效）；`DirectorVariableProvider.cs` 是反编译产物且只服务旧 Mustache 引擎的死路径；`DirectorUtils.cs` 95 KB 神仙文件。详情见 `收集/83-patch-RPDPersonaDirector/README.md`。
+- **84-patch-RimTalkEventPlus** — RimTalk 的事件感知扩展层（packageId `saltgin.rimtalkeventmemory`，`About.xml` 声明 1.5+1.6 但 csproj 只产出 1.6；硬依赖 `brrainz.harmony` + `cj.rimtalk`）。把进行中任务/地图条件/活跃威胁（袭击·偷窃者·集群 mech·通用 Lord）/站点部件实时收集成 prompt 块注入对话，配两级过滤设置 UI。原作者 SaltGin，<https://github.com/SaltGin/RimTalkEventPlus>，commit `da884c`，工坊 `3612632140`，许可 **CC BY-NC-SA 4.0**（⚠️ 非商用 + 相同方式共享）。⚠️ **上游只发源码不提交 DLL**（`.gitignore` 含 `*.dll`），故本条目无 `Assemblies/`。核心学习点：①弃用 `[HarmonyPatch]` 改 `[StaticConstructorOnStartup]` + `AccessTools` 手工挂载，规避 RimTalk `RimTalk.Data.Constant` 早期静态初始化；②运行期能力探测 + 双路径降级（`TalkRequest.Context` → 退回 `Prompt`，带一次性解析标志）；③`TargetMethods()` 遍历 `AccessTools.AllTypes()` 给整族 `QuestPart` 虚方法覆写打补丁；④缓存失效补丁组三件套（`Notify_SignalReceived` 复刻原版 tag 规则才失效 / `AddPart`+`RemovePart` 比 `__state` 数量变化并判 `QuestState.Ongoing` / `Quest.End` 清缓存）；⑤`LongEventHandler.ExecuteWhenFinished` 延后反射预热且回调内重校验地图未被移除；⑥`Mod` 类 `SettingsCategory`/`DoSettingsWindowContents` 最小设置页骨架；⑦过滤能力按类别声明——`SupportsTypeFiltering` 只对 Quest/MapCondition/SitePart 为真（**Threat 无 Def 故不支持类型过滤**），`SupportsInstanceFiltering` 仅 Quest；⑧同一 mod 内 `GameComponent` 分工：`QuestCacheComponent.ExposeData()` 为空（纯运行时缓存不跨存档）而 `ThreatTrackerComponent` 用 `LookMode.Deep` 真存档；⑨一次性迁移 + 幂等布尔标志，连 `catch` 分支都置位，`GetNamedSilentFail` 跳过当前整合包不存在的 def；⑩跨 mod 特性检测 `ModLister.GetActiveModWithIdentifier` + 缓存反射**句柄**而非值，冲突时互斥锁定而非硬冲突；⑪prompt 体积硬预算（`maxChars` 1200/1500/2000 + 单条 600 字截断 + `StripTags`）。⚠️ 反面教材：`packageId`/源码目录名/Harmony id 沿用旧名 `rimtalkeventmemory` 而命名空间是 `RimTalkEventPlus`（三处命名不一致）；`REFRENCE ONLY-…Defs.xml` 是未被 csproj 收录的死文件（文件名还带拼错的 REFRENCE）；`QuestBlacklist.cs` 已标 `[Obsolete]` 仍留项目内，与新 `EventFilterSettings` 双轨；`loadAfter` 与 `modDependencies` 冗余重复；csproj 用 7 层 `..\` 指向 Steam 目录硬编码引用，脱离该结构即编不过；`EventFilterUI.cs` 1099 行/53.7 KB 神仙文件（仅 85 号 `DirectorUtils.cs` 95 KB 可比）。详情见 `收集/84-patch-RimTalkEventPlus/README.md`。
 - **53-patch-AllowTunnelersToDrillFork** — fork 第三方（author Porio），临时 1.6 版。
 - 注：32（special）/ 43（standalone）为**合作作者**（author 含 RunningBugs），非纯第三方。
 - 添加第三方 mod 流程：克隆到 `收集/NN-功能-名称` 目录 → 保留 `LICENSE` 与 `<author>`（原作者）→ 写收藏版 README（来源+许可+学习点）→ `scan_mods.py` 刷新（检测到 `third-party author` 警告属预期）→ `check_links.py` 验收。

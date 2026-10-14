@@ -1,0 +1,229 @@
+﻿using RimTalk.Service;
+using RimTalk.Util;
+using HarmonyLib;
+using RimWorld;
+using System.Collections.Generic;
+using System.Reflection;
+using Verse;
+
+namespace RimTalkEventPlus
+{
+    // Utility for matching ongoing events against conversation context pawns.
+    // Used to filter events and save tokens when appending to LLM prompts.
+    public static class ContextPawnMatcher
+    {
+        private const float NearbyAnimalRange = 20f;
+
+        private static readonly MethodInfo NearbyPawnsMethod = FindNearbyPawnsMethod();
+        private static readonly bool UsesAnnouncementParameter =
+            NearbyPawnsMethod?.GetParameters().Length == 3;
+
+        // Collect all context-relevant pawn IDs from the conversation.
+        // Includes:  pawns parameter (speaker/recipient) + nearby pawns from RimTalk's selector + nearby animals.
+        public static HashSet<int> CollectContextPawnIds(List<Pawn> pawns, Pawn initiator, Pawn recipient)
+        {
+            var pawnIds = new HashSet<int>();
+
+            // Add pawns from DecoratePrompt parameter (speaker, recipient, etc.)
+            if (pawns != null)
+            {
+                foreach (var p in pawns)
+                {
+                    if (p != null)
+                        pawnIds.Add(p.thingIDNumber);
+                }
+            }
+
+            // Add nearby pawns using RimTalk's selector
+            try
+            {
+                var nearbyPawns = GetNearbyPawnsCompat(initiator, recipient);
+                if (nearbyPawns != null)
+                {
+                    foreach (var p in nearbyPawns)
+                    {
+                        if (p != null)
+                            pawnIds.Add(p.thingIDNumber);
+                    }
+                }
+            }
+            catch
+            {
+                // PawnSelector may not be available, ignore
+            }
+
+            // Add nearby animals for quest context matching
+            // RimTalk's PawnSelector only returns talk-eligible (humanlike) pawns,
+            // but quests may involve animals stored in their pawn/pawns fields.
+            try
+            {
+                var nearbyAnimals = GetNearbyAnimals(initiator, recipient, NearbyAnimalRange);
+                if (nearbyAnimals != null)
+                {
+                    foreach (var animal in nearbyAnimals)
+                    {
+                        if (animal != null)
+                            pawnIds.Add(animal.thingIDNumber);
+                    }
+                }
+            }
+            catch { }
+
+            return pawnIds;
+        }
+
+        // Resolve once: RimTalk v1.1.0+ adds a third parameter to the older API.
+        private static MethodInfo FindNearbyPawnsMethod()
+        {
+            const string name = "GetAllNearByPawns";
+
+            return AccessTools.Method(typeof(PawnSelector), name,
+                new[] { typeof(Pawn), typeof(Pawn), typeof(bool) })
+                ?? AccessTools.Method(typeof(PawnSelector), name,
+                    new[] { typeof(Pawn), typeof(Pawn) });
+        }
+
+        private static List<Pawn> GetNearbyPawnsCompat(Pawn initiator, Pawn recipient)
+        {
+            if (NearbyPawnsMethod == null)
+                return null;
+
+            object[] arguments = UsesAnnouncementParameter
+                ? new object[] { initiator, recipient, false }
+                : new object[] { initiator, recipient };
+
+            return (List<Pawn>)NearbyPawnsMethod.Invoke(null, arguments);
+        }
+
+        // Get nearby animals within range of the conversation participants.
+        // This supplements RimTalk's PawnSelector which excludes non-humanlike pawns.
+        private static List<Pawn> GetNearbyAnimals(Pawn pawn1, Pawn pawn2 = null, float range = 20f)
+        {
+            var result = new List<Pawn>();
+
+            if (pawn1?.Map == null)
+                return result;
+
+            var map = pawn1.Map;
+
+            foreach (var pawn in map.mapPawns.AllPawnsSpawned)
+            {
+                if (pawn == null || pawn == pawn1 || pawn == pawn2)
+                    continue;
+
+                if (!pawn.RaceProps.Animal)
+                    continue;
+
+                // Check if animal is nearby pawn1 or pawn2
+                bool nearPawn1 = pawn.Position.InHorDistOf(pawn1.Position, range);
+                bool nearPawn2 = pawn2 != null && pawn.Position.InHorDistOf(pawn2.Position, range);
+
+                if (nearPawn1 || nearPawn2)
+                    result.Add(pawn);
+            }
+
+            return result;
+        }
+
+        // Filter events to only those relevant to the conversation context.
+        //
+        // Non-Quest events (GameConditions, SiteParts, Threats): Always include
+        // Quests with no pawns: Always include
+        // Quests with pawns: Include only if any pawn overlaps with context
+        public static List<OngoingEventSnapshot> FilterEventsByContext(
+            List<OngoingEventSnapshot> events,
+            HashSet<int> contextPawnIds)
+        {
+            if (events == null || events.Count == 0)
+                return events;
+
+            // If no context pawns, return all events (fallback)
+            if (contextPawnIds == null || contextPawnIds.Count == 0)
+                return events;
+
+            var filtered = new List<OngoingEventSnapshot>(events.Count);
+            var activeQuestsById = BuildActiveQuestLookup(events);
+
+            foreach (var evt in events)
+            {
+                if (ShouldIncludeEvent(evt, contextPawnIds, activeQuestsById))
+                    filtered.Add(evt);
+            }
+
+            return filtered;
+        }
+
+        // Only build a lookup when the event set contains quests. Snapshot QuestId
+        // lets us retrieve the exact active quest without scanning historical quests
+        // or comparing mutable display labels.
+        private static Dictionary<int, Quest> BuildActiveQuestLookup(List<OngoingEventSnapshot> events)
+        {
+            bool hasQuestEvent = false;
+            foreach (var evt in events)
+            {
+                if (evt != null && evt.Category == EventCategory.Quest)
+                {
+                    hasQuestEvent = true;
+                    break;
+                }
+            }
+
+            if (!hasQuestEvent)
+                return null;
+
+            var activeQuests = Find.QuestManager?.ActiveQuestsListForReading;
+            if (activeQuests == null || activeQuests.Count == 0)
+                return null;
+
+            var questsById = new Dictionary<int, Quest>(activeQuests.Count);
+            foreach (var quest in activeQuests)
+            {
+                if (quest != null && quest.id >= 0)
+                    questsById[quest.id] = quest;
+            }
+
+            return questsById;
+        }
+
+        // Determine if an event should be included based on context pawns.
+        private static bool ShouldIncludeEvent(
+            OngoingEventSnapshot evt,
+            HashSet<int> contextPawnIds,
+            Dictionary<int, Quest> activeQuestsById)
+        {
+            // Always include threats
+            if (evt.IsThreat)
+                return true;
+
+            // Always include non-quest or unclassified events. A missing
+            // category must not hide information from the prompt.
+            if (evt.Category != EventCategory.Quest)
+                return true;
+
+            // A missing ID or lookup entry is treated conservatively: include the
+            // event rather than accidentally hiding information from the prompt.
+            if (evt.QuestId < 0 || activeQuestsById == null ||
+                !activeQuestsById.TryGetValue(evt.QuestId, out var matchedQuest))
+            {
+                return true;
+            }
+
+            var questPawns = QuestLinkUtil.GetQuestKeyPawns(matchedQuest);
+
+            // Quest has no pawns - always include
+            if (questPawns == null || questPawns.Count == 0)
+                return true;
+
+            // Check if any quest pawn is in context
+            foreach (var p in questPawns)
+            {
+                if (p != null && contextPawnIds.Contains(p.thingIDNumber))
+                    return true;
+            }
+
+            // No overlap - filter out
+            return false;
+        }
+
+    }
+}

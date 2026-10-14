@@ -3253,5 +3253,45 @@
     ],
     "type": "patch",
     "type_conf": "high"
+  },
+  {
+    "dir": "84-patch-RimTalkEventPlus",
+    "category": "收集",
+    "number": "84",
+    "title": "RimTalkEventPlus",
+    "has_about": true,
+    "in_backup": false,
+    "package_id": "saltgin.rimtalkeventmemory",
+    "name": "RimTalk Event+",
+    "author": "SaltGin",
+    "supported_versions": [
+      "1.5",
+      "1.6"
+    ],
+    "deps": [
+      "brrainz.harmony",
+      "cj.rimtalk"
+    ],
+    "load_after": [
+      "cj.rimtalk"
+    ],
+    "description": "Lightweight event sensing expansion layer for RimTalk. Experimental.",
+    "versions": [],
+    "has_common": false,
+    "has_csharp": true,
+    "cs_count": 30,
+    "has_languages": true,
+    "has_docs": false,
+    "has_tests": false,
+    "has_publisher_plus": false,
+    "has_loadfolders": false,
+    "has_loadfolders_bak": false,
+    "has_agents": false,
+    "readme_status": "ok",
+    "notes_files": [
+      "收集/84-patch-RimTalkEventPlus/README_UPSTREAM.md"
+    ],
+    "type": "patch",
+    "type_conf": "high"
   }
 ]

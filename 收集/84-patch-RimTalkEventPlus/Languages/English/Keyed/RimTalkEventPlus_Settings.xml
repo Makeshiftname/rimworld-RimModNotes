@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <RimTalkEventPlus_SettingsCategory>RimTalk Event+</RimTalkEventPlus_SettingsCategory>
+
+  <RimTalkEventPlus_OptimizationHeader>Optimization Settings</RimTalkEventPlus_OptimizationHeader>
+
+  <RimTalkEventPlus_EnableCompression_Label>Enable event text compression (WIP - coming soon, toggle currently does nothing)</RimTalkEventPlus_EnableCompression_Label>
+
+  <RimTalkEventPlus_EnableCompression_Tooltip>Use compressed event text to reduce token usage when sending quests and events to RimTalk.</RimTalkEventPlus_EnableCompression_Tooltip>
+
+  <RimTalkEventPlus_Compression_Description>When enabled, Event+ will compress long, repetitive quest descriptions while keeping key facts.
+
+Example (refugee hospitality quest):
+- Before: A long multi-paragraph letter explaining who the refugees are, why they fled, how long they will stay, and that they will work and fight for free...
+- After: A short summary like: "The colony accepted the refugees. They fled for [reason], will stay for X days to rest, and will work and fight for free during that time."
+
+When disabled, Event+ always sends the full original event text.</RimTalkEventPlus_Compression_Description>
+
+  <!-- Event Filtering UI -->
+  <RimTalkEventPlus_FilteringHeader>Event Filtering</RimTalkEventPlus_FilteringHeader>
+  <RimTalkEventPlus_CategoryFilters>Category Filters</RimTalkEventPlus_CategoryFilters>
+  <RimTalkEventPlus_CategoryFilters_Desc>Enable or disable entire event categories. Disabled categories are completely hidden from the AI, overriding all settings below.</RimTalkEventPlus_CategoryFilters_Desc>
+  <RimTalkEventPlus_TypeBasedFiltering>TYPE-BASED FILTERING</RimTalkEventPlus_TypeBasedFiltering>
+  <RimTalkEventPlus_TypeBasedFiltering_Desc>Hide all events of selected types globally, across all saves</RimTalkEventPlus_TypeBasedFiltering_Desc>
+  <RimTalkEventPlus_InstanceBasedFiltering>INSTANCE-BASED FILTERING</RimTalkEventPlus_InstanceBasedFiltering>
+  <RimTalkEventPlus_InstanceBasedFiltering_Desc>Hide specific active events in this save. Only available when a save is loaded.</RimTalkEventPlus_InstanceBasedFiltering_Desc>
+
+  <RimTalkEventPlus_AvailableTypes>Available Types</RimTalkEventPlus_AvailableTypes>
+  <RimTalkEventPlus_DisabledTypes>Disabled Types</RimTalkEventPlus_DisabledTypes>
+  <RimTalkEventPlus_CurrentInstances>Current Instances</RimTalkEventPlus_CurrentInstances>
+  <RimTalkEventPlus_HiddenInstances>Hidden Instances</RimTalkEventPlus_HiddenInstances>
+
+  <RimTalkEventPlus_CurrentEventsOnly>Show Current Events Only</RimTalkEventPlus_CurrentEventsOnly>
+  <RimTalkEventPlus_AllEventTypes>Show All Event Types</RimTalkEventPlus_AllEventTypes>
+
+  <RimTalkEventPlus_CurrentEventsNote>Shows only events currently active in your game. Only available when a save is loaded.</RimTalkEventPlus_CurrentEventsNote>
+  <RimTalkEventPlus_AllEventTypesNote>Shows all possible event types from loaded mods. May include event types that are already excluded from RimTalk conversations, even if active in your game (e.g., background timers, diplomacy quests).</RimTalkEventPlus_AllEventTypesNote>
+
+  <RimTalkEventPlus_GloballyDisabled>globally disabled</RimTalkEventPlus_GloballyDisabled>
+
+  <RimTalkEventPlus_QuickFilter_Quests>Quests</RimTalkEventPlus_QuickFilter_Quests>
+  <RimTalkEventPlus_QuickFilter_MapConditions>Map Conditions</RimTalkEventPlus_QuickFilter_MapConditions>
+  <RimTalkEventPlus_QuickFilter_Threats>Threats</RimTalkEventPlus_QuickFilter_Threats>
+  <RimTalkEventPlus_QuickFilter_Sites>World Sites (bandit camps, item stashes, etc.)</RimTalkEventPlus_QuickFilter_Sites>
+
+  <RimTalkEventPlus_ResetTypeFilters>Reset All Type Filters</RimTalkEventPlus_ResetTypeFilters>
+  <RimTalkEventPlus_ResetInstanceFilters>Reset All Instance Filters</RimTalkEventPlus_ResetInstanceFilters>
+
+  <RimTalkEventPlus_TypeFiltersCleared>Cleared {0} type filter(s).</RimTalkEventPlus_TypeFiltersCleared>
+  <RimTalkEventPlus_InstanceFiltersCleared>Cleared {0} instance filter(s) across all saves.</RimTalkEventPlus_InstanceFiltersCleared>
+
+  <RimTalkEventPlus_EnhancedPromptDetected_Title>RimTalk Enhanced Prompt Detected</RimTalkEventPlus_EnhancedPromptDetected_Title>
+  <RimTalkEventPlus_EnhancedPromptDetected_Desc>Enhanced Prompt's "Auto Event Capture" is enabled. Overlapping features are disabled to ensure compatibility with Enhanced Prompt's own event tracking system.</RimTalkEventPlus_EnhancedPromptDetected_Desc>
+
+  <RimTalkEventPlus_EnableContextFiltering>Filter events by conversation context</RimTalkEventPlus_EnableContextFiltering>
+  <RimTalkEventPlus_EnableContextFilteringTooltip>Only append quest events that involve pawns in the current conversation (nearby pawns, speaker, recipient). Threats, map conditions, and site parts are always included.  Saves tokens and (might) improves LLM focus.</RimTalkEventPlus_EnableContextFilteringTooltip>
+  <RimTalkEventPlus_ContextFiltering_Description>When enabled, quests that don't involve any pawns in the current conversation (nearby pawns, speaker, recipient) will be skipped. This reduces token usage and (might) help the LLM focus on relevant events. However, when enabled, pawns will never talk about such quests if the related pawns are not nearby.</RimTalkEventPlus_ContextFiltering_Description>
+
+  <RimTalkEventPlus_AdvancedModeHeader>Advanced Settings</RimTalkEventPlus_AdvancedModeHeader>
+  
+  <RimTalkEventPlus_AppendToContext>Append events to {{context}} automatically</RimTalkEventPlus_AppendToContext>
+  <RimTalkEventPlus_AppendToContext_Tooltip>When enabled, ongoing events are automatically appended to the {{context}} variable in RimTalk prompts.</RimTalkEventPlus_AppendToContext_Tooltip>
+  <RimTalkEventPlus_AppendToContext_Desc>Disable this if you prefer to use {{eventplus_all}}, {{eventplus_quests}}, {{eventplus_conditions}}, {{eventplus_threats}}, or {{eventplus_location}} individually in your Advanced Mode templates.</RimTalkEventPlus_AppendToContext_Desc>
+  
+  <RimTalkEventPlus_MandatoryLockToggle>Override conflict-prevention lock (Enhanced Prompt Auto Event Capture)</RimTalkEventPlus_MandatoryLockToggle>
+  <RimTalkEventPlus_MandatoryLockToggle_Tooltip>Event+ locks event category filters when Enhanced Prompt's auto event capture is active, to prevent conflicts between their tracking systems. Enable to override this lock and control filters manually.</RimTalkEventPlus_MandatoryLockToggle_Tooltip>
+  <RimTalkEventPlus_MandatoryLockToggle_Desc>Event+ enforces a mandatory category lock when Enhanced Prompt's auto event capture is detected, as both systems track events and may conflict. Only enable this if you want manual filter control despite the potential conflict.</RimTalkEventPlus_MandatoryLockToggle_Desc>
+</LanguageData>

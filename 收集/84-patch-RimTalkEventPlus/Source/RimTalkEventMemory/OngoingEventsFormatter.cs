@@ -1,0 +1,66 @@
+﻿using System.Text;
+using Verse;
+
+namespace RimTalkEventPlus
+{
+    public static class OngoingEventsFormatter
+    {
+        public static string FormatOngoingEventsBlock(
+            System.Collections.Generic.List<OngoingEventSnapshot> events,
+            int maxChars = 2000, bool includeWrapper = true)
+        {
+            if (events == null || events.Count == 0)
+                return string.Empty;
+
+            var sb = new StringBuilder();
+            if (includeWrapper)
+            {
+                sb.AppendLine("[Ongoing events]");
+            }
+
+            int index = 1;
+            foreach (var e in events)
+            {
+                if (sb.Length > maxChars)
+                    break;
+
+                string body = e.Body;
+
+                body = StripSimpleTags(body);
+                string label = StripSimpleTags(e.Label);
+
+                sb.AppendLine();
+                sb.Append(index).Append(") ")
+                  .Append(label.NullOrEmpty() ? "(no title)" : label)
+                  .AppendLine();
+
+                if (!body.NullOrEmpty())
+                {
+                    if (body.Length > 600)
+                        body = body.Substring(0, 600) + "...";
+
+                    sb.AppendLine("   " + body.Replace("\n", "\n   "));
+                }
+
+                index++;
+            }
+
+            if (includeWrapper)
+            {
+                sb.AppendLine();
+                sb.AppendLine("[Event list end]");
+            }
+
+            return sb.ToString();
+        }
+
+        private static string StripSimpleTags(string input)
+        {
+            if (input.NullOrEmpty())
+                return string.Empty;
+
+            // Use RimWorld's built-in StripTags
+            return input.StripTags();
+        }
+    }
+}
