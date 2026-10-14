@@ -10,9 +10,9 @@
 
 ## 统计
 
-- Mod 总数：**83**（`收集` × 82、`自建` × 1）
-- 类型分布：`empty` × 1、`lib` × 1、`patch` × 26、`special` × 1、`standalone` × 44、`translation` × 4、`xml` × 6
-- README 状态：`missing` × 1、`ok` × 82
+- Mod 总数：**84**（`收集` × 83、`自建` × 1）
+- 类型分布：`empty` × 1、`lib` × 1、`patch` × 27、`special` × 1、`standalone` × 44、`translation` × 4、`xml` × 6
+- README 状态：`missing` × 1、`ok` × 83
 
 ## 索引表
 
@@ -101,6 +101,7 @@
 | 80 | 收集 | RimTalk | standalone | - | ✓ | ✓ | – | – | – | ok |
 | 81 | 收集 | RimTalkExpandMemory | patch | 1.5,1.6 | ✓ | ✓ | ✓ | – | – | ok |
 | 82 | 收集 | HautsAddedTraits | patch | 1.5,1.6 | ✓ | ✓ | – | – | – | ok |
+| 83 | 收集 | RPDPersonaDirector | patch | 1.6 | ✓ | ✓ | – | – | – | ok |
 
 > 图例：C#=有 C# 源码；翻=Languages/ 翻译；Doc=docs/；Tst=Tests/；
 > Pub=`_PublisherPlus.xml`；README=ok/模板占位(template)/空壳(stub)/缺失(missing)。
@@ -180,6 +181,7 @@
 - **80-standalone-RimTalk** — 独立功能 mod（AI 对话；启发式因依赖 `Jaxe.Bubbles` 误判为 `patch`，实际非 patch）。原作者 juicy（jlibrary），<https://github.com/jlibrary/RimTalk>，commit `df80ade`，许可 **CC BY-NC-SA 4.0**（非商用）。详情见 `收集/80-standalone-RimTalk/README.md`。
 - **81-patch-RimTalkExpandMemory** — RimTalk 的记忆扩展（四层记忆/常识库/记忆时间线）。原作者 SANGUO（sanguodxj-byte），<https://github.com/sanguodxj-byte/RimTalk-ExpandMemory>，commit `ae1d0a4`，⚠️ **无 LICENSE 文件**（作者未明确授权，仅本地学习、勿发布）。详情见 `收集/81-patch-RimTalkExpandMemory/README.md`。
 - **82-patch-HautsAddedTraits** — 「加特质」教科书级 mod（89 特质横跨全 DLC，大部分带独特机制；启发式判为 `patch`，实际是独立功能 + Harmony 补丁混合）。原作者 Hautarche（LaserToothLiger），<https://github.com/LaserToothLiger/Hauts-Added-Traits>，commit `eb83882`（v1.4.14），许可 **MIT**。核心学习点：三层独特机制写法（XML TraitDef + Harmony `HasTrait` 补丁 + `[DefOf]`/`MayRequire` 门控）、DefModExtension 传参、ModSettings、第三方兼容独立工程。详情见 `收集/82-patch-HautsAddedTraits/README.md`。
+- **83-patch-RPDPersonaDirector** — RimTalk 的人格导演插件（packageId `RP.RimTalk.PersonaDirector`，1.6；硬依赖 `cj.rimtalk`）。接管 Smart Gen，把 Pawn 深层资料组装成结构化 prompt 生成 Persona，叠加预设库/规则分配、导演台批量生成、人格演变（可回滚）、自动生成与自动更新、Scriban 变量注册。原作者 Rabirinth（Rabirinth-hub），<https://github.com/Rabirinth-hub/RPD>，commit `1fd225b`，⚠️ **无 LICENSE 文件**（作者未明确授权，仅本地学习、勿发布）。核心学习点：①`AccessTools` 反射定位 + `[HarmonyTargetMethod]` 目标方法回退，应对第三方 UI 改版（RimTalk 1.3 加 tab）；②`[HarmonyPrepare]` 兜底 null 目标，单个补丁静默跳过而不拖垮 `PatchAll`；③`__state` 跨 Prefix/Postfix 传递状态做「修改前后 diff」范式（身份变化/生育/特质/亲属死亡触发器全集）；④`[HarmonyPatchCategory]` + `PatchCategory/UnpatchAll` 运行时整组摘挂实验补丁；⑤`WorldComponent.ExposeData()` 存「资料块文本快照 + 人格历史」；⑥全局单飞 AI 请求协调器（同 World 互斥 + 熔断 + ≥3 倍速暂停）；⑦肖像逐像素 diff（`changedPixelThreshold=32` 容忍 JPEG 噪声，无变化不烧 token）；⑧上游 README 附录 A–H 把每条请求路径的 Context/Prompt 格式写成契约。⚠️ 反面教材：上游 `About.xml` 的 `loadAfter` 写成 `cj.RimTalk`（应为 `cj.rimtalk`，大小写笔误致其失效）；`DirectorVariableProvider.cs` 是反编译产物且只服务旧 Mustache 引擎的死路径；`DirectorUtils.cs` 95 KB 神仙文件。详情见 `收集/83-patch-RPDPersonaDirector/README.md`。
 - **53-patch-AllowTunnelersToDrillFork** — fork 第三方（author Porio），临时 1.6 版。
 - 注：32（special）/ 43（standalone）为**合作作者**（author 含 RunningBugs），非纯第三方。
 - 添加第三方 mod 流程：克隆到 `收集/NN-功能-名称` 目录 → 保留 `LICENSE` 与 `<author>`（原作者）→ 写收藏版 README（来源+许可+学习点）→ `scan_mods.py` 刷新（检测到 `third-party author` 警告属预期）→ `check_links.py` 验收。

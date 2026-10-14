@@ -3196,7 +3196,7 @@
     ],
     "has_common": false,
     "has_csharp": true,
-    "cs_count": 73,
+    "cs_count": 86,
     "has_languages": true,
     "has_docs": false,
     "has_tests": false,
@@ -3207,6 +3207,49 @@
     "readme_status": "ok",
     "notes_files": [
       "收集/82-patch-HautsAddedTraits/README_UPSTREAM.md"
+    ],
+    "type": "patch",
+    "type_conf": "high"
+  },
+  {
+    "dir": "83-patch-RPDPersonaDirector",
+    "category": "收集",
+    "number": "83",
+    "title": "RPDPersonaDirector",
+    "has_about": true,
+    "in_backup": false,
+    "package_id": "RP.RimTalk.PersonaDirector",
+    "name": "RimTalk: Persona Director",
+    "author": "Rabirinth",
+    "supported_versions": [
+      "1.6"
+    ],
+    "deps": [
+      "brrainz.harmony",
+      "cj.rimtalk"
+    ],
+    "load_after": [
+      "brrainz.harmony",
+      "cj.RimTalk"
+    ],
+    "description": "This is an add-on for RimTalk. Features: 1. **Deep Data Extraction**: Reads Genes (Endo/Xeno),Skills, Relationships, and more. 2. **Director Mode**: Generate 3 distinct personality options based on rich data. 3. **Custom Context**: Add your own \"Director Notes\" to shape the character's memory. 4. **Fully Configurable**: Toggle every data field to save tokens or reduce noise.",
+    "versions": [
+      "1.6"
+    ],
+    "has_common": false,
+    "has_csharp": true,
+    "cs_count": 48,
+    "has_languages": true,
+    "has_docs": false,
+    "has_tests": false,
+    "has_publisher_plus": false,
+    "has_loadfolders": false,
+    "has_loadfolders_bak": false,
+    "has_agents": false,
+    "readme_status": "ok",
+    "notes_files": [
+      "收集/83-patch-RPDPersonaDirector/BUILDING.md",
+      "收集/83-patch-RPDPersonaDirector/README_UPSTREAM.md"
     ],
     "type": "patch",
     "type_conf": "high"
