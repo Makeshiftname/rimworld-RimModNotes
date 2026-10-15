@@ -63,6 +63,8 @@
 - 内置浏览器带真实 profile，`cf_clearance` cookie 能留下来。
   **首次访问会弹 Cloudflare 挑战页**（标题 `Just a moment...`），处理方式：
   1. `navigate` **可能返回 `browser_action_failed`，但其实已经跳转了**——不要据此判失败；
+     ⚠️ 但这条**只对 `navigate` 成立**：`open_tab` 返回 `browser_action_failed` 时
+     **是真的没开成**，要改用 `navigate`（`replaceCurrentTab: true`）重试；
   2. `inspect` 会看到 URL 带 `__cf_chl_rt_tk=…`、标题是验证页，但**元素数为 0、截图纯白**；
   3. `reload` 一次 → 挑战页正常渲染成「正在进行安全验证」；
   4. `wait(kind=timeout, 15000)` 真等 15 秒（`wait(kind=load)` 无效，会毫秒返回）；
@@ -88,6 +90,23 @@ https://rimworldwiki.com/api.php?action=query&prop=revisions&rvprop=content
 - ⚠️ 该 wiki **未安装 TextExtracts 扩展**，`prop=extracts` / `explaintext` 不可用。
 - ⚠️ 单次读取有约 48KB 的预算上限，超出会被截断且**无法用 offset 续读**——
   必须靠「分批 + 按小节」控制体积。
+
+#### 取整页原文的首选：`?action=raw` ⭐
+
+**单页 wikitext 优先用这个**，比 API 更省事：直接返回纯文本，
+没有 JSON 转义，也没有每页重复的 `fromtitle` / `byteoffset` 字段：
+
+```
+https://rimworldwiki.com/wiki/Modding_Tutorials/Asset_Bundles?action=raw
+```
+
+实测两页都是**一次读完不截断**：`Asset Bundles` 整页 **27,290 字符**、
+`Research Projects` **13,175 字符**，`query(kind="text", maxChars=50000)` 即可。
+
+⚠️ **上一轮截断的原因纠正过了：不是这两页本身太大，是「多页批量 API 请求」
+整体超过了 48KB。**（批量 JSON 里每页都带重复字段，放大很明显。）
+→ 抓取策略改为**逐页 `?action=raw`**；
+只有当单页本身就 >48KB 时，才退到 `action=parse&prop=wikitext&section=N` 按小节切。
 
 #### 页面 URL 的真实形态 ⭐
 
@@ -189,6 +208,8 @@ https://rimworldwiki.com/api.php?action=query&prop=revisions&rvprop=content
 - ⭐ **本仓库已把这批 vetted 教程蒸馏成参考手册层**，见
   [ref/README.md](ref/README.md)：含中英术语对照、About.xml 字段表、目录结构规范、
   PatchOperation 全类型、1.5/1.6/1.7 迁移清单、应用启动 38 步、pawn 生成 34 步等。
+  2026-10-15 复核：vetted 区页面已全部取全，含先前因批量请求超 48KB 读取上限
+  而缺失的 Asset Bundles 页尾与 Research Projects 页四个小节。
 
 ### 版本与规模速记（2026-08-08）
 

@@ -133,7 +133,18 @@ string s = "Example_KeyString".Translate(
 
 ### 2.2 自定义研究 tab
 
-用 `<tab>` 字段指定（值为 `ResearchTabDef` 的 `defName`）。
+项目多的话值得单独开一个 tab：先建一个 `ResearchTabDef`，
+再用 `<tab>` 字段指定（值就是它的 `defName`）。
+
+```xml
+<ResearchTabDef>
+  <defName>MyCustomResearchTab</defName>
+  <label>My Mod</label>
+  <generalTitle>Custom mod research</generalTitle>
+  <generalDescription>由我的 mod 解锁的高级研究。</generalDescription>
+</ResearchTabDef>
+```
+
 `ResearchTabDef` 在 1.5 增加了这些字段：
 
 | 字段 | 默认 | 说明 |
@@ -143,6 +154,44 @@ string s = "Example_KeyString".Translate(
 | `<visibleByDefault>` | `true` | 设为 false 可以把 tab 的信息藏到满足 `minMonolithLevelVisible` 才显示 |
 | `<minMonolithLevelVisible>` | `-1` | 与 Anomaly 有关 |
 | `<tutorTag>` | `null` | 学习向导高亮该 tab 时用 |
+
+### 2.3 研究项目在 tab 里的坐标
+
+`<researchViewX>` / `<researchViewY>` 决定项目在原生研究窗口 tab 内的位置。
+
+⚠️ **X 轴每格 1，Y 轴每格 0.7**——不是等距坐标，Y 要按 0.7 递进。
+
+⚠️ **多个项目占用同一坐标会被自动错开（stagger）**，
+通常正是多个 mod 抢同一个位置的结果。
+研究项目多到值得开一个自定义 tab（§2.2）时，就该考虑这个问题。
+
+### 2.4 哪些 Def 能挂研究前置
+
+| XML 对象 | 字段 |
+|---|---|
+| `RecipeDef` | `researchPrerequisite`（单个）/ `researchPrerequisites`（列表） |
+| `BuildableDef`（含 `ThingDef`） | `researchPrerequisites`（**仅列表**） |
+| `PlantProperties` | `sowResearchPrerequisites`（**仅列表**） |
+| `RecipeMakerProperties` | `researchPrerequisite`（单个）/ `researchPrerequisites`（列表） |
+| `TerrainTemplateDef` | `researchPrerequisites`（**仅列表**） |
+| `DesignationCategoryDef` | `researchPrerequisites`（**仅列表**） |
+| `PsychicRitualDef` | `researchPrerequisites`（**仅列表**） |
+
+> ⚠️ **`BuildableDef` 没有单个 `researchPrerequisite` 字段**，只有列表版。
+
+### 2.5 C# 判断研究是否完成
+
+拿到 `ResearchProjectDef` 后调用 **`IsFinished`** 属性：
+
+```csharp
+if (def_MyResearch.IsFinished)
+{
+    // ...
+}
+```
+
+**频繁查询就用 `DefOf` 拿静态引用**（见
+[defs-and-patches-ref.md](defs-and-patches-ref.md)），不要每次现查。
 
 ---
 
@@ -658,16 +707,3 @@ string s = "Example_KeyString".Translate(
 > 📌 **1.6 的相关变化**：DrugDef 上的 **`chemicalNeed`** 取代了旧的 `causesNeed`
 > （见 [version-migration.md](version-migration.md) §3.2）。
 > 本教程示例未用到需求系统，只演示了即时的 Hediff 效果。
-
----
-
-## 8. 仍未抓取的部分
-
-[Research Projects](https://rimworldwiki.com/wiki/Modding_Tutorials/Research_Projects)
-页的 **Research Tab Layout / Custom Research Tabs / Using Custom Research /
-Checking Research Completion** 四个小节本轮未抓取，
-上文 §2.2 的自定义 tab 部分只覆盖了 1.5 新增的 `ResearchTabDef` 字段。
-
-[Asset Bundles](https://rimworldwiki.com/wiki/Modding_Tutorials/Asset_Bundles)
-页尾部的构建产物收集与常见坑小节同样未抓取，
-见 [assets-and-rendering.md](assets-and-rendering.md) §4.6 的说明。

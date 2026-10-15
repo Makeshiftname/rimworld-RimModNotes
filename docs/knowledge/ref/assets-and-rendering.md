@@ -255,6 +255,20 @@ bundle 两者兼得，因为压进了单文件里。
   **`_win` / `_mac` / `_linux`**。
 - 不带 shader 就忽略后缀，ship 单文件即可。
 
+> 🔴 **症状对照**：mod **在 Windows 正常、只有 Mac / Linux 玩家看到满屏粉红（magenta）**，
+> 几乎总是这个原因——为 DirectX 构建的 shader，换到 Metal / Vulkan 上不是同一份字节。
+
+**建议把 shader 单独放一个 bundle**：贴图等只打一次，shader 才打三份（带后缀），
+这样大批量贴图不用重复打三遍：
+
+```
+AssetBundles/
+  mymod_assets          # 贴图、网格、音效、字体，无后缀，全平台通用
+  mymod_shaders_win
+  mymod_shaders_mac
+  mymod_shaders_linux
+```
+
 > 🔴 **1.7 的额外坑**：因为改用 Vulkan，**1.7 只会加载你提供的 shader 的 Linux 版本**。
 > 以前没给 Linux 构建过 shader 的 mod，1.7 下会加载失败。详见
 > [version-migration.md](version-migration.md) §2.6。
@@ -277,14 +291,75 @@ bundle 两者兼得，因为压进了单文件里。
 > 脚本按**文件名**里的 `_mask` / `_normal` 和**路径**里的 `/Terrain/` 来自动区分，
 > 所以文件命名要照这个约定。
 
-### 4.6 1.7 状态
+### 4.6 构建与产物收集
+
+1. **让 Unity 编译脚本**——保存后回到编辑器，右下角短暂转圈。
+   编译错误会显示在 Console 窗口（Window > General > Console）。
+   ⚠️ **脚本编译不过就不会注册菜单项**，先修好再往下走。
+2. **运行**——菜单栏顶部出现 `Assets > Build AssetBundles`（即脚本里那行 `[MenuItem]`）。
+   点它，Unity 会按 §4.5 的设置重新导入全部贴图再写出 bundle；
+   大批量时会有进度条，可能要等。
+3. **找产物**——输出在工程的 `Assets/BuiltBundles/`。
+   每个你打过 tag 的 bundle 是一个**无扩展名**的文件，同时会生成
+   各自的 `.manifest` 和一个文件夹级 manifest。
+   ⚠️ **只 ship 无扩展名的 bundle 文件**；`.manifest` 只是 Unity 的记账文件，RimWorld 直接忽略。
+4. **拷进 mod**——把无扩展名文件放进 `MyMod/AssetBundles/` 即完成。
+
+之后每次新增资源就是：**丢进工程 → 打 tag → 重跑 `Assets > Build AssetBundles` → 覆盖拷贝**。
+
+### 4.7 加载：1.6 起不用自己写加载代码
+
+**RimWorld 启动时会自己扫每个启用 mod 的 `AssetBundles/` 目录并加载。**
+不用写 `AssetBundle.LoadFromFile`，不用调 `LoadAsset`，静态构造函数里什么都不用放。
+（老文档把这事写得很复杂，是因为那时要手动接线。）
+
+内容查找也会自动穿透 bundle。以
+`ContentFinder<Texture2D>.Get("Things/Item/MyThing")` 为例，查找顺序是：
+
+1. 任意启用 mod 里的**散文件**（该路径）
+2. **原版内置资源**
+3. **已加载的 bundle** 里的同路径
+
+→ **贴图和音效从散文件切到 bundle，代码一行都不用改**，路径字符串照旧。
+唯一要求是资源在 bundle **内部**的路径，和散文件本该在的位置一致。
+
+> 🔴 **bundle 不能覆盖、也不能重贴原版资源。**
+> 因为 bundle 排在最后、原版资源总是先被命中，同路径的你的版本永远走不到。
+> **bundle 只能加新内容，不能替换游戏自带的东西。**
+> 要重贴原版仍然用老办法：同路径的**散文件**（它排在原版之前），
+> 或用 Def / `texPath` 重定向把原版物件指到你自己的贴图。音效同理。
+>
+> ⚠️ **例外是 shader**：内容查找对 shader **完全跳过散文件步骤**（根本没有散 shader 的路径），
+> 所以 shader **只可能在 bundle 里被找到**。
+> `ContentFinder<Shader>.Get("MyShaderName")` 能用，纯粹是因为它在某个 bundle 里。
+
+### 4.8 音频 / 字体 / 网格何时必须走 bundle
+
+| 资源 | 说明 |
+|---|---|
+| **音频** | 多数情况**不需要 bundle**——RimWorld 有正常的 SoundDef 系统加载散音频（见 §3）。适合走 bundle 的两种情况：想和别的资源一起打包，或**直接从代码取 `AudioClip`** 而不经过 SoundDef |
+| **字体** | **只能走 bundle**——RimWorld **根本没有散字体路径**。这里 bundle 不是提速手段，而是**唯一入口**：导入字体 → 打进 bundle → 作为 `Font` 加载 → 赋给绘字处 |
+| **网格** | 自定义 3D 网格（不是常见平面精灵，而是真实几何体）只能走 bundle。多数 mod 碰不到 |
+
+### 4.9 常见坑清单
+
+| 坑 | 表现 / 原因 |
+|---|---|
+| **Unity 版本不匹配** | 最常见的「编辑器里好好的、游戏里没反应」——资产直接返回 null 且**没有明确报错**。1.6 必须用 **Unity 2022.3.35f1** 构建 |
+| **bundle 文件压缩** | 与贴图压缩是两回事。可选 不压缩 / LZ4 / LZMA。**LZ4 是通常的最优点**：够小，且不像 LZMA 那样加载时卡顿。`BuildAssetBundleOptions.ChunkBasedCompression` = LZ4 |
+| **内存内贴图压缩 → 白边** | 散贴图加载后会在内存里压缩，丢掉了全透明像素里的颜色数据 → 精灵周围出现淡白 halo（§1.5）。**bundle 可以关掉它的内存内压缩**，从而绕开这个问题而不必再额外描边 |
+| **Shader stripping** | Unity 构建时会**裁掉它认为没在用的 shader 变体**。运行时 shader 表现不对、但编辑器里正常 → 首要怀疑就是变体被裁了 |
+| **色彩空间** | bundle 里出来的贴图发灰或过暗 → 检查导入设置和色彩空间是否与游戏一致。**和手搓 DDS 变难看属于同一类问题** |
+
+### 4.10 判断该用哪种
+
+- **小 mod** → 散 PNG 即可，别碰 bundle。
+- **大批量贴图** → DDS 能换加载速度，但**磁盘反而最大**；bundle 两者兼得。
+- **需要 shader / 字体 / 自定义网格** → 必须 bundle，且 **shader 要单独一个 bundle 并按平台打三份**，
+  否则 Mac / Linux 玩家满屏粉红。
+
+### 4.11 1.7 状态
 
 1.6 的 bundle 在 1.7 继续可用，但**已不再必要**——
 1.7 首次加载会把资源缓存起来，之后有无 bundle 都快得多。
-
-> 📌 **本页未完整抓取**：Asset Bundles 页的
-> 「Running the build and collecting the output」之后的若干小节
-> （构建产物收集细则、分平台构建的完整流程、常见坑清单）
-> 本轮未能取得完整内容，上述内容止于已确认部分。
-> 需要这些细节请直接查
-> [Asset Bundles 原页](https://rimworldwiki.com/wiki/Modding_Tutorials/Asset_Bundles)。
+分平台的新坑见 §4.4。

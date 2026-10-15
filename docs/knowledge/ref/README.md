@@ -35,11 +35,12 @@
 - **成熟度已在各篇开头标注**：wiki 自己标了 Under Review / Outdated / Placeholder 的页面，
   不要当成定论。
 - 各篇末尾的「仍未抓取的部分」是本轮抓取的诚实缺口，不要当成「wiki 里没有」。
+  （截至 2026-10-15 复核，vetted 区已取全，无此类缺口。）
 - 本目录内容**全部手写蒸馏**，不做整站 dump（见 [../wiki-sources.md](../wiki-sources.md) §4）。
 
 ## 数据来源与更新
 
-- 抓取方式：内置浏览器访问 rimworldwiki 的 MediaWiki API
-  （`api.php?action=query&prop=revisions&rvslots=main`），一次可取多页 wikitext。
+- 抓取方式：内置浏览器访问 rimworldwiki，**逐页取原文**——`?action=raw` 最省事
+  （纯文本、无 JSON 转义开销，单页通常一次读完）；多页批量 API 请求反而容易超读取上限。
 - 首次访问会撞 Cloudflare 挑战，需要 `reload` + 等待约 15 秒；通过后同标签页连抓很快。
 - 详见 [../wiki-sources.md](../wiki-sources.md)。
