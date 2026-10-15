@@ -23,6 +23,7 @@ tools/kb/        知识库维护工具链（纯 Python 标准库，无依赖）
 ## 学习资源
 
 - RimWorld Modding 教程（官方 wiki）：<https://rimworldwiki.com/wiki/Modding_Tutorials>
+- RimWorld中文维基百科：<https://rimworld.huijiwiki.com/wiki/%E9%A6%96%E9%A1%B5>
 - RimWorldModGuide：<https://github.com/roxxploxx/RimWorldModGuide/wiki>
 - RWModdingResources（社区聚合）：<https://spdskatr.github.io/RWModdingResources/>
 

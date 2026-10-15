@@ -21,6 +21,27 @@
 | 发布 / 软链接 / 工坊红线 | [publishing-and-release.md](publishing-and-release.md) |
 | 查游戏机制/数值、找 wiki 外部资料 | [wiki-sources.md](wiki-sources.md) |
 
+## 参考手册层（`ref/`）
+
+上面 10 篇是**实操笔记**——从本仓库 mod 的实际代码里提炼，讲「在本仓库怎么用」。
+
+`ref/` 是另一层：**参考手册**——蒸馏 rimworldwiki 官方 vetted 教程区，
+讲「这个机制/字段/流程的完整定义是什么」，**不含仓库特定结论**。
+面向「这个字段到底是什么意思」「这个流程一共几步」这类查询。
+
+| 想查什么 | 去读 |
+|---|---|
+| **中英术语对照**（wiki 全英文、笔记全中文） | [ref/glossary.md](ref/glossary.md) |
+| About.xml 字段表 / 目录结构 / 大小写敏感路径 | [ref/mod-project-setup.md](ref/mod-project-setup.md) |
+| PatchOperation 全类型 / MayRequire 语义与陷阱 | [ref/defs-and-patches-ref.md](ref/defs-and-patches-ref.md) |
+| **1.7 Waylith 迁移** / 1.5、1.6 变更 / 测试与工坊上传 | [ref/version-migration.md](ref/version-migration.md) |
+| 本地化 / 研究项目 / 武器·植物·药物蓝本 | [ref/content-blueprints.md](ref/content-blueprints.md) |
+| 贴图遮罩 / 植物渲染 / 音效 / Asset Bundle | [ref/assets-and-rendering.md](ref/assets-and-rendering.md) |
+| **应用启动 38 步 / pawn 生成 34 步**（判断代码跑早跑晚） | [ref/csharp-basics.md](ref/csharp-basics.md) |
+| 右键菜单项 / Job + JobDriver + Toil / DefOf | [ref/csharp-feature-recipes.md](ref/csharp-feature-recipes.md) |
+
+索引与体例说明见 [ref/README.md](ref/README.md)。
+
 ## 索引与数据
 
 - **[mod-index.md](mod-index.md)** — 全部 mod 的索引表（自动生成）+ 人工维护的

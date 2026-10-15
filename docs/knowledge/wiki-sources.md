@@ -8,8 +8,8 @@
 
 - **数值类内容优先读游戏本地 Defs XML**（权威、最新、无抓取与版权问题）。
 - 要中文百科时用**灰机 wiki 官方 API**（可编程、本仓库已验证可用）。
-- 英文官方 wiki（rimworldwiki.com）有 Cloudflare 反爬，自动化环境拿不到，
-  靠真人浏览器 / Wayback 存档读取。
+- 英文官方 wiki（rimworldwiki.com）有 Cloudflare 反爬。**curl / 抓取工具 / 无头浏览器仍拿不到**，
+  但**内置浏览器（Electron 真人 profile）可以过**——见 §2 的两条结论。
 
 ## 1. 数据源优先级
 
@@ -37,12 +37,68 @@
 
 ### rimworldwiki.com（英文，受限）
 
+> ⚠️ **本节有两条结论，日期不同，请按日期取用。**
+> 下面「结论 A」是 2026-08-08 的实测；「结论 B」是 2026-10-15 的实测，
+> **结论 B 修正了结论 A 里关于「自动化」和「需用户先过挑战」的部分**。
+> 两条都保留，便于对照。
+
+#### 结论 A（2026-08-08 实测，部分已被结论 B 取代，**原文保留**）
+
 - 自动化全部 403（Cloudflare）：curl（含浏览器 UA）、抓取工具、无头浏览器全被挡。
 - 可用途径：
   1. **真人浏览器**手动过验证后阅读/复制（集成浏览器需用户先过挑战再共享页面）。
   2. **Wayback 存档**：`https://web.archive.org/web/<日期>/https://rimworldwiki.com/wiki/<页名>`
      （自动化环境可能连不通 archive.org，用户网络通常可用）。
 - 页面 URL 用下划线：`/wiki/Pawns`、`/wiki/Character_Types`。
+
+#### 结论 B（2026-10-15 实测，当前有效）
+
+**「自动化一律 403」不成立。** 区分两类客户端：
+
+| 客户端 | 结果 |
+|---|---|
+| curl / 抓取工具 / **无头浏览器** | ❌ 仍被 403 挡（结论 A 这部分**依然正确**） |
+| **内置浏览器（Electron 真人 profile）** | ✅ **能过，且无需人工介入** |
+
+- 内置浏览器带真实 profile，`cf_clearance` cookie 能留下来。
+  **首次访问会弹 Cloudflare 挑战页**（标题 `Just a moment...`），处理方式：
+  1. `navigate` **可能返回 `browser_action_failed`，但其实已经跳转了**——不要据此判失败；
+  2. `inspect` 会看到 URL 带 `__cf_chl_rt_tk=…`、标题是验证页，但**元素数为 0、截图纯白**；
+  3. `reload` 一次 → 挑战页正常渲染成「正在进行安全验证」；
+  4. `wait(kind=timeout, 15000)` 真等 15 秒（`wait(kind=load)` 无效，会毫秒返回）；
+  5. 之后 `inspect` 返回 `BROWSER_RESULT_TOO_LARGE`（>64KiB）——**这不是错误**，
+     说明真实页面已加载、元素太多装不下。改用 `query(kind=text, selector="h1")` 窄读取确认。
+- **判断「是否打开成功」看 `h1` 文本和 title 是否变成 `xxx - RimWorld Wiki`**，
+  不要看 navigate 的返回值或 inspect 的元素数量。
+- 通过验证后，**同标签页连抓很快**（实测每次导航 0.5–1.6 秒）。
+
+#### 批量取 wikitext 的高效路径 ⭐
+
+验证通过后，**不要逐页导航**。用 MediaWiki API 一次取多页原始 wikitext：
+
+```
+https://rimworldwiki.com/api.php?action=query&prop=revisions&rvprop=content
+  &rvslots=main&format=json&formatversion=2
+  &titles=Modding_Tutorials/Page1%7CModding_Tutorials/Page2%7CModding_Tutorials/Page3
+```
+
+- `%7C` 是竖线分隔符。`formatversion=2` 让输出更干净。
+- 取不到整页时用 `action=parse&prop=wikitext&section=N` **按小节取**，
+  或先用 `action=parse&prop=sections` 拿到小节索引和字节偏移。
+- ⚠️ 该 wiki **未安装 TextExtracts 扩展**，`prop=extracts` / `explaintext` 不可用。
+- ⚠️ 单次读取有约 48KB 的预算上限，超出会被截断且**无法用 offset 续读**——
+  必须靠「分批 + 按小节」控制体积。
+
+#### 页面 URL 的真实形态 ⭐
+
+**子页不是 `/wiki/<页名>`,而是 `/wiki/Modding_Tutorials/<页名>`**：
+
+- ✅ `https://rimworldwiki.com/wiki/Modding_Tutorials/About.xml`
+- ✅ `https://rimworldwiki.com/wiki/Modding_Tutorials/PatchOperations`
+- ❌ `https://rimworldwiki.com/wiki/About.xml`（不存在）
+
+结论 A 里「页面 URL 用下划线」对**主命名空间**页（如 `/wiki/Pawns`）成立，
+但对 Modding Tutorials 的子页不成立。**别猜 URL，从 hub 页解析真实链接。**
 
 ## 3. 核心游戏概念 → 资料页索引
 
@@ -130,6 +186,9 @@
     [publishing-and-release.md](publishing-and-release.md)。
 - **灰机 `MOD教程`**（`/wiki/MOD教程`，首页「其他」板块）：中文 modding 教程入口，
   与 rimworldwiki `Modding_Tutorials` 对应；具体子页用灰机 API 检索。
+- ⭐ **本仓库已把这批 vetted 教程蒸馏成参考手册层**，见
+  [ref/README.md](ref/README.md)：含中英术语对照、About.xml 字段表、目录结构规范、
+  PatchOperation 全类型、1.5/1.6/1.7 迁移清单、应用启动 38 步、pawn 生成 34 步等。
 
 ### 版本与规模速记（2026-08-08）
 
