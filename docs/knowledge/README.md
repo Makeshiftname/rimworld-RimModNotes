@@ -56,6 +56,14 @@
 | **技能与特质**：12 种技能、特质档度 degreeDatas、激情机制 | [mech/skills-traits.md](mech/skills-traits.md) |
 | **基因**：GeneDef 字段、异种人、代谢平衡、X 染色体遗传 | [mech/genes.md](mech/genes.md) |
 | **工作与 Job**：决策链 ThinkTree→WorkGiver→Job、排班与能力门槛 | [mech/work.md](mech/work.md) |
+| **任务与事件**：Incident/Quest 节点树、History 作为想法与戒律的触发源 | [mech/quests-events.md](mech/quests-events.md) |
+| **生产与属性**：244 个 StatDef、配方挂载、capacity/skill 联动、Bill | [mech/production.md](mech/production.md) |
+| **地图与生物群系**：MapGenerator→GenStep 流水线、群系与地块变异 | [mech/mapgen.md](mech/mapgen.md) |
+| **建造与房间**：建造标记、23 种房间角色、房间属性与跨系统联动 | [mech/build.md](mech/build.md) |
+| **帝国与灵能**（Royalty）：头衔许可、灵能专注与熵、Favor 换蓝图 | [mech/royalty.md](mech/royalty.md) |
+| **虚空与实体**（Anomaly）：巨石 7 阶段、27 种实体、虚空感染 | [mech/anomaly.md](mech/anomaly.md) |
+| **体液与机械体**（Biotech）：Hemogen 资源循环、基因能力、机械体 | [mech/biotech.md](mech/biotech.md) |
+| **星舰与重力**（Odyssey）：逆重力飞船部件、飞船工作、行星层 | [mech/odyssey.md](mech/odyssey.md) |
 
 分工、体例与底稿复现方式见 [mech/README.md](mech/README.md)；
 提取脚本在 [`tools/game_defs/`](../../tools/game_defs/extract_defs.py)。

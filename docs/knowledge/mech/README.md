@@ -43,8 +43,26 @@ RimWorld modding 时经常需要回答三类问题，本知识库把它们分给
 | **[genes.md](genes.md)** | 基因（Biotech） | GeneDef · XenotypeDef · GeneCategoryDef | 基因 169 · 异种人 12 |
 | **[work.md](work.md)** | 工作与 Job | JobDef · WorkGiverDef · WorkTypeDef · ThinkTreeDef | Job 320 · WorkGiver 153 · 工作类型 23 |
 
-> 剩余待做：任务 Quest / 建造与房间 / 世界与地图生成 / 生产与配方 /
-> Royalty·Anomaly·Odyssey DLC 专有系统等。
+### 第三批：任务事件 / 生产属性 / 地图生成 / 建造房间
+
+| 文档 | 系统 | 核心 Def | 规模 |
+|---|---|---|---|
+| **[quests-events.md](quests-events.md)** | 任务与事件 | QuestScriptDef · IncidentDef · HistoryEventDef · TaleDef | 任务 151 · 事件 131 · 历史 172 · 故事 101 |
+| **[production.md](production.md)** | 生产与属性 | RecipeDef · StatDef · StuffCategoryDef | 配方 190 · 属性 244 · 材料类别 6 |
+| **[mapgen.md](mapgen.md)** | 地图与生物群系 | MapGeneratorDef · GenStepDef · BiomeDef · TileMutatorDef | 生成器 19 · 步骤 167 · 群系 25 · 变异 87 |
+| **[build.md](build.md)** | 建造与房间 | DesignationDef · RoomRoleDef · RoomStatDef · RoomPartDef | 标记 27 · 房间角色 23 · 房间属性 13 |
+
+### 第四批：四个 DLC 专有系统
+
+| 文档 | DLC | 核心内容 | 规模 |
+|---|---|---|---|
+| **[royalty.md](royalty.md)** | 帝国与灵能 | 头衔/许可/灵能（专注+熵） | 头衔 11 · 许可 15 · 灵能 30 · 冥想 7 |
+| **[anomaly.md](anomaly.md)** | 虚空与实体 | 巨石 7 阶段、27 种实体、虚空感染 | 实体图鉴 27 · 巨石 7 · 能力 21 |
+| **[genes.md](genes.md)** · **[biotech.md](biotech.md)** | 基因（Biotech） | 基因本身见 genes；能力/体液/机械体见 biotech | 基因 169（见批次2）· 能力 18 |
+| **[odyssey.md](odyssey.md)** | 星舰与重力 | 逆重力飞船 5 部件、飞船工作、行星层 | 部件 5 · ShipJob 7 · 运输船 4 |
+
+> ✅ **已覆盖全部核心系统**（Core P0/P1/P2 + 4 个 DLC）。
+> DLC 篇只写各 DLC **独有**的系统，复用 Core 的部分指回其他文档。
 
 ---
 
