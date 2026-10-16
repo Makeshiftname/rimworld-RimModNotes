@@ -1,6 +1,6 @@
 # AGENTS.md — RimWorld Modding 仓库
 
-本仓库是个人 RimWorld modding 学习作品集：**85 个 mod 目录**——`收集/` 84 个（收集的他人 mod，重编 `01–84`，目录名带功能前缀）+ `自建/` 1 个（**仓库主本人原创**，编号从 `01` 起）。
+本仓库是个人 RimWorld modding 学习作品集：**87 个 mod 目录**——`收集/` 86 个（收集的他人 mod，重编 `01–86`，目录名带功能前缀）+ `自建/` 1 个（**仓库主本人原创**，编号从 `01` 起）。
 仓库以 [RunningBugs/rimworld-RimModNotes](https://github.com/RunningBugs/rimworld-RimModNotes) 为基础 fork 搭建；除 `自建/` 外均为**收集/学习的他人 mod，不宜改动 mod 本体**（含 About.xml 内容/C#/Defs）；`packageId` 前缀 `RunningBugs.*`，MIT 许可。
 
 ## 仓库结构
@@ -9,16 +9,22 @@
   功能前缀 = standalone/patch/xml/translation/lib/empty/special（与 mod-index Type 一致）。
   每个 mod 内含 `About/About.xml`、版本目录（`1.4/` `1.5/` `1.6/`）、`Common/`（跨版本共享）、
   `Source/`（C#）、`Languages/`、`docs/`、`Tests/` 等。
-- 类型分布（仅 `收集/`，按目录功能前缀统计）：patch 28 / standalone 44 / xml 5（30,37,46,52,79）/
+- 类型分布（仅 `收集/`，按目录功能前缀统计）：patch 30 / standalone 44 / xml 5（30,37,46,52,79）/
   translation 4（04,13,18,25）/ empty 1（06）/ lib 1（09）/ special 1（32）。
-  ⚠️ `scan_mods.py` 报的分布**含 `自建/`**（其 01 为 xml 型），故它报 `xml × 6`、总数 85——两个数都对，只是口径不同。
+  ⚠️ `scan_mods.py` 报的分布**含 `自建/`**（其 01 为 xml 型），故它报 `xml × 6`、总数 87——两个数都对，只是口径不同。
 - **既有事实勿改**：06 空目录、32 内容在 `backup/`；55 重复编号已于 2026-08-08 修正
   （现为 `55-patch-CommonModCompatibilityPatches` 与 `56-standalone-LimitedLetterSlots`）。
 
 ## 知识库（重要）
 
 完整的 modding 经验提炼在 **`docs/knowledge/`**，开始任何 RimWorld 任务前先看
-[总索引](docs/knowledge/README.md)：
+[总索引](docs/knowledge/README.md)。知识库分三层：
+
+- **上层主题笔记**（本目录根下）——从本地 mod 提炼的实操经验
+- **`ref/` 参考手册层**——蒸馏 rimworldwiki `Modding Tutorials` vetted 区，讲「功能怎么实现」
+- **`mech/` 游戏机制层**——讲「游戏系统本身由什么构成」，数据来自本地游戏 Defs + 官方简中译文
+
+**上层主题笔记：**
 
 - 想给原版/第三方功能打补丁 → `docs/knowledge/harmony-patching.md`
 - 画窗口/加切换栏图标 → `docs/knowledge/ui-and-windows.md`
@@ -30,6 +36,11 @@
 - 卡顿/GUI 性能 → `docs/knowledge/performance-and-gui.md`
 - 新建 C# mod 骨架/日志模板 → `docs/knowledge/project-templates.md`
 - 发布/软链接/工坊红线 → `docs/knowledge/publishing-and-release.md`
+
+**ref/ 层**（写 mod 前查实现）：见 [ref/README.md](docs/knowledge/ref/README.md)。
+
+**mech/ 层**（查游戏系统本身）：见 [mech/README.md](docs/knowledge/mech/README.md)。
+覆盖 Core 各系统 + 4 个 DLC 专有系统，共 16 篇。
 
 全部 mod 的索引表 + 人工要点/笔记分布：`docs/knowledge/mod-index.md`。
 **注意**：多数 mod 的根 `README.md` 是模板占位；真实学习笔记在
@@ -85,3 +96,9 @@ python tools/kb/validate_readme.py --todo   # 查看占位 README 待重写清�
 
 **规则**：`mod-index.md` 的 `AUTO` 段由脚本生成勿手改；`MANUAL` 段人工维护；
 主题文档全部手写（脚本不做内容生成）。
+
+另有 `tools/game_defs/extract_defs.py`（纯标准库）：从**本地游戏数据**
+（`Data/<DLC>/Defs/` + `Languages/ChineseSimplified*.tar` 的官方简中 DefInjected）
+抽取 Def 底稿，供 `mech/` 层手写文档时核对字段与规模。底稿落
+`tools/game_defs/.cache/`（已 gitignore，可再生）。用法见
+[mech/README.md](docs/knowledge/mech/README.md)。
