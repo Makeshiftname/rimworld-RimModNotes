@@ -45,7 +45,6 @@
 `mech/` 是第三层：**游戏机制参考手册**——讲「这个游戏系统本身由什么构成、
 字段什么意思、有哪些内容、层级怎么组织」，数据来自**本地游戏 Defs + 官方简中译文**
 （权威、可脚本复现），解读补自灰机 wiki。为「这个系统是什么」这类查询服务。
-样板批次（2026-10-16）覆盖文化、装备、健康、需求与心情四个系统。
 
 | 想查什么 | 去读 |
 |---|---|
@@ -53,6 +52,10 @@
 | **装备 Gear**：护甲属性字段、装备层、品质、武器结构与词条 | [mech/gear.md](mech/gear.md) |
 | **健康 Hediff**：分期机制、伤害类型树、身体部位与器官、感染路径 | [mech/hediff.md](mech/hediff.md) |
 | **需求与心情**：需求-想法-精神状态三层叠加、成瘾闭环 | [mech/needs-mood.md](mech/needs-mood.md) |
+| **派系与关系**：派系继承树、好感处境、文化驱动的敌意 | [mech/factions.md](mech/factions.md) |
+| **技能与特质**：12 种技能、特质档度 degreeDatas、激情机制 | [mech/skills-traits.md](mech/skills-traits.md) |
+| **基因**：GeneDef 字段、异种人、代谢平衡、X 染色体遗传 | [mech/genes.md](mech/genes.md) |
+| **工作与 Job**：决策链 ThinkTree→WorkGiver→Job、排班与能力门槛 | [mech/work.md](mech/work.md) |
 
 分工、体例与底稿复现方式见 [mech/README.md](mech/README.md)；
 提取脚本在 [`tools/game_defs/`](../../tools/game_defs/extract_defs.py)。

@@ -25,6 +25,8 @@ RimWorld modding 时经常需要回答三类问题，本知识库把它们分给
 
 ## 本批文档（2026-10-16）
 
+### 第一批：样板（文化 / 装备 / 健康 / 需求心情）
+
 | 文档 | 系统 | 核心 Def | 规模 |
 |---|---|---|---|
 | **[ideology.md](ideology.md)** | 文化 Ideology（DLC） | MemeDef · PreceptDef · IssueDef · StyleCategoryDef | 模因 36 · 戒律 215 · 议题 72 |
@@ -32,8 +34,17 @@ RimWorld modding 时经常需要回答三类问题，本知识库把它们分给
 | **[hediff.md](hediff.md)** | 健康（疾病/伤口/部位） | HediffDef · BodyPartDef · DamageDef | Hediff 324 · 部位 141 · 伤害 52 |
 | **[needs-mood.md](needs-mood.md)** | 需求与心情 | NeedDef · ThoughtDef · MentalStateDef | 需求 24 · 想法 923 · 精神状态 46 |
 
-> 这是**样板批次**——先做 4 篇验证体例与深度。剩余系统（派系、任务、工作排班、
-> 基因、技能特质、世界地图、生产…）待体例验收后再铺开。
+### 第二批：补完 P0 底座 + 派系
+
+| 文档 | 系统 | 核心 Def | 规模 |
+|---|---|---|---|
+| **[factions.md](factions.md)** | 派系与关系 | FactionDef · GoodwillSituationDef · PawnRelationDef | 派系 31 · 好感处境 39 · 人际 28 |
+| **[skills-traits.md](skills-traits.md)** | 技能与特质 | SkillDef · TraitDef | 技能 12 · 特质 51 |
+| **[genes.md](genes.md)** | 基因（Biotech） | GeneDef · XenotypeDef · GeneCategoryDef | 基因 169 · 异种人 12 |
+| **[work.md](work.md)** | 工作与 Job | JobDef · WorkGiverDef · WorkTypeDef · ThinkTreeDef | Job 320 · WorkGiver 153 · 工作类型 23 |
+
+> 剩余待做：任务 Quest / 建造与房间 / 世界与地图生成 / 生产与配方 /
+> Royalty·Anomaly·Odyssey DLC 专有系统等。
 
 ---
 
