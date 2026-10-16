@@ -42,6 +42,21 @@
 
 索引与体例说明见 [ref/README.md](ref/README.md)。
 
+`mech/` 是第三层：**游戏机制参考手册**——讲「这个游戏系统本身由什么构成、
+字段什么意思、有哪些内容、层级怎么组织」，数据来自**本地游戏 Defs + 官方简中译文**
+（权威、可脚本复现），解读补自灰机 wiki。为「这个系统是什么」这类查询服务。
+样板批次（2026-10-16）覆盖文化、装备、健康、需求与心情四个系统。
+
+| 想查什么 | 去读 |
+|---|---|
+| **文化 Ideology**：模因/戒律/议题/风格层级、认可度公式、圣物与职位 | [mech/ideology.md](mech/ideology.md) |
+| **装备 Gear**：护甲属性字段、装备层、品质、武器结构与词条 | [mech/gear.md](mech/gear.md) |
+| **健康 Hediff**：分期机制、伤害类型树、身体部位与器官、感染路径 | [mech/hediff.md](mech/hediff.md) |
+| **需求与心情**：需求-想法-精神状态三层叠加、成瘾闭环 | [mech/needs-mood.md](mech/needs-mood.md) |
+
+分工、体例与底稿复现方式见 [mech/README.md](mech/README.md)；
+提取脚本在 [`tools/game_defs/`](../../tools/game_defs/extract_defs.py)。
+
 ## 索引与数据
 
 - **[mod-index.md](mod-index.md)** — 全部 mod 的索引表（自动生成）+ 人工维护的

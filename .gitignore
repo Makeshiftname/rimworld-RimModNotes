@@ -34,5 +34,8 @@ mono_crash.*
 
 # 产物 DLL 有意入库；PDB 为可再生调试符号，忽略
 /*/Assemblies/*.pdb
+
+# game_defs 提取脚本的底稿产物:可由本地游戏数据再生,不入库
+tools/game_defs/.cache/
 # /.vscode
 # /Source
